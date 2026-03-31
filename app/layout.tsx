@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { PostHogProvider } from "@/components/posthog-provider";
+import { AudioProvider } from "@/components/audio/audio-provider";
 import "./globals.css";
 
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
 export const metadata: Metadata = {
-  title: "Tracked",
-  description: "Tracked application",
+  title: "Tracked — AI Music Supervisor",
+  description:
+    "Describe your scene. Get matched to broadcast-proven music from 53,000+ compositions. Fully licensed. Content ID protected.",
 };
 
 export default function RootLayout({
@@ -15,9 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body>
-          <PostHogProvider>{children}</PostHogProvider>
+      <html lang="en" className={jakarta.variable}>
+        <body className="font-sans antialiased">
+          <PostHogProvider>
+            <AudioProvider>{children}</AudioProvider>
+          </PostHogProvider>
         </body>
       </html>
     </ClerkProvider>
