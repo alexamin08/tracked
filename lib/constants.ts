@@ -13,7 +13,7 @@ export const RATE_LIMITS = {
 } as const;
 
 export const SEARCH = {
-  similarityThreshold: 0.6,
+  similarityThreshold: 0.35,
   maxResults: 10,
   topResultsForExplanation: 5,
   maxQueryLength: 500,

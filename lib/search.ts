@@ -37,8 +37,8 @@ export async function searchTracks(
         matches as RawMatch[]
       );
     }
-  } catch {
-    // OpenAI API error — fall through to full-text fallback
+  } catch (err) {
+    console.error("Vector search failed, falling back to full-text:", err);
   }
 
   // Fallback: supplement with full-text if < 3 results above threshold
