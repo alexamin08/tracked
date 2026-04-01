@@ -13,12 +13,13 @@ export function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const base = "rounded-pill font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-azure-200 disabled:opacity-50 disabled:cursor-not-allowed";
+  const base =
+    "rounded-pill font-semibold transition-colors duration-base focus:outline-none focus:ring-2 focus:ring-ring-focus disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
-    primary: "bg-azure text-white hover:bg-azure-600",
-    secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
-    ghost: "bg-transparent text-gray-600 hover:bg-gray-100",
+    primary: "bg-primary text-content-on-primary hover:bg-primary-hover",
+    secondary: "bg-surface-tertiary text-content hover:bg-border",
+    ghost: "bg-transparent text-content-secondary hover:bg-surface-tertiary",
   };
 
   const sizes = {

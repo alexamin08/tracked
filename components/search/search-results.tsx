@@ -12,8 +12,8 @@ export function SearchResults({ results, fallback }: SearchResultsProps) {
   if (results.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="text-gray-500 text-lg">No matches found</p>
-        <p className="text-gray-400 text-sm mt-2">
+        <p className="text-content-secondary text-lg">No matches found</p>
+        <p className="text-content-tertiary text-sm mt-2">
           Try adding more detail: mood, energy level, or reference a show
         </p>
       </div>
@@ -23,16 +23,16 @@ export function SearchResults({ results, fallback }: SearchResultsProps) {
   return (
     <div>
       <div className="flex justify-between items-baseline mb-6">
-        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
+        <h2 className="text-sm font-semibold text-content-secondary uppercase tracking-wider">
           {results.length} track{results.length !== 1 ? "s" : ""} matched
         </h2>
         {fallback && (
-          <span className="text-xs text-gray-400">
+          <span className="text-xs text-content-tertiary">
             Showing keyword results
           </span>
         )}
         {!fallback && (
-          <span className="text-xs text-gray-400">
+          <span className="text-xs text-content-tertiary">
             Sorted by scene relevance
           </span>
         )}

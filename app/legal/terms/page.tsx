@@ -8,12 +8,12 @@ export default function TermsPage() {
       <main className="pt-24 pb-20 px-6">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold mb-2">Terms of Service</h1>
-          <p className="text-sm text-gray-400 mb-8">
+          <p className="text-sm text-content-tertiary mb-8">
             Last updated: March 31, 2026
           </p>
 
-          <div className="prose prose-gray prose-sm max-w-none space-y-6 text-gray-600 leading-relaxed">
-            <h2 className="text-lg font-semibold text-gray-900">
+          <div className="prose prose-gray prose-sm max-w-none space-y-6 text-content-secondary leading-relaxed">
+            <h2 className="text-lg font-semibold text-content">
               1. Agreement to Terms
             </h2>
             <p>
@@ -22,7 +22,7 @@ export default function TermsPage() {
               Tracked, Inc. and Signature Tracks.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               2. Service Description
             </h2>
             <p>
@@ -31,7 +31,7 @@ export default function TermsPage() {
               broadcast-proven compositions from the Signature Tracks catalog.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               3. Subscriptions and Billing
             </h2>
             <p>
@@ -41,7 +41,7 @@ export default function TermsPage() {
               current billing period.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               4. Content Licensing
             </h2>
             <p>
@@ -51,7 +51,7 @@ export default function TermsPage() {
               non-exclusive.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               5. Acceptable Use
             </h2>
             <p>
@@ -60,7 +60,7 @@ export default function TermsPage() {
               generate derivative compositions from the catalog.
             </p>
 
-            <p className="text-gray-400 text-xs pt-8">
+            <p className="text-content-tertiary text-xs pt-8">
               This is a placeholder. Full terms will be published before
               public launch.
             </p>

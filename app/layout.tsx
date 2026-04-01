@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { PostHogProvider } from "@/components/posthog-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { AudioProvider } from "@/components/audio/audio-provider";
 import "./globals.css";
 
@@ -27,7 +28,9 @@ export default function RootLayout({
       <html lang="en" className={jakarta.variable}>
         <body className="font-sans antialiased">
           <PostHogProvider>
-            <AudioProvider>{children}</AudioProvider>
+            <ThemeProvider>
+              <AudioProvider>{children}</AudioProvider>
+            </ThemeProvider>
           </PostHogProvider>
         </body>
       </html>

@@ -8,12 +8,12 @@ export default function PrivacyPage() {
       <main className="pt-24 pb-20 px-6">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
-          <p className="text-sm text-gray-400 mb-8">
+          <p className="text-sm text-content-tertiary mb-8">
             Last updated: March 31, 2026
           </p>
 
-          <div className="prose prose-gray prose-sm max-w-none space-y-6 text-gray-600 leading-relaxed">
-            <h2 className="text-lg font-semibold text-gray-900">
+          <div className="prose prose-gray prose-sm max-w-none space-y-6 text-content-secondary leading-relaxed">
+            <h2 className="text-lg font-semibold text-content">
               1. Information We Collect
             </h2>
             <p>
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
               analytics to improve the service.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               2. How We Use Your Information
             </h2>
             <p>
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
               about your account. We do not sell your personal information.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               3. Third-Party Services
             </h2>
             <p>
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
               privacy policy governing how they handle your data.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               4. Data Retention
             </h2>
             <p>
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
               service improvement.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               5. Your Rights
             </h2>
             <p>
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
               your download history.
             </p>
 
-            <p className="text-gray-400 text-xs pt-8">
+            <p className="text-content-tertiary text-xs pt-8">
               This is a placeholder. Full privacy policy will be published
               before public launch.
             </p>

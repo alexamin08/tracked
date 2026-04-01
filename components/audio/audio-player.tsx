@@ -7,7 +7,8 @@ export function AudioPlayer() {
 
   if (!state.trackId) return null;
 
-  const progress = state.duration > 0 ? (state.currentTime / state.duration) * 100 : 0;
+  const progress =
+    state.duration > 0 ? (state.currentTime / state.duration) * 100 : 0;
 
   function formatTime(seconds: number) {
     const m = Math.floor(seconds / 60);
@@ -16,10 +17,10 @@ export function AudioPlayer() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 h-[72px] glass-surface-light z-50 flex items-center px-6 gap-4">
+    <div className="fixed bottom-0 left-0 right-0 h-player-h glass-surface-light z-player flex items-center px-6 gap-4">
       <button
         onClick={toggle}
-        className="w-10 h-10 rounded-pill bg-azure text-white flex items-center justify-center shrink-0 text-sm"
+        className="w-10 h-10 rounded-pill bg-primary text-content-on-primary flex items-center justify-center shrink-0 text-sm"
         aria-label={state.isPlaying ? "Pause" : "Play"}
       >
         {state.isPlaying ? "⏸" : "▶"}
@@ -27,11 +28,13 @@ export function AudioPlayer() {
 
       <div className="flex-1 min-w-0">
         <p className="text-sm font-semibold truncate">{state.title}</p>
-        <p className="text-xs text-gray-500 truncate">{state.composer}</p>
+        <p className="text-xs text-content-secondary truncate">
+          {state.composer}
+        </p>
       </div>
 
       <div
-        className="flex-[2] h-1 bg-gray-200 rounded-full cursor-pointer relative"
+        className="flex-[2] h-1 bg-border rounded-full cursor-pointer relative"
         onClick={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();
           const x = e.clientX - rect.left;
@@ -40,12 +43,12 @@ export function AudioPlayer() {
         }}
       >
         <div
-          className="absolute left-0 top-0 h-full bg-azure rounded-full transition-[width] duration-100"
+          className="absolute left-0 top-0 h-full bg-primary rounded-full transition-[width] duration-fast"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      <span className="text-xs text-gray-500 tabular-nums shrink-0">
+      <span className="text-xs text-content-secondary tabular-nums shrink-0">
         {formatTime(state.currentTime)} / {formatTime(state.duration)}
       </span>
     </div>

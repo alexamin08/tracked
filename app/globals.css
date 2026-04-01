@@ -1,35 +1,40 @@
+@import "../styles/themes/azure-curator.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --azure: #0058bb;
-    --surface-dark: #0a0a1a;
-    --surface-dark-mid: #0d1b3e;
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-bg-light: rgba(255, 255, 255, 0.85);
-    --glass-blur: 20px;
-    --radius-pill: 9999px;
-  }
-
   body {
-    font-family: var(--font-jakarta), system-ui, sans-serif;
+    font-family: var(--t-font-family);
+    color: var(--t-color-text);
+    background-color: var(--t-color-bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
+  /* Glass surfaces */
   .glass-surface {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+    background: var(--t-glass-bg);
+    backdrop-filter: blur(var(--t-glass-blur));
+    -webkit-backdrop-filter: blur(var(--t-glass-blur));
   }
 
   .glass-surface-light {
-    background: var(--glass-bg-light);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+    background: var(--t-glass-bg-light);
+    backdrop-filter: blur(var(--t-glass-blur));
+    -webkit-backdrop-filter: blur(var(--t-glass-blur));
+  }
+
+  /* Hero gradient (used on dark hero sections) */
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--t-color-hero-from) 0%,
+      var(--t-color-hero-via) 50%,
+      var(--t-color-hero-to) 100%
+    );
   }
 }

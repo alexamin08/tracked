@@ -38,36 +38,34 @@ export default function HowItWorksPage() {
     <>
       <Header />
       <main className="pt-24 pb-20">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-surface-dark via-surface-dark-mid to-surface-dark px-6 py-20 text-center">
-          <h1 className="text-white text-3xl md:text-4xl font-light tracking-tight mb-4">
+        <section className="hero-gradient px-6 py-20 text-center">
+          <h1 className="text-content-on-dark text-3xl md:text-4xl font-light tracking-tight mb-4">
             How Tracked works
           </h1>
-          <p className="text-white/50 max-w-lg mx-auto">
+          <p className="text-content-on-dark-secondary max-w-lg mx-auto">
             From scene description to licensed download in under 5 minutes.
             No browsing. No keyword guessing. No copyright risk.
           </p>
         </section>
 
-        {/* Steps */}
         <section className="max-w-3xl mx-auto px-6 py-16 space-y-16">
           {steps.map((step) => (
             <div key={step.number} className="flex gap-6">
               <div className="shrink-0">
-                <div className="w-14 h-14 rounded-pill bg-azure-50 text-azure flex items-center justify-center text-xl">
+                <div className="w-icon-lg h-icon-lg rounded-pill bg-primary-light text-primary flex items-center justify-center text-xl">
                   {step.icon}
                 </div>
               </div>
 
               <div>
-                <p className="text-[11px] font-semibold text-azure uppercase tracking-wider mb-1">
+                <p className="text-badge font-semibold text-primary uppercase tracking-wider mb-1">
                   Step {step.number}
                 </p>
                 <h2 className="text-xl font-semibold mb-3">{step.title}</h2>
-                <p className="text-gray-600 leading-relaxed mb-3">
+                <p className="text-content-secondary leading-relaxed mb-3">
                   {step.description}
                 </p>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-content-tertiary text-sm leading-relaxed">
                   {step.detail}
                 </p>
               </div>
@@ -75,12 +73,11 @@ export default function HowItWorksPage() {
           ))}
         </section>
 
-        {/* CTA */}
         <section className="text-center pb-8">
           <Link href="/">
             <Button size="lg">Describe your scene</Button>
           </Link>
-          <p className="text-sm text-gray-400 mt-3">
+          <p className="text-sm text-content-tertiary mt-3">
             14-day free trial. No credit card required to search.
           </p>
         </section>

@@ -63,59 +63,57 @@ export default function PricingPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
+      <main className="pt-24 pb-20 px-6 bg-surface-secondary min-h-screen">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold mb-3">Pricing</h1>
-            <p className="text-gray-500 mb-8">
+            <p className="text-content-secondary mb-8">
               14-day free trial on all plans. Unlimited downloads. Cancel
               anytime.
             </p>
 
-            {/* Annual toggle */}
-            <div className="inline-flex items-center gap-3 bg-white rounded-pill px-1.5 py-1.5">
+            <div className="inline-flex items-center gap-3 bg-surface-card rounded-pill px-1.5 py-1.5">
               <button
                 onClick={() => setAnnual(false)}
-                className={`px-5 py-2 rounded-pill text-sm font-medium transition-colors ${
+                className={`px-5 py-2 rounded-pill text-sm font-medium transition-colors duration-base ${
                   !annual
-                    ? "bg-azure text-white"
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "bg-primary text-content-on-primary"
+                    : "text-content-secondary hover:text-content"
                 }`}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setAnnual(true)}
-                className={`px-5 py-2 rounded-pill text-sm font-medium transition-colors ${
+                className={`px-5 py-2 rounded-pill text-sm font-medium transition-colors duration-base ${
                   annual
-                    ? "bg-azure text-white"
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "bg-primary text-content-on-primary"
+                    : "text-content-secondary hover:text-content"
                 }`}
               >
                 Annual
-                <span className="ml-1.5 text-[11px] font-semibold text-azure-300">
+                <span className="ml-1.5 text-badge font-semibold text-primary-muted">
                   2 months free
                 </span>
               </button>
             </div>
           </div>
 
-          {/* Plans grid */}
           <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`bg-white rounded-2xl p-8 relative ${
-                  plan.popular ? "ring-2 ring-azure" : ""
+                className={`bg-surface-card rounded-card p-8 relative ${
+                  plan.popular ? "ring-2 ring-primary" : ""
                 }`}
               >
                 {plan.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-pill bg-azure text-white text-[11px] font-semibold uppercase tracking-wider">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-pill bg-primary text-content-on-primary text-badge font-semibold uppercase tracking-wider">
                     Most Popular
                   </span>
                 )}
 
-                <p className="text-xs font-semibold text-azure uppercase tracking-wider mb-3">
+                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
                   {plan.name}
                 </p>
 
@@ -123,16 +121,20 @@ export default function PricingPage() {
                   <span className="text-4xl font-bold">
                     ${annual ? plan.annual : plan.monthly}
                   </span>
-                  <span className="text-gray-400 text-base">/mo</span>
+                  <span className="text-content-tertiary text-base">/mo</span>
                 </div>
 
                 {annual && (
-                  <p className="text-xs text-gray-400 mb-6">
+                  <p className="text-xs text-content-tertiary mb-6">
                     ${plan.annual * 12}/year (save $
                     {(plan.monthly - plan.annual) * 12})
                   </p>
                 )}
-                {!annual && <p className="text-xs text-gray-400 mb-6">Billed monthly</p>}
+                {!annual && (
+                  <p className="text-xs text-content-tertiary mb-6">
+                    Billed monthly
+                  </p>
+                )}
 
                 <Link href="/subscribe">
                   <Button
@@ -149,7 +151,7 @@ export default function PricingPage() {
                       key={feature}
                       className="flex justify-between text-sm"
                     >
-                      <span className="text-gray-500">{feature}</span>
+                      <span className="text-content-secondary">{feature}</span>
                       <span className="font-medium">{value}</span>
                     </li>
                   ))}
@@ -158,7 +160,7 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <p className="text-center text-sm text-gray-400 mt-8">
+          <p className="text-center text-sm text-content-tertiary mt-8">
             All plans include Content ID protection and full licensing.
           </p>
         </div>

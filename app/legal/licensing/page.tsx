@@ -8,12 +8,12 @@ export default function LicensingPage() {
       <main className="pt-24 pb-20 px-6">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold mb-2">Licensing Agreement</h1>
-          <p className="text-sm text-gray-400 mb-8">
+          <p className="text-sm text-content-tertiary mb-8">
             Last updated: March 31, 2026
           </p>
 
-          <div className="prose prose-gray prose-sm max-w-none space-y-6 text-gray-600 leading-relaxed">
-            <h2 className="text-lg font-semibold text-gray-900">
+          <div className="prose prose-gray prose-sm max-w-none space-y-6 text-content-secondary leading-relaxed">
+            <h2 className="text-lg font-semibold text-content">
               1. License Grant
             </h2>
             <p>
@@ -23,28 +23,28 @@ export default function LicensingPage() {
               Signature Tracks and licensed through the Tracked platform.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               2. License Scope by Plan
             </h2>
             <ul className="list-none space-y-3 pl-0">
               <li>
-                <span className="font-semibold text-gray-900">Starter</span>{" "}
+                <span className="font-semibold text-content">Starter</span>{" "}
                 — Personal use. YouTube, TikTok, or similar personal content
                 channels. Up to 2 platforms.
               </li>
               <li>
-                <span className="font-semibold text-gray-900">Pro</span> —
+                <span className="font-semibold text-content">Pro</span> —
                 Commercial use. Client work, branded content, ad-supported
                 channels. Up to 5 platforms.
               </li>
               <li>
-                <span className="font-semibold text-gray-900">Team</span> —
+                <span className="font-semibold text-content">Team</span> —
                 Broadcast use. Television, film, streaming platforms,
                 advertising. Up to 15 platforms. Up to 5 team members.
               </li>
             </ul>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               3. Content ID Protection
             </h2>
             <p>
@@ -54,7 +54,7 @@ export default function LicensingPage() {
               Tracks handles Content ID claims resolution.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               4. Restrictions
             </h2>
             <p>
@@ -65,7 +65,7 @@ export default function LicensingPage() {
               recognition system.
             </p>
 
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold text-content">
               5. License Duration
             </h2>
             <p>
@@ -75,7 +75,7 @@ export default function LicensingPage() {
               content remains licensed.
             </p>
 
-            <p className="text-gray-400 text-xs pt-8">
+            <p className="text-content-tertiary text-xs pt-8">
               This is a placeholder. Full licensing agreement will be
               published before public launch in consultation with legal
               counsel.

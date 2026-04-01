@@ -33,20 +33,15 @@ export default async function SearchPage({
       <Header />
 
       <main className="pt-24 pb-24">
-        {/* Search bar */}
-        <section className="bg-gradient-to-br from-surface-dark via-surface-dark-mid to-surface-dark px-6 py-12 flex justify-center">
+        <section className="hero-gradient px-6 py-12 flex justify-center">
           <SearchInput initialQuery={query} />
         </section>
 
-        {/* Results */}
         <section className="max-w-3xl mx-auto px-6 py-8">
           {data ? (
-            <SearchResults
-              results={data.results}
-              fallback={data.fallback}
-            />
+            <SearchResults results={data.results} fallback={data.fallback} />
           ) : query ? (
-            <p className="text-center text-gray-500 py-16">
+            <p className="text-center text-content-secondary py-16">
               Search is temporarily unavailable. Please try again.
             </p>
           ) : null}
