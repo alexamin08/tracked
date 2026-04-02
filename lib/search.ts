@@ -12,6 +12,7 @@ interface RawMatch {
   moods: string[];
   genres: string[];
   preview_url: string | null;
+  album_name: string | null;
   similarity: number;
 }
 
@@ -49,7 +50,7 @@ export async function searchTracks(
     const existingIds = new Set(results.map((r) => r.id));
     const { data: textResults } = await supabase
       .from("tracks")
-      .select("id, track_id, title, composer, description, moods, genres, preview_url")
+      .select("id, track_id, title, composer, description, moods, genres, preview_url, album_name")
       .or(`title.ilike.%${query}%,description.ilike.%${query}%`)
       .limit(SEARCH.maxResults - results.length);
 
@@ -74,6 +75,7 @@ export async function searchTracks(
           moods: r.moods ?? [],
           genres: r.genres ?? [],
           preview_url: r.previewUrl,
+          album_name: (r as any).album_name ?? null,
           similarity: 0,
         }))
       );
@@ -118,6 +120,7 @@ async function enrichWithPlacements(
     description: m.description,
     moods: m.moods ?? [],
     genres: m.genres ?? [],
+    albumName: m.album_name,
     previewUrl: m.preview_url,
     similarity: m.similarity,
     placements: placementMap.get(m.id) ?? [],

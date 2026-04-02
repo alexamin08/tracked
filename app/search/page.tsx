@@ -48,7 +48,7 @@ export default async function SearchPage({
               opacity: "calc(var(--t-glow-opacity) * 0.5)",
             }}
           />
-          <SearchInput initialQuery={query} />
+          <SearchInput initialQuery={query} showCharCount />
         </section>
 
         {/* Results on bg canvas */}

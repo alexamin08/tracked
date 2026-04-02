@@ -93,8 +93,8 @@ export default function HomePage() {
 
           <ThemeLink
             href="/search"
-            className="t-label-lg mt-12 block relative z-10 transition-colors"
-            style={{ color: "var(--t-color-text-muted)" }}
+            className="t-body-lg mt-12 block relative z-10 transition-colors"
+            style={{ color: "var(--t-color-text-muted)", fontWeight: 500 }}
           >
             Browse all music →
           </ThemeLink>

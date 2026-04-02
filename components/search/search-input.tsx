@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { SUGGESTED_PROMPTS, SEARCH } from "@/lib/constants";
 
-export function SearchInput({ initialQuery = "" }: { initialQuery?: string }) {
+export function SearchInput({ initialQuery = "", showCharCount = false }: { initialQuery?: string; showCharCount?: boolean }) {
   const [query, setQuery] = useState(initialQuery);
   const [focused, setFocused] = useState(false);
   const router = useRouter();
@@ -109,7 +109,7 @@ export function SearchInput({ initialQuery = "" }: { initialQuery?: string }) {
         ))}
       </div>
 
-      {query.length > 0 && (
+      {showCharCount && query.length > 0 && (
         <p
           className="text-center t-body-sm"
           style={{ color: "var(--t-color-text-muted)", marginTop: "var(--t-space-3)" }}

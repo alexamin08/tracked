@@ -45,6 +45,7 @@ export interface SearchResult {
   description: string | null;
   moods: string[];
   genres: string[];
+  albumName?: string | null;
   previewUrl: string | null;
   similarity: number;
   placements: Pick<Placement, "showName" | "network" | "sceneType">[];

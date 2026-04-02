@@ -20,6 +20,7 @@ CREATE TABLE tracks (
   moods         TEXT[] DEFAULT '{}',           -- mood tags array
   genres        TEXT[] DEFAULT '{}',           -- genre tags array
   instruments   TEXT[] DEFAULT '{}',           -- instrument tags array
+  album_name    TEXT,
   tempo_bpm     INTEGER,
   duration_sec  INTEGER,
   metadata_blob TEXT NOT NULL,                 -- concatenated text used for embedding
@@ -169,6 +170,7 @@ RETURNS TABLE (
   moods      TEXT[],
   genres     TEXT[],
   preview_url TEXT,
+  album_name  TEXT,
   similarity FLOAT
 )
 LANGUAGE plpgsql
@@ -184,6 +186,7 @@ BEGIN
     t.moods,
     t.genres,
     t.preview_url,
+    t.album_name,
     1 - (t.embedding <=> query_embedding) AS similarity
   FROM tracks t
   WHERE t.embedding IS NOT NULL
