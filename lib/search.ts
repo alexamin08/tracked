@@ -32,10 +32,13 @@ export async function searchTracks(
     });
 
     if (!error && matches && matches.length > 0) {
-      results = await enrichWithPlacements(
-        supabase,
-        matches as RawMatch[]
+      // Filter by threshold in application code (RPC returns top-N for index efficiency)
+      const filtered = (matches as RawMatch[]).filter(
+        (m) => m.similarity >= SEARCH.similarityThreshold
       );
+      if (filtered.length > 0) {
+        results = await enrichWithPlacements(supabase, filtered);
+      }
     }
   } catch (err) {
     console.error("Vector search failed, falling back to full-text:", err);

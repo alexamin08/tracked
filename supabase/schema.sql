@@ -30,9 +30,10 @@ CREATE TABLE tracks (
   updated_at    TIMESTAMPTZ DEFAULT now()
 );
 
--- No vector index needed at 53k rows. Exact cosine similarity is fast enough.
--- Add HNSW index if catalog grows past 100k:
---   CREATE INDEX idx_tracks_embedding ON tracks USING hnsw (embedding vector_cosine_ops);
+-- IVFFlat index for vector similarity search (required at 30k+ rows)
+CREATE INDEX idx_tracks_embedding_ivfflat ON tracks
+  USING ivfflat (embedding vector_cosine_ops)
+  WITH (lists = 100);
 CREATE INDEX idx_tracks_moods ON tracks USING gin (moods);
 CREATE INDEX idx_tracks_genres ON tracks USING gin (genres);
 CREATE INDEX idx_tracks_title_trgm ON tracks USING gin (title gin_trgm_ops);
