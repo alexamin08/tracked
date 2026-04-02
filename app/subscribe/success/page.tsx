@@ -6,7 +6,7 @@ export default function SubscribeSuccessPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 min-h-screen flex items-center justify-center px-6" style={{ background: "var(--t-color-bg)" }}>
+      <main className="pt-24 min-h-screen flex items-center justify-center px-6" style={{ background: "var(--t-color-surface-low)" }}>
         <div className="max-w-md w-full text-center">
           <div
             className="w-16 h-16 mx-auto mb-6 flex items-center justify-center text-2xl"

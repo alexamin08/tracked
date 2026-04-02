@@ -14,15 +14,15 @@ const steps = [
   {
     number: "2",
     title: "AI matches broadcast-proven music",
-    description: "Your scene description is matched against 53,000+ compositions that have actually scored real television. Not stock music tagged with generic keywords. Music that has been placed by professional music supervisors on shows across Netflix, HBO, Bravo, and Discovery.",
+    description: "Your scene description is matched against 53,000+ compositions that have actually scored real television. Not stock music tagged with generic keywords.",
     detail: "Each result shows exactly where the track has been placed, why the AI chose it for your scene, and pre-cut versions ready to drop into your timeline.",
     icon: "♪",
   },
   {
     number: "3",
     title: "Download with Content ID protection",
-    description: "Every track is fully licensed for your content. No copyright claims. No Content ID flags. No takedowns. Your license covers the platforms in your plan, and Signature Tracks handles the Content ID whitelisting.",
-    detail: "Download in your preferred format, drop it into your editor, and publish. The licensing paperwork is handled. You get a license certificate with every download.",
+    description: "Every track is fully licensed for your content. No copyright claims. No Content ID flags. No takedowns. Your license covers the platforms in your plan.",
+    detail: "Download in your preferred format, drop it into your editor, and publish. You get a license certificate with every download.",
     icon: "↓",
   },
 ];
@@ -31,25 +31,44 @@ export default function HowItWorksPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-20">
-        <section className="px-6 py-20 text-center" style={{ background: "var(--t-color-surface-low)" }}>
+      <main className="pt-24 pb-20" style={{ background: "var(--t-color-bg)" }}>
+        {/* Hero on surface-low */}
+        <section
+          className="px-6 text-center"
+          style={{
+            background: "var(--t-color-surface-low)",
+            paddingTop: "var(--t-space-20)",
+            paddingBottom: "var(--t-space-20)",
+          }}
+        >
           <h1 className="t-display-md mb-4" style={{ color: "var(--t-color-text)" }}>
             How Tracked works
           </h1>
           <p className="t-body-lg max-w-lg mx-auto" style={{ color: "var(--t-color-text-muted)" }}>
-            From scene description to licensed download in under 5 minutes. No browsing. No keyword guessing. No copyright risk.
+            From scene description to licensed download in under 5 minutes. No browsing. No keyword guessing.
           </p>
         </section>
 
-        <section className="max-w-3xl mx-auto px-6 py-16 space-y-16" style={{ background: "var(--t-color-bg)" }}>
-          {steps.map((step) => (
-            <div key={step.number} className="flex gap-6">
+        {/* Steps — alternating bg / surface-low */}
+        {steps.map((step, idx) => (
+          <section
+            key={step.number}
+            className="px-6"
+            style={{
+              background: idx % 2 === 0 ? "var(--t-color-bg)" : "var(--t-color-surface-low)",
+              paddingTop: "var(--t-space-16)",
+              paddingBottom: "var(--t-space-16)",
+            }}
+          >
+            <div className="max-w-3xl mx-auto flex gap-8">
               <div className="shrink-0">
                 <div
-                  className="w-14 h-14 flex items-center justify-center text-xl"
+                  className="flex items-center justify-center text-xl"
                   style={{
+                    width: "56px",
+                    height: "56px",
                     borderRadius: "var(--t-radius-pill)",
-                    background: "color-mix(in srgb, var(--t-color-primary) 12%, transparent)",
+                    background: "color-mix(in srgb, var(--t-color-primary) 10%, transparent)",
                     color: "var(--t-color-primary)",
                   }}
                 >
@@ -57,22 +76,36 @@ export default function HowItWorksPage() {
                 </div>
               </div>
               <div>
-                <p className="t-label-md mb-1" style={{ color: "var(--t-color-primary)" }}>
+                <p className="t-headline-lg mb-1" style={{ color: "var(--t-color-primary)" }}>
                   Step {step.number}
                 </p>
-                <h2 className="t-headline-md mb-3" style={{ color: "var(--t-color-text)" }}>{step.title}</h2>
-                <p className="t-body-lg mb-3" style={{ color: "var(--t-color-text-muted)" }}>{step.description}</p>
-                <p className="t-body-md" style={{ color: "var(--t-color-text-muted)", opacity: 0.7 }}>{step.detail}</p>
+                <h2 className="t-headline-md mb-4" style={{ color: "var(--t-color-text)" }}>
+                  {step.title}
+                </h2>
+                <p className="t-body-lg mb-3" style={{ color: "var(--t-color-text-muted)" }}>
+                  {step.description}
+                </p>
+                <p className="t-body-md" style={{ color: "var(--t-color-text-muted)", opacity: 0.6 }}>
+                  {step.detail}
+                </p>
               </div>
             </div>
-          ))}
-        </section>
+          </section>
+        ))}
 
-        <section className="text-center pb-8" style={{ background: "var(--t-color-bg)" }}>
+        {/* CTA */}
+        <section
+          className="text-center px-6"
+          style={{
+            background: "var(--t-color-surface-low)",
+            paddingTop: "var(--t-space-16)",
+            paddingBottom: "var(--t-space-16)",
+          }}
+        >
           <ThemeLink href="/">
             <Button size="lg">Describe your scene</Button>
           </ThemeLink>
-          <p className="t-body-sm mt-3" style={{ color: "var(--t-color-text-muted)" }}>
+          <p className="t-body-sm mt-4" style={{ color: "var(--t-color-text-muted)" }}>
             14-day free trial. No credit card required to search.
           </p>
         </section>

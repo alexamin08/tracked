@@ -5,7 +5,7 @@ export default function LicensingPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-20 px-6" style={{ background: "var(--t-color-bg)" }}>
+      <main className="pt-24 pb-20 px-6" style={{ background: "var(--t-color-surface-low)" }}>
         <div className="max-w-2xl mx-auto">
           <h1 className="t-display-sm mb-2" style={{ color: "var(--t-color-text)" }}>Licensing Agreement</h1>
           <p className="t-body-sm mb-8" style={{ color: "var(--t-color-text-muted)" }}>Last updated: March 31, 2026</p>

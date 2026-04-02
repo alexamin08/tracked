@@ -95,7 +95,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const config = useMemo(() => getTheme(themeId), [themeId]);
 
-  const [colorMode, setColorModeState] = useState<ColorMode>("system");
+  // Default to dark — that's where the personality lives
+  const [colorMode, setColorModeState] = useState<ColorMode>("dark");
   const [resolvedMode, setResolvedMode] = useState<"light" | "dark">("dark");
 
   // Load saved color mode

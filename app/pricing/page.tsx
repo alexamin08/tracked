@@ -63,71 +63,89 @@ export default function PricingPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-20 px-6 min-h-screen" style={{ background: "var(--t-color-bg)" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="t-display-md mb-3" style={{ color: "var(--t-color-text)" }}>
-              Pricing
-            </h1>
-            <p className="t-body-lg mb-8" style={{ color: "var(--t-color-text-muted)" }}>
-              14-day free trial on all plans. Unlimited downloads. Cancel anytime.
-            </p>
+      {/* Page canvas = bg */}
+      <main className="pt-24 pb-20 min-h-screen" style={{ background: "var(--t-color-bg)" }}>
+        {/* Header section on surface-low for depth */}
+        <section
+          className="px-6 pt-16 pb-20 text-center"
+          style={{ background: "var(--t-color-surface-low)" }}
+        >
+          <h1 className="t-display-md mb-4" style={{ color: "var(--t-color-text)" }}>
+            Simple, transparent pricing
+          </h1>
+          <p className="t-body-lg mb-10 max-w-lg mx-auto" style={{ color: "var(--t-color-text-muted)" }}>
+            14-day free trial on all plans. Unlimited downloads. Cancel anytime.
+          </p>
 
-            {/* Annual toggle */}
-            <div
-              className="inline-flex items-center gap-3 px-1.5 py-1.5"
+          {/* Annual toggle */}
+          <div
+            className="inline-flex items-center gap-1 p-1"
+            style={{
+              background: "var(--t-color-surface)",
+              borderRadius: "var(--t-radius-pill)",
+            }}
+          >
+            <button
+              onClick={() => setAnnual(false)}
+              className="t-label-lg px-6 py-2.5 transition-all"
               style={{
-                background: "var(--t-color-surface)",
                 borderRadius: "var(--t-radius-pill)",
+                background: !annual ? "var(--t-color-primary)" : "transparent",
+                color: !annual ? "var(--t-color-on-primary)" : "var(--t-color-text-muted)",
+                border: "none",
+                cursor: "pointer",
               }}
             >
-              <button
-                onClick={() => setAnnual(false)}
-                className="t-label-lg px-5 py-2 transition-colors"
+              Monthly
+            </button>
+            <button
+              onClick={() => setAnnual(true)}
+              className="t-label-lg px-6 py-2.5 transition-all"
+              style={{
+                borderRadius: "var(--t-radius-pill)",
+                background: annual ? "var(--t-color-primary)" : "transparent",
+                color: annual ? "var(--t-color-on-primary)" : "var(--t-color-text-muted)",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              Annual
+              <span
+                className="ml-2 t-label-sm"
                 style={{
-                  borderRadius: "var(--t-radius-pill)",
-                  background: !annual ? "var(--t-color-primary)" : "transparent",
-                  color: !annual ? "var(--t-color-on-primary)" : "var(--t-color-text-muted)",
-                  border: "none",
-                  cursor: "pointer",
+                  color: annual ? "var(--t-color-on-primary)" : "var(--t-color-primary)",
                 }}
               >
-                Monthly
-              </button>
-              <button
-                onClick={() => setAnnual(true)}
-                className="t-label-lg px-5 py-2 transition-colors"
-                style={{
-                  borderRadius: "var(--t-radius-pill)",
-                  background: annual ? "var(--t-color-primary)" : "transparent",
-                  color: annual ? "var(--t-color-on-primary)" : "var(--t-color-text-muted)",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                Annual
-                <span className="ml-1.5 t-label-sm" style={{ color: annual ? "var(--t-color-on-primary)" : "var(--t-color-primary)" }}>
-                  2 months free
-                </span>
-              </button>
-            </div>
+                Save 2 months
+              </span>
+            </button>
           </div>
+        </section>
 
-          {/* Plans grid */}
-          <div className="grid md:grid-cols-3 gap-6">
+        {/* Plans grid — cards on bg canvas, elevated from section above */}
+        <section className="max-w-5xl mx-auto px-6 -mt-4">
+          <div className="grid md:grid-cols-3 gap-6 items-start">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className="hover-lift p-8 relative"
+                className="relative hover-lift"
                 style={{
                   background: "var(--t-color-surface)",
                   borderRadius: "var(--t-radius-lg)",
-                  borderTop: plan.popular ? "3px solid var(--t-color-primary)" : "none",
+                  padding: "var(--t-space-8)",
+                  // Pro card: elevated with shadow + primary accent bar
+                  ...(plan.popular
+                    ? {
+                        borderTop: "3px solid var(--t-color-primary)",
+                        boxShadow: "var(--t-shadow-ambient)",
+                        transform: "translateY(-8px)",
+                      }
+                    : {}),
                 }}
               >
                 {plan.popular && (
                   <span
-                    className="t-label-sm absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1"
+                    className="t-label-sm absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1"
                     style={{
                       borderRadius: "var(--t-radius-pill)",
                       background: "var(--t-color-primary)",
@@ -138,49 +156,74 @@ export default function PricingPage() {
                   </span>
                 )}
 
-                <p className="t-label-md mb-3" style={{ color: "var(--t-color-primary)" }}>
+                <p className="t-label-md mb-4" style={{ color: "var(--t-color-primary)" }}>
                   {plan.name}
                 </p>
 
+                {/* Price in display font */}
                 <div className="mb-1">
-                  <span className="t-headline-lg" style={{ color: "var(--t-color-text)" }}>
+                  <span
+                    className="t-display-md"
+                    style={{ color: "var(--t-color-text)" }}
+                  >
                     ${annual ? plan.annual : plan.monthly}
                   </span>
-                  <span className="t-body-lg" style={{ color: "var(--t-color-text-muted)" }}>/mo</span>
+                  <span className="t-body-lg ml-1" style={{ color: "var(--t-color-text-muted)" }}>
+                    /mo
+                  </span>
                 </div>
 
                 {annual ? (
-                  <p className="t-body-sm mb-6" style={{ color: "var(--t-color-text-muted)" }}>
+                  <p className="t-body-sm mb-8" style={{ color: "var(--t-color-text-muted)" }}>
                     ${plan.annual * 12}/year (save ${(plan.monthly - plan.annual) * 12})
                   </p>
                 ) : (
-                  <p className="t-body-sm mb-6" style={{ color: "var(--t-color-text-muted)" }}>
+                  <p className="t-body-sm mb-8" style={{ color: "var(--t-color-text-muted)" }}>
                     Billed monthly
                   </p>
                 )}
 
                 <ThemeLink href="/subscribe">
-                  <Button variant={plan.popular ? "primary" : "secondary"} className="w-full mb-8">
+                  <Button
+                    variant={plan.popular ? "primary" : "secondary"}
+                    className="w-full mb-8"
+                  >
                     Start free trial
                   </Button>
                 </ThemeLink>
 
-                <ul className="space-y-3">
+                {/* Features — on surface-low for tonal separation */}
+                <div
+                  className="space-y-0 -mx-4 px-4 pt-5"
+                  style={{
+                    borderTop: "none",
+                  }}
+                >
                   {Object.entries(plan.features).map(([feature, value]) => (
-                    <li key={feature} className="flex justify-between t-body-md">
-                      <span style={{ color: "var(--t-color-text-muted)" }}>{feature}</span>
-                      <span style={{ color: "var(--t-color-text)", fontWeight: 500 }}>{value}</span>
-                    </li>
+                    <div
+                      key={feature}
+                      className="flex justify-between py-2.5 t-body-md"
+                    >
+                      <span style={{ color: "var(--t-color-text-muted)" }}>
+                        {feature}
+                      </span>
+                      <span style={{ color: "var(--t-color-text)", fontWeight: 500 }}>
+                        {value}
+                      </span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
 
-          <p className="text-center t-body-sm mt-8" style={{ color: "var(--t-color-text-muted)" }}>
+          <p
+            className="text-center t-body-sm mt-12"
+            style={{ color: "var(--t-color-text-muted)" }}
+          >
             All plans include Content ID protection and full licensing.
           </p>
-        </div>
+        </section>
       </main>
       <Footer />
     </>

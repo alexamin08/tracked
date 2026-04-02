@@ -21,11 +21,14 @@ export function TrackCard({ track }: { track: SearchResult }) {
 
   return (
     <div
-      className="hover-lift p-6 relative"
+      className="hover-lift p-6 relative group"
       style={{
         background: "var(--t-color-surface)",
         borderRadius: "var(--t-radius-lg)",
+        transition: "transform 0.2s ease, background-color 0.2s ease",
       }}
+      onMouseEnter={(e) => e.currentTarget.style.background = "var(--t-color-surface-high)"}
+      onMouseLeave={(e) => e.currentTarget.style.background = "var(--t-color-surface)"}
     >
       <div className="flex items-start gap-4">
         {/* Album art placeholder */}

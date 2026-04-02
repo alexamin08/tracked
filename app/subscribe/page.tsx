@@ -41,12 +41,14 @@ export default function SubscribePage() {
   return (
     <>
       <Header />
-      <main className="pt-24 min-h-screen flex items-center justify-center px-6" style={{ background: "var(--t-color-bg)" }}>
+      <main className="pt-24 min-h-screen flex items-center justify-center px-6" style={{ background: "var(--t-color-surface-low)" }}>
         <div
-          className="max-w-md w-full p-8 text-center"
+          className="max-w-md w-full text-center"
           style={{
             background: "var(--t-color-surface)",
             borderRadius: "var(--t-radius-lg)",
+            padding: "var(--t-space-8)",
+            boxShadow: "var(--t-shadow-ambient)",
           }}
         >
           <h1 className="t-display-sm mb-2" style={{ color: "var(--t-color-text)" }}>Start your free trial</h1>

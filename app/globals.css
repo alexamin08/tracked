@@ -138,20 +138,9 @@
     text-transform: uppercase;
   }
 
-  /* Glass surfaces */
-  .glass-surface {
-    background: var(--t-color-surface-highest);
-    opacity: 0.8;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-
+  /* Glassmorphic nav / floating panels */
   .glass-panel {
-    background: color-mix(
-      in srgb,
-      var(--t-color-surface-highest) 80%,
-      transparent
-    );
+    background: color-mix(in srgb, var(--t-color-bg) 80%, transparent);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
