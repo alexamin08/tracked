@@ -33,3 +33,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .gstack/
+
+# Data files
+data/
+
+# Temp analysis files
+*.txt
+!THEME_PROMPT.md
