@@ -107,31 +107,22 @@ async function main() {
   console.log(`Parsed ${rows.length} rows (limit: ${LIMIT === Infinity ? "none" : LIMIT})`);
 
   // Separate masters from alt versions
-  // A row is a master if: Version is "Full" or "FULL MIX", or Version is empty
-  // with no Master ID and no Parent Track (standalone track)
+  // A track is a master if it has NO Master ID and NO Parent Track (standalone).
+  // The Version field name (Full, Full Mix, Main, etc.) is irrelevant for this.
+  // Alt versions have either a Master ID or Parent Track linking them to a parent.
   const masters = rows.filter((r) => {
-    const v = (r.Version ?? "").trim();
     const mid = String(r["Master ID"] ?? "").trim();
     const parent = (r["Parent Track"] ?? "").trim();
-    return (
-      v === "Full" ||
-      v === "FULL MIX" ||
-      (v === "" && !mid && !parent)
-    );
+    return !mid && !parent;
   });
   const alts = rows.filter((r) => {
-    const v = (r.Version ?? "").trim();
     const mid = String(r["Master ID"] ?? "").trim();
     const parent = (r["Parent Track"] ?? "").trim();
-    return !(
-      v === "Full" ||
-      v === "FULL MIX" ||
-      (v === "" && !mid && !parent)
-    );
+    return mid || parent;
   });
 
-  console.log(`Masters: ${masters.length}`);
-  console.log(`Alt versions: ${alts.length}`);
+  console.log(`Masters (standalone, no Master ID/Parent Track): ${masters.length}`);
+  console.log(`Alt versions (has Master ID or Parent Track): ${alts.length}`);
   console.log("");
 
   // Connect to Supabase
