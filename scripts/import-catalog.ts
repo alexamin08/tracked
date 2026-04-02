@@ -107,10 +107,30 @@ async function main() {
   console.log(`Parsed ${rows.length} rows (limit: ${LIMIT === Infinity ? "none" : LIMIT})`);
 
   // Separate masters from alt versions
-  const masters = rows.filter((r) => r.Version === "Full");
-  const alts = rows.filter((r) => r.Version && r.Version !== "Full");
+  // A row is a master if: Version is "Full" or "FULL MIX", or Version is empty
+  // with no Master ID and no Parent Track (standalone track)
+  const masters = rows.filter((r) => {
+    const v = (r.Version ?? "").trim();
+    const mid = String(r["Master ID"] ?? "").trim();
+    const parent = (r["Parent Track"] ?? "").trim();
+    return (
+      v === "Full" ||
+      v === "FULL MIX" ||
+      (v === "" && !mid && !parent)
+    );
+  });
+  const alts = rows.filter((r) => {
+    const v = (r.Version ?? "").trim();
+    const mid = String(r["Master ID"] ?? "").trim();
+    const parent = (r["Parent Track"] ?? "").trim();
+    return !(
+      v === "Full" ||
+      v === "FULL MIX" ||
+      (v === "" && !mid && !parent)
+    );
+  });
 
-  console.log(`Masters (Full): ${masters.length}`);
+  console.log(`Masters: ${masters.length}`);
   console.log(`Alt versions: ${alts.length}`);
   console.log("");
 
