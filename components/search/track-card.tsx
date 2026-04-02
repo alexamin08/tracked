@@ -1,7 +1,6 @@
 "use client";
 
 import { useAudio } from "@/components/audio/audio-provider";
-import { PlacementBadge } from "@/components/track/placement-badge";
 import { ShowOriginBadge } from "@/components/track/show-origin-badge";
 import { DownloadButton } from "@/components/track/download-button";
 import { Badge } from "@/components/ui/badge";
@@ -62,13 +61,6 @@ export function TrackCard({ track }: { track: SearchResult }) {
             />
           </div>
 
-          {track.placements.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mt-2">
-              {track.placements.slice(0, 2).map((p, i) => (
-                <PlacementBadge key={i} showName={p.showName} sceneType={p.sceneType} />
-              ))}
-            </div>
-          )}
         </div>
 
         {/* Match % + Download — stacked vertically, no overlap */}
