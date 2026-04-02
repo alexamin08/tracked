@@ -92,7 +92,7 @@ export default function HomePage() {
           </div>
 
           <ThemeLink
-            href="/search"
+            href="/collections"
             className="t-body-lg mt-12 block relative z-10 transition-colors"
             style={{ color: "var(--t-color-text-muted)", fontWeight: 500 }}
           >
@@ -192,13 +192,15 @@ export default function HomePage() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {collections.map((col) => (
-                <div
+                <ThemeLink
                   key={col.name}
-                  className="hover-lift"
+                  href="/collections"
+                  className="block hover-lift"
                   style={{
                     background: "var(--t-color-surface)",
                     borderRadius: "var(--t-radius-lg)",
                     padding: "var(--t-space-6)",
+                    textDecoration: "none",
                   }}
                 >
                   {/* Color swatch */}
@@ -217,7 +219,7 @@ export default function HomePage() {
                   <p className="t-body-md" style={{ color: "var(--t-color-text-muted)" }}>
                     {col.desc}
                   </p>
-                </div>
+                </ThemeLink>
               ))}
             </div>
           </div>

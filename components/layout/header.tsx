@@ -48,7 +48,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <ThemeLink
           href="/"
-          className="t-headline-md"
+          className="t-headline-lg"
           style={{
             fontFamily: "var(--t-logo-font)",
             fontStyle: "var(--t-logo-style)",
@@ -60,7 +60,7 @@ export function Header() {
 
         <div className="flex items-center gap-6">
           <ThemeLink
-            href="/pricing"
+            href="/collections"
             className="t-label-lg hidden sm:block"
             style={{
               color: "var(--t-color-text-muted)",
