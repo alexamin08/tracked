@@ -56,7 +56,10 @@ export function TrackCard({ track }: { track: SearchResult }) {
 
           {/* Show Origin Badge — every card, no exceptions (DESIGN.md §7.3) */}
           <div className="mt-2">
-            <ShowOriginBadge albumName={track.albumName} />
+            <ShowOriginBadge
+              showOrigin={track.placements[0]?.showName}
+              albumName={track.albumName}
+            />
           </div>
 
           {track.placements.length > 0 && (
