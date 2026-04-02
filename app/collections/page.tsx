@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AudioPlayer } from "@/components/audio/audio-player";
 import { ThemeLink } from "@/components/theme-link";
+import { displayName } from "@/lib/utils";
 
 interface Collection {
   slug: string;
@@ -97,7 +98,7 @@ export default async function CollectionsPage() {
                   className="t-headline-sm"
                   style={{ color: "var(--t-color-text)" }}
                 >
-                  {col.name}
+                  {displayName(col.name)}
                 </h2>
                 <p
                   className="t-body-sm mt-1"

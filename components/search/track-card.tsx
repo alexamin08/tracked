@@ -6,6 +6,7 @@ import { ShowOriginBadge } from "@/components/track/show-origin-badge";
 import { DownloadButton } from "@/components/track/download-button";
 import { Badge } from "@/components/ui/badge";
 import { trackPreview } from "@/lib/analytics";
+import { displayName } from "@/lib/utils";
 import type { SearchResult } from "@/types";
 
 export function TrackCard({ track }: { track: SearchResult }) {
@@ -46,11 +47,11 @@ export function TrackCard({ track }: { track: SearchResult }) {
         <div className="flex-1 min-w-0">
           {/* Track title — display font, normal case */}
           <h3 className="t-headline-md" style={{ color: "var(--t-color-text)" }}>
-            {track.title}
+            {displayName(track.title)}
           </h3>
           {/* Composer — label, uppercase */}
           <p className="t-label-md mt-0.5" style={{ color: "var(--t-color-text-muted)" }}>
-            {track.composer}
+            {displayName(track.composer)}
           </p>
 
           {/* Show Origin Badge — every card, no exceptions (DESIGN.md §7.3) */}

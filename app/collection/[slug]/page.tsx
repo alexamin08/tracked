@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { AudioPlayer } from "@/components/audio/audio-player";
 import { TrackCard } from "@/components/search/track-card";
 import { ThemeLink } from "@/components/theme-link";
+import { displayName } from "@/lib/utils";
 import type { SearchResult } from "@/types";
 
 interface CollectionData {
@@ -77,7 +78,7 @@ export default async function CollectionDetailPage({
               className="t-display-sm"
               style={{ color: "var(--t-color-text)" }}
             >
-              {data.name}
+              {displayName(data.name)}
             </h1>
             <p
               className="t-body-lg mt-2"

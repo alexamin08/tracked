@@ -1,3 +1,5 @@
+import { displayName } from "@/lib/utils";
+
 interface ShowOriginBadgeProps {
   /** Show name from show_origin field (when ST provides it) */
   showOrigin?: string | null;
@@ -32,7 +34,7 @@ export function ShowOriginBadge({ showOrigin, albumName }: ShowOriginBadgeProps)
       }}
     >
       <span style={{ opacity: 0.6 }}>{prefix}</span>{" "}
-      <span style={{ color: "var(--t-color-text)" }}>{source}</span>
+      <span style={{ color: "var(--t-color-text)" }}>{displayName(source)}</span>
     </span>
   );
 }

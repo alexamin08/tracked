@@ -1,10 +1,12 @@
+import { displayName } from "@/lib/utils";
+
 interface PlacementBadgeProps {
   showName: string;
   sceneType?: string | null;
 }
 
 export function PlacementBadge({ showName, sceneType }: PlacementBadgeProps) {
-  const label = sceneType ? `${showName} · ${sceneType}` : showName;
+  const label = sceneType ? `${displayName(showName)} · ${displayName(sceneType)}` : displayName(showName);
 
   return (
     <span
