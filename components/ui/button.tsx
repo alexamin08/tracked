@@ -11,18 +11,36 @@ export function Button({
   variant = "primary",
   size = "md",
   className = "",
+  style,
   ...props
 }: ButtonProps) {
-  const base =
-    "rounded-pill font-semibold transition-colors duration-base focus:outline-none focus:ring-2 focus:ring-ring-focus disabled:opacity-50 disabled:cursor-not-allowed";
-
-  const variants = {
-    primary: "bg-primary text-content-on-primary hover:bg-primary-hover",
-    secondary: "bg-surface-tertiary text-content hover:bg-border",
-    ghost: "bg-transparent text-content-secondary hover:bg-surface-tertiary",
+  const baseStyle: React.CSSProperties = {
+    borderRadius: "var(--t-radius-pill)",
+    fontFamily: "var(--t-font-body)",
+    fontWeight: 600,
+    border: "none",
+    cursor: "pointer",
+    transition: "background-color 0.2s ease, transform 0.15s ease",
+    textTransform: "var(--t-button-case)" as "uppercase",
+    ...style,
   };
 
-  const sizes = {
+  const variantStyles: Record<string, React.CSSProperties> = {
+    primary: {
+      background: "var(--t-color-primary)",
+      color: "var(--t-color-on-primary)",
+    },
+    secondary: {
+      background: "var(--t-color-surface-high)",
+      color: "var(--t-color-text)",
+    },
+    ghost: {
+      background: "transparent",
+      color: "var(--t-color-text-muted)",
+    },
+  };
+
+  const sizeClasses: Record<string, string> = {
     sm: "px-4 py-1.5 text-xs",
     md: "px-5 py-2.5 text-sm",
     lg: "px-8 py-3.5 text-base",
@@ -30,7 +48,8 @@ export function Button({
 
   return (
     <button
-      className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`focus-glow disabled:opacity-50 disabled:cursor-not-allowed ${sizeClasses[size]} ${className}`}
+      style={{ ...baseStyle, ...variantStyles[variant] }}
       {...props}
     />
   );

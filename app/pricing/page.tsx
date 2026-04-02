@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
+import { ThemeLink } from "@/components/theme-link";
 
 const plans = [
   {
@@ -63,96 +63,113 @@ export default function PricingPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-20 px-6 bg-surface-secondary min-h-screen">
+      <main className="pt-24 pb-20 px-6 min-h-screen" style={{ background: "var(--t-color-bg)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-3xl font-bold mb-3">Pricing</h1>
-            <p className="text-content-secondary mb-8">
-              14-day free trial on all plans. Unlimited downloads. Cancel
-              anytime.
+            <h1 className="t-display-md mb-3" style={{ color: "var(--t-color-text)" }}>
+              Pricing
+            </h1>
+            <p className="t-body-lg mb-8" style={{ color: "var(--t-color-text-muted)" }}>
+              14-day free trial on all plans. Unlimited downloads. Cancel anytime.
             </p>
 
-            <div className="inline-flex items-center gap-3 bg-surface-card rounded-pill px-1.5 py-1.5">
+            {/* Annual toggle */}
+            <div
+              className="inline-flex items-center gap-3 px-1.5 py-1.5"
+              style={{
+                background: "var(--t-color-surface)",
+                borderRadius: "var(--t-radius-pill)",
+              }}
+            >
               <button
                 onClick={() => setAnnual(false)}
-                className={`px-5 py-2 rounded-pill text-sm font-medium transition-colors duration-base ${
-                  !annual
-                    ? "bg-primary text-content-on-primary"
-                    : "text-content-secondary hover:text-content"
-                }`}
+                className="t-label-lg px-5 py-2 transition-colors"
+                style={{
+                  borderRadius: "var(--t-radius-pill)",
+                  background: !annual ? "var(--t-color-primary)" : "transparent",
+                  color: !annual ? "var(--t-color-on-primary)" : "var(--t-color-text-muted)",
+                  border: "none",
+                  cursor: "pointer",
+                }}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setAnnual(true)}
-                className={`px-5 py-2 rounded-pill text-sm font-medium transition-colors duration-base ${
-                  annual
-                    ? "bg-primary text-content-on-primary"
-                    : "text-content-secondary hover:text-content"
-                }`}
+                className="t-label-lg px-5 py-2 transition-colors"
+                style={{
+                  borderRadius: "var(--t-radius-pill)",
+                  background: annual ? "var(--t-color-primary)" : "transparent",
+                  color: annual ? "var(--t-color-on-primary)" : "var(--t-color-text-muted)",
+                  border: "none",
+                  cursor: "pointer",
+                }}
               >
                 Annual
-                <span className="ml-1.5 text-badge font-semibold text-primary-muted">
+                <span className="ml-1.5 t-label-sm" style={{ color: annual ? "var(--t-color-on-primary)" : "var(--t-color-primary)" }}>
                   2 months free
                 </span>
               </button>
             </div>
           </div>
 
+          {/* Plans grid */}
           <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`bg-surface-card rounded-card p-8 relative ${
-                  plan.popular ? "ring-2 ring-primary" : ""
-                }`}
+                className="hover-lift p-8 relative"
+                style={{
+                  background: "var(--t-color-surface)",
+                  borderRadius: "var(--t-radius-lg)",
+                  borderTop: plan.popular ? "3px solid var(--t-color-primary)" : "none",
+                }}
               >
                 {plan.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-pill bg-primary text-content-on-primary text-badge font-semibold uppercase tracking-wider">
+                  <span
+                    className="t-label-sm absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1"
+                    style={{
+                      borderRadius: "var(--t-radius-pill)",
+                      background: "var(--t-color-primary)",
+                      color: "var(--t-color-on-primary)",
+                    }}
+                  >
                     Most Popular
                   </span>
                 )}
 
-                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
+                <p className="t-label-md mb-3" style={{ color: "var(--t-color-primary)" }}>
                   {plan.name}
                 </p>
 
                 <div className="mb-1">
-                  <span className="text-4xl font-bold">
+                  <span className="t-headline-lg" style={{ color: "var(--t-color-text)" }}>
                     ${annual ? plan.annual : plan.monthly}
                   </span>
-                  <span className="text-content-tertiary text-base">/mo</span>
+                  <span className="t-body-lg" style={{ color: "var(--t-color-text-muted)" }}>/mo</span>
                 </div>
 
-                {annual && (
-                  <p className="text-xs text-content-tertiary mb-6">
-                    ${plan.annual * 12}/year (save $
-                    {(plan.monthly - plan.annual) * 12})
+                {annual ? (
+                  <p className="t-body-sm mb-6" style={{ color: "var(--t-color-text-muted)" }}>
+                    ${plan.annual * 12}/year (save ${(plan.monthly - plan.annual) * 12})
                   </p>
-                )}
-                {!annual && (
-                  <p className="text-xs text-content-tertiary mb-6">
+                ) : (
+                  <p className="t-body-sm mb-6" style={{ color: "var(--t-color-text-muted)" }}>
                     Billed monthly
                   </p>
                 )}
 
-                <Link href="/subscribe">
-                  <Button
-                    variant={plan.popular ? "primary" : "secondary"}
-                    className="w-full mb-8"
-                  >
+                <ThemeLink href="/subscribe">
+                  <Button variant={plan.popular ? "primary" : "secondary"} className="w-full mb-8">
                     Start free trial
                   </Button>
-                </Link>
+                </ThemeLink>
 
                 <ul className="space-y-3">
                   {Object.entries(plan.features).map(([feature, value]) => (
-                    <li
-                      key={feature}
-                      className="flex justify-between text-sm"
-                    >
-                      <span className="text-content-secondary">{feature}</span>
-                      <span className="font-medium">{value}</span>
+                    <li key={feature} className="flex justify-between t-body-md">
+                      <span style={{ color: "var(--t-color-text-muted)" }}>{feature}</span>
+                      <span style={{ color: "var(--t-color-text)", fontWeight: 500 }}>{value}</span>
                     </li>
                   ))}
                 </ul>
@@ -160,7 +177,7 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <p className="text-center text-sm text-content-tertiary mt-8">
+          <p className="text-center t-body-sm mt-8" style={{ color: "var(--t-color-text-muted)" }}>
             All plans include Content ID protection and full licensing.
           </p>
         </div>

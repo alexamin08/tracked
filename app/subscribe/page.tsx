@@ -21,11 +21,9 @@ export default function SubscribePage() {
   async function handleSubscribe() {
     setLoading(true);
     trackCheckoutStarted();
-
     try {
       const res = await fetch("/api/checkout", { method: "POST" });
       const data = await res.json();
-
       if (data.checkoutUrl) {
         window.location.href = data.checkoutUrl;
       } else {
@@ -43,14 +41,20 @@ export default function SubscribePage() {
   return (
     <>
       <Header />
-      <main className="pt-24 min-h-screen flex items-center justify-center bg-surface-secondary px-6">
-        <div className="max-w-md w-full bg-surface-card rounded-card p-8 text-center">
-          <h1 className="text-2xl font-bold mb-2">Start your free trial</h1>
-          <p className="text-content-secondary text-sm mb-6">
+      <main className="pt-24 min-h-screen flex items-center justify-center px-6" style={{ background: "var(--t-color-bg)" }}>
+        <div
+          className="max-w-md w-full p-8 text-center"
+          style={{
+            background: "var(--t-color-surface)",
+            borderRadius: "var(--t-radius-lg)",
+          }}
+        >
+          <h1 className="t-display-sm mb-2" style={{ color: "var(--t-color-text)" }}>Start your free trial</h1>
+          <p className="t-body-md mb-6" style={{ color: "var(--t-color-text-muted)" }}>
             14 days free. $15/mo after. Cancel anytime.
           </p>
 
-          <ul className="text-sm text-content-secondary space-y-2 text-left mb-8">
+          <ul className="t-body-md space-y-2 text-left mb-8" style={{ color: "var(--t-color-text-muted)" }}>
             <li>Unlimited AI scene matching</li>
             <li>Unlimited downloads</li>
             <li>All 53,000+ compositions</li>
@@ -58,18 +62,12 @@ export default function SubscribePage() {
             <li>Content ID protection</li>
           </ul>
 
-          <Button
-            onClick={handleSubscribe}
-            disabled={loading}
-            size="lg"
-            className="w-full"
-          >
+          <Button onClick={handleSubscribe} disabled={loading} size="lg" className="w-full">
             {loading ? "Redirecting to checkout..." : "Start free trial"}
           </Button>
 
-          <p className="text-xs text-content-tertiary mt-4">
-            Credit card required. You will not be charged during the trial
-            period.
+          <p className="t-body-sm mt-4" style={{ color: "var(--t-color-text-muted)" }}>
+            Credit card required. You will not be charged during the trial period.
           </p>
         </div>
       </main>

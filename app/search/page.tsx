@@ -33,15 +33,18 @@ export default async function SearchPage({
       <Header />
 
       <main className="pt-24 pb-24">
-        <section className="hero-gradient px-6 py-12 flex justify-center">
+        <section className="px-6 py-12 flex justify-center" style={{ background: "var(--t-color-bg)" }}>
           <SearchInput initialQuery={query} />
         </section>
 
-        <section className="max-w-3xl mx-auto px-6 py-8">
+        <section
+          className="max-w-3xl mx-auto px-6 py-8"
+          style={{ background: "var(--t-color-surface-low)" }}
+        >
           {data ? (
             <SearchResults results={data.results} fallback={data.fallback} />
           ) : query ? (
-            <p className="text-center text-content-secondary py-16">
+            <p className="text-center t-body-lg py-16" style={{ color: "var(--t-color-text-muted)" }}>
               Search is temporarily unavailable. Please try again.
             </p>
           ) : null}

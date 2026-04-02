@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/_next/static/css/app/layout.css)",
+      "Bash(curl -s http://localhost:3000/_next/static/css/app/layout.css)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s \"http://localhost:3000/_next/static/css/app/layout.css?v=1775013768297\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:3000/pricing)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:3000/how-it-works)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:3000/about)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:3000/legal/terms)",
+      "Bash(node:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)"
+    ]
+  }
+}

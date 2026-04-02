@@ -12,8 +12,8 @@ export function SearchResults({ results, fallback }: SearchResultsProps) {
   if (results.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="text-content-secondary text-lg">No matches found</p>
-        <p className="text-content-tertiary text-sm mt-2">
+        <p className="t-headline-sm" style={{ color: "var(--t-color-text-muted)" }}>No matches found</p>
+        <p className="t-body-md mt-2" style={{ color: "var(--t-color-text-muted)" }}>
           Try adding more detail: mood, energy level, or reference a show
         </p>
       </div>
@@ -23,19 +23,13 @@ export function SearchResults({ results, fallback }: SearchResultsProps) {
   return (
     <div>
       <div className="flex justify-between items-baseline mb-6">
-        <h2 className="text-sm font-semibold text-content-secondary uppercase tracking-wider">
-          {results.length} track{results.length !== 1 ? "s" : ""} matched
+        <h2 className="t-label-md" style={{ color: "var(--t-color-primary)" }}>
+          AI Curated Matches
         </h2>
-        {fallback && (
-          <span className="text-xs text-content-tertiary">
-            Showing keyword results
-          </span>
-        )}
-        {!fallback && (
-          <span className="text-xs text-content-tertiary">
-            Sorted by scene relevance
-          </span>
-        )}
+        <span className="t-body-sm" style={{ color: "var(--t-color-text-muted)" }}>
+          {results.length} track{results.length !== 1 ? "s" : ""}
+          {fallback ? " (keyword results)" : ""}
+        </span>
       </div>
 
       <div className="space-y-4">

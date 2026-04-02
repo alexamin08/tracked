@@ -1,34 +1,28 @@
-import Link from "next/link";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
+import { ThemeLink } from "@/components/theme-link";
 
 const steps = [
   {
     number: "1",
     title: "Describe your scene",
-    description:
-      "Type what you see. A tense elimination, a golden hour travel montage, a late-night city drive. Use natural language, not keywords. The more specific you are, the better the match.",
-    detail:
-      "You can also paste a YouTube URL or upload a video file. The AI analyzes mood, energy, pacing, and emotional arc to understand exactly what your scene needs.",
+    description: "Type what you see. A tense elimination, a golden hour travel montage, a late-night city drive. Use natural language, not keywords. The more specific you are, the better the match.",
+    detail: "You can also paste a YouTube URL or upload a video file. The AI analyzes mood, energy, pacing, and emotional arc to understand exactly what your scene needs.",
     icon: "✎",
   },
   {
     number: "2",
     title: "AI matches broadcast-proven music",
-    description:
-      "Your scene description is matched against 53,000+ compositions that have actually scored real television. Not stock music tagged with generic keywords. Music that has been placed by professional music supervisors on shows across Netflix, HBO, Bravo, and Discovery.",
-    detail:
-      "Each result shows exactly where the track has been placed, why the AI chose it for your scene, and pre-cut versions ready to drop into your timeline (30s, 60s, stingers, bumpers).",
+    description: "Your scene description is matched against 53,000+ compositions that have actually scored real television. Not stock music tagged with generic keywords. Music that has been placed by professional music supervisors on shows across Netflix, HBO, Bravo, and Discovery.",
+    detail: "Each result shows exactly where the track has been placed, why the AI chose it for your scene, and pre-cut versions ready to drop into your timeline.",
     icon: "♪",
   },
   {
     number: "3",
     title: "Download with Content ID protection",
-    description:
-      "Every track is fully licensed for your content. No copyright claims. No Content ID flags. No takedowns. Your license covers the platforms in your plan, and Signature Tracks handles the Content ID whitelisting.",
-    detail:
-      "Download in your preferred format, drop it into your editor, and publish. The licensing paperwork is handled. You get a license certificate with every download.",
+    description: "Every track is fully licensed for your content. No copyright claims. No Content ID flags. No takedowns. Your license covers the platforms in your plan, and Signature Tracks handles the Content ID whitelisting.",
+    detail: "Download in your preferred format, drop it into your editor, and publish. The licensing paperwork is handled. You get a license certificate with every download.",
     icon: "↓",
   },
 ];
@@ -38,46 +32,47 @@ export default function HowItWorksPage() {
     <>
       <Header />
       <main className="pt-24 pb-20">
-        <section className="hero-gradient px-6 py-20 text-center">
-          <h1 className="text-content-on-dark text-3xl md:text-4xl font-light tracking-tight mb-4">
+        <section className="px-6 py-20 text-center" style={{ background: "var(--t-color-surface-low)" }}>
+          <h1 className="t-display-md mb-4" style={{ color: "var(--t-color-text)" }}>
             How Tracked works
           </h1>
-          <p className="text-content-on-dark-secondary max-w-lg mx-auto">
-            From scene description to licensed download in under 5 minutes.
-            No browsing. No keyword guessing. No copyright risk.
+          <p className="t-body-lg max-w-lg mx-auto" style={{ color: "var(--t-color-text-muted)" }}>
+            From scene description to licensed download in under 5 minutes. No browsing. No keyword guessing. No copyright risk.
           </p>
         </section>
 
-        <section className="max-w-3xl mx-auto px-6 py-16 space-y-16">
+        <section className="max-w-3xl mx-auto px-6 py-16 space-y-16" style={{ background: "var(--t-color-bg)" }}>
           {steps.map((step) => (
             <div key={step.number} className="flex gap-6">
               <div className="shrink-0">
-                <div className="w-icon-lg h-icon-lg rounded-pill bg-primary-light text-primary flex items-center justify-center text-xl">
+                <div
+                  className="w-14 h-14 flex items-center justify-center text-xl"
+                  style={{
+                    borderRadius: "var(--t-radius-pill)",
+                    background: "color-mix(in srgb, var(--t-color-primary) 12%, transparent)",
+                    color: "var(--t-color-primary)",
+                  }}
+                >
                   {step.icon}
                 </div>
               </div>
-
               <div>
-                <p className="text-badge font-semibold text-primary uppercase tracking-wider mb-1">
+                <p className="t-label-md mb-1" style={{ color: "var(--t-color-primary)" }}>
                   Step {step.number}
                 </p>
-                <h2 className="text-xl font-semibold mb-3">{step.title}</h2>
-                <p className="text-content-secondary leading-relaxed mb-3">
-                  {step.description}
-                </p>
-                <p className="text-content-tertiary text-sm leading-relaxed">
-                  {step.detail}
-                </p>
+                <h2 className="t-headline-md mb-3" style={{ color: "var(--t-color-text)" }}>{step.title}</h2>
+                <p className="t-body-lg mb-3" style={{ color: "var(--t-color-text-muted)" }}>{step.description}</p>
+                <p className="t-body-md" style={{ color: "var(--t-color-text-muted)", opacity: 0.7 }}>{step.detail}</p>
               </div>
             </div>
           ))}
         </section>
 
-        <section className="text-center pb-8">
-          <Link href="/">
+        <section className="text-center pb-8" style={{ background: "var(--t-color-bg)" }}>
+          <ThemeLink href="/">
             <Button size="lg">Describe your scene</Button>
-          </Link>
-          <p className="text-sm text-content-tertiary mt-3">
+          </ThemeLink>
+          <p className="t-body-sm mt-3" style={{ color: "var(--t-color-text-muted)" }}>
             14-day free trial. No credit card required to search.
           </p>
         </section>

@@ -5,65 +5,25 @@ export default function PrivacyPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-20 px-6">
+      <main className="pt-24 pb-20 px-6" style={{ background: "var(--t-color-bg)" }}>
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
-          <p className="text-sm text-content-tertiary mb-8">
-            Last updated: March 31, 2026
-          </p>
-
-          <div className="prose prose-gray prose-sm max-w-none space-y-6 text-content-secondary leading-relaxed">
-            <h2 className="text-lg font-semibold text-content">
-              1. Information We Collect
-            </h2>
-            <p>
-              When you create an account via Google Sign-In, we collect your
-              name, email address, and profile photo from your Google account.
-              We also collect search queries, download history, and usage
-              analytics to improve the service.
-            </p>
-
-            <h2 className="text-lg font-semibold text-content">
-              2. How We Use Your Information
-            </h2>
-            <p>
-              We use your information to provide the Tracked service, process
-              payments, improve AI matching quality, and communicate with you
-              about your account. We do not sell your personal information.
-            </p>
-
-            <h2 className="text-lg font-semibold text-content">
-              3. Third-Party Services
-            </h2>
-            <p>
-              Tracked uses Clerk for authentication, Stripe for payment
-              processing, Supabase for data storage, OpenAI for AI matching,
-              and PostHog for analytics. Each of these services has its own
-              privacy policy governing how they handle your data.
-            </p>
-
-            <h2 className="text-lg font-semibold text-content">
-              4. Data Retention
-            </h2>
-            <p>
-              We retain your account information and download history for the
-              duration of your subscription and for 30 days after
-              cancellation. Search queries are retained in anonymized form for
-              service improvement.
-            </p>
-
-            <h2 className="text-lg font-semibold text-content">
-              5. Your Rights
-            </h2>
-            <p>
-              You may request access to, correction of, or deletion of your
-              personal data at any time by contacting us. You may also export
-              your download history.
-            </p>
-
-            <p className="text-content-tertiary text-xs pt-8">
-              This is a placeholder. Full privacy policy will be published
-              before public launch.
+          <h1 className="t-display-sm mb-2" style={{ color: "var(--t-color-text)" }}>Privacy Policy</h1>
+          <p className="t-body-sm mb-8" style={{ color: "var(--t-color-text-muted)" }}>Last updated: March 31, 2026</p>
+          <div className="space-y-6">
+            {[
+              ["1. Information We Collect", "When you create an account via Google Sign-In, we collect your name, email address, and profile photo. We also collect search queries, download history, and usage analytics to improve the service."],
+              ["2. How We Use Your Information", "We use your information to provide the Tracked service, process payments, improve AI matching quality, and communicate with you about your account. We do not sell your personal information."],
+              ["3. Third-Party Services", "Tracked uses Clerk for authentication, Stripe for payment processing, Supabase for data storage, OpenAI for AI matching, and PostHog for analytics."],
+              ["4. Data Retention", "We retain your account information and download history for the duration of your subscription and for 30 days after cancellation."],
+              ["5. Your Rights", "You may request access to, correction of, or deletion of your personal data at any time by contacting us."],
+            ].map(([heading, body]) => (
+              <div key={heading}>
+                <h2 className="t-headline-sm mb-2" style={{ color: "var(--t-color-text)" }}>{heading}</h2>
+                <p className="t-body-lg" style={{ color: "var(--t-color-text-muted)" }}>{body}</p>
+              </div>
+            ))}
+            <p className="t-body-sm pt-8" style={{ color: "var(--t-color-text-muted)", opacity: 0.5 }}>
+              This is a placeholder. Full privacy policy will be published before public launch.
             </p>
           </div>
         </div>

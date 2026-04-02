@@ -7,48 +7,47 @@ import { Badge } from "@/components/ui/badge";
 import { trackPreview } from "@/lib/analytics";
 import type { SearchResult } from "@/types";
 
-interface TrackCardProps {
-  track: SearchResult;
-}
-
-export function TrackCard({ track }: TrackCardProps) {
+export function TrackCard({ track }: { track: SearchResult }) {
   const { state, play, pause } = useAudio();
   const isCurrentTrack = state.trackId === track.id;
   const isPlaying = isCurrentTrack && state.isPlaying;
 
   function handlePlay() {
-    if (isPlaying) {
-      pause();
-      return;
-    }
+    if (isPlaying) { pause(); return; }
     if (!track.previewUrl) return;
-    play({
-      id: track.id,
-      title: track.title,
-      composer: track.composer,
-      previewUrl: track.previewUrl,
-    });
+    play({ id: track.id, title: track.title, composer: track.composer, previewUrl: track.previewUrl });
     trackPreview(track.id);
   }
 
   return (
-    <div className="bg-surface-card rounded-card p-6 relative shadow-card">
+    <div
+      className="hover-lift p-6 relative"
+      style={{
+        background: "var(--t-color-surface)",
+        borderRadius: "var(--t-radius-lg)",
+      }}
+    >
       <div className="flex items-start gap-4">
-        <div className="w-icon-xl h-icon-xl rounded-icon bg-gradient-to-br from-[var(--t-color-hero-from)] to-primary shrink-0" />
+        {/* Album art placeholder */}
+        <div
+          className="w-16 h-16 shrink-0"
+          style={{
+            borderRadius: "var(--t-radius-md)",
+            background: `linear-gradient(135deg, var(--t-color-surface-lowest), var(--t-color-primary))`,
+          }}
+        />
 
         <div className="flex-1 min-w-0">
-          <h3 className="text-card-title font-semibold">{track.title}</h3>
-          <p className="text-caption text-content-secondary mt-0.5">
+          <h3 className="t-headline-md" style={{ color: "var(--t-color-text)" }}>
+            {track.title}
+          </h3>
+          <p className="t-label-md mt-0.5" style={{ color: "var(--t-color-text-muted)" }}>
             {track.composer}
           </p>
 
           <div className="flex flex-wrap gap-1.5 mt-2">
             {track.placements.slice(0, 2).map((p, i) => (
-              <PlacementBadge
-                key={i}
-                showName={p.showName}
-                sceneType={p.sceneType}
-              />
+              <PlacementBadge key={i} showName={p.showName} sceneType={p.sceneType} />
             ))}
           </div>
         </div>
@@ -56,27 +55,64 @@ export function TrackCard({ track }: TrackCardProps) {
         <DownloadButton trackId={track.id} />
       </div>
 
+      {/* AI explanation */}
       {track.explanation && (
-        <p className="text-caption text-content-secondary italic mt-3 pl-20">
+        <p
+          className="t-body-lg mt-3 pl-20"
+          style={{ color: "var(--t-color-text-muted)", fontStyle: "italic" }}
+        >
           &ldquo;{track.explanation}&rdquo;
         </p>
       )}
 
-      <div className="flex items-center gap-3 mt-3 bg-surface-secondary rounded-lg px-4 py-3">
+      {/* Match badge */}
+      {track.similarity > 0 && (
+        <span
+          className="t-label-md absolute top-6 right-24"
+          style={{ color: "var(--t-color-accent)", fontWeight: 700 }}
+        >
+          {Math.round(track.similarity * 100)}% match
+        </span>
+      )}
+
+      {/* Waveform / play area */}
+      <div
+        className="flex items-center gap-3 mt-3 px-4 py-3"
+        style={{
+          background: "var(--t-color-surface-low)",
+          borderRadius: "var(--t-radius-md)",
+        }}
+      >
         <button
           onClick={handlePlay}
           disabled={!track.previewUrl}
-          className="w-icon-sm h-icon-sm rounded-pill bg-primary text-content-on-primary flex items-center justify-center text-xs shrink-0 disabled:opacity-30"
+          className="w-8 h-8 flex items-center justify-center text-xs shrink-0 disabled:opacity-30 focus-glow"
+          style={{
+            borderRadius: "var(--t-radius-pill)",
+            background: "var(--t-color-primary)",
+            color: "var(--t-color-on-primary)",
+            border: "none",
+            cursor: "pointer",
+          }}
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? "⏸" : "▶"}
         </button>
 
-        <div className="flex-1 h-1 bg-border rounded-full relative">
+        {/* Progress bar with gradient */}
+        <div
+          className="flex-1 h-1 relative"
+          style={{
+            background: "var(--t-color-surface-high)",
+            borderRadius: "9999px",
+          }}
+        >
           {isCurrentTrack && (
             <div
-              className="absolute left-0 top-0 h-full bg-primary rounded-full"
+              className="absolute left-0 top-0 h-full"
               style={{
+                background: `linear-gradient(90deg, var(--t-color-primary), var(--t-color-secondary))`,
+                borderRadius: "9999px",
                 width: `${state.duration > 0 ? (state.currentTime / state.duration) * 100 : 0}%`,
               }}
             />
@@ -84,12 +120,13 @@ export function TrackCard({ track }: TrackCardProps) {
         </div>
 
         {!track.previewUrl && (
-          <span className="text-badge text-content-tertiary">
+          <span className="t-label-sm" style={{ color: "var(--t-color-text-muted)" }}>
             Preview unavailable
           </span>
         )}
       </div>
 
+      {/* Mood tags */}
       <div className="flex gap-2 mt-3 pl-20">
         {track.moods.slice(0, 3).map((mood) => (
           <Badge key={mood} label={mood} />
