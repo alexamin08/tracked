@@ -21,10 +21,11 @@ export function TrackCard({ track }: { track: SearchResult }) {
 
   return (
     <div
-      className="hover-lift p-6 relative group"
+      className="hover-lift"
       style={{
         background: "var(--t-color-surface)",
         borderRadius: "var(--t-radius-lg)",
+        padding: "var(--t-space-6)",
         transition: "transform 0.2s ease, background-color 0.2s ease",
       }}
       onMouseEnter={(e) => e.currentTarget.style.background = "var(--t-color-surface-high)"}
@@ -33,17 +34,20 @@ export function TrackCard({ track }: { track: SearchResult }) {
       <div className="flex items-start gap-4">
         {/* Album art placeholder */}
         <div
-          className="w-16 h-16 shrink-0"
+          className="w-14 h-14 shrink-0"
           style={{
             borderRadius: "var(--t-radius-md)",
-            background: `linear-gradient(135deg, var(--t-color-surface-lowest), var(--t-color-primary))`,
+            background: "linear-gradient(135deg, var(--t-color-surface-lowest), var(--t-color-primary))",
           }}
         />
 
+        {/* Title + composer + placements */}
         <div className="flex-1 min-w-0">
+          {/* Track title — display font, normal case */}
           <h3 className="t-headline-md" style={{ color: "var(--t-color-text)" }}>
             {track.title}
           </h3>
+          {/* Composer — label, uppercase */}
           <p className="t-label-md mt-0.5" style={{ color: "var(--t-color-text-muted)" }}>
             {track.composer}
           </p>
@@ -55,27 +59,32 @@ export function TrackCard({ track }: { track: SearchResult }) {
           </div>
         </div>
 
-        <DownloadButton trackId={track.id} />
+        {/* Match % + Download — stacked vertically, no overlap */}
+        <div className="flex flex-col items-end gap-2 shrink-0">
+          {track.similarity > 0 && (
+            <span
+              className="t-label-md"
+              style={{ color: "var(--t-color-accent)", fontWeight: 700 }}
+            >
+              {Math.round(track.similarity * 100)}% match
+            </span>
+          )}
+          <DownloadButton trackId={track.id} />
+        </div>
       </div>
 
-      {/* AI explanation */}
+      {/* AI explanation — body font, italic */}
       {track.explanation && (
         <p
-          className="t-body-lg mt-3 pl-20"
-          style={{ color: "var(--t-color-text-muted)", fontStyle: "italic" }}
+          className="t-body-lg mt-3"
+          style={{
+            color: "var(--t-color-text-muted)",
+            fontStyle: "italic",
+            paddingLeft: "calc(56px + var(--t-space-4))",
+          }}
         >
           &ldquo;{track.explanation}&rdquo;
         </p>
-      )}
-
-      {/* Match badge */}
-      {track.similarity > 0 && (
-        <span
-          className="t-label-md absolute top-6 right-24"
-          style={{ color: "var(--t-color-accent)", fontWeight: 700 }}
-        >
-          {Math.round(track.similarity * 100)}% match
-        </span>
       )}
 
       {/* Waveform / play area */}
@@ -102,19 +111,15 @@ export function TrackCard({ track }: { track: SearchResult }) {
           {isPlaying ? "⏸" : "▶"}
         </button>
 
-        {/* Progress bar with gradient */}
         <div
           className="flex-1 h-1 relative"
-          style={{
-            background: "var(--t-color-surface-high)",
-            borderRadius: "9999px",
-          }}
+          style={{ background: "var(--t-color-surface-high)", borderRadius: "9999px" }}
         >
           {isCurrentTrack && (
             <div
               className="absolute left-0 top-0 h-full"
               style={{
-                background: `linear-gradient(90deg, var(--t-color-primary), var(--t-color-secondary))`,
+                background: "linear-gradient(90deg, var(--t-color-primary), var(--t-color-secondary))",
                 borderRadius: "9999px",
                 width: `${state.duration > 0 ? (state.currentTime / state.duration) * 100 : 0}%`,
               }}
@@ -129,8 +134,11 @@ export function TrackCard({ track }: { track: SearchResult }) {
         )}
       </div>
 
-      {/* Mood tags */}
-      <div className="flex gap-2 mt-3 pl-20">
+      {/* Mood tags — label style */}
+      <div
+        className="flex gap-2 mt-3"
+        style={{ paddingLeft: "calc(56px + var(--t-space-4))" }}
+      >
         {track.moods.slice(0, 3).map((mood) => (
           <Badge key={mood} label={mood} />
         ))}

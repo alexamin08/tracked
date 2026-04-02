@@ -41,10 +41,12 @@ export function AudioPlayer() {
       </button>
 
       <div className="flex-1 min-w-0">
-        <p className="t-body-md truncate" style={{ color: "var(--t-color-text)", fontWeight: 600 }}>
+        {/* Track title — display font, normal case */}
+        <p className="t-headline-sm truncate" style={{ color: "var(--t-color-text)" }}>
           {state.title}
         </p>
-        <p className="t-body-sm truncate" style={{ color: "var(--t-color-text-muted)" }}>
+        {/* Composer — label, uppercase */}
+        <p className="t-label-sm truncate" style={{ color: "var(--t-color-text-muted)" }}>
           {state.composer}
         </p>
       </div>
