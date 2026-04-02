@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Suspense } from "react";
 import { PostHogProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AudioProvider } from "@/components/audio/audio-provider";
+import { ThemeSwitcher } from "@/lib/themes/theme-switcher";
 import "./globals.css";
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   title: "Tracked — AI Music Supervisor",
@@ -25,12 +20,17 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={jakarta.variable}>
-        <body className="font-sans antialiased">
+      <html lang="en" suppressHydrationWarning>
+        <body>
           <PostHogProvider>
-            <ThemeProvider>
-              <AudioProvider>{children}</AudioProvider>
-            </ThemeProvider>
+            <Suspense>
+              <ThemeProvider>
+                <AudioProvider>
+                  {children}
+                  <ThemeSwitcher />
+                </AudioProvider>
+              </ThemeProvider>
+            </Suspense>
           </PostHogProvider>
         </body>
       </html>
