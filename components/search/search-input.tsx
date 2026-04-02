@@ -6,6 +6,7 @@ import { SUGGESTED_PROMPTS, SEARCH } from "@/lib/constants";
 
 export function SearchInput({ initialQuery = "" }: { initialQuery?: string }) {
   const [query, setQuery] = useState(initialQuery);
+  const [focused, setFocused] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const theme = searchParams.get("theme");
@@ -27,32 +28,56 @@ export function SearchInput({ initialQuery = "" }: { initialQuery?: string }) {
   }
 
   return (
-    <div className="w-full max-w-[680px] relative z-10">
+    <div className="w-full max-w-[720px] relative z-10">
       <form onSubmit={handleSubmit} className="relative">
+        {/* Resting glow ring around entire input */}
+        <div
+          style={{
+            position: "absolute",
+            inset: "-1px",
+            borderRadius: "var(--t-radius-pill)",
+            border: focused
+              ? "1.5px solid var(--t-color-primary)"
+              : "1px solid color-mix(in srgb, var(--t-color-primary) 20%, transparent)",
+            transition: "border-color 0.2s ease, box-shadow 0.2s ease",
+            boxShadow: focused
+              ? "0 0 0 4px color-mix(in srgb, var(--t-color-primary) 15%, transparent)"
+              : "none",
+            pointerEvents: "none",
+          }}
+        />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value.slice(0, SEARCH.maxQueryLength))}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
           placeholder="Describe your scene..."
-          className="w-full px-6 py-5 pr-14 t-body-lg focus-glow"
+          className="w-full t-body-lg"
           style={{
+            padding: "1.25rem 4rem 1.25rem 1.75rem",
             borderRadius: "var(--t-radius-pill)",
             background: "var(--t-color-surface-highest)",
             color: "var(--t-color-text)",
             border: "none",
             outline: "none",
             fontFamily: "var(--t-font-body)",
+            fontSize: "1.0625rem",
           }}
         />
         <button
           type="submit"
           disabled={query.trim().length < SEARCH.minQueryLength}
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center disabled:opacity-30 transition-opacity"
+          className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center justify-center disabled:opacity-30 transition-opacity"
           style={{
+            width: "44px",
+            height: "44px",
             borderRadius: "var(--t-radius-pill)",
             background: "var(--t-color-primary)",
             color: "var(--t-color-on-primary)",
             border: "none",
+            cursor: "pointer",
+            fontSize: "1.125rem",
           }}
           aria-label="Search"
         >
@@ -60,13 +85,18 @@ export function SearchInput({ initialQuery = "" }: { initialQuery?: string }) {
         </button>
       </form>
 
-      <div className="flex gap-2 flex-wrap justify-center mt-5">
+      {/* Prompt pills — generous spacing */}
+      <div
+        className="flex gap-3 flex-wrap justify-center"
+        style={{ marginTop: "var(--t-space-8)" }}
+      >
         {SUGGESTED_PROMPTS.map((prompt) => (
           <button
             key={prompt}
             onClick={() => handlePromptClick(prompt)}
-            className="t-body-sm px-4 py-2 transition-colors"
+            className="t-body-sm transition-colors"
             style={{
+              padding: "10px 20px",
               borderRadius: "var(--t-radius-pill)",
               background: "var(--t-color-surface-high)",
               color: "var(--t-color-text-muted)",
@@ -80,7 +110,10 @@ export function SearchInput({ initialQuery = "" }: { initialQuery?: string }) {
       </div>
 
       {query.length > 0 && (
-        <p className="text-center t-body-sm mt-3" style={{ color: "var(--t-color-text-muted)" }}>
+        <p
+          className="text-center t-body-sm"
+          style={{ color: "var(--t-color-text-muted)", marginTop: "var(--t-space-3)" }}
+        >
           {query.length}/{SEARCH.maxQueryLength}
         </p>
       )}

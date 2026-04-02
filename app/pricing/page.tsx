@@ -132,24 +132,25 @@ export default function PricingPage() {
                 style={{
                   background: "var(--t-color-surface)",
                   borderRadius: "var(--t-radius-lg)",
-                  padding: "var(--t-space-8)",
-                  // Pro card: elevated with shadow + primary accent bar
+                  padding: plan.popular ? "var(--t-space-10, 40px)" : "var(--t-space-8)",
                   ...(plan.popular
                     ? {
                         borderTop: "3px solid var(--t-color-primary)",
-                        boxShadow: "var(--t-shadow-ambient)",
-                        transform: "translateY(-8px)",
+                        boxShadow: `var(--t-shadow-ambient), 0 0 40px color-mix(in srgb, var(--t-color-primary) 8%, transparent)`,
+                        transform: "translateY(-12px)",
                       }
                     : {}),
                 }}
               >
                 {plan.popular && (
                   <span
-                    className="t-label-sm absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1"
+                    className="t-label-md absolute left-1/2 -translate-x-1/2 px-5 py-1.5"
                     style={{
+                      top: "-14px",
                       borderRadius: "var(--t-radius-pill)",
                       background: "var(--t-color-primary)",
                       color: "var(--t-color-on-primary)",
+                      boxShadow: "0 4px 12px color-mix(in srgb, var(--t-color-primary) 30%, transparent)",
                     }}
                   >
                     Most Popular
