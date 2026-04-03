@@ -734,7 +734,7 @@ export default function HomePage() {
         {/* ============================
             CTA SECTION
             ============================ */}
-        <section style={{ maxWidth: 1440, margin: "0 auto", padding: "128px 32px" }}>
+        <section style={{ maxWidth: 1440, margin: "0 auto", padding: "96px 32px 0" }}>
           <div
             style={{
               backgroundColor: "var(--color-surface-container)",
