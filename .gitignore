@@ -40,3 +40,4 @@ data/
 # Temp analysis files
 *.txt
 !THEME_PROMPT.md
+data/catalog.csv
