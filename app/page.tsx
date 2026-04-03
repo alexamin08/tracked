@@ -1,288 +1,607 @@
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { SearchInput } from "@/components/search/search-input";
-import { AudioPlayer } from "@/components/audio/audio-player";
-import { ThemeLink } from "@/components/theme-link";
+"use client";
 
-const collections = [
-  { name: "True Crime", desc: "Tension beds, investigation cues, and suspenseful underscore from real crime television." },
-  { name: "Reality", desc: "Competition energy, elimination drama, and emotional reveals from unscripted TV." },
-  { name: "Documentary", desc: "Cinematic scoring, reflective beds, and narrative tension for factual storytelling." },
-  { name: "Podcast", desc: "Subtle beds, transitions, and atmospheric textures for audio-first content." },
+import Link from "next/link";
+import { TopNav } from "@/components/nav/TopNav";
+import { Footer } from "@/components/layout/footer";
+import { FloatingPlayer } from "@/components/player/FloatingPlayer";
+
+/* ─── Collection data ─── */
+const COLLECTIONS = [
+  {
+    name: "True Crime",
+    desc: "Tension beds, investigation cues, and suspenseful underscore.",
+    badge: "HIGH MATCH",
+    badgeDot: true,
+    tracks: 128,
+  },
+  {
+    name: "Reality Competition",
+    desc: "Elimination drama, reveals, and unscripted energy.",
+    badge: "TRENDING",
+    badgeDot: false,
+    tracks: 96,
+  },
+  {
+    name: "Global Docus",
+    desc: "Cinematic scoring and reflective beds for factual storytelling.",
+    badge: "EDITORIAL",
+    badgeDot: false,
+    tracks: 84,
+  },
+  {
+    name: "Corporate Tech",
+    desc: "Clean, confident beds for product launches and corporate film.",
+    badge: "NEW",
+    badgeDot: false,
+    tracks: 112,
+  },
+];
+
+/* ─── How It Works steps ─── */
+const STEPS = [
+  {
+    num: "01.",
+    label: "DESCRIBE",
+    title: "Describe",
+    desc: "Natural language prompts — describe the mood, pacing, and emotion of your scene. No keywords required.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+      </svg>
+    ),
+  },
+  {
+    num: "02.",
+    label: "MATCH",
+    title: "Match",
+    desc: "AI matches your scene against 140,000+ production files scored for broadcast television.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    ),
+  },
+  {
+    num: "03.",
+    label: "LICENSE",
+    title: "License",
+    desc: "Single-click worldwide rights. Fully licensed, Content ID protected, no copyright claims.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </svg>
+    ),
+  },
+];
+
+/* ─── Stats ─── */
+const STATS = [
+  { value: "42K", label: "COMPOSITIONS" },
+  { value: "140K", label: "PRODUCTION FILES" },
+  { value: "2008", label: "SCORING SINCE" },
+  { value: "0.02s", label: "SEARCH LATENCY" },
 ];
 
 export default function HomePage() {
   return (
     <>
-      <Header />
+      <TopNav />
 
       <main>
-        {/* ============================================
-            HERO — dramatic headline + double glow
-            ============================================ */}
+        {/* ============================
+            SECTION: Hero — 45/55 grid
+            ============================ */}
         <section
-          className="min-h-[90vh] flex flex-col items-center justify-center px-6 pt-28 relative overflow-hidden"
-          style={{ background: "var(--t-color-bg)", paddingBottom: "var(--t-space-20)" }}
-        >
-          {/* Outer atmospheric glow (wide, very subtle) */}
-          <div
-            className="absolute pointer-events-none"
-            style={{
-              top: "10%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "1200px",
-              height: "800px",
-              background: "radial-gradient(ellipse at center, var(--t-color-primary) 0%, transparent 60%)",
-              opacity: "0.05",
-            }}
-          />
-          {/* Inner signature glow (concentrated, bright) */}
-          <div
-            className="absolute pointer-events-none"
-            style={{
-              top: "25%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "700px",
-              height: "400px",
-              background: "radial-gradient(ellipse at center, var(--t-color-primary) 0%, transparent 65%)",
-              opacity: "0.15",
-            }}
-          />
-
-          <span
-            className="t-label-md mb-10 relative z-10"
-            style={{
-              color: "var(--t-color-primary)",
-              padding: "8px 24px",
-              borderRadius: "var(--t-radius-pill)",
-              background: "color-mix(in srgb, var(--t-color-primary) 8%, transparent)",
-            }}
-          >
-            AI Music Supervisor
-          </span>
-
-          {/* Dramatic headline — Newsreader italic, huge */}
-          <h1
-            className="text-center mb-6 relative z-10"
-            style={{
-              fontFamily: "var(--t-font-display)",
-              fontStyle: "italic",
-              fontSize: "clamp(3.5rem, 8vw, 6rem)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.03em",
-              color: "var(--t-color-text)",
-            }}
-          >
-            Describe your scene
-          </h1>
-
-          <p
-            className="t-body-lg text-center mb-14 max-w-md relative z-10"
-            style={{ color: "var(--t-color-text-muted)" }}
-          >
-            53,000+ broadcast-proven compositions. Fully licensed. Content ID
-            protected.
-          </p>
-
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <SearchInput />
-          </div>
-
-          <ThemeLink
-            href="/collections"
-            className="t-body-lg mt-12 block relative z-10 transition-colors"
-            style={{ color: "var(--t-color-text-muted)", fontWeight: 500 }}
-          >
-            Browse all music →
-          </ThemeLink>
-        </section>
-
-        {/* ============================================
-            STATS BAR — surface-low
-            ============================================ */}
-        <section
-          className="px-6"
           style={{
-            background: "var(--t-color-surface-low)",
-            paddingTop: "var(--t-space-12)",
-            paddingBottom: "var(--t-space-12)",
+            backgroundColor: "var(--color-surface)",
+            display: "grid",
+            gridTemplateColumns: "45% 55%",
+            minHeight: 580,
+            alignItems: "center",
           }}
         >
-          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-center gap-8 sm:gap-16 text-center">
-            {[
-              "42,000+ Compositions",
-              "AI Music Supervisor",
-              "Content ID Protected",
-            ].map((stat) => (
-              <p key={stat} className="t-label-md" style={{ color: "var(--t-color-text-muted)" }}>
-                {stat}
+          {/* Left column */}
+          <div style={{ padding: "80px 48px" }}>
+            <div style={{ maxWidth: 560 }}>
+              {/* Eyebrow */}
+              <p
+                className="ci-label-sm"
+                style={{
+                  color: "var(--color-secondary)",
+                  marginBottom: 20,
+                }}
+              >
+                THE DIGITAL CURATOR
               </p>
+
+              {/* Headline */}
+              <h1
+                className="ci-display-lg"
+                style={{
+                  color: "var(--color-on-surface)",
+                  lineHeight: 1.08,
+                  marginBottom: 36,
+                }}
+              >
+                Broadcast-Proven
+                <br />
+                Music for
+                <br />
+                Your Scenes.
+              </h1>
+
+              {/* Search input with attached SEARCH button */}
+              <div
+                style={{
+                  display: "flex",
+                  height: 52,
+                  width: "100%",
+                  marginBottom: 20,
+                }}
+              >
+                <div style={{ position: "relative", flex: 1 }}>
+                  {/* Search icon */}
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--color-on-surface-variant)"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{
+                      position: "absolute",
+                      left: 14,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                    }}
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="tense standoff, interrogation room, fluoresc..."
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "var(--color-surface-container-lowest)",
+                      border: "none",
+                      outline: "none",
+                      borderRadius: "var(--radius-sm) 0 0 var(--radius-sm)",
+                      padding: "0 16px 0 44px",
+                      fontFamily: "var(--font-body)",
+                      fontSize: 14,
+                      fontStyle: "italic",
+                      color: "var(--color-on-surface)",
+                    }}
+                  />
+                </div>
+                <Link
+                  href="/search"
+                  className="ci-label-md"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "var(--color-primary)",
+                    color: "var(--color-on-primary)",
+                    padding: "0 20px",
+                    borderRadius: "0 var(--radius-sm) var(--radius-sm) 0",
+                    textDecoration: "none",
+                    fontWeight: 700,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  SEARCH
+                </Link>
+              </div>
+
+              {/* Utility tags */}
+              <div style={{ display: "flex", gap: 24 }}>
+                {["INSTANT LICENSE", "STEM ACCESS", "CUE SHEET READY"].map(
+                  (tag) => (
+                    <span
+                      key={tag}
+                      className="ci-label-sm"
+                      style={{ color: "var(--color-on-surface-variant)" }}
+                    >
+                      <span style={{ color: "var(--color-secondary)" }}>
+                        {"• "}
+                      </span>
+                      {tag}
+                    </span>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Right column — cinematic image */}
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              minHeight: 580,
+              overflow: "hidden",
+            }}
+          >
+            {/* Placeholder image — dark atmospheric */}
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                background:
+                  "linear-gradient(135deg, #1a1520 0%, #0d1117 40%, #131820 100%)",
+              }}
+            />
+            {/* Left-edge blend gradient */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to right, var(--color-surface) 0%, transparent 30%)",
+                pointerEvents: "none",
+              }}
+            />
+            {/* Bottom gradient */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to top, rgba(19,19,19,0.4) 0%, transparent 50%)",
+                pointerEvents: "none",
+              }}
+            />
+
+            {/* Floating badge */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: 24,
+                left: 24,
+                backgroundColor:
+                  "color-mix(in srgb, var(--color-surface-container) 90%, transparent)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                padding: "12px 16px",
+                borderRadius: "var(--radius-md)",
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+              }}
+            >
+              <div>
+                <p
+                  className="ci-label-sm"
+                  style={{ color: "var(--color-secondary)", marginBottom: 4 }}
+                >
+                  CURRENT MATCH
+                </p>
+                <p
+                  className="ci-title-sm"
+                  style={{ color: "var(--color-on-surface)" }}
+                >
+                  Atmospheric Tension Vol. 4
+                </p>
+              </div>
+              {/* Small waveform icon */}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <rect x="1" y="6" width="2" height="4" rx="1" fill="var(--color-secondary)" />
+                <rect x="5" y="3" width="2" height="10" rx="1" fill="var(--color-secondary)" />
+                <rect x="9" y="5" width="2" height="6" rx="1" fill="var(--color-secondary)" />
+                <rect x="13" y="4" width="2" height="8" rx="1" fill="var(--color-secondary)" />
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================
+            SECTION: Stats Bar
+            ============================ */}
+        <section
+          style={{
+            backgroundColor: "var(--color-surface-container-lowest)",
+            padding: "28px 48px",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 1280,
+              margin: "0 auto",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: 32,
+            }}
+          >
+            {STATS.map((stat) => (
+              <div key={stat.label} style={{ textAlign: "center" }}>
+                <p
+                  className="ci-display-md"
+                  style={{
+                    color: "var(--color-on-surface)",
+                    fontSize: 40,
+                  }}
+                >
+                  {stat.value}
+                </p>
+                <p
+                  className="ci-label-sm"
+                  style={{
+                    color: "var(--color-on-surface-variant)",
+                    marginTop: 4,
+                  }}
+                >
+                  {stat.label}
+                </p>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* ============================================
-            HOW IT WORKS — bg canvas
-            ============================================ */}
+        {/* ============================
+            SECTION: Curated Collections
+            ============================ */}
         <section
-          className="px-6"
           style={{
-            background: "var(--t-color-bg)",
-            paddingTop: "var(--t-space-20)",
-            paddingBottom: "var(--t-space-20)",
+            backgroundColor: "var(--color-surface)",
+            padding: "80px 48px",
           }}
         >
-          <div className="max-w-4xl mx-auto">
-            <h2 className="t-label-md text-center mb-16" style={{ color: "var(--t-color-text-muted)" }}>
-              How it works
-            </h2>
-
-            <div className="grid md:grid-cols-3 gap-12">
-              {[
-                { n: "1", title: "Describe your scene", desc: "Type what you see. Natural language, not keywords. The more specific, the better the match." },
-                { n: "2", title: "AI matches your scene", desc: "Matched against music scored for real TV. Scene intelligence, not tag search." },
-                { n: "3", title: "Download and use", desc: "Fully licensed for all platforms. Content ID protected. No copyright claims." },
-              ].map((step) => (
-                <div key={step.n} className="text-center">
-                  <p
-                    className="mb-4"
-                    style={{
-                      fontFamily: "var(--t-font-display)",
-                      fontSize: "2rem",
-                      fontWeight: 300,
-                      color: "var(--t-color-primary)",
-                      lineHeight: 1,
-                    }}
-                  >
-                    {step.n}
-                  </p>
-                  <h3 className="t-headline-sm mb-3" style={{ color: "var(--t-color-text)" }}>
-                    {step.title}
-                  </h3>
-                  <p className="t-body-md" style={{ color: "var(--t-color-text-muted)" }}>
-                    {step.desc}
-                  </p>
-                </div>
-              ))}
+          <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+            {/* Section header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                marginBottom: 40,
+              }}
+            >
+              <div>
+                <p
+                  className="ci-label-sm"
+                  style={{
+                    color: "var(--color-secondary)",
+                    marginBottom: 8,
+                  }}
+                >
+                  CATALOG EXPLORATION
+                </p>
+                <h2
+                  className="ci-headline-lg"
+                  style={{ color: "var(--color-on-surface)" }}
+                >
+                  CURATED COLLECTIONS
+                </h2>
+              </div>
+              <Link
+                href="/collections"
+                className="ci-label-md"
+                style={{
+                  color: "var(--color-on-surface-variant)",
+                  textDecoration: "none",
+                }}
+              >
+                VIEW ARCHIVE →
+              </Link>
             </div>
-          </div>
-        </section>
 
-        {/* ============================================
-            COLLECTIONS — surface-low with surface cards
-            ============================================ */}
-        <section
-          className="px-6"
-          style={{
-            background: "var(--t-color-surface-low)",
-            paddingTop: "var(--t-space-20)",
-            paddingBottom: "var(--t-space-20)",
-          }}
-        >
-          <div className="max-w-5xl mx-auto">
-            <h2 className="t-label-md text-center mb-4" style={{ color: "var(--t-color-text-muted)" }}>
-              Collections
-            </h2>
-            <p className="t-body-lg text-center mb-12 max-w-md mx-auto" style={{ color: "var(--t-color-text-muted)" }}>
-              Curated by genre. Scored for television.
-            </p>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {collections.map((col) => (
-                <ThemeLink
+            {/* 4-column grid */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: 16,
+              }}
+            >
+              {COLLECTIONS.map((col) => (
+                <Link
                   key={col.name}
                   href="/collections"
-                  className="block hover-lift"
                   style={{
-                    background: "var(--t-color-surface)",
-                    borderRadius: "var(--t-radius-lg)",
-                    padding: "var(--t-space-6)",
+                    position: "relative",
+                    aspectRatio: "16 / 9",
+                    borderRadius: "var(--radius-md)",
+                    overflow: "hidden",
+                    display: "block",
                     textDecoration: "none",
                   }}
                 >
-                  {/* Color swatch */}
+                  {/* Placeholder image */}
                   <div
-                    className="mb-4"
                     style={{
-                      height: "4px",
-                      width: "32px",
-                      borderRadius: "var(--t-radius-pill)",
-                      background: "var(--t-color-primary)",
+                      width: "100%",
+                      height: "100%",
+                      background: `linear-gradient(135deg, ${
+                        col.name === "True Crime"
+                          ? "#1a1520, #0d0810"
+                          : col.name === "Reality Competition"
+                          ? "#1a1215, #100810"
+                          : col.name === "Global Docus"
+                          ? "#0d1117, #0a1520"
+                          : "#12150d, #0d100a"
+                      })`,
                     }}
                   />
-                  <h3 className="t-headline-sm mb-2" style={{ color: "var(--t-color-text)" }}>
-                    {col.name}
-                  </h3>
-                  <p className="t-body-md" style={{ color: "var(--t-color-text-muted)" }}>
-                    {col.desc}
-                  </p>
-                </ThemeLink>
+                  {/* Dark gradient overlay */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%)",
+                      pointerEvents: "none",
+                    }}
+                  />
+
+                  {/* Badge (top-left) */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      left: 12,
+                      backgroundColor:
+                        "color-mix(in srgb, var(--color-surface-container) 80%, transparent)",
+                      padding: "4px 8px",
+                      borderRadius: 9999,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 4,
+                    }}
+                  >
+                    {col.badgeDot && (
+                      <span
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: "50%",
+                          backgroundColor: "var(--color-secondary)",
+                        }}
+                      />
+                    )}
+                    <span
+                      className="ci-label-sm"
+                      style={{ color: "var(--color-on-surface)" }}
+                    >
+                      {col.badge}
+                    </span>
+                  </div>
+
+                  {/* Track count (top-right) */}
+                  <span
+                    className="ci-label-sm"
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      right: 12,
+                      color: "var(--color-on-surface-variant)",
+                    }}
+                  >
+                    {col.tracks} Tracks
+                  </span>
+
+                  {/* Collection name + desc (bottom-left) */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 16,
+                      left: 16,
+                      right: 16,
+                    }}
+                  >
+                    <h3
+                      className="ci-headline-sm"
+                      style={{ color: "var(--color-on-surface)" }}
+                    >
+                      {col.name}
+                    </h3>
+                    <p
+                      className="ci-body-sm"
+                      style={{
+                        color: "rgba(240, 237, 234, 0.75)",
+                        marginTop: 4,
+                        overflow: "hidden",
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                      }}
+                    >
+                      {col.desc}
+                    </p>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ============================================
-            PRICING TEASER — back to bg
-            ============================================ */}
+        {/* ============================
+            SECTION: How It Works
+            ============================ */}
         <section
-          className="px-6"
           style={{
-            background: "var(--t-color-bg)",
-            paddingTop: "var(--t-space-20)",
-            paddingBottom: "var(--t-space-20)",
+            backgroundColor: "var(--color-surface)",
+            padding: "80px 48px",
           }}
         >
-          <div className="max-w-md mx-auto text-center">
-            <h2 className="t-label-md mb-10" style={{ color: "var(--t-color-text-muted)" }}>
-              Pricing
-            </h2>
-
-            <div
-              style={{
-                background: "var(--t-color-surface)",
-                borderRadius: "var(--t-radius-lg)",
-                padding: "var(--t-space-8)",
-                boxShadow: "var(--t-shadow-ambient)",
-              }}
-            >
-              <p className="t-label-md mb-3" style={{ color: "var(--t-color-primary)" }}>
-                Starter
-              </p>
-              <p className="mb-1">
-                <span
+          <div
+            style={{
+              maxWidth: 1280,
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 48,
+            }}
+          >
+            {STEPS.map((step) => (
+              <div key={step.num}>
+                {/* Step number */}
+                <p
+                  className="ci-label-lg"
                   style={{
-                    fontFamily: "var(--t-font-display)",
-                    fontSize: "2.5rem",
-                    fontWeight: 300,
-                    color: "var(--t-color-text)",
+                    color: "var(--color-secondary)",
+                    marginBottom: 16,
                   }}
                 >
-                  $15
-                </span>
-                <span className="t-body-lg ml-1" style={{ color: "var(--t-color-text-muted)" }}>/mo</span>
-              </p>
-              <p className="t-body-md mb-8" style={{ color: "var(--t-color-text-muted)" }}>
-                14-day free trial. Cancel anytime.
-              </p>
+                  {step.num}
+                </p>
 
-              <ul className="t-body-md space-y-3 text-left" style={{ color: "var(--t-color-text-muted)" }}>
-                <li>Unlimited AI scene matching</li>
-                <li>Unlimited downloads</li>
-                <li>All 53,000+ compositions</li>
-                <li>Fully licensed for all platforms</li>
-                <li>Content ID protection</li>
-              </ul>
-            </div>
+                {/* Icon */}
+                <div
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: "var(--radius-lg)",
+                    backgroundColor: "var(--color-surface-container)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {step.icon}
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="ci-title-lg"
+                  style={{
+                    color: "var(--color-on-surface)",
+                    marginTop: 16,
+                    marginBottom: 12,
+                  }}
+                >
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className="ci-body-md"
+                  style={{ color: "var(--color-on-surface-variant)" }}
+                >
+                  {step.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
       </main>
 
       <Footer />
-      <AudioPlayer />
+      <FloatingPlayer />
     </>
   );
 }
