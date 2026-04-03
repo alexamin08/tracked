@@ -6,42 +6,50 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./lib/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        t: {
-          bg: "var(--t-color-bg)",
-          "surface-lowest": "var(--t-color-surface-lowest)",
-          "surface-low": "var(--t-color-surface-low)",
-          surface: "var(--t-color-surface)",
-          "surface-high": "var(--t-color-surface-high)",
-          "surface-highest": "var(--t-color-surface-highest)",
-          "surface-bright": "var(--t-color-surface-bright)",
-          primary: "var(--t-color-primary)",
-          secondary: "var(--t-color-secondary)",
-          tertiary: "var(--t-color-tertiary)",
-          text: "var(--t-color-text)",
-          "text-muted": "var(--t-color-text-muted)",
-          accent: "var(--t-color-accent)",
-          border: "var(--t-color-border)",
-          error: "var(--t-color-error)",
-          "on-primary": "var(--t-color-on-primary)",
+        surface: {
+          DEFAULT: "var(--color-surface)",
+          "container-lowest": "var(--color-surface-container-lowest)",
+          container: "var(--color-surface-container)",
+          "container-high": "var(--color-surface-container-high)",
+          "container-highest": "var(--color-surface-container-highest)",
         },
-      },
-      borderRadius: {
-        "t-sm": "var(--t-radius-sm)",
-        "t-md": "var(--t-radius-md)",
-        "t-lg": "var(--t-radius-lg)",
-        "t-pill": "var(--t-radius-pill)",
-      },
-      boxShadow: {
-        "t-ambient": "var(--t-shadow-ambient)",
-        "t-player": "var(--t-shadow-player)",
+        primary: {
+          DEFAULT: "var(--color-primary)",
+          container: "var(--color-primary-container)",
+        },
+        "on-primary": "var(--color-on-primary)",
+        secondary: {
+          DEFAULT: "var(--color-secondary)",
+          container: "var(--color-secondary-container)",
+        },
+        "on-surface": {
+          DEFAULT: "var(--color-on-surface)",
+          variant: "var(--color-on-surface-variant)",
+        },
+        "outline-variant": "var(--color-outline-variant)",
       },
       fontFamily: {
-        display: ["var(--t-font-display)"],
-        body: ["var(--t-font-body)"],
+        display: ["var(--font-display)"],
+        body: ["var(--font-body)"],
+      },
+      borderRadius: {
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        full: "var(--radius-full)",
+      },
+      boxShadow: {
+        ambient: "var(--shadow-ambient)",
+        player: "var(--shadow-player)",
+      },
+      maxWidth: {
+        content: "var(--content-max-width)",
+      },
+      spacing: {
+        "page": "var(--page-padding)",
       },
     },
   },
