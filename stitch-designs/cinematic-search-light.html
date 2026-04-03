@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tracked | Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "inverse-on-surface": "#313030",
+                      "primary-fixed-dim": "#e1bdcd",
+                      "on-primary-fixed-variant": "#5a3f4d",
+                      "surface-dim": "#f5f3f2", /* Adjusted for Light Mode */
+                      "on-secondary-fixed": "#261900",
+                      "tertiary-fixed": "#e3e2e2",
+                      "outline-variant": "#e5e0e3",
+                      "on-secondary": "#412d00",
+                      "secondary": "#e9c176",
+                      "on-surface": "#131313",
+                      "background": "#fdfcfb", /* Creamy editorial background */
+                      "secondary-fixed": "#ffdea5",
+                      "primary-fixed": "#ffd8e9",
+                      "surface-container-high": "#ebe9e8",
+                      "on-tertiary-fixed-variant": "#464747",
+                      "on-background": "#131313",
+                      "on-tertiary": "#2f3131",
+                      "surface": "#fdfcfb",
+                      "on-tertiary-container": "#464747",
+                      "surface-container-low": "#f5f3f2",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "surface-container": "#f0eeed",
+                      "primary": "#e1bdcd",
+                      "secondary-fixed-dim": "#e9c176",
+                      "on-secondary-container": "#85652d",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#ffefd1",
+                      "outline": "#988e95",
+                      "tertiary": "#606060",
+                      "inverse-primary": "#735664",
+                      "surface-container-highest": "#e5e2e1",
+                      "error": "#ba1a1a",
+                      "surface-bright": "#ffffff",
+                      "on-error-container": "#410002",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "primary-container": "#ffd8e9",
+                      "surface-tint": "#e1bdcd",
+                      "tertiary-container": "#e3e2e2",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#eee8ec",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#2a1521",
+                      "on-primary": "#412936",
+                      "on-primary-container": "#3b0b24",
+                      "on-surface-variant": "#4c444b",
+                      "inverse-surface": "#131313"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #fdfcfb; color: #131313; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar - Rendered from JSON structure with Light Mode adjustments -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl shadow-2xl shadow-black/5 flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-serif italic text-on-surface tracking-tighter">Tracked</span>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface font-medium border-b border-primary font-serif text-lg tracking-tight font-light transition-all duration-300" href="#">Catalog</a>
+<a class="text-tertiary font-normal hover:text-on-surface transition-colors font-serif text-lg tracking-tight font-light" href="#">Pricing</a>
+<a class="text-tertiary font-normal hover:text-on-surface transition-colors font-serif text-lg tracking-tight font-light" href="#">How It Works</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface text-sm font-medium hover:opacity-80 transition-all duration-300">Sign In</button>
+<button class="bg-primary text-on-primary px-5 py-2 text-sm font-medium hover:opacity-80 transition-all duration-300 scale-95 active:scale-90 transition-transform">Start Free Trial</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="pt-24 pb-32 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Search Header Area -->
+<header class="mb-16">
+<div class="flex flex-col gap-2 mb-8">
+<span class="font-label text-xs uppercase tracking-widest text-secondary font-bold">Intelligent Search</span>
+<h1 class="font-serif text-4xl md:text-5xl font-light tracking-tight text-on-surface">Curated Results</h1>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-tertiary">search</span>
+</div>
+<input class="w-full bg-surface-container border-none border-b border-outline-variant focus:border-secondary focus:ring-0 py-6 pl-16 pr-6 font-serif text-xl md:text-2xl text-on-surface placeholder-tertiary shadow-sm" type="text" value="tense interrogation in a true crime doc"/>
+<div class="absolute inset-y-0 right-6 flex items-center">
+<button class="text-secondary font-label text-xs font-bold uppercase tracking-widest border border-secondary/30 px-4 py-1.5 hover:bg-secondary hover:text-on-secondary transition-all">Refine AI</button>
+</div>
+</div>
+</header>
+<!-- Search Results List -->
+<section class="flex flex-col gap-12">
+<!-- Result Card 1 -->
+<article class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
+<div class="md:col-span-4 lg:col-span-3">
+<div class="relative aspect-[16/9] overflow-hidden bg-surface-container-high group-hover:shadow-xl transition-shadow duration-500">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Cinematic production still of a dimly lit interrogation room with a single hanging light and heavy shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeBZMgfjg_adtd-XST_IyUtXRqrzqt1W_c3fs7DRIXTsBbn7nwfRSpJoGZLND5_EUV_FGouEE5LEK5xdZ1eB0ftV1EotMCXLNADpA6ojB2xCuvSPWGP33oEBm6l1fajrPdRoBWVknsCmCKQQ6-W0Cw3PyE5zgKwu_2CoGe_nAnnAZflxg-dMU4FHaGPQX5lwgsIVLZvpff18nXOWFt9bAeLCX0Z1aTeoasX0Y_vu3nlqxctwhOY3ORL_Y0r5jOOTKZvl3CvPV8VeOo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white/90 p-4 rounded-full text-black transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 lg:col-span-9 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h2 class="font-serif text-2xl font-bold tracking-tight text-on-surface">Subterranean Echoes</h2>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-weight="fill">workspace_premium</span>
+                                    AS HEARD ON NETFLIX
+                                </span>
+</div>
+<p class="text-tertiary font-label text-sm">Marcus Vane • Film Noir Anthology</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-secondary font-serif text-3xl font-light">94%</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-tertiary">Match Score</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Tense</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Investigative</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Minor Key</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Low Drone</span>
+</div>
+<div class="bg-surface-container-low p-4 border-l-2 border-secondary/40">
+<p class="text-on-surface-variant text-sm italic font-serif leading-relaxed">
+                            "The low-frequency oscillation mirrors the psychological pressure of questioning, while the rhythmic metallic pings emphasize the passing of time under duress."
+                        </p>
+</div>
+<div class="flex items-center gap-6 mt-2">
+<div class="flex-1 h-8 flex items-end gap-[2px]">
+<!-- Mock Waveform -->
+<div class="w-[3px] bg-primary h-[20%]"></div><div class="w-[3px] bg-primary h-[40%]"></div><div class="w-[3px] bg-primary h-[60%]"></div><div class="w-[3px] bg-primary h-[35%]"></div><div class="w-[3px] bg-primary h-[80%]"></div><div class="w-[3px] bg-primary h-[50%]"></div><div class="w-[3px] bg-primary/40 h-[30%]"></div><div class="w-[3px] bg-primary/40 h-[45%]"></div><div class="w-[3px] bg-primary/40 h-[65%]"></div><div class="w-[3px] bg-primary/40 h-[25%]"></div><div class="w-[3px] bg-primary/40 h-[10%]"></div><div class="w-[3px] bg-primary/40 h-[40%]"></div><div class="w-[3px] bg-primary/40 h-[55%]"></div><div class="w-[3px] bg-primary/40 h-[35%]"></div><div class="w-[3px] bg-primary/40 h-[70%]"></div><div class="w-[3px] bg-primary/40 h-[45%]"></div><div class="w-[3px] bg-primary/40 h-[20%]"></div><div class="w-[3px] bg-primary/40 h-[15%]"></div><div class="w-[3px] bg-primary/40 h-[30%]"></div><div class="w-[3px] bg-primary/40 h-[50%]"></div>
+</div>
+<div class="flex items-center gap-4 text-tertiary">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">download</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">playlist_add</span></button>
+</div>
+</div>
+</div>
+</article>
+<!-- Result Card 2 -->
+<article class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
+<div class="md:col-span-4 lg:col-span-3">
+<div class="relative aspect-[16/9] overflow-hidden bg-surface-container-high group-hover:shadow-xl transition-shadow duration-500">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Black and white close up of a vintage film reel spinning, cinematic lighting with grain texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsQs0X0HqZom0Y28iPm-pZnWZolKUmE2K3Wx2WxF-wM_ACfDaSVczp4iJTdRgp6ZMlcur86UH8OCW4VobWgYVadou-g2B7iASkzEIPXQ_zu7IO2UUOx8ixuW98k2RAwgtP2US1oALor3ZuhpJUoO-UwHky8dxh14JRDWV5-8YHVPMNEZqzOIx45jN8oIKJIOxMZydMfMo6ulLGlxalzAF61geejatnG-tg_ygS-cx9iWM9qvP4op_bu-BO2mtINWv_eErQsVeLV6hA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white/90 p-4 rounded-full text-black transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 lg:col-span-9 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h2 class="font-serif text-2xl font-bold tracking-tight text-on-surface">The Alibi</h2>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-weight="fill">workspace_premium</span>
+                                    AS HEARD ON HBO MAX
+                                </span>
+</div>
+<p class="text-tertiary font-label text-sm">Elena Rossetti • Modern Noir Soundscapes</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-secondary font-serif text-3xl font-light">91%</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-tertiary">Match Score</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Suspenseful</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Electronic</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Unsettling</span>
+</div>
+<div class="bg-surface-container-low p-4 border-l-2 border-secondary/40">
+<p class="text-on-surface-variant text-sm italic font-serif leading-relaxed">
+                            "A persistent ticking element acts as a rhythmic anchor, creating a sense of urgency that perfectly complements narrative breakthroughs in documentary editing."
+                        </p>
+</div>
+<div class="flex items-center gap-6 mt-2">
+<div class="flex-1 h-8 flex items-end gap-[2px]">
+<div class="w-[3px] bg-primary h-[10%]"></div><div class="w-[3px] bg-primary h-[30%]"></div><div class="w-[3px] bg-primary h-[50%]"></div><div class="w-[3px] bg-primary h-[40%]"></div><div class="w-[3px] bg-primary h-[20%]"></div><div class="w-[3px] bg-primary h-[60%]"></div><div class="w-[3px] bg-primary/40 h-[45%]"></div><div class="w-[3px] bg-primary/40 h-[30%]"></div><div class="w-[3px] bg-primary/40 h-[55%]"></div><div class="w-[3px] bg-primary/40 h-[25%]"></div><div class="w-[3px] bg-primary/40 h-[10%]"></div><div class="w-[3px] bg-primary/40 h-[40%]"></div><div class="w-[3px] bg-primary/40 h-[55%]"></div><div class="w-[3px] bg-primary/40 h-[35%]"></div><div class="w-[3px] bg-primary/40 h-[70%]"></div><div class="w-[3px] bg-primary/40 h-[45%]"></div><div class="w-[3px] bg-primary/40 h-[20%]"></div><div class="w-[3px] bg-primary/40 h-[15%]"></div><div class="w-[3px] bg-primary/40 h-[30%]"></div><div class="w-[3px] bg-primary/40 h-[50%]"></div>
+</div>
+<div class="flex items-center gap-4 text-tertiary">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">download</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">playlist_add</span></button>
+</div>
+</div>
+</div>
+</article>
+<!-- Result Card 3 -->
+<article class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
+<div class="md:col-span-4 lg:col-span-3">
+<div class="relative aspect-[16/9] overflow-hidden bg-surface-container-high group-hover:shadow-xl transition-shadow duration-500">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Aerial view of a lonely car driving on a coastal road at dusk, moody teal and orange lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAbrrfJE24UhCb5jFB4w-mx7lWzCpuw0WbfUP_KgfCxxmMi_taVs8yqfXCL9X9KYoxRiXlhnxl3zmj3ZoIqxjYojOxebzi19SdSl114FvqaKOqwiKtFCN3hXY0YT67mTnhQ6lSCtWjlnruWs32tNfeWl6MLOv7i8YmXD_OcseI3gvqSDpuVTIJaXUV5V9KkzOMIMurWhZZUmD9EXEiS2FfFaHXdh0gvPWiLkLdCFNQKPHxovo8M4Sy11SVwPF7SWTMQqSJX1IehFEn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white/90 p-4 rounded-full text-black transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 lg:col-span-9 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h2 class="font-serif text-2xl font-bold tracking-tight text-on-surface">Cold Case</h2>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-weight="fill">workspace_premium</span>
+                                    AS HEARD ON DISCOVERY+
+                                </span>
+</div>
+<p class="text-tertiary font-label text-sm">Julian Thayer • Procedural Tension</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-secondary font-serif text-3xl font-light">88%</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-tertiary">Match Score</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Chilly</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Cinematic</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Dissonant</span>
+</div>
+<div class="bg-surface-container-low p-4 border-l-2 border-secondary/40">
+<p class="text-on-surface-variant text-sm italic font-serif leading-relaxed">
+                            "Features an icy string arrangement that builds into a dissonant climax, capturing the feeling of a mystery that remains unsolved."
+                        </p>
+</div>
+<div class="flex items-center gap-6 mt-2">
+<div class="flex-1 h-8 flex items-end gap-[2px]">
+<div class="w-[3px] bg-primary h-[5%]"></div><div class="w-[3px] bg-primary h-[15%]"></div><div class="w-[3px] bg-primary h-[25%]"></div><div class="w-[3px] bg-primary h-[20%]"></div><div class="w-[3px] bg-primary h-[10%]"></div><div class="w-[3px] bg-primary h-[30%]"></div><div class="w-[3px] bg-primary/40 h-[25%]"></div><div class="w-[3px] bg-primary/40 h-[15%]"></div><div class="w-[3px] bg-primary/40 h-[35%]"></div><div class="w-[3px] bg-primary/40 h-[10%]"></div><div class="w-[3px] bg-primary/40 h-[5%]"></div><div class="w-[3px] bg-primary/40 h-[20%]"></div><div class="w-[3px] bg-primary/40 h-[35%]"></div><div class="w-[3px] bg-primary/40 h-[15%]"></div><div class="w-[3px] bg-primary/40 h-[50%]"></div><div class="w-[3px] bg-primary/40 h-[25%]"></div><div class="w-[3px] bg-primary/40 h-[10%]"></div><div class="w-[3px] bg-primary/40 h-[5%]"></div><div class="w-[3px] bg-primary/40 h-[10%]"></div><div class="w-[3px] bg-primary/40 h-[20%]"></div>
+</div>
+<div class="flex items-center gap-4 text-tertiary">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">download</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">playlist_add</span></button>
+</div>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- Persistent Floating Audio Player -->
+<footer class="fixed bottom-0 left-0 w-full bg-background/95 backdrop-blur-2xl border-t border-outline-variant px-8 py-4 z-50">
+<div class="max-w-7xl mx-auto grid grid-cols-3 items-center">
+<!-- Left: Track Info -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Miniature of the cinematic interrogation room with a moody charcoal filter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8jaocT_QRjwjPfMoGdZtdzunTLHSuR3QBdOullO03ydOQEP6ONXxkkTlmAIoy6fdMjYNRkWYXq1vJaBcO_EQkonu-WLwDlvZoPNes3rxXFMQriQcRHuEx2vZ9v7m8GEFxHJ7DM1HC_mFQJ_RLk4oxlivJXor7PhC48gBO0MvK29XxuQcHYLBTxCEIi5m3kkcVWh7OojrcByontLTSVDtOPztjLj7pxAjkvdwThjBseKcamklLmBjYf2XLtyiUCLxe9de9hzE-b1WD"/>
+</div>
+<div class="flex flex-col">
+<span class="font-serif font-bold text-sm text-on-surface">Subterranean Echoes</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-tertiary">Marcus Vane</span>
+</div>
+<button class="text-tertiary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<!-- Center: Controls -->
+<div class="flex flex-col items-center gap-2">
+<div class="flex items-center gap-8">
+<button class="text-tertiary hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">shuffle</span>
+</button>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">skip_previous</span>
+</button>
+<button class="bg-on-surface text-background p-2 rounded-full hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">pause</span>
+</button>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">skip_next</span>
+</button>
+<button class="text-tertiary hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">repeat</span>
+</button>
+</div>
+<div class="w-full flex items-center gap-3">
+<span class="text-[10px] font-bold text-tertiary">1:42</span>
+<div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3"></div>
+</div>
+<span class="text-[10px] font-bold text-tertiary">4:05</span>
+</div>
+</div>
+<!-- Right: Volume/Queue -->
+<div class="flex items-center justify-end gap-6 text-tertiary">
+<button class="hover:text-on-surface transition-colors"><span class="material-symbols-outlined">mic</span></button>
+<button class="hover:text-on-surface transition-colors"><span class="material-symbols-outlined">queue_music</span></button>
+<div class="flex items-center gap-2 w-32">
+<span class="material-symbols-outlined text-lg">volume_up</span>
+<div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-on-surface w-3/4"></div>
+</div>
+</div>
+<button class="hover:text-on-surface transition-colors"><span class="material-symbols-outlined">open_in_full</span></button>
+</div>
+</div>
+</footer>
+</body></html>

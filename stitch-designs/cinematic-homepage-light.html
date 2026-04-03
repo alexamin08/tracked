@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "inverse-on-surface": "#313030",
+                        "primary-fixed-dim": "#e1bdcd",
+                        "on-primary-fixed-variant": "#5a3f4d",
+                        "surface-dim": "#F5F3F2", // Adjusted for light mode editorial feel
+                        "on-secondary-fixed": "#261900",
+                        "tertiary-fixed": "#e3e2e2",
+                        "outline-variant": "#d5cbd2", // Adjusted for light mode
+                        "on-secondary": "#412d00",
+                        "secondary": "#e9c176",
+                        "on-surface": "#131313", // Dark for light mode
+                        "secondary-fixed": "#ffdea5",
+                        "primary-fixed": "#ffd8e9",
+                        "surface-container-high": "#ebe9e8",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "on-background": "#131313",
+                        "on-tertiary": "#2f3131",
+                        "surface": "#FCFAF9", // Premium paper-white
+                        "on-tertiary-container": "#464747",
+                        "surface-container-low": "#F2F0EF",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "surface-container": "#EAE7E5",
+                        "primary": "#412936", // Inverted primary for readability in light mode
+                        "secondary-fixed-dim": "#e9c176",
+                        "on-secondary-container": "#604403",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fcf3e0",
+                        "outline": "#988e95",
+                        "tertiary": "#464747",
+                        "inverse-primary": "#e1bdcd",
+                        "surface-container-highest": "#DFDCDA",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#ffffff",
+                        "on-error-container": "#410002",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "primary-container": "#e1bdcd",
+                        "surface-tint": "#e1bdcd",
+                        "tertiary-container": "#e3e2e2",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#F5F3F2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#2a1521",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#2a1521",
+                        "on-surface-variant": "#4c444b",
+                        "inverse-surface": "#131313"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #FCFAF9;
+            color: #131313;
+        }
+        .noto-serif { font-family: 'Noto Serif', serif; }
+        .glass-nav {
+            background: rgba(252, 250, 249, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-8 py-5 w-full">
+<div class="text-2xl font-serif italic text-on-surface tracking-tighter">Tracked</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-serif text-lg tracking-tight font-light" href="#">Catalog</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-serif text-lg tracking-tight font-light" href="#">Pricing</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-serif text-lg tracking-tight font-light" href="#">How It Works</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface font-label text-sm uppercase tracking-widest hover:opacity-80 transition-all">Sign In</button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-sm font-label text-xs uppercase tracking-[0.2em] font-bold hover:opacity-90 active:scale-95 transition-all">
+                    Start Free Trial
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="px-8 md:px-16 mb-32">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 space-y-10">
+<div class="space-y-4">
+<p class="font-label text-secondary text-sm uppercase tracking-[0.3em] font-bold">Curated Intelligence</p>
+<h1 class="noto-serif text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-on-surface">
+                            Broadcast-Proven Music for Your Scenes.
+                        </h1>
+</div>
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-secondary/20 to-primary/20 blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+<div class="relative bg-surface-container-low border-b border-outline-variant p-2 flex items-center">
+<span class="material-symbols-outlined ml-4 text-outline" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 py-6 px-4 font-body text-lg text-on-surface placeholder:text-outline/60" placeholder="tense standoff, interrogation room, fluorescent light" type="text"/>
+<button class="bg-on-surface text-surface px-8 py-4 font-label text-xs uppercase tracking-widest font-bold">Search</button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="aspect-[16/9] bg-surface-container relative overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Cinematic production still of a high-tension scene in a dimly lit studio environment with professional cameras and a moody teal and amber lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5tIZgk_quyDbwdPrAhh1TfAHytjh7GK8FyPE2S9ahYxdPQE8M7Nbpd1jNMnSTJxI9-YJLwLcwfYvhJ9OTHxjA1alkYHcVjrWUMJc1eG7c1Ra9QZ-qqxgsiss1_PKxknPZZT6G9gh3r69NXjoI8Q1MjO2bNNR-GoZxS_L7-PNv2KlXDr3DfgPMFtroRMUpN5T8WqZk94U5XMSb0WLha0GCzkeFb40ptrb_cJm9Q8rNh15KDmn0ohg0OcoGrNS9OCT6fxO2LCfcFC_z"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_#e9c176]"></div>
+<span class="font-label text-[10px] uppercase tracking-widest text-white">Live Production Feed</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Collections Scroll -->
+<section class="mb-32 overflow-hidden">
+<div class="px-8 md:px-16 mb-8 flex justify-between items-end">
+<h2 class="noto-serif text-3xl font-light text-on-surface">Thematic Collections</h2>
+<a class="font-label text-xs uppercase tracking-widest text-outline hover:text-on-surface transition-colors" href="#">View All Catalog</a>
+</div>
+<div class="flex gap-6 overflow-x-auto px-8 md:px-16 pb-8 hide-scrollbar">
+<!-- Collection Item -->
+<div class="flex-none w-72 group cursor-pointer">
+<div class="aspect-[16/9] mb-4 bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Dramatic bright stage lighting with silhouettes of people in a reality television competition set" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvnLbyXib5mv-2YmcbKd4i8ifRHfA1QaHaChME2L6vk1JcVb8lQAkojwqnBZkTw-bKcHyZTXFeasv2cQ0MVkZaC6KcDb9XbZWcxTZpPAhhcRP3vSZWu3EyPZZd7REZVbTeTrLlaXNtKJHgc2TqCaS2PwK6Vvh7CshPJGMaG5QLTbLVD_zZcHzE4IJDwjNEV9N7ybcbttKWoj6TRPJ73D9nDmOQn8_e1c-11W-vir2-gP90M3qEbq2hCrp1nkMAIxRCcL66JQrV4OBR"/>
+</div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface font-semibold">Reality Competition</p>
+</div>
+<!-- Collection Item -->
+<div class="flex-none w-72 group cursor-pointer">
+<div class="aspect-[16/9] mb-4 bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Atmospheric shot of a dimly lit evidence room with blue and red subtle police siren light reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiBUevQMwxf2s-KRW2Hbmj3ApGJznf8Tum18IF1kiRaqhaIR9McyvLULjJ4QStVDbY9TTYsJhp4BL9TSBTIahZomBEBu7NDZ2H5lzgbsptfBasNrZ6hcsUbz2V_hJNengFY2FvwsTbnoAlBXOr6m4yt1eEZcjNVBF7DAlVDCoj5fQTXYIOexlCzgiNps6lAj5hx5E7_PAVgSCaLDmmcPTETAw1lgrggzAYneT7Mkov67un2bLp3iaANlWX0V7cM_YbZ3fn6DWrt1-Q"/>
+</div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface font-semibold">True Crime</p>
+</div>
+<!-- Collection Item -->
+<div class="flex-none w-72 group cursor-pointer">
+<div class="aspect-[16/9] mb-4 bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Macro shot of an old film reel projector lens with dust particles dancing in a single beam of light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0V4tSH6riw4H2UH9_j13tM20w8soJltS4CMFdogy7MwcUc8ZD-1wBe1Ospqt30DbQPfCXld_8Ar6GTNKc1DoF7zwPCuC91bD8dAfmMkgSbPzbV-g0ehoALSuvZU1hAuwI5e-d3USBaIMd9Ig0eT5-krs4RXW34OBGXlpKoC1KO7NrMgf2PzoOBFULzk_lAdVHiBuWb2R8eB896DuN3O_6a_JmLuHy7ZntG0T2Gy6iVICBOOZ103xSbo-MWlCP5w_VqckfgVqsbLLg"/>
+</div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface font-semibold">Documentary</p>
+</div>
+<!-- Collection Item -->
+<div class="flex-none w-72 group cursor-pointer">
+<div class="aspect-[16/9] mb-4 bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Soft focus warm sunset over a luxury tropical resort pool with palm tree reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7pdm6sxIukUpmaiBfPKHycBY2fqmWZkZB-UuJT7up4eIIXkgZZ84BSstV9IWcFk6P0ToejfJUMWLFqdK5MlJxMpxEPEOMMj9Yl_gO9aXaVAzEu38ECFy97_ak6-q0e8wVsPoxs5693t0xuMhi9YpVyDNNR6yTYizNhaziSzKTsEGz3Gbre0TgIKutl97WulIXygJ77r3dzHzud8u3YbJMlae62nDz99N9MqF2SFihHTXGzukxoz_2t5k8zMLkh1_Py4oBiRXeUXOL"/>
+</div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface font-semibold">Dating Shows</p>
+</div>
+<!-- Collection Item -->
+<div class="flex-none w-72 group cursor-pointer">
+<div class="aspect-[16/9] mb-4 bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Top down view of a cluttered desk with various documents, a magnifying glass and cold blue morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd24HeXIvONOdD88sRPB4Jd9_XuU-sEvZ5d7a_s7NyglUR0u7fCy2kGw3io21o9HmFUSoLN1ybN5e0vu2MlVKNhRJsaXwd1wXG7mBy-zZqEMEE7_XEzwcR6ETw_Y16RrfQzlK_Rm3qvPzYmUXu-SfXPFrn91Ww63nspMwZEYlQ8fsjsbqwJLcJdScUoGwluLxO2842mn_D8YiAaQvnuO2uN3F17e0XpmjzVc59Y81RTqaqd_RcjtvvNbdVAvsTFsJEfHTllKRtb2QC"/>
+</div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface font-semibold">Investigative</p>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="bg-surface-container-low py-32 px-8 md:px-16">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="noto-serif text-4xl font-bold mb-4">The Precision of AI Meets the Soul of the Screen.</h2>
+<div class="w-24 h-0.5 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="space-y-6 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-container border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-3xl">edit_note</span>
+</div>
+<h3 class="font-label text-sm uppercase tracking-[0.2em] font-bold">Describe your scene</h3>
+<p class="font-body text-on-surface-variant leading-relaxed text-sm">Tell our curator exactly what is happening on screen—from the emotional beats to the physical environment.</p>
+</div>
+<div class="space-y-6 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-container border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-3xl">neurology</span>
+</div>
+<h3 class="font-label text-sm uppercase tracking-[0.2em] font-bold">AI matches the music</h3>
+<p class="font-body text-on-surface-variant leading-relaxed text-sm">Our custom neural engine scans 42,000+ stems to find the precise sonic match for your visual pacing.</p>
+</div>
+<div class="space-y-6 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-container border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<h3 class="font-label text-sm uppercase tracking-[0.2em] font-bold">License instantly</h3>
+<p class="font-body text-on-surface-variant leading-relaxed text-sm">One click, total clearance. All tracks are pre-cleared for global broadcast, streaming, and digital use.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stat Bar -->
+<section class="border-y border-outline-variant/30 py-12">
+<div class="px-8 md:px-16 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
+<div class="flex items-center gap-4">
+<span class="font-label text-2xl font-bold text-on-surface">42,000+</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-outline">compositions</span>
+</div>
+<div class="hidden md:block w-px h-8 bg-outline-variant/30"></div>
+<div class="flex items-center gap-4">
+<span class="font-label text-2xl font-bold text-on-surface">140,000+</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-outline">production files</span>
+</div>
+<div class="hidden md:block w-px h-8 bg-outline-variant/30"></div>
+<div class="flex items-center gap-4">
+<span class="font-label text-2xl font-bold text-on-surface">2008</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-outline">Scoring TV Since</span>
+</div>
+</div>
+</section>
+<!-- Final CTA / Bento Feel -->
+<section class="px-8 md:px-16 py-32">
+<div class="bg-on-surface text-surface p-12 md:p-24 relative overflow-hidden">
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-20 pointer-events-none">
+<div class="w-full h-full bg-gradient-to-l from-primary to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="noto-serif text-5xl font-bold mb-8 leading-tight">Ready to elevate your production value?</h2>
+<p class="font-body text-surface-variant/80 text-xl mb-12">Join the world's leading editors and showrunners who trust Tracked for their daily scoring needs.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary text-on-secondary px-10 py-5 font-label text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition-all">Start Free Trial</button>
+<button class="border border-surface/20 px-10 py-5 font-label text-xs uppercase tracking-[0.2em] font-bold hover:bg-surface/10 transition-all">Contact Enterprise</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface py-20 px-8 md:px-16 border-t border-outline-variant/10">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
+<div class="col-span-2 space-y-6">
+<div class="text-2xl font-serif italic text-on-surface tracking-tighter">Tracked</div>
+<p class="text-on-surface-variant font-body text-sm max-w-xs leading-relaxed">
+                    Premium cinematic intelligence for the modern creator. Born in the studio, refined by AI.
+                </p>
+</div>
+<div class="space-y-6">
+<h4 class="font-label text-[10px] uppercase tracking-[0.3em] font-bold text-secondary">Product</h4>
+<ul class="space-y-4 font-body text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Music Library</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">AI Search</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Custom Scoring</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label text-[10px] uppercase tracking-[0.3em] font-bold text-secondary">Company</h4>
+<ul class="space-y-4 font-body text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label text-[10px] uppercase tracking-[0.3em] font-bold text-secondary">Legal</h4>
+<ul class="space-y-4 font-body text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Licensing Terms</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Use</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Copyright</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label text-[10px] uppercase tracking-[0.3em] font-bold text-secondary">Connect</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">brand_awareness</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">podcasts</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">movie</span>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body text-[10px] text-outline uppercase tracking-widest">© 2024 Tracked Music Group. All Rights Reserved.</p>
+<div class="flex gap-8 items-center">
+<span class="font-label text-[10px] text-outline uppercase tracking-widest">System Status: Optimal</span>
+<div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+</div>
+</div>
+</footer>
+</body></html>

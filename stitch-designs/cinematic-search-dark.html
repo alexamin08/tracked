@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tracked | Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&amp;family=Manrope:wght@200;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "inverse-on-surface": "#313030",
+                        "primary-fixed-dim": "#e1bdcd",
+                        "on-primary-fixed-variant": "#5a3f4d",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed": "#261900",
+                        "tertiary-fixed": "#e3e2e2",
+                        "outline-variant": "#4c444b",
+                        "on-secondary": "#412d00",
+                        "secondary": "#e9c176",
+                        "on-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "secondary-fixed": "#ffdea5",
+                        "primary-fixed": "#ffd8e9",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#2f3131",
+                        "surface": "#131313",
+                        "on-tertiary-container": "#a7a8a8",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "surface-container": "#201f1f",
+                        "primary": "#e1bdcd",
+                        "secondary-fixed-dim": "#e9c176",
+                        "on-secondary-container": "#dab36a",
+                        "on-error": "#690005",
+                        "secondary-container": "#604403",
+                        "outline": "#988e95",
+                        "tertiary": "#c6c6c6",
+                        "inverse-primary": "#735664",
+                        "surface-container-highest": "#353534",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#3a3939",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "primary-container": "#4f3543",
+                        "surface-tint": "#e1bdcd",
+                        "tertiary-container": "#3c3d3d",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353534",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#2a1521",
+                        "on-primary": "#412936",
+                        "on-primary-container": "#c19eae",
+                        "on-surface-variant": "#cfc3cb",
+                        "inverse-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .waveform-bar {
+            width: 2px;
+            margin-right: 1px;
+            background-color: #e1bdcd;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-xl shadow-2xl shadow-black/40 flex justify-between items-center px-8 py-4">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-serif italic text-[#E1BDCD] tracking-tighter">Tracked</span>
+<div class="hidden md:flex gap-8">
+<a class="text-[#C6C6C6] font-normal hover:text-white transition-colors font-serif text-lg tracking-tight font-light" href="#">Catalog</a>
+<a class="text-[#C6C6C6] font-normal hover:text-white transition-colors font-serif text-lg tracking-tight font-light" href="#">Pricing</a>
+<a class="text-[#C6C6C6] font-normal hover:text-white transition-colors font-serif text-lg tracking-tight font-light" href="#">How It Works</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#C6C6C6] hover:opacity-80 transition-all duration-300 scale-95 active:scale-90 font-label text-sm uppercase tracking-widest">Sign In</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-sm font-label text-sm uppercase tracking-widest font-bold hover:opacity-90 transition-all scale-95 active:scale-90">Start Free Trial</button>
+</div>
+</nav>
+<main class="pt-28 pb-32 px-8 max-w-7xl mx-auto">
+<!-- Search Header Section -->
+<header class="mb-16">
+<div class="flex items-center gap-4 mb-2">
+<span class="text-secondary font-label text-[0.6875rem] uppercase tracking-[0.2em]">Curated Intelligence Search</span>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full bg-surface-container-lowest border-b border-outline-variant/30 py-6 pl-16 pr-8 text-2xl font-serif italic tracking-tight focus:outline-none focus:border-secondary transition-colors placeholder:opacity-30" type="text" value="tense interrogation in a true crime doc"/>
+</div>
+<div class="mt-4 flex gap-6 text-on-surface-variant/60 font-label text-xs uppercase tracking-widest">
+<span>5 matches found</span>
+<span class="border-l border-outline-variant/30 pl-6">Sorted by relevance</span>
+</div>
+</header>
+<!-- Search Results List -->
+<div class="space-y-12">
+<!-- Result Card 1 -->
+<div class="group relative grid grid-cols-12 gap-8 p-8 transition-all hover:bg-surface-bright rounded-sm">
+<!-- Thumbnail -->
+<div class="col-span-4 relative aspect-[16/9] overflow-hidden rounded-sm bg-surface-container shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" data-alt="Cinematic production still of a dimly lit interrogation room with a single overhead lamp and intense shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcYSak-6N1WqaLD5wMEoE6g-ItcMv8jX2sW_hTMFL-6Uarm_x_Pb6jvruozCKAkMy8syVamrAWVEr12mryPEyRE-ipC6NYcCqSqNt3JgRnqFyrJvzhRQKBSae_8FWZXJNr7jpHXvB-LdDl5DR-LCNPtVMHuJWm-_HGjzSqvb_fTaHKlQjVuvDWqZlT2hF4SJ-oX7XvcHWc_-rHb9_x7tMKYmOFsyP2rfEaiHqJdwuEWZ0UGougmTssE-F1RLGHyqt67CC9wW9ADYG7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<button class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+<div class="absolute top-4 left-4 px-3 py-1 bg-secondary text-on-secondary font-label text-[0.6rem] font-bold uppercase tracking-widest rounded-full shadow-lg">
+                        94% Match
+                    </div>
+</div>
+<!-- Info -->
+<div class="col-span-8 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-3xl font-serif tracking-tight leading-none group-hover:text-primary transition-colors">Static Shadows</h3>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-wider mt-2">Marcus Vane · Cinematic Ambient</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">favorite</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">download</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">add</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-secondary-container/30 border border-secondary/20 rounded-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-secondary font-label text-[0.625rem] font-bold uppercase tracking-wider">As Heard on Netflix</span>
+</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Tense</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Investigative</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Minor Key</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 mb-6 border-l-2 border-primary/40">
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">
+<span class="text-primary font-bold">Why this track:</span> The persistent staccato cello creates an underlying urgency that perfectly mirrors high-stakes questioning, while the cold digital textures evoke the clinical atmosphere of a modern crime lab.
+                        </p>
+</div>
+<div class="mt-auto flex items-center gap-4">
+<div class="flex-1 h-8 flex items-end gap-[2px]">
+<div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-4/5 opacity-40"></div><div class="waveform-bar h-full opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-full opacity-40"></div><div class="waveform-bar h-5/6 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-5/6 opacity-40"></div><div class="waveform-bar h-full opacity-40"></div><div class="waveform-bar h-4/5 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div>
+<div class="waveform-bar h-1/3 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-4/5 opacity-20"></div><div class="waveform-bar h-full opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-3/4 opacity-20"></div><div class="waveform-bar h-full opacity-20"></div><div class="waveform-bar h-5/6 opacity-20"></div>
+</div>
+<span class="text-outline font-label text-[10px] tracking-widest uppercase">03:42</span>
+</div>
+</div>
+</div>
+<!-- Result Card 2 -->
+<div class="group relative grid grid-cols-12 gap-8 p-8 transition-all hover:bg-surface-bright rounded-sm">
+<div class="col-span-4 relative aspect-[16/9] overflow-hidden rounded-sm bg-surface-container shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" data-alt="Moody cinematic close up of a retro typewriter on a desk in a dark room with dust motes caught in a beam of light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEcvFUekspbCqLHQLwokmMKQNB5OWnTYBCZLwCXSJV8KY3L3nGIszkzpioDfGm_13XHF96pUI5sYxbYwh2Dp_S1ChNmzEaO0T2HCa-QbYryqk3Q3Ld22eCKd-63S_m1cvEerHbFN8CgLyx4RAv6MkDGg5VqP1Prdp4bx2FWfKIMZU5BN021JErSxaiuol_cuKyK6_o6uC8GUnPuEA9V5EbkMLZgF42BmHA40I9RZYccMYo7t8hKcnOlOmy9NuORRiQnMWiSC0k3pGK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<button class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+<div class="absolute top-4 left-4 px-3 py-1 bg-secondary text-on-secondary font-label text-[0.6rem] font-bold uppercase tracking-widest rounded-full shadow-lg">
+                        89% Match
+                    </div>
+</div>
+<div class="col-span-8 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-3xl font-serif tracking-tight leading-none group-hover:text-primary transition-colors">The Paper Trail</h3>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-wider mt-2">Elena S. · Orchestral Noir</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">favorite</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">download</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">add</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-secondary-container/30 border border-secondary/20 rounded-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-secondary font-label text-[0.625rem] font-bold uppercase tracking-wider">As Heard on HBO Max</span>
+</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Mystery</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Analytical</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Clock-like</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 mb-6 border-l-2 border-primary/40">
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">
+<span class="text-primary font-bold">Why this track:</span> Employs a relentless ticking percussion element that simulates a detective's logic unfolding. The sparse piano notes provide moments of cold clarity during narrative revelations.
+                        </p>
+</div>
+<div class="mt-auto flex items-center gap-4">
+<div class="flex-1 h-8 flex items-end gap-[2px]">
+<div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-full opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div>
+<div class="waveform-bar h-1/4 opacity-20"></div><div class="waveform-bar h-1/3 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-3/4 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-1/3 opacity-20"></div><div class="waveform-bar h-1/4 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-3/4 opacity-20"></div>
+</div>
+<span class="text-outline font-label text-[10px] tracking-widest uppercase">02:15</span>
+</div>
+</div>
+</div>
+<!-- Result Card 3 -->
+<div class="group relative grid grid-cols-12 gap-8 p-8 transition-all hover:bg-surface-bright rounded-sm">
+<div class="col-span-4 relative aspect-[16/9] overflow-hidden rounded-sm bg-surface-container shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" data-alt="Blurry city lights at night through a rainy car window with deep blue and orange bokeh reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd_tQTii9GJmbb1OiREoZjGywuShxdoqSupTfxDEC4NPpFkavpfoUgX-5wrJtK_f_Zf3TUxJh49RpC2Myya5fwID_wb86PNb2RMzoVXqbS6NHexDx7e_wi3KorYCdAOXk5TVvCn-zx6iwMiO2pnWYgQ8Xo8dPKKUcuS0YeqHuUelYAZ1eJ4zLr8F96yYO7uVgLnUVtxwEbkXQJc3AgBoTqfUUEJa4DJOFx7rxPueKl_w7Ei5h_OxjbTrL1Hk3u8KDnoIfOhs3MsXh2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<button class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+<div class="absolute top-4 left-4 px-3 py-1 bg-secondary text-on-secondary font-label text-[0.6rem] font-bold uppercase tracking-widest rounded-full shadow-lg">
+                        85% Match
+                    </div>
+</div>
+<div class="col-span-8 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-3xl font-serif tracking-tight leading-none group-hover:text-primary transition-colors">Echoes in the Hall</h3>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-wider mt-2">Dystopia Labs · Industrial Drone</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">favorite</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">download</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">add</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-secondary-container/30 border border-secondary/20 rounded-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-secondary font-label text-[0.625rem] font-bold uppercase tracking-wider">As Heard on Discovery</span>
+</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Dark</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Suspense</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Cold</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 mb-6 border-l-2 border-primary/40">
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">
+<span class="text-primary font-bold">Why this track:</span> A deep, vibrating sub-bass creates physical tension. The occasional metallic clang suggests a sense of confinement, perfect for prison or isolation themes.
+                        </p>
+</div>
+<div class="mt-auto flex items-center gap-4">
+<div class="flex-1 h-8 flex items-end gap-[2px]">
+<div class="waveform-bar h-1/6 opacity-40"></div><div class="waveform-bar h-1/5 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/5 opacity-40"></div><div class="waveform-bar h-1/6 opacity-40"></div><div class="waveform-bar h-1/5 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div>
+<div class="waveform-bar h-1/6 opacity-20"></div><div class="waveform-bar h-1/5 opacity-20"></div><div class="waveform-bar h-1/4 opacity-20"></div><div class="waveform-bar h-1/3 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-3/4 opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-1/3 opacity-20"></div>
+</div>
+<span class="text-outline font-label text-[10px] tracking-widest uppercase">05:10</span>
+</div>
+</div>
+</div>
+<!-- Result Card 4 -->
+<div class="group relative grid grid-cols-12 gap-8 p-8 transition-all hover:bg-surface-bright rounded-sm">
+<div class="col-span-4 relative aspect-[16/9] overflow-hidden rounded-sm bg-surface-container shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" data-alt="Top down view of a cluttered evidence board with red string connecting various photographs and newspaper clippings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA52BWOtbFkJx4ds5WXiG2lJKZNYXdeffJq8HXNZ6Jh8hMDYyxom-S1J0tfwE1f-xySRC14XRmFd3C5hC4lfjpJQbLBmU60UhBmDMea8Q52kWePX5Vl_HT5LIniAHgLevU1FrqXe7E9F3iY7W9v4Fi7eMjYoB-lhGCaKqyKNcslax6gLxP_UAjq7JF5oRPo8O6lVT4ZUdCqW3oJCV5x6v-824XMDBIawGcGXki8rOiQT7-okkcx5fXSsFELft0M1lVX59SXX3pNHYb"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<button class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+<div class="absolute top-4 left-4 px-3 py-1 bg-secondary text-on-secondary font-label text-[0.6rem] font-bold uppercase tracking-widest rounded-full shadow-lg">
+                        81% Match
+                    </div>
+</div>
+<div class="col-span-8 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-3xl font-serif tracking-tight leading-none group-hover:text-primary transition-colors">Connecting Dots</h3>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-wider mt-2">The Alchemist · Experimental Techno</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">favorite</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">download</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">add</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-secondary-container/30 border border-secondary/20 rounded-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-secondary font-label text-[0.625rem] font-bold uppercase tracking-wider">As Heard on A&amp;E</span>
+</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Complex</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Fast-Paced</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Urgent</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 mb-6 border-l-2 border-primary/40">
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">
+<span class="text-primary font-bold">Why this track:</span> A rapid, rhythmic pulse mimics the frantic energy of a chase or a breakthrough in an investigation. Minimalist and driving.
+                        </p>
+</div>
+<div class="mt-auto flex items-center gap-4">
+<div class="flex-1 h-8 flex items-end gap-[2px]">
+<div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-full opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-full opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-full opacity-40"></div><div class="waveform-bar h-3/4 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div>
+<div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-3/4 opacity-20"></div><div class="waveform-bar h-full opacity-20"></div><div class="waveform-bar h-3/4 opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-3/4 opacity-20"></div><div class="waveform-bar h-full opacity-20"></div>
+</div>
+<span class="text-outline font-label text-[10px] tracking-widest uppercase">04:00</span>
+</div>
+</div>
+</div>
+<!-- Result Card 5 -->
+<div class="group relative grid grid-cols-12 gap-8 p-8 transition-all hover:bg-surface-bright rounded-sm">
+<div class="col-span-4 relative aspect-[16/9] overflow-hidden rounded-sm bg-surface-container shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" data-alt="Distant silhouette of a person standing under a single streetlamp in a foggy alleyway at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjL57z-MPeuCvBMghZWv4ENSSyG6lCA3h2X5q6A08azwkdc-_rN0qihzM9GTw79MLhHWwOs_DGqJdtnXdtxRA2PDpwj-wloJCc3DZrlnW32bvYVDtbvRbSViBLvgn51AVTlfuhM6mxMFFEvIWhdeJGkN50OHUEk21_NdZJD9b7wJW7HChFKSXIDj5WFFfw4baNyL3f0Jm3oL2EC7rp85K3IxLxu9Xpb5j1R6xalv0blDWe3_iwzBp8YFMN81GtV9ToxkY4mL8EZY_m"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<button class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+<div class="absolute top-4 left-4 px-3 py-1 bg-secondary text-on-secondary font-label text-[0.6rem] font-bold uppercase tracking-widest rounded-full shadow-lg">
+                        74% Match
+                    </div>
+</div>
+<div class="col-span-8 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-3xl font-serif tracking-tight leading-none group-hover:text-primary transition-colors">The Unseen Witness</h3>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-wider mt-2">Lumina · Neo-Classical</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">favorite</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">download</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">add</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-secondary-container/30 border border-secondary/20 rounded-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-secondary font-label text-[0.625rem] font-bold uppercase tracking-wider">As Heard on Netflix</span>
+</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Somber</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Cinematic</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-tertiary font-label text-[0.625rem] uppercase tracking-widest border border-outline-variant/20">Emotional</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 mb-6 border-l-2 border-primary/40">
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">
+<span class="text-primary font-bold">Why this track:</span> A melancholy violin melody sits atop a bed of unsettling synthesizers, providing a human element to the cold facts of a criminal case.
+                        </p>
+</div>
+<div class="mt-auto flex items-center gap-4">
+<div class="flex-1 h-8 flex items-end gap-[2px]">
+<div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/4 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-2/3 opacity-40"></div><div class="waveform-bar h-1/2 opacity-40"></div><div class="waveform-bar h-1/3 opacity-40"></div>
+<div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-1/3 opacity-20"></div><div class="waveform-bar h-1/4 opacity-20"></div><div class="waveform-bar h-1/3 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-2/3 opacity-20"></div><div class="waveform-bar h-1/2 opacity-20"></div><div class="waveform-bar h-1/3 opacity-20"></div><div class="waveform-bar h-1/4 opacity-20"></div><div class="waveform-bar h-1/3 opacity-20"></div>
+</div>
+<span class="text-outline font-label text-[10px] tracking-widest uppercase">03:55</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Audio Player -->
+<footer class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-4rem)] max-w-6xl z-50">
+<div class="bg-surface-container/90 backdrop-blur-2xl rounded-sm p-4 flex items-center justify-between shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] border border-outline-variant/10">
+<!-- Left: Track Info -->
+<div class="flex items-center gap-4 w-1/3">
+<div class="w-12 h-12 rounded-sm overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail of the playing track's artwork, a dark interrogation room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnP9hCsuxKUhwZlNhDh34aQRJQG_7QpnRoJcfJExrnK9yVouh1LZec5xqEWixmIBy-dYX_koV1piYrLV5qev438GdgQ0WjIuF_FMPNdo2oe00PQCASuXQ_QQk_hmxXRnlvVoF7U-WI1CrVDuTlzYyWlxlj8gBf3dsoxpNkfdxUaZY45aKwb_vsNEn_OZInzjRtytXJ5HDKfE0hdUZyKSZ0yOkyOzE_RRSHCQtKF5lafVebbdptGvUOyRJNFe4AQQ59vzHskeA98XTy"/>
+</div>
+<div class="overflow-hidden">
+<h4 class="text-on-surface font-serif text-lg leading-tight truncate">Static Shadows</h4>
+<p class="text-on-surface-variant font-label text-[0.625rem] uppercase tracking-widest truncate">Marcus Vane</p>
+</div>
+<span class="material-symbols-outlined text-primary text-xl ml-2 cursor-pointer">favorite</span>
+</div>
+<!-- Center: Controls -->
+<div class="flex flex-col items-center gap-2 w-1/3">
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-white transition-colors">shuffle</button>
+<button class="material-symbols-outlined text-on-surface text-3xl">skip_previous</button>
+<button class="bg-on-surface text-background w-10 h-10 rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="material-symbols-outlined text-on-surface text-3xl">skip_next</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-white transition-colors">repeat</button>
+</div>
+<div class="flex items-center gap-3 w-full max-w-md">
+<span class="text-[10px] text-outline font-label uppercase tracking-widest">0:45</span>
+<div class="flex-1 h-1 bg-surface-container-highest rounded-full relative overflow-hidden group cursor-pointer">
+<div class="absolute inset-y-0 left-0 w-1/3 bg-primary group-hover:bg-primary-fixed-dim transition-colors"></div>
+</div>
+<span class="text-[10px] text-outline font-label uppercase tracking-widest">3:42</span>
+</div>
+</div>
+<!-- Right: Secondary Controls -->
+<div class="flex items-center justify-end gap-6 w-1/3">
+<button class="material-symbols-outlined text-outline hover:text-white transition-colors">mic_external_on</button>
+<button class="material-symbols-outlined text-outline hover:text-white transition-colors">queue_music</button>
+<button class="material-symbols-outlined text-outline hover:text-white transition-colors">devices</button>
+<div class="flex items-center gap-2 group">
+<span class="material-symbols-outlined text-outline group-hover:text-white transition-colors">volume_up</span>
+<div class="w-24 h-1 bg-surface-container-highest rounded-full overflow-hidden relative cursor-pointer">
+<div class="absolute inset-y-0 left-0 w-3/4 bg-on-surface-variant group-hover:bg-primary transition-colors"></div>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-white transition-colors">fullscreen</button>
+</div>
+</div>
+</footer>
+</body></html>

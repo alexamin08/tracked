@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "inverse-on-surface": "#313030",
+                      "primary-fixed-dim": "#e1bdcd",
+                      "on-primary-fixed-variant": "#5a3f4d",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed": "#261900",
+                      "tertiary-fixed": "#e3e2e2",
+                      "outline-variant": "#4c444b",
+                      "on-secondary": "#412d00",
+                      "secondary": "#e9c176",
+                      "on-surface": "#e5e2e1",
+                      "background": "#131313",
+                      "secondary-fixed": "#ffdea5",
+                      "primary-fixed": "#ffd8e9",
+                      "surface-container-high": "#2a2a2a",
+                      "on-tertiary-fixed-variant": "#464747",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary": "#2f3131",
+                      "surface": "#131313",
+                      "on-tertiary-container": "#a7a8a8",
+                      "surface-container-low": "#1c1b1b",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "surface-container": "#201f1f",
+                      "primary": "#e1bdcd",
+                      "secondary-fixed-dim": "#e9c176",
+                      "on-secondary-container": "#dab36a",
+                      "on-error": "#690005",
+                      "secondary-container": "#604403",
+                      "outline": "#988e95",
+                      "tertiary": "#c6c6c6",
+                      "inverse-primary": "#735664",
+                      "surface-container-highest": "#353534",
+                      "error": "#ffb4ab",
+                      "surface-bright": "#3a3939",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "primary-container": "#4f3543",
+                      "surface-tint": "#e1bdcd",
+                      "tertiary-container": "#3c3d3d",
+                      "error-container": "#93000a",
+                      "surface-variant": "#353534",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary-fixed": "#2a1521",
+                      "on-primary": "#412936",
+                      "on-primary-container": "#c19eae",
+                      "on-surface-variant": "#cfc3cb",
+                      "inverse-surface": "#e5e2e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #131313; }
+        ::-webkit-scrollbar-thumb { background: #353534; }
+
+        /* Light Mode Override for specific "Light companion" request */
+        .light-theme {
+            --bg-color: #F9F7F2; /* Premium cream tint */
+            --text-main: #131313;
+            --surface-card: #FFFFFF;
+            --surface-alt: #F0EDE6;
+        }
+      </style>
+</head>
+<body class="bg-[#F9F7F2] text-[#131313] light-theme">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#F9F7F2]/80 backdrop-blur-xl shadow-2xl shadow-black/5">
+<div class="flex justify-between items-center px-8 py-5 w-full">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-serif italic text-[#131313] tracking-tighter">Tracked</span>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#131313] font-medium border-b border-[#131313] font-serif text-lg tracking-tight" href="#">Pricing</a>
+<a class="text-[#4c444b] font-normal hover:text-black transition-colors font-serif text-lg tracking-tight" href="#">Catalog</a>
+<a class="text-[#4c444b] font-normal hover:text-black transition-colors font-serif text-lg tracking-tight" href="#">How It Works</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#131313] font-serif text-lg font-light hover:opacity-80 transition-all">Sign In</button>
+<button class="bg-[#131313] text-[#F9F7F2] px-6 py-2.5 text-sm font-label uppercase tracking-widest hover:opacity-90 transition-transform active:scale-95">Start Free Trial</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="text-center mb-20 space-y-6">
+<span class="text-[#e9c176] font-label text-xs uppercase tracking-[0.3em] font-semibold">The Digital Curator</span>
+<h1 class="text-6xl md:text-7xl font-serif tracking-tight leading-tight max-w-4xl mx-auto">
+                Select your <span class="italic">sonic standard</span>.
+            </h1>
+<p class="font-body text-[#4c444b] text-lg max-w-xl mx-auto">
+                Professional intelligence for the modern curator. Choose the plan that scales with your creative ambition.
+            </p>
+<!-- Pricing Toggle -->
+<div class="flex items-center justify-center gap-4 pt-8">
+<span class="text-sm font-label text-[#131313] font-semibold">Monthly</span>
+<button class="w-14 h-7 bg-[#E1BDCD] rounded-full p-1 flex items-center justify-end relative">
+<div class="w-5 h-5 bg-white shadow-sm rounded-full"></div>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-sm font-label text-[#4c444b]">Annual</span>
+<span class="bg-[#E9C176]/20 text-[#604403] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">2 months free</span>
+</div>
+</div>
+</section>
+<!-- Pricing Cards -->
+<div class="grid md:grid-cols-3 gap-8 items-stretch mb-32">
+<!-- Starter Card -->
+<div class="bg-white p-10 flex flex-col h-full border border-black/5 hover:shadow-xl transition-shadow duration-500">
+<div class="mb-12">
+<h3 class="text-2xl font-serif italic mb-2">Starter</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-headline font-bold">$15</span>
+<span class="text-[#4c444b] font-body text-sm">/mo</span>
+</div>
+</div>
+<ul class="space-y-6 mb-16 flex-grow">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E1BDCD] text-lg">check_circle</span>
+<span class="text-sm font-body text-[#4c444b]">MP3 downloads included</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E1BDCD] text-lg">check_circle</span>
+<span class="text-sm font-body text-[#4c444b]">Sync for 2 platforms</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E1BDCD] text-lg">check_circle</span>
+<span class="text-sm font-body text-[#4c444b]">10 AI searches per day</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E1BDCD] text-lg">check_circle</span>
+<span class="text-sm font-body text-[#4c444b]">50 saved items</span>
+</li>
+</ul>
+<button class="w-full border border-black py-4 text-xs font-label uppercase tracking-widest hover:bg-black hover:text-white transition-colors">Select Starter</button>
+</div>
+<!-- Pro Card (Featured) -->
+<div class="bg-[#201f1f] text-white p-10 flex flex-col h-full relative overflow-hidden shadow-2xl">
+<div class="absolute top-0 right-0">
+<div class="bg-[#E9C176] text-[#261900] px-4 py-1 text-[10px] font-bold uppercase tracking-widest">Most Popular</div>
+</div>
+<div class="mb-12">
+<h3 class="text-2xl font-serif italic mb-2 text-[#E1BDCD]">Pro</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-headline font-bold">$29</span>
+<span class="text-[#c6c6c6] font-body text-sm">/mo</span>
+</div>
+</div>
+<ul class="space-y-6 mb-16 flex-grow">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E9C176] text-lg">stars</span>
+<span class="text-sm font-body text-[#e5e2e1]">WAV + stems included</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E9C176] text-lg">stars</span>
+<span class="text-sm font-body text-[#e5e2e1]">Sync for 5 platforms</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E9C176] text-lg">stars</span>
+<span class="text-sm font-body text-[#e5e2e1]">30 AI searches per day</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E9C176] text-lg">stars</span>
+<span class="text-sm font-body text-[#e5e2e1]">250 saved items</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E9C176] text-lg">stars</span>
+<span class="text-sm font-body text-[#e5e2e1]">Early access to new drops</span>
+</li>
+</ul>
+<button class="w-full bg-[#E1BDCD] text-[#412936] py-4 text-xs font-label uppercase tracking-widest hover:opacity-90 transition-transform active:scale-95">Upgrade to Pro</button>
+</div>
+<!-- Team Card -->
+<div class="bg-white p-10 flex flex-col h-full border border-black/5 hover:shadow-xl transition-shadow duration-500">
+<div class="mb-12">
+<h3 class="text-2xl font-serif italic mb-2">Team</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-headline font-bold">$79</span>
+<span class="text-[#4c444b] font-body text-sm">/mo</span>
+</div>
+</div>
+<ul class="space-y-6 mb-16 flex-grow">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E1BDCD] text-lg">check_circle</span>
+<span class="text-sm font-body text-[#4c444b]">Unlimited everything</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E1BDCD] text-lg">check_circle</span>
+<span class="text-sm font-body text-[#4c444b]">15 platform licenses</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E1BDCD] text-lg">check_circle</span>
+<span class="text-sm font-body text-[#4c444b]">Up to 5 team seats</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#E1BDCD] text-lg">check_circle</span>
+<span class="text-sm font-body text-[#4c444b]">Dedicated sonic curator</span>
+</li>
+</ul>
+<button class="w-full border border-black py-4 text-xs font-label uppercase tracking-widest hover:bg-black hover:text-white transition-colors">Select Team</button>
+</div>
+</div>
+<div class="text-center mb-32">
+<p class="text-sm font-body text-[#4c444b]">All plans include a <span class="text-[#131313] font-bold">14-day free trial</span>. No credit card required to start.</p>
+</div>
+<!-- FAQ Section -->
+<section class="grid md:grid-cols-12 gap-12">
+<div class="md:col-span-4">
+<h2 class="text-4xl font-serif leading-tight">Common <br/><span class="italic">Questions</span></h2>
+<div class="w-12 h-0.5 bg-[#E1BDCD] mt-6"></div>
+</div>
+<div class="md:col-span-8 space-y-8">
+<div class="group border-b border-black/5 pb-8">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="text-lg font-body font-semibold">How does the licensing work for YouTube?</h4>
+<span class="material-symbols-outlined">add</span>
+</div>
+<div class="mt-4 text-[#4c444b] text-sm leading-relaxed max-w-2xl">
+                        Our AI-powered licensing system automatically clears your channel. Simply link your ID in the settings, and you'll never face a copyright strike for tracks within your active subscription tier.
+                    </div>
+</div>
+<div class="group border-b border-black/5 pb-8">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="text-lg font-body font-semibold">Can I upgrade or downgrade anytime?</h4>
+<span class="material-symbols-outlined">add</span>
+</div>
+<div class="mt-4 text-[#4c444b] text-sm leading-relaxed max-w-2xl">
+                        Yes, flexibility is key to the Tracked experience. Changes are prorated immediately, ensuring you only pay for what you use.
+                    </div>
+</div>
+<div class="group border-b border-black/5 pb-8">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="text-lg font-body font-semibold">What are "Stems" and why do I need them?</h4>
+<span class="material-symbols-outlined">add</span>
+</div>
+<div class="mt-4 text-[#4c444b] text-sm leading-relaxed max-w-2xl">
+                        Stems are the individual tracks (drums, bass, vocals, etc.) that make up a song. Pro users get these to allow for deeper editing and more professional video mixing.
+                    </div>
+</div>
+<div class="group border-b border-black/5 pb-8">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="text-lg font-body font-semibold">Do I own the music I download?</h4>
+<span class="material-symbols-outlined">add</span>
+</div>
+<div class="mt-4 text-[#4c444b] text-sm leading-relaxed max-w-2xl">
+                        You have a synchronization license for as long as you are a member. Any content published during an active subscription remains cleared forever.
+                    </div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Break / Cinematic Image -->
+<section class="mt-32 relative h-[400px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
+<img alt="Recording Studio" class="w-full h-full object-cover" data-alt="cinematic wide shot of a high-end recording studio control room with analog equipment and warm ambient lighting in a dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqY3Lqcg4mGvojMgqGgxmLTOXGhRvxGcSd_WmYszK-7BBvZhe97-oSzNQqVCMvn-1_Dv1i9J1GOtLr4SghKJPsTAqaoghH_ATOD3la33srLKvIm49W4ZzVPANNiLDSQiGpgmaiAeZ_GV9D56d9zC5bluoXWzx_ioWyg7yBa1GEYLXtgI9QBmncSlFDUaR4-9olynvj4g7QVOZGfe6-utVKV3XaI2TVN-pXZALMnLrow3fxIQOtUKeBTvCoWJA90vR_5ML-2-wwnJkV"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<div class="text-center text-white">
+<p class="font-serif italic text-3xl">Crafted for the elite ear.</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#131313] text-[#c6c6c6] py-20 px-8">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div>
+<span class="text-2xl font-serif italic text-[#E1BDCD] tracking-tighter">Tracked</span>
+<p class="mt-4 max-w-xs text-xs font-body leading-loose tracking-widest uppercase opacity-60">
+                    Redefining the relationship between artificial intelligence and human artistry.
+                </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+<div class="space-y-4">
+<h5 class="text-white text-xs font-label uppercase tracking-widest">Platform</h5>
+<ul class="text-xs space-y-2 font-body opacity-60">
+<li><a class="hover:text-white transition-colors" href="#">The Catalog</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-white transition-colors" href="#">AI Curator</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-white text-xs font-label uppercase tracking-widest">Company</h5>
+<ul class="text-xs space-y-2 font-body opacity-60">
+<li><a class="hover:text-white transition-colors" href="#">Our Ethos</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-white text-xs font-label uppercase tracking-widest">Legal</h5>
+<ul class="text-xs space-y-2 font-body opacity-60">
+<li><a class="hover:text-white transition-colors" href="#">Privacy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Licensing</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex justify-between items-center">
+<p class="text-[10px] font-label uppercase tracking-[0.2em] opacity-40">© 2024 Tracked Cinematic Intelligence. All Rights Reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-lg opacity-40 hover:opacity-100 cursor-pointer transition-opacity">share</span>
+<span class="material-symbols-outlined text-lg opacity-40 hover:opacity-100 cursor-pointer transition-opacity">podcasts</span>
+<span class="material-symbols-outlined text-lg opacity-40 hover:opacity-100 cursor-pointer transition-opacity">movie</span>
+</div>
+</div>
+</footer>
+</body></html>
