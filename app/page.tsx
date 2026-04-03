@@ -104,7 +104,7 @@ export default function HomePage() {
           }}
         >
           {/* Left column */}
-          <div style={{ padding: "80px 48px" }}>
+          <div style={{ padding: "0 48px 80px 48px" }}>
             <div style={{ maxWidth: 560 }}>
               {/* Eyebrow */}
               <p
@@ -122,6 +122,7 @@ export default function HomePage() {
                 className="ci-display-lg"
                 style={{
                   color: "var(--color-on-surface)",
+                  fontSize: "4rem",
                   lineHeight: 1.08,
                   marginBottom: 36,
                 }}
@@ -424,8 +425,8 @@ export default function HomePage() {
                   {/* Placeholder image */}
                   <div
                     style={{
-                      width: "100%",
-                      height: "100%",
+                      position: "absolute",
+                      inset: 0,
                       background: `linear-gradient(135deg, ${
                         col.name === "True Crime"
                           ? "#1a1520, #0d0810"
