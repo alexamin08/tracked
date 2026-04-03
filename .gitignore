@@ -41,3 +41,5 @@ data/
 *.txt
 !THEME_PROMPT.md
 data/catalog.csv
+.next/
+data/
