@@ -5,7 +5,7 @@ import { Playfair_Display, Manrope, Newsreader, Space_Grotesk, Inter } from "nex
 import { PostHogProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AudioProvider } from "@/components/audio/audio-provider";
-import { DevThemeSwitcher } from "@/components/dev-theme-switcher";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import "./globals.css";
 
 /* Cinematic Intelligence fonts */
@@ -74,7 +74,7 @@ export default function RootLayout({
               <ThemeProvider>
                 <AudioProvider>
                   {children}
-                  <DevThemeSwitcher />
+                  <ThemeSwitcher />
                 </AudioProvider>
               </ThemeProvider>
             </Suspense>
