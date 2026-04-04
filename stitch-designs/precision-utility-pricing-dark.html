@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing | Tracked Precision Utility</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#282a2d",
+                        "on-primary-container": "#00626e",
+                        "secondary-fixed-dim": "#98d0da",
+                        "surface-container": "#1e2023",
+                        "on-tertiary": "#3e2e00",
+                        "inverse-surface": "#e2e2e6",
+                        "surface-dim": "#111316",
+                        "outline": "#849396",
+                        "tertiary-fixed-dim": "#f3bf26",
+                        "surface-container-highest": "#333538",
+                        "on-secondary-container": "#8ac1cc",
+                        "secondary-fixed": "#b3ecf7",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-on-surface": "#2f3034",
+                        "on-surface": "#e2e2e6",
+                        "on-secondary-fixed": "#001f24",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdf96",
+                        "surface": "#111316",
+                        "inverse-primary": "#006875",
+                        "surface-bright": "#37393d",
+                        "tertiary": "#ffeac0",
+                        "on-primary-fixed-variant": "#004f58",
+                        "secondary": "#98d0da",
+                        "on-surface-variant": "#bac9cc",
+                        "on-primary-fixed": "#001f24",
+                        "surface-variant": "#333538",
+                        "on-background": "#e2e2e6",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#251a00",
+                        "primary-container": "#00e5ff",
+                        "on-primary": "#00363d",
+                        "error": "#ffb4ab",
+                        "primary": "#c3f5ff",
+                        "tertiary-container": "#fec931",
+                        "background": "#111316",
+                        "surface-tint": "#00daf3",
+                        "primary-fixed": "#9cf0ff",
+                        "outline-variant": "#3b494c",
+                        "surface-container-low": "#1a1c1f",
+                        "on-tertiary-container": "#6f5500",
+                        "on-secondary-fixed-variant": "#0d4e57",
+                        "primary-fixed-dim": "#00daf3",
+                        "on-secondary": "#00363d",
+                        "surface-container-lowest": "#0c0e11",
+                        "secondary-container": "#11505a",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #111316;
+            color: #e2e2e6;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-6 h-16 bg-[#111316] docked full-width top-0 z-[100]">
+<div class="text-xl font-bold tracking-tighter text-[#c3f5ff] font-['Space_Grotesk']">
+            Tracked
+        </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">Catalog</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-[#c3f5ff] border-b border-[#c3f5ff] pb-1" href="#">Pricing</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">How It Works</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors">Sign In</button>
+<button class="bg-primary-container text-on-primary px-4 py-2 font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm font-bold active:opacity-80 transition-all">Start Free Trial</button>
+</div>
+</nav>
+<main class="flex-grow pt-16 pb-32">
+<!-- Hero Section -->
+<header class="max-w-7xl mx-auto px-6 pt-16 pb-12 text-center">
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-6">
+                Clinical <span class="text-primary">Precision</span> Pricing
+            </h1>
+<p class="font-body text-on-surface-variant max-w-2xl mx-auto text-lg leading-relaxed">
+                Scale your production with high-fidelity AI music licensing. No complicated royalty tiers. Just pure performance data for the modern curator.
+            </p>
+<!-- Annual Toggle -->
+<div class="mt-12 flex items-center justify-center gap-4">
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant">Monthly</span>
+<div class="w-14 h-7 bg-surface-container-highest flex items-center p-1 border border-outline-variant/30 cursor-pointer">
+<div class="h-full w-1/2 bg-primary-container"></div>
+</div>
+<span class="font-label text-sm uppercase tracking-widest text-primary">Annual</span>
+<span class="bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase">Save 2 months</span>
+</div>
+</header>
+<!-- Pricing Grid -->
+<section class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline-variant/15">
+<!-- Tier 1: Starter -->
+<div class="bg-surface-container-low p-8 flex flex-col border-r border-outline-variant/15">
+<div class="mb-8">
+<h3 class="font-headline text-xs uppercase tracking-[0.2em] text-outline mb-1">Entry Point</h3>
+<h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Starter</h2>
+</div>
+<div class="mb-8">
+<div class="flex items-baseline gap-1">
+<span class="font-headline text-5xl font-bold">$15</span>
+<span class="font-label text-on-surface-variant text-sm uppercase tracking-widest">/mo</span>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant font-body">Perfect for independent creators and experimental projects.</p>
+</div>
+<div class="space-y-4 mb-12 flex-grow">
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider">10 Licensed Tracks / Mo</span>
+</div>
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider text-on-surface-variant">Standard AI Mixing</span>
+</div>
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider text-on-surface-variant">Personal Social Media</span>
+</div>
+</div>
+<button class="w-full py-4 border border-outline-variant text-sm font-headline font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Select Starter</button>
+</div>
+<!-- Tier 2: Pro -->
+<div class="bg-surface-container-high p-8 flex flex-col border-x-4 border-primary shadow-[0_0_40px_rgba(195,245,255,0.05)] relative z-10">
+<div class="absolute top-0 right-0 bg-primary-container text-on-primary px-3 py-1 font-headline text-[10px] font-extrabold uppercase tracking-[0.2em]">
+                    MOST POPULAR
+                </div>
+<div class="mb-8">
+<h3 class="font-headline text-xs uppercase tracking-[0.2em] text-primary mb-1">Standard Output</h3>
+<h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Pro</h2>
+</div>
+<div class="mb-8">
+<div class="flex items-baseline gap-1">
+<span class="font-headline text-5xl font-bold">$29</span>
+<span class="font-label text-on-surface-variant text-sm uppercase tracking-widest">/mo</span>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant font-body">The professional standard for agencies and content studios.</p>
+</div>
+<div class="space-y-4 mb-12 flex-grow">
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider">Unlimited Licensed Tracks</span>
+</div>
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider">Stem-Level Access</span>
+</div>
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider">Commercial Broadcasting</span>
+</div>
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider">Priority Rendering</span>
+</div>
+</div>
+<button class="w-full py-4 bg-primary-container text-on-primary text-sm font-headline font-bold uppercase tracking-widest hover:opacity-90 transition-all">Select Pro</button>
+</div>
+<!-- Tier 3: Team -->
+<div class="bg-surface-container-low p-8 flex flex-col">
+<div class="mb-8">
+<h3 class="font-headline text-xs uppercase tracking-[0.2em] text-outline mb-1">Scale Force</h3>
+<h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Team</h2>
+</div>
+<div class="mb-8">
+<div class="flex items-baseline gap-1">
+<span class="font-headline text-5xl font-bold">$79</span>
+<span class="font-label text-on-surface-variant text-sm uppercase tracking-widest">/mo</span>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant font-body">Enterprise-grade infrastructure for high-volume collaborative units.</p>
+</div>
+<div class="space-y-4 mb-12 flex-grow">
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider">Up to 10 Member Seats</span>
+</div>
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider">Custom Legal Indemnity</span>
+</div>
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_small</span>
+<span class="text-sm font-label uppercase tracking-wider">API Access (Beta)</span>
+</div>
+</div>
+<button class="w-full py-4 border border-outline-variant text-sm font-headline font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Select Team</button>
+</div>
+</section>
+<div class="text-center mt-12">
+<p class="font-label text-xs uppercase tracking-[0.3em] text-outline">All plans include a 14-day free trial</p>
+</div>
+<!-- FAQ Section -->
+<section class="max-w-4xl mx-auto px-6 mt-32">
+<div class="mb-12">
+<h2 class="font-headline text-2xl font-bold uppercase tracking-tighter">System Clarification (FAQ)</h2>
+<div class="h-1 w-12 bg-primary mt-4"></div>
+</div>
+<div class="grid grid-cols-1 gap-px bg-outline-variant/20 border border-outline-variant/20">
+<div class="bg-surface p-6">
+<h4 class="font-headline text-sm font-bold uppercase tracking-wider text-primary mb-2">Can I cancel my subscription at any time?</h4>
+<p class="font-body text-sm text-on-surface-variant">Yes. Access remains active until the end of your billing cycle. No data lock-ins.</p>
+</div>
+<div class="bg-surface p-6">
+<h4 class="font-headline text-sm font-bold uppercase tracking-wider text-primary mb-2">Are tracks cleared for YouTube monetization?</h4>
+<p class="font-body text-sm text-on-surface-variant">Our Content ID protection ensures your channel is white-listed automatically upon license generation.</p>
+</div>
+<div class="bg-surface p-6">
+<h4 class="font-headline text-sm font-bold uppercase tracking-wider text-primary mb-2">What happens to my licenses if I cancel?</h4>
+<p class="font-body text-sm text-on-surface-variant">All tracks licensed during an active subscription remain cleared for life. The "Forever-Clear" policy applies.</p>
+</div>
+<div class="bg-surface p-6">
+<h4 class="font-headline text-sm font-bold uppercase tracking-wider text-primary mb-2">Do you offer academic or non-profit discounts?</h4>
+<p class="font-body text-sm text-on-surface-variant">Contact our support team with valid credentials for specialized pricing modules.</p>
+</div>
+</div>
+</section>
+<!-- Dynamic Data Section (Visual Flair) -->
+<section class="max-w-7xl mx-auto px-6 mt-32 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container-low p-8 border border-outline-variant/10 flex items-center gap-8">
+<div class="flex-grow">
+<h3 class="font-headline text-lg font-bold uppercase tracking-tight mb-2">Global Signal Density</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest mb-6">Real-time licensing activity</p>
+<div class="flex items-end gap-1 h-12">
+<div class="w-1 bg-primary h-4"></div>
+<div class="w-1 bg-primary h-8"></div>
+<div class="w-1 bg-primary h-6"></div>
+<div class="w-1 bg-primary h-10"></div>
+<div class="w-1 bg-primary h-5"></div>
+<div class="w-1 bg-primary h-12"></div>
+<div class="w-1 bg-primary h-7"></div>
+<div class="w-1 bg-primary h-9"></div>
+<div class="w-1 bg-primary h-4"></div>
+<div class="w-1 bg-primary h-2"></div>
+<div class="w-1 bg-primary h-11"></div>
+<div class="w-1 bg-primary h-6"></div>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline text-4xl font-bold text-primary">124k+</p>
+<p class="font-label text-[10px] uppercase tracking-widest text-outline">Active Tracks</p>
+</div>
+</div>
+<div class="relative bg-surface-container-low p-8 border border-outline-variant/10 overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline text-lg font-bold uppercase tracking-tight mb-2">Infrastructure Status</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest mb-6">Network Health</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-primary animate-pulse"></div>
+<span class="font-label text-xs uppercase tracking-[0.2em]">Operational: 99.98% Uptime</span>
+</div>
+</div>
+<!-- Abstract Texture -->
+<div class="absolute right-0 top-0 w-32 h-32 opacity-10 bg-primary transform rotate-45 translate-x-16 -translate-y-16"></div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<div class="fixed bottom-0 left-0 w-full z-50 h-20 flex items-center justify-between px-8 bg-[#282a2d]/85 backdrop-blur-md border-t border-[#3b494c]/15">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary">play_arrow</span>
+</div>
+<div>
+<p class="font-headline text-[10px] uppercase tracking-widest text-primary">System Online</p>
+<p class="font-body text-[10px] text-on-surface-variant uppercase">Ready for deployment</p>
+</div>
+</div>
+<div class="flex gap-12">
+<div class="flex flex-col items-center gap-1 cursor-pointer transition-transform active:scale-95 text-slate-500 hover:bg-[#c3f5ff]/10 p-2">
+<span class="material-symbols-outlined">play_arrow</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Player</span>
+</div>
+<div class="flex flex-col items-center gap-1 cursor-pointer transition-transform active:scale-95 text-slate-500 hover:bg-[#c3f5ff]/10 p-2">
+<span class="material-symbols-outlined">graphic_eq</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Waveform</span>
+</div>
+<div class="flex flex-col items-center gap-1 cursor-pointer transition-transform active:scale-95 text-slate-500 hover:bg-[#c3f5ff]/10 p-2">
+<span class="material-symbols-outlined">queue_music</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Queue</span>
+</div>
+<div class="flex flex-col items-center gap-1 cursor-pointer transition-transform active:scale-95 text-slate-500 hover:bg-[#c3f5ff]/10 p-2">
+<span class="material-symbols-outlined">volume_up</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Volume</span>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-6">
+<div class="text-right">
+<p class="font-headline text-[10px] uppercase tracking-widest text-on-surface-variant">User Identifier</p>
+<p class="font-body text-[10px] text-primary uppercase">GUEST_0X4492</p>
+</div>
+</div>
+</div>
+</body></html>

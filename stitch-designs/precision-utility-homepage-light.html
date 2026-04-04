@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tracked | Precision AI Music Licensing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#282a2d",
+                        "on-primary-container": "#00626e",
+                        "secondary-fixed-dim": "#98d0da",
+                        "surface-container": "#1e2023",
+                        "on-tertiary": "#3e2e00",
+                        "inverse-surface": "#e2e2e6",
+                        "surface-dim": "#111316",
+                        "outline": "#849396",
+                        "tertiary-fixed-dim": "#f3bf26",
+                        "surface-container-highest": "#333538",
+                        "on-secondary-container": "#8ac1cc",
+                        "secondary-fixed": "#b3ecf7",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-on-surface": "#2f3034",
+                        "on-surface": "#e2e2e6",
+                        "on-secondary-fixed": "#001f24",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdf96",
+                        "surface": "#111316",
+                        "inverse-primary": "#006875",
+                        "surface-bright": "#37393d",
+                        "tertiary": "#ffeac0",
+                        "on-primary-fixed-variant": "#004f58",
+                        "secondary": "#98d0da",
+                        "on-surface-variant": "#bac9cc",
+                        "on-primary-fixed": "#001f24",
+                        "surface-variant": "#333538",
+                        "on-background": "#e2e2e6",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#251a00",
+                        "primary-container": "#00e5ff",
+                        "on-primary": "#00363d",
+                        "error": "#ffb4ab",
+                        "primary": "#c3f5ff",
+                        "tertiary-container": "#fec931",
+                        "on-tertiary-container": "#6f5500",
+                        "on-secondary-fixed-variant": "#0d4e57",
+                        "primary-fixed-dim": "#00daf3",
+                        "on-secondary": "#00363d",
+                        "surface-container-lowest": "#0c0e11",
+                        "secondary-container": "#11505a",
+                        "on-error": "#690005",
+                        "background": "#111316"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #111316;
+            color: #e2e2e6;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for data density */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111316;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333538;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="flex justify-between items-center w-full px-6 h-16 bg-[#111316] fixed top-0 z-[100] border-b border-outline-variant/10">
+<div class="text-xl font-bold tracking-tighter text-[#c3f5ff] font-['Space_Grotesk'] uppercase">
+            Tracked
+        </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-[#c3f5ff] border-b border-[#c3f5ff] pb-1 hover:text-[#c3f5ff] transition-colors duration-200" href="#">Catalog</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">Pricing</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">How It Works</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-white px-4">Sign In</button>
+<button class="bg-primary-container text-on-primary font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm font-bold px-6 py-2 active:opacity-80 transition-all">Start Free Trial</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-16 pb-24">
+<!-- Hero Split Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-outline-variant/20">
+<!-- Left: Strategic Data -->
+<div class="lg:col-span-7 p-8 lg:p-16 flex flex-col justify-center border-r border-outline-variant/20 bg-surface-container-lowest">
+<div class="inline-flex items-center space-x-2 text-primary mb-6">
+<span class="w-2 h-2 bg-primary"></span>
+<span class="font-['Space_Grotesk'] uppercase text-xs tracking-widest font-bold">Protocol v4.0 Active</span>
+</div>
+<h1 class="font-headline text-5xl lg:text-7xl font-bold leading-tight mb-8 tracking-tighter">
+                    PRECISION <br/>
+<span class="text-primary">SONIC UTILITY</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-xl mb-10 leading-relaxed">
+                    AI-driven music licensing for high-performance production. Real-time stem separation, zero-radius clearance, and clinical-grade metadata indexing.
+                </p>
+<!-- AI Search Bar -->
+<div class="bg-surface-container-high p-1 flex items-center w-full max-w-2xl border border-outline-variant/30">
+<span class="material-symbols-outlined px-4 text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-body text-sm py-4" placeholder="Describe the sonic atmosphere (e.g. '808-heavy cinematic glitch at 124 BPM')" type="text"/>
+<button class="bg-primary-container text-on-primary px-8 py-4 font-bold font-headline uppercase text-xs tracking-widest">Process</button>
+</div>
+</div>
+<!-- Right: Visual Signal -->
+<div class="lg:col-span-5 relative h-64 lg:h-auto min-h-[400px] overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-60" data-alt="Close up of high-end modular synthesizer patches with glowing blue LEDs and intricate cable routing in a dark studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU8VrQYOHYL9UrZ6U9wDH-DR8_b_4-ILk5wdyJc-O5LOxk0nz12-PoYalYU9uudWM8cFK0Vliaca6RlCJd3s1QULWfJbu0_zk74j6J4VIstfZtC83zQnrFCMMPmUAVedkCmTGegHmRzg4E3tV9yXsihJ5CKb8Zi_zYV8w5rEe7Lg9qLl9CXPJBMooSXb4cM8IBdwIUkPnlXukPOnYvjmMKI4fTnzVUoSOr-hgoFaqLygcYGfyNy3DbtMF80YNtq-EzgylIDIEkSyI6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<!-- Overlay Data Widget -->
+<div class="absolute bottom-8 left-8 right-8 bg-surface-container-highest/90 backdrop-blur-md p-6 border-l-4 border-primary">
+<div class="flex justify-between items-end">
+<div>
+<div class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1">Signal Strength</div>
+<div class="font-headline text-2xl font-bold">98.4% MATCH</div>
+</div>
+<div class="flex space-x-1 items-end h-8">
+<div class="w-1 bg-primary h-4"></div>
+<div class="w-1 bg-primary h-6"></div>
+<div class="w-1 bg-primary h-2"></div>
+<div class="w-1 bg-primary h-8"></div>
+<div class="w-1 bg-primary h-5"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid (Information Density) -->
+<section class="grid grid-cols-2 md:grid-cols-4 border-b border-outline-variant/20 bg-surface-container-low">
+<div class="p-6 border-r border-outline-variant/20">
+<div class="text-outline-variant text-[10px] uppercase font-bold tracking-widest mb-2">Total Assets</div>
+<div class="text-2xl font-headline font-bold text-on-surface">428,091</div>
+</div>
+<div class="p-6 border-r border-outline-variant/20">
+<div class="text-outline-variant text-[10px] uppercase font-bold tracking-widest mb-2">Daily Syntheses</div>
+<div class="text-2xl font-headline font-bold text-on-surface">12,402</div>
+</div>
+<div class="p-6 border-r border-outline-variant/20">
+<div class="text-outline-variant text-[10px] uppercase font-bold tracking-widest mb-2">Latency Rate</div>
+<div class="text-2xl font-headline font-bold text-primary">0.04ms</div>
+</div>
+<div class="p-6">
+<div class="text-outline-variant text-[10px] uppercase font-bold tracking-widest mb-2">Legal Compliance</div>
+<div class="text-2xl font-headline font-bold text-on-surface">100%</div>
+</div>
+</section>
+<!-- Catalog Section -->
+<section class="p-8 lg:p-12">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-2">LATEST SIGNAL UPLOADS</h2>
+<div class="h-1 w-12 bg-primary"></div>
+</div>
+<button class="text-primary font-headline text-xs uppercase tracking-widest font-bold flex items-center hover:opacity-80">
+                    View Full Directory <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-1">
+<!-- Track Row 1 -->
+<div class="grid grid-cols-12 gap-4 p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors items-center group cursor-pointer">
+<div class="col-span-1 flex items-center">
+<div class="w-12 h-12 bg-surface-container-highest relative flex items-center justify-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Abstract vibrant sound waves visualization in shades of deep cyan and charcoal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOYxHr1fp2jE81wBG5IoFQ-vwmZnIN6TTYWSR4-H8nnQeBN20vAGfIgRUU8my_yrOP54_OTsSoHgAaoPIFyA5CcReWb8vYWQ0LbdU5lA5PZkDURlwGfc8zao_vfM6Oi3DT09M3Xm7FaVcDaU44_UIi7mELRo7ivjCTFUf7xs2R-ow6d_mrk9IGcSAQZtjP0iUrhCUCHxQ6Vnc66yV7_AnxmP9xiwoEJd16jhLLW4JAEFw3Hv5OD9_yd6iHb0-mYjr2u1QTRmv-xL3u"/>
+<span class="material-symbols-outlined text-white z-10 opacity-0 group-hover:opacity-100 transition-opacity">play_arrow</span>
+</div>
+</div>
+<div class="col-span-4">
+<div class="text-sm font-bold text-on-surface">KINETIC_FLOW_01</div>
+<div class="text-xs text-outline uppercase tracking-tighter">SYNTH_WAVE_LABS</div>
+</div>
+<div class="col-span-2 text-center">
+<div class="text-[10px] text-outline font-bold uppercase tracking-widest">Tempo</div>
+<div class="text-xs font-mono text-on-surface">128 BPM</div>
+</div>
+<div class="col-span-2 text-center">
+<div class="text-[10px] text-outline font-bold uppercase tracking-widest">Key</div>
+<div class="text-xs font-mono text-on-surface">F# MINOR</div>
+</div>
+<div class="col-span-3 flex justify-end items-center space-x-6">
+<div class="bg-surface-container-highest px-2 py-1 border border-outline-variant/20 text-[9px] uppercase font-bold text-outline">Cinematic</div>
+<span class="material-symbols-outlined text-outline hover:text-primary">download</span>
+<span class="material-symbols-outlined text-outline hover:text-primary">more_vert</span>
+</div>
+</div>
+<!-- Track Row 2 -->
+<div class="grid grid-cols-12 gap-4 p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors items-center group cursor-pointer">
+<div class="col-span-1 flex items-center">
+<div class="w-12 h-12 bg-surface-container-highest relative flex items-center justify-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Close-up of a vinyl record spinning on a turntable with moody blue lighting highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXs5nE4qt-lwTk90JnG0aExOsf3B58-T2Ahrul-BZCin8Mq8OlH5neD4OHKOqAWOva3gLlt801OK_RWy12i68z7KXOfcpeDcjOLzd32AXDa4yNcOtdhE9axJ3mnw2o4nsz14leG2rg6RnIdG_f6g214-nqoBxbV_8G6h4BNzTWfVVztE-bqpLKAwVv77HNzekBZI47P-Sq6kw-OHeG9oc6aQzWiHcnM97U2tfpRveIAW3GhE3skZaWk5IKHIQ0Nmc6F9GPgWTjL84X"/>
+<span class="material-symbols-outlined text-white z-10 opacity-0 group-hover:opacity-100 transition-opacity">play_arrow</span>
+</div>
+</div>
+<div class="col-span-4">
+<div class="text-sm font-bold text-on-surface">VOID_RESONANCE</div>
+<div class="text-xs text-outline uppercase tracking-tighter">DATA_MINER</div>
+</div>
+<div class="col-span-2 text-center">
+<div class="text-[10px] text-outline font-bold uppercase tracking-widest">Tempo</div>
+<div class="text-xs font-mono text-on-surface">94 BPM</div>
+</div>
+<div class="col-span-2 text-center">
+<div class="text-[10px] text-outline font-bold uppercase tracking-widest">Key</div>
+<div class="text-xs font-mono text-on-surface">C MAJOR</div>
+</div>
+<div class="col-span-3 flex justify-end items-center space-x-6">
+<div class="bg-surface-container-highest px-2 py-1 border border-outline-variant/20 text-[9px] uppercase font-bold text-outline">Industrial</div>
+<span class="material-symbols-outlined text-outline hover:text-primary">download</span>
+<span class="material-symbols-outlined text-outline hover:text-primary">more_vert</span>
+</div>
+</div>
+<!-- Track Row 3 (Active State Example) -->
+<div class="grid grid-cols-12 gap-4 p-4 bg-surface-container-high border-l-2 border-primary items-center group cursor-pointer">
+<div class="col-span-1 flex items-center">
+<div class="w-12 h-12 bg-surface-container-highest relative flex items-center justify-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50" data-alt="Digital glitch art with distorted neon lines in electric cyan and magenta on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-LtU9V17sWmxRxoIHur0l8iKJm1kJZ30s29cqn7s-64ayrjPHaw9ul2vJ-phm8H0DJtyoSfqBnZgB4ZmBwEi94LCyj7C2MfYCS96i6xW1fkHcjCaoyEh8jQjugjLzJX0nUPnSd_VV5JeYIX-2NGowEDZWjDFT_2w3J9EQgyKurW3efs0jSuNargWj0FuvGXZjxgDZ7nNkbly8F_X-mzz8E0LdnHkydgULNuBsAZrx525AE90dT-_Nw6Hr9S3zTWpeJDgKYQpxKlLG"/>
+<span class="material-symbols-outlined text-primary z-10" data-weight="fill">pause</span>
+</div>
+</div>
+<div class="col-span-4">
+<div class="text-sm font-bold text-primary">NEURAL_NETWORK_VIBE</div>
+<div class="text-xs text-primary/70 uppercase tracking-tighter">CORE_SYSTEM</div>
+</div>
+<div class="col-span-2 text-center">
+<div class="text-[10px] text-primary/50 font-bold uppercase tracking-widest">Tempo</div>
+<div class="text-xs font-mono text-primary">140 BPM</div>
+</div>
+<div class="col-span-2 text-center">
+<div class="text-[10px] text-primary/50 font-bold uppercase tracking-widest">Key</div>
+<div class="text-xs font-mono text-primary">A MINOR</div>
+</div>
+<div class="col-span-3 flex justify-end items-center space-x-6">
+<div class="bg-primary/20 px-2 py-1 border border-primary/30 text-[9px] uppercase font-bold text-primary">Techno</div>
+<span class="material-symbols-outlined text-primary">download</span>
+<span class="material-symbols-outlined text-primary">more_vert</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="px-8 lg:px-12 py-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+<div class="bg-surface-container p-8 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">psychology</span>
+<h3 class="font-headline font-bold text-xl mb-4">AI SEMANTIC INDEXING</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Search via emotional descriptor, technical BPM range, or stem-specific attributes.</p>
+</div>
+<div class="bg-surface-container p-8 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">dynamic_feed</span>
+<h3 class="font-headline font-bold text-xl mb-4">STEM SEPARATION</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Download individual tracks for drums, bass, synths, and FX instantly upon licensing.</p>
+</div>
+<div class="bg-surface-container p-8 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">verified_user</span>
+<h3 class="font-headline font-bold text-xl mb-4">HYPER-CLEARANCE</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Blockchain-backed licensing certificates issued in milliseconds for global broadcast.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Audio Player (Clinical Instrument) -->
+<div class="fixed bottom-0 left-0 w-full z-50 h-20 flex items-center justify-between px-8 bg-[#282a2d]/85 backdrop-blur-md border-t border-[#3b494c]/15">
+<div class="flex items-center space-x-4 w-1/4">
+<div class="w-10 h-10 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Digital glitch art placeholder for currently playing track" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLjGoU1AtpsYb_97S2YJvcqnCkHbQCS6eqXc6m8KoRj3ULCqncfVngso8f1XPnNUN80_FjNREg4wv4mjyzfuS36gQ8kUeLMdeCF_YW-062AJoJbPgE0z8mf4kVMl59bU6lcotganVSfTfsFVm35YHz66J-_0vlkQcxNBpMiudtuJD91Lpi2QRY3fayulMmqXfRUEBY81zijfpV7esuntn_3Kb1vSofXTBgjEHvw4Hhk4ct8zoj5n8cZ3iLm_uD3ti0Z_WnhSDFq-Cy"/>
+</div>
+<div class="hidden sm:block">
+<div class="text-[10px] uppercase font-bold text-primary tracking-widest">Active Signal</div>
+<div class="text-xs font-bold truncate">NEURAL_NETWORK_VIBE</div>
+</div>
+</div>
+<div class="flex flex-col items-center w-2/4">
+<div class="flex items-center space-x-8 mb-2">
+<button class="text-slate-500 hover:text-[#c3f5ff] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">shuffle</span>
+</button>
+<button class="text-slate-500 hover:text-[#c3f5ff] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">skip_previous</span>
+</button>
+<button class="text-[#c3f5ff] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">pause_circle</span>
+</button>
+<button class="text-slate-500 hover:text-[#c3f5ff] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">skip_next</span>
+</button>
+<button class="text-slate-500 hover:text-[#c3f5ff] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">repeat</span>
+</button>
+</div>
+<div class="w-full flex items-center space-x-2">
+<span class="text-[9px] font-mono text-slate-500">01:42</span>
+<div class="flex-1 h-1 bg-surface-container-highest relative">
+<div class="absolute top-0 left-0 h-full w-1/3 bg-primary"></div>
+<div class="absolute top-0 left-1/3 w-1 h-3 -mt-1 bg-white shadow-sm"></div>
+</div>
+<span class="text-[9px] font-mono text-slate-500">03:54</span>
+</div>
+</div>
+<div class="flex items-center justify-end space-x-6 w-1/4">
+<button class="flex flex-col items-center text-slate-500 hover:text-[#c3f5ff] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">graphic_eq</span>
+<span class="font-['Inter'] text-[8px] uppercase tracking-widest mt-1">Waveform</span>
+</button>
+<button class="flex flex-col items-center text-[#c3f5ff] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">queue_music</span>
+<span class="font-['Inter'] text-[8px] uppercase tracking-widest mt-1">Queue</span>
+</button>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm text-slate-500">volume_up</span>
+<div class="w-20 h-1 bg-surface-container-highest relative">
+<div class="absolute top-0 left-0 h-full w-3/4 bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

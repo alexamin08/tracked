@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#fbf9f5",
+                    "tertiary-container": "#008284",
+                    "error": "#ba1a1a",
+                    "primary": "#994123",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#b95839",
+                    "on-tertiary-fixed": "#002020",
+                    "on-background": "#1b1c1a",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#56423d",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-variant": "#e4e2de",
+                    "on-primary-fixed-variant": "#7d2c10",
+                    "secondary": "#825243",
+                    "secondary-container": "#ffc0ad",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#ffb59e",
+                    "outline-variant": "#dcc1b9",
+                    "on-secondary-fixed-variant": "#673b2d",
+                    "on-tertiary-container": "#f3fffe",
+                    "surface-container-low": "#f5f3ef",
+                    "primary-fixed": "#ffdbd0",
+                    "surface-tint": "#9c4325",
+                    "surface-dim": "#dbdad6",
+                    "inverse-surface": "#30312e",
+                    "outline": "#89726b",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#fffbff",
+                    "secondary-fixed-dim": "#f7b8a5",
+                    "surface-container": "#efeeea",
+                    "surface-container-high": "#eae8e4",
+                    "tertiary": "#006768",
+                    "inverse-primary": "#ffb59e",
+                    "surface": "#fbf9f5",
+                    "surface-bright": "#fbf9f5",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#331107",
+                    "tertiary-fixed": "#8ef3f4",
+                    "on-tertiary-fixed-variant": "#004f51",
+                    "on-surface": "#1b1c1a",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-secondary-container": "#7b4c3d",
+                    "secondary-fixed": "#ffdbd0",
+                    "tertiary-fixed-dim": "#71d6d8",
+                    "surface-container-highest": "#e4e2de"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Manrope", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .font-serif { font-family: 'Newsreader', serif; }
+        .font-sans { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-background font-sans selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-[#fbf9f5]/80 dark:bg-stone-950/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-none flex justify-between items-center px-8 py-6 max-w-full">
+<div class="font-serif text-3xl font-black text-[#994123] dark:text-[#c05e3e] tracking-tighter">Tracked</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-stone-600 dark:text-stone-400 font-sans uppercase tracking-widest text-xs hover:text-[#994123] transition-colors duration-300" href="#">Catalog</a>
+<a class="text-stone-600 dark:text-stone-400 font-sans uppercase tracking-widest text-xs hover:text-[#994123] transition-colors duration-300" href="#">Pricing</a>
+<a class="text-stone-600 dark:text-stone-400 font-sans uppercase tracking-widest text-xs hover:text-[#994123] transition-colors duration-300" href="#">How It Works</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="font-sans uppercase tracking-widest text-xs text-stone-600 hover:text-primary transition-colors">Sign In</button>
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-md font-sans text-xs uppercase tracking-widest font-bold hover:opacity-90 transition-opacity">Start Free Trial</button>
+</div>
+</nav>
+<main class="relative overflow-hidden">
+<!-- Hero Section -->
+<section class="min-h-[870px] grid grid-cols-1 md:grid-cols-12 items-stretch">
+<div class="md:col-span-6 flex flex-col justify-center px-8 md:px-16 py-20 bg-surface">
+<span class="text-primary font-headline italic text-xl mb-4">Editorial Music Licensing</span>
+<h1 class="font-headline text-6xl md:text-8xl font-extrabold text-on-background leading-[0.9] tracking-tighter mb-10">
+                    The Sound of <br/>Modern <span class="italic font-light">Cinema.</span>
+</h1>
+<div class="relative max-w-xl group">
+<div class="absolute inset-y-0 left-5 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-6 pl-14 pr-6 text-on-surface placeholder:text-stone-400 font-sans text-lg focus:ring-2 focus:ring-primary/20 transition-all shadow-sm" placeholder="tense standoff, interrogation room, fluorescent light" type="text"/>
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Try:</span>
+<button class="text-[10px] uppercase tracking-widest text-primary font-bold hover:underline">Dark Ambient</button>
+<button class="text-[10px] uppercase tracking-widest text-primary font-bold hover:underline">1970s Heist</button>
+<button class="text-[10px] uppercase tracking-widest text-primary font-bold hover:underline">Lo-Fi Noir</button>
+</div>
+</div>
+</div>
+<div class="md:col-span-6 relative overflow-hidden h-[512px] md:h-auto">
+<img alt="Cinematic production" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Moody cinematic production still of a film set with professional lighting equipment in a dark, atmospheric warehouse setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv6OPerqdWLRyeb63LEnJo0Zjb2xhi6_Tx0bZtAxqC2NHNghnvPoAs-SJo8M46rgukotgYtDyeMx1dm_braV1F66zv3PEl9aa1OR_cvHLQNuzQWRrU8soh10MNoWoJIruaaxAmbm-Vy5BqeExwm1ytZuwBYdwh-3tuDP-piAaRAqosKAn7jQ5MVp0R4_42kfy4JFQPnugs3sLwPk4NbbfyW-joTHAeVibsDc-Yyq1-zRrS86msT9HRqphc6m2Rwm5dVzPiBvyzBIs6"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent hidden md:block"></div>
+<div class="absolute bottom-12 left-12 right-12">
+<div class="inline-flex items-center gap-4 bg-surface/10 backdrop-blur-md p-4 rounded-lg border border-white/10">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</div>
+<div>
+<p class="text-white font-headline text-lg italic leading-none">Midnight Pulse</p>
+<p class="text-white/60 font-sans text-[10px] uppercase tracking-tighter">Electronic / Suspense</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Collections Scroll -->
+<section class="py-24 bg-surface-container-low overflow-hidden">
+<div class="px-8 md:px-16 mb-12 flex justify-between items-end">
+<div>
+<h2 class="font-headline text-4xl font-bold tracking-tight">Curated Collections</h2>
+<p class="text-stone-500 font-sans max-w-md mt-2">Expertly cataloged stems and full compositions for every narrative arc.</p>
+</div>
+<button class="text-primary font-sans text-xs uppercase tracking-[0.2em] font-black hover:underline flex items-center gap-2">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="flex gap-6 px-8 md:px-16 overflow-x-auto no-scrollbar pb-8">
+<div class="flex-none w-[320px] group cursor-pointer">
+<div class="aspect-[4/5] relative overflow-hidden rounded-xl mb-4 bg-stone-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist architectural abstract with sharp shadows and light play, aesthetic and mysterious mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUWTnRedHu29HiWBQLb71SiOACOeKb0gX3OIT370Q9eK-4084KndO1AAsM-_czraHXlgIajOBYXCSn_gG8nWcA_AYcSBqDAT6ShFJgEnA8fDFn1v08fSXCKkE_OeBqpoM0Q3S_4gJHZD4-cYfTp78N1NdI_hSrcyGau02IlRlCCbMDt0zf246V17ZYyIdmDpM-5rfrZ4nvsw3vUA1aD7h11FO9rhY6LEx69rsMt2Pf59HsRT2bkQW66RHwNgH3mvWVVGQaB4Ynt04o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<p class="font-headline italic text-2xl">Reality Competition</p>
+</div>
+</div>
+</div>
+<div class="flex-none w-[320px] group cursor-pointer">
+<div class="aspect-[4/5] relative overflow-hidden rounded-xl mb-4 bg-stone-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Vintage microphone in a dimly lit jazz club setting with warm ambient light and soft smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgywWXtF_yafMwUxAI1dxfsiGDsuPlZV3NTEV8F0O48oZgzFP_XNtNI-V394ZcQjdw3sQ7uZM6vlNFr84hSZZRSlktsZREhpOJUIiVAX_Egz0aw_Dyj067VO5rkadTUTo33sF463LYjxHet3BDSid9CUTqG02mCnmwGTzdgLC2BEb_iwRF8lxsgGoqy3MbuymrtQ9STS4zfZ1tJVW-CAriphvWdoKcAX-2dNAx2jWBNIxm7T_NM-ZLZV1GAgxpTHDcbP46OVzKT4NB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<p class="font-headline italic text-2xl">True Crime</p>
+</div>
+</div>
+</div>
+<div class="flex-none w-[320px] group cursor-pointer">
+<div class="aspect-[4/5] relative overflow-hidden rounded-xl mb-4 bg-stone-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Dramatic mountain landscape at twilight with deep blue and purple hues and cinematic scale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr7imB40RY1qo88wDuQu9dT8CLmYTD9eua2GbbLW_imnYpuT1HgD5LlnK9q6gd0fRp1bsk2Hk-vQRbj7Hqq82GUxv1ctx9AOfdteto03ySOAks3qUChgLe_Dmrx-aX3iJOuCnROUgv1WjNqcTqMbQ6v0AnRnqTya-Gi8aboeXDBi2I4d0feCS_LgUccstKhNo-hrCrdzjBSPb4q3gRGvhFpqcFGyddsl6DWl8L1LyN1UIHIZbby7-t-szRCxY8MrvUq3ehe2ja07vw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<p class="font-headline italic text-2xl">Epic Trailers</p>
+</div>
+</div>
+</div>
+<div class="flex-none w-[320px] group cursor-pointer">
+<div class="aspect-[4/5] relative overflow-hidden rounded-xl mb-4 bg-stone-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Street photography of a rainy neon-lit city at night, urban noir aesthetic with vibrant reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSqUJ6ttw8dQSmu9VTM9u9z8tBkgWJ_iLNofvwQ-xms6vJ9qfAhR8X3blLmWquTHlKurEpkqqnKzoLzFunsmS7ee3BSn4M-XYaf1XXY2z1yTWm9yvXxCAQTC-5Rmd7DmncXI4VPYGDNOr6Og8lSKBS4QdkzKAtHfz-MrkIKrObCeTx6ccBTq67KNUx1guTpuk-7MAgCV6dfNh-usly-r90QwvadstSo6vFjkfAKzutjTVtiRezkaXsJ-fLbJ3mmTDBTHllNzPQEXkC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<p class="font-headline italic text-2xl">Neo-Noir</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-32 px-8 md:px-16 bg-surface grid grid-cols-1 md:grid-cols-12 gap-16">
+<div class="md:col-span-4">
+<div class="sticky top-32">
+<h2 class="font-headline text-5xl font-extrabold tracking-tighter leading-none mb-6">
+                        From Concept <br/>to <span class="italic font-light">Cue Sheet.</span>
+</h2>
+<p class="text-stone-500 font-sans text-lg mb-8">We’ve removed the friction between your vision and the perfect track.</p>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-md font-sans text-xs uppercase tracking-widest font-black">Get Started Now</button>
+</div>
+</div>
+<div class="md:col-span-8 space-y-16">
+<!-- Step 1 -->
+<div class="flex gap-12 items-start border-l-2 border-primary/20 pl-12 relative">
+<div class="absolute -left-2 top-0 w-4 h-4 bg-primary rounded-full"></div>
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-weight="fill">edit_note</span>
+<h3 class="font-headline text-3xl font-bold mb-4">Describe</h3>
+<p class="text-stone-500 font-sans text-lg max-w-xl">Tell our AI what your scene feels like. Use visual adjectives, setting descriptions, or reference moods. No music theory required.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-12 items-start border-l-2 border-primary/20 pl-12 relative">
+<div class="absolute -left-2 top-0 w-4 h-4 bg-primary rounded-full"></div>
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-weight="fill">graphic_eq</span>
+<h3 class="font-headline text-3xl font-bold mb-4">Match</h3>
+<p class="text-stone-500 font-sans text-lg max-w-xl">Our engine scours 140,000 production files to find not just a track, but the exact stems and elements that fit your edit.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-12 items-start border-l-2 border-primary/20 pl-12 relative">
+<div class="absolute -left-2 top-0 w-4 h-4 bg-primary rounded-full"></div>
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-weight="fill">verified</span>
+<h3 class="font-headline text-3xl font-bold mb-4">License</h3>
+<p class="text-stone-500 font-sans text-lg max-w-xl">One-click worldwide rights. Clear for YouTube, Cinema, and Broadcast instantly with automated cue sheet generation.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-16 bg-on-background text-surface">
+<div class="px-8 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-4 divide-x-0 md:divide-x divide-surface/20">
+<div class="text-center md:text-left md:px-8">
+<p class="text-4xl font-headline italic font-bold mb-1">42k+</p>
+<p class="text-[10px] uppercase tracking-widest text-surface/50 font-black">Compositions</p>
+</div>
+<div class="text-center md:text-left md:px-8">
+<p class="text-4xl font-headline italic font-bold mb-1">140k+</p>
+<p class="text-[10px] uppercase tracking-widest text-surface/50 font-black">Production Files</p>
+</div>
+<div class="text-center md:text-left md:px-8">
+<p class="text-4xl font-headline italic font-bold mb-1">Score</p>
+<p class="text-[10px] uppercase tracking-widest text-surface/50 font-black">Since 2008</p>
+</div>
+<div class="text-center md:text-left md:px-8">
+<p class="text-4xl font-headline italic font-bold mb-1">Global</p>
+<p class="text-[10px] uppercase tracking-widest text-surface/50 font-black">Licensing Rights</p>
+</div>
+</div>
+</section>
+<!-- Critic's Note Overlay Component (AI Explanation) -->
+<section class="py-24 px-8 md:px-16 flex justify-center">
+<div class="max-w-4xl bg-tertiary-container/10 border-y border-dashed border-tertiary p-12 text-center relative overflow-hidden">
+<div class="absolute -top-6 -right-6">
+<span class="material-symbols-outlined text-8xl text-tertiary/10" data-weight="fill">format_quote</span>
+</div>
+<span class="inline-block bg-tertiary text-on-tertiary px-3 py-1 text-[10px] uppercase tracking-widest font-black rounded-full mb-6">Critic's Note</span>
+<p class="font-headline text-3xl italic text-on-surface-variant leading-tight">
+                    "Tracked doesn't just provide background noise; it offers the kind of harmonic intentionality that defines contemporary award-winning cinema."
+                </p>
+<div class="mt-6 flex items-center justify-center gap-3">
+<div class="w-10 h-1 px-1 bg-tertiary/20"></div>
+<span class="font-sans text-xs uppercase tracking-widest text-stone-500 font-bold">AI Analytical Engine</span>
+<div class="w-10 h-1 px-1 bg-tertiary/20"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high py-20 px-8 md:px-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-20">
+<div>
+<div class="font-serif text-3xl font-black text-[#994123] tracking-tighter mb-6">Tracked</div>
+<p class="text-stone-500 font-sans text-sm leading-relaxed max-w-xs">
+                    Redefining music search through the lens of editorial quality and cinematic intelligence.
+                </p>
+</div>
+<div>
+<h4 class="font-sans text-[10px] uppercase tracking-widest text-stone-400 font-black mb-6">Product</h4>
+<ul class="space-y-3 font-sans text-sm text-stone-600">
+<li class="hover:text-primary transition-colors cursor-pointer">The Catalog</li>
+<li class="hover:text-primary transition-colors cursor-pointer">AI Search</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Licensing Plans</li>
+<li class="hover:text-primary transition-colors cursor-pointer">API Integration</li>
+</ul>
+</div>
+<div>
+<h4 class="font-sans text-[10px] uppercase tracking-widest text-stone-400 font-black mb-6">Company</h4>
+<ul class="space-y-3 font-sans text-sm text-stone-600">
+<li class="hover:text-primary transition-colors cursor-pointer">Our Ethos</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Manifesto</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Journal</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Contact</li>
+</ul>
+</div>
+<div>
+<h4 class="font-sans text-[10px] uppercase tracking-widest text-stone-400 font-black mb-6">Legal</h4>
+<ul class="space-y-3 font-sans text-sm text-stone-600">
+<li class="hover:text-primary transition-colors cursor-pointer">Master License</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Terms of Use</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Privacy</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Copyright</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-stone-300 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-sans text-[10px] uppercase tracking-widest text-stone-400">© 2024 Tracked Music Media. All Rights Reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer transition-colors">brand_awareness</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer transition-colors">share</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer transition-colors">podcasts</span>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<div class="md:hidden">
+<div class="fixed bottom-0 left-0 w-full h-20 bg-[#fbf9f5] dark:bg-stone-900 flex justify-around items-center px-4 pb-safe z-50 border-t border-[#994123]/10 shadow-[0_-8px_32px_rgba(153,65,35,0.06)]">
+<div class="flex flex-col items-center justify-center text-[#994123] scale-110">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-sans text-[10px] font-bold uppercase tracking-tighter mt-1">Player</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 opacity-60">
+<span class="material-symbols-outlined">format_list_bulleted</span>
+<span class="font-sans text-[10px] font-bold uppercase tracking-tighter mt-1">Queue</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 opacity-60">
+<span class="material-symbols-outlined">mic_external_on</span>
+<span class="font-sans text-[10px] font-bold uppercase tracking-tighter mt-1">Lyrics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 opacity-60">
+<span class="material-symbols-outlined">devices</span>
+<span class="font-sans text-[10px] font-bold uppercase tracking-tighter mt-1">Devices</span>
+</div>
+</div>
+</div>
+</body></html>

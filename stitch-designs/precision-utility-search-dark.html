@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tracked | AI Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#282a2d",
+                        "on-primary-container": "#00626e",
+                        "secondary-fixed-dim": "#98d0da",
+                        "surface-container": "#1e2023",
+                        "on-tertiary": "#3e2e00",
+                        "inverse-surface": "#e2e2e6",
+                        "surface-dim": "#111316",
+                        "outline": "#849396",
+                        "tertiary-fixed-dim": "#f3bf26",
+                        "surface-container-highest": "#333538",
+                        "on-secondary-container": "#8ac1cc",
+                        "secondary-fixed": "#b3ecf7",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-on-surface": "#2f3034",
+                        "on-surface": "#e2e2e6",
+                        "on-secondary-fixed": "#001f24",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdf96",
+                        "surface": "#111316",
+                        "inverse-primary": "#006875",
+                        "surface-bright": "#37393d",
+                        "tertiary": "#ffeac0",
+                        "on-primary-fixed-variant": "#004f58",
+                        "secondary": "#98d0da",
+                        "on-surface-variant": "#bac9cc",
+                        "on-primary-fixed": "#001f24",
+                        "surface-variant": "#333538",
+                        "on-background": "#e2e2e6",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#251a00",
+                        "primary-container": "#00e5ff",
+                        "on-primary": "#00363d",
+                        "error": "#ffb4ab",
+                        "primary": "#c3f5ff",
+                        "tertiary-container": "#fec931",
+                        "background": "#111316",
+                        "surface-tint": "#00daf3",
+                        "primary-fixed": "#9cf0ff",
+                        "outline-variant": "#3b494c",
+                        "surface-container-low": "#1a1c1f",
+                        "on-tertiary-container": "#6f5500",
+                        "on-secondary-fixed-variant": "#0d4e57",
+                        "primary-fixed-dim": "#00daf3",
+                        "on-secondary": "#00363d",
+                        "surface-container-lowest": "#0c0e11",
+                        "secondary-container": "#11505a",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #111316;
+            color: #e2e2e6;
+            font-family: 'Inter', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-6 h-16 bg-[#111316] sticky top-0 z-50">
+<div class="text-xl font-bold tracking-tighter text-[#c3f5ff] font-['Space_Grotesk']">Tracked</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">Catalog</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">Pricing</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">How It Works</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200">Sign In</button>
+<button class="bg-primary-container text-on-primary px-4 py-2 font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm font-bold active:opacity-80 transition-all">Start Free Trial</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<!-- Search Query Header -->
+<div class="mb-12">
+<div class="flex items-center bg-surface-container-high p-1 w-full max-w-3xl group transition-all focus-within:ring-1 ring-primary">
+<div class="px-4 text-outline group-focus-within:text-primary">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input class="bg-transparent border-none focus:ring-0 w-full py-4 text-on-surface font-body text-lg" placeholder="Search AI library..." type="text" value="tense interrogation in a true crime doc"/>
+<button class="px-6 py-2 bg-surface-container-highest text-primary font-label text-xs uppercase tracking-widest">Execute</button>
+</div>
+<div class="mt-4 flex items-center gap-4 text-xs font-label uppercase tracking-[0.1em] text-outline">
+<span>5 results found</span>
+<span class="h-px w-8 bg-outline-variant"></span>
+<span>Optimized for tension &amp; cinematic depth</span>
+</div>
+</div>
+<!-- Results Grid/List -->
+<div class="flex flex-col gap-[1px] bg-outline-variant/20">
+<!-- Track Row 1 -->
+<div class="group grid grid-cols-[180px_1fr_120px] items-center bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 gap-6">
+<div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="cinematic wide shot of a dark interrogation room with a single hanging light and a silhouette of a man in shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQB2KlSHEn1I6bG_-HNu8YKem5y2aT6XwBnD9sKk5uyvwicCiDVcza779CdfSiLa8GTMN1l0aUgIcvaW3HqgBCs2HXv-gWqh-0kbIEYAD91jiOeQZL_unKxAD_V7YgPCHp-9TvkGJR6nPXodh3Ca9o14hDUdWDPBtXPDK93BhtkKh6xy9q5QVGWoPXHRhevXvH44t9SJbv6ZK1NrujLzdocbPoIm_dJzYgrj-dgzoOlhbLvzigVUdDOJhY12O3b4kfN9iI8sktWV4C"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight">SILENT PRESSURE</h3>
+<p class="font-body text-xs text-outline uppercase tracking-wider">MARCUS VANE</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest text-outline px-2 py-1 text-[10px] font-label uppercase tracking-tighter border border-outline-variant/15">AS HEARD ON: THE STAIRCASE</span>
+<span class="bg-surface-container-highest text-outline px-2 py-1 text-[10px] font-label uppercase tracking-tighter border border-outline-variant/15">AS HEARD ON: MINDHUNTER</span>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_auto] items-center gap-8">
+<div class="flex items-center gap-1 h-8">
+<!-- Visual Waveform -->
+<div class="flex-1 flex items-center gap-[2px] h-full">
+<div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-8 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-7 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-8 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-7 bg-primary/40"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Minimalist</span>
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Unsettling</span>
+</div>
+</div>
+<div class="mt-1 p-2 bg-primary/5 border-l border-primary/30">
+<p class="text-[11px] text-primary/80 font-body leading-tight">
+<strong class="uppercase font-bold tracking-tighter mr-2">AI MATCH:</strong> High-frequency dissonance mimics psychological strain; low drone builds anticipation during narrative silences.
+                        </p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4">
+<div class="text-right">
+<div class="text-3xl font-headline font-bold text-primary leading-none">94<span class="text-xs">%</span></div>
+<div class="text-[10px] font-label uppercase text-outline tracking-widest">Match Score</div>
+</div>
+<div class="flex gap-3 text-outline">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="download">download</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span></button>
+</div>
+</div>
+</div>
+<!-- Track Row 2 -->
+<div class="group grid grid-cols-[180px_1fr_120px] items-center bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 gap-6">
+<div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="close up of a person's eye reflecting a computer screen in a dark room with cool blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuDaGiN0AhkD36XZGuyJjrkVoJ8rA-YzOc2JAyhNiNyFUMRVJM82WeMgQLDO8a81pqy7sxfy9qqv9RUSptI51dBjfXZu9dQX1fGwbD3USZreaenWm2EU1VYGGLL51FXyvQrOEsyBbaC4bmC4Yn4w4FwlDFBBDNIFznimrG-fRfHdLNPX2qfhx0zMlAeUOdGmHEDfjMrjmYhobmRMAzJnbMdAu_SMV7NGqdO9_OcQHTB5QEYg5b3hcA2W06jqKu2-o4TWGrn1MBwtFQ"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight">NEURAL ECHO</h3>
+<p class="font-body text-xs text-outline uppercase tracking-wider">SYNTHETIX LABS</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest text-outline px-2 py-1 text-[10px] font-label uppercase tracking-tighter border border-outline-variant/15">AS HEARD ON: UNRAVELLED</span>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_auto] items-center gap-8">
+<div class="flex items-center gap-1 h-8">
+<div class="flex-1 flex items-center gap-[2px] h-full">
+<div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-8 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-7 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-8 bg-primary/40"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Electronic</span>
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Cold</span>
+</div>
+</div>
+<div class="mt-1 p-2 bg-primary/5 border-l border-primary/30">
+<p class="text-[11px] text-primary/80 font-body leading-tight">
+<strong class="uppercase font-bold tracking-tighter mr-2">AI MATCH:</strong> Pulse-based rhythm creates a clinical, observational feel, perfect for forensic analysis montages.
+                        </p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4">
+<div class="text-right">
+<div class="text-3xl font-headline font-bold text-primary leading-none">89<span class="text-xs">%</span></div>
+<div class="text-[10px] font-label uppercase text-outline tracking-widest">Match Score</div>
+</div>
+<div class="flex gap-3 text-outline">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="download">download</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span></button>
+</div>
+</div>
+</div>
+<!-- Track Row 3 -->
+<div class="group grid grid-cols-[180px_1fr_120px] items-center bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 gap-6">
+<div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="handwritten notes and documents spread across a table with a magnifying glass in a vintage detective aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARhEGmuBjDEqU5mZGKK7LSEeWtqdQ41SKP9_x_nYBz7qZoLWH-z1TOHIL9zRbPkZ2jjq8jhZ-eEwlJxtq3slioMUHDNPsgVb5bZW8Uv_KL9DFJvHsz4aNpxwxGT2WoLK3leW_Zh7hUsJ7qlQ0NuTiYsOVRBFJK_9CTGfk3FtmUu3PQez5HByedTBjA1kC9ulzLAF-XCbUpvO7U8V0JI1wFkAwFyhe2xVN2gH6FG8Le9dHUJ5FJRbCljWQZsOaEhTF7iM1rGeUMaLVM"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight">TRUTH FRAGMENT</h3>
+<p class="font-body text-xs text-outline uppercase tracking-wider">OLIVER GLASS</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest text-outline px-2 py-1 text-[10px] font-label uppercase tracking-tighter border border-outline-variant/15">NEW RELEASE</span>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_auto] items-center gap-8">
+<div class="flex items-center gap-1 h-8">
+<div class="flex-1 flex items-center gap-[2px] h-full">
+<div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-7 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-8 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-7 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Ambient</span>
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Static</span>
+</div>
+</div>
+<div class="mt-1 p-2 bg-primary/5 border-l border-primary/30">
+<p class="text-[11px] text-primary/80 font-body leading-tight">
+<strong class="uppercase font-bold tracking-tighter mr-2">AI MATCH:</strong> Use of white noise and textural layers creates a feeling of a "hidden truth" just out of reach.
+                        </p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4">
+<div class="text-right">
+<div class="text-3xl font-headline font-bold text-primary leading-none">85<span class="text-xs">%</span></div>
+<div class="text-[10px] font-label uppercase text-outline tracking-widest">Match Score</div>
+</div>
+<div class="flex gap-3 text-outline">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="download">download</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span></button>
+</div>
+</div>
+</div>
+<!-- Track Row 4 -->
+<div class="group grid grid-cols-[180px_1fr_120px] items-center bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 gap-6">
+<div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="a rainy window overlooking a blurred city at night with neon lights reflecting in the puddles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0cphXmZ1S03Ju_hsPyPD6JcaiqaaIU5eFPqhI0Gy13xo_6incRC9yrl5segHj0dX-TgO-Mi7T0kEzxWOyaDYKis3Wxyutv1NGokg5Nl4xV2TyFb0nSjKDT3S1mnIoAgaHizxxy_w65Gsj5_bdAku2tFPWVNAbNJuygzadvrxlg_Hl-GRNWPvOfUeJ_5zr0zuRiKEXAmHHAG7CWzHyXnHDASoPy_8KrOmWjui40vVVeTYID7QPk2O3yibSqkW-3HzSBxYGOxvHEdOE"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight">VOID ECHO</h3>
+<p class="font-body text-xs text-outline uppercase tracking-wider">NIGHTWALKER</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest text-outline px-2 py-1 text-[10px] font-label uppercase tracking-tighter border border-outline-variant/15">AS HEARD ON: DARKEST HOUR</span>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_auto] items-center gap-8">
+<div class="flex items-center gap-1 h-8">
+<div class="flex-1 flex items-center gap-[2px] h-full">
+<div class="w-1 h-8 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-7 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-7 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-7 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Gritty</span>
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Noir</span>
+</div>
+</div>
+<div class="mt-1 p-2 bg-primary/5 border-l border-primary/30">
+<p class="text-[11px] text-primary/80 font-body leading-tight">
+<strong class="uppercase font-bold tracking-tighter mr-2">AI MATCH:</strong> Sub-bass resonance creates a literal 'gut-punch' for high-stakes reveal moments.
+                        </p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4">
+<div class="text-right">
+<div class="text-3xl font-headline font-bold text-primary leading-none">82<span class="text-xs">%</span></div>
+<div class="text-[10px] font-label uppercase text-outline tracking-widest">Match Score</div>
+</div>
+<div class="flex gap-3 text-outline">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="download">download</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span></button>
+</div>
+</div>
+</div>
+<!-- Track Row 5 -->
+<div class="group grid grid-cols-[180px_1fr_120px] items-center bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 gap-6">
+<div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="shadowy staircase leading down into a dark basement with a single light at the bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjYbw8tb6ZEtodmioaXndpu6leKZgchf1uUY_Mb5xbJjX3qGm0dhrneiOwqq-JaSuxGrToSk8L-Cg9LEHunQxuqRTEBBqna9jpnSFiZwrjc6x4qBa6S7t59vFDVNqtNa0U4Ymc7GKXsMv0UB-rY0Fvzxf826FGktOmbhb5cp8c4BtXqufJBdmFxjSmSt0ItlCqwP1OFfGm85I_w52R6q8h_HrdLnw9f17IwbbNyiS7_p9OfYYQRc5zarj30bCCAtEkngdcvqbi7kHz"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight">COLD CASE</h3>
+<p class="font-body text-xs text-outline uppercase tracking-wider">ELARA FINCH</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest text-outline px-2 py-1 text-[10px] font-label uppercase tracking-tighter border border-outline-variant/15">AS HEARD ON: TRUE CRIME S1</span>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_auto] items-center gap-8">
+<div class="flex items-center gap-1 h-8">
+<div class="flex-1 flex items-center gap-[2px] h-full">
+<div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-8 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-8 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div><div class="w-1 h-4 bg-primary/40"></div><div class="w-1 h-6 bg-primary/40"></div><div class="w-1 h-8 bg-primary/40"></div><div class="w-1 h-5 bg-primary/40"></div><div class="w-1 h-3 bg-primary/40"></div><div class="w-1 h-2 bg-primary/40"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Ominous</span>
+<span class="text-[10px] font-label py-1 px-3 bg-surface-container-highest/50 text-on-surface-variant uppercase tracking-widest">Slow</span>
+</div>
+</div>
+<div class="mt-1 p-2 bg-primary/5 border-l border-primary/30">
+<p class="text-[11px] text-primary/80 font-body leading-tight">
+<strong class="uppercase font-bold tracking-tighter mr-2">AI MATCH:</strong> Repetitive piano motif creates an obsessive, circular atmosphere for unresolved storylines.
+                        </p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4">
+<div class="text-right">
+<div class="text-3xl font-headline font-bold text-primary leading-none">78<span class="text-xs">%</span></div>
+<div class="text-[10px] font-label uppercase text-outline tracking-widest">Match Score</div>
+</div>
+<div class="flex gap-3 text-outline">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="download">download</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar / Floating Player -->
+<div class="fixed bottom-0 left-0 w-full z-50 h-20 bg-[#282a2d]/85 backdrop-blur-md flex items-center justify-between px-8 border-t border-[#3b494c]/15">
+<div class="flex items-center gap-4 w-1/4">
+<div class="w-12 h-12 bg-surface-container-highest border border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="album art with abstract glitch texture in teal and black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfyDl2IOAsp2CCHG1iyomn4w2BOy6MYzrQDowoAGm44e7h0qq6J-_uGRMeZiKxXrvDm7JQbZEGQbq6fq7hyYAhcK4wMG4wbJofM_iyh0E0DJXmEIHReElliqA38QP55pvYbrTUhC3m641QnuoxZPQQ7NEsDzBaV8toHa2aISQa9rmVVJ9lAE2BXmRU14HGiUlD69CWh2ipUF3ikybSQnbqIUlq8-95waU-wwRG0k3o9C7DffSUTDYB_UsQAtqVlClIwzbpIKY4KofS"/>
+</div>
+<div>
+<div class="text-xs font-headline font-bold text-[#c3f5ff] uppercase tracking-wider">Silent Pressure</div>
+<div class="text-[10px] font-label text-outline uppercase tracking-widest">Marcus Vane</div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 max-w-xl">
+<div class="flex items-center gap-6">
+<button class="text-slate-500 hover:text-[#c3f5ff]"><span class="material-symbols-outlined" data-icon="shuffle">shuffle</span></button>
+<button class="text-slate-500 hover:text-[#c3f5ff]"><span class="material-symbols-outlined" data-icon="skip_previous">skip_previous</span></button>
+<button class="w-10 h-10 bg-[#c3f5ff] text-[#00363d] flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="text-slate-500 hover:text-[#c3f5ff]"><span class="material-symbols-outlined" data-icon="skip_next">skip_next</span></button>
+<button class="text-slate-500 hover:text-[#c3f5ff]"><span class="material-symbols-outlined" data-icon="repeat">repeat</span></button>
+</div>
+<div class="w-full flex items-center gap-4">
+<span class="text-[10px] font-label text-slate-500">1:24</span>
+<div class="flex-1 h-[2px] bg-outline-variant/30 relative">
+<div class="absolute top-0 left-0 h-full w-[40%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-label text-slate-500">3:45</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-6 w-1/4">
+<div class="flex items-center gap-2 group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-[#c3f5ff] text-xl" data-icon="volume_up">volume_up</span>
+<div class="w-20 h-1 bg-outline-variant/30">
+<div class="h-full w-2/3 bg-[#c3f5ff]"></div>
+</div>
+</div>
+<button class="text-[#c3f5ff] flex flex-col items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="graphic_eq">graphic_eq</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Waveform</span>
+</button>
+<button class="text-slate-500 hover:bg-[#c3f5ff]/10 flex flex-col items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="queue_music">queue_music</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Queue</span>
+</button>
+</div>
+</div>
+</body></html>

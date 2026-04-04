@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#282a2d",
+                    "on-primary-container": "#00626e",
+                    "secondary-fixed-dim": "#98d0da",
+                    "surface-container": "#1e2023",
+                    "on-tertiary": "#3e2e00",
+                    "inverse-surface": "#e2e2e6",
+                    "surface-dim": "#111316",
+                    "outline": "#849396",
+                    "tertiary-fixed-dim": "#f3bf26",
+                    "surface-container-highest": "#333538",
+                    "on-secondary-container": "#8ac1cc",
+                    "secondary-fixed": "#b3ecf7",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "inverse-on-surface": "#2f3034",
+                    "on-surface": "#e2e2e6",
+                    "on-secondary-fixed": "#001f24",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdf96",
+                    "surface": "#111316",
+                    "inverse-primary": "#006875",
+                    "surface-bright": "#37393d",
+                    "tertiary": "#ffeac0",
+                    "on-primary-fixed-variant": "#004f58",
+                    "secondary": "#98d0da",
+                    "on-surface-variant": "#bac9cc",
+                    "on-primary-fixed": "#001f24",
+                    "surface-variant": "#333538",
+                    "on-background": "#e2e2e6",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed": "#251a00",
+                    "primary-container": "#00e5ff",
+                    "on-primary": "#00363d",
+                    "error": "#ffb4ab",
+                    "primary": "#c3f5ff",
+                    "tertiary-container": "#fec931",
+                    "background": "#111316",
+                    "surface-tint": "#00daf3",
+                    "primary-fixed": "#9cf0ff",
+                    "outline-variant": "#3b494c",
+                    "surface-container-low": "#1a1c1f",
+                    "on-tertiary-container": "#6f5500",
+                    "on-secondary-fixed-variant": "#0d4e57",
+                    "primary-fixed-dim": "#00daf3",
+                    "on-secondary": "#00363d",
+                    "surface-container-lowest": "#0c0e11",
+                    "secondary-container": "#11505a",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-6 h-16 bg-[#111316] fixed top-0 z-[100] border-b border-outline-variant/10">
+<div class="text-xl font-bold tracking-tighter text-[#c3f5ff] font-['Space_Grotesk']">Tracked</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-[#c3f5ff] border-b border-[#c3f5ff] pb-1 transition-colors duration-200" href="#">Catalog</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">Pricing</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200" href="#">How It Works</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm text-slate-400 hover:text-[#c3f5ff] transition-colors duration-200">Sign In</button>
+<button class="bg-primary-container text-on-primary px-4 py-2 font-['Space_Grotesk'] uppercase tracking-[0.05em] text-sm font-bold transition-all active:scale-95">Start Free Trial</button>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="grid md:grid-cols-2 min-h-[870px] border-b border-outline-variant/20">
+<div class="flex flex-col justify-center px-8 lg:px-20 py-12 bg-surface-container-lowest">
+<div class="mb-4">
+<span class="text-primary font-headline uppercase tracking-[0.2em] text-xs font-bold">Precision Utility v4.0</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-headline font-bold leading-[0.9] tracking-tighter mb-8">
+                    THE SONIC <br/>
+<span class="text-outline">LABORATORY</span>
+</h1>
+<p class="text-on-surface-variant max-w-md mb-12 text-sm leading-relaxed border-l border-primary/30 pl-4">
+                    High-performance music licensing for professional curators. Intentional information density meets cinematic precision.
+                </p>
+<!-- AI Search Input -->
+<div class="relative group max-w-xl">
+<div class="absolute -inset-0.5 bg-primary/20 opacity-0 group-focus-within:opacity-100 transition-opacity"></div>
+<div class="relative bg-surface-container-high flex items-center p-1">
+<span class="material-symbols-outlined px-4 text-primary">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-primary font-headline placeholder:text-outline/50 placeholder:font-body text-lg py-4" placeholder="tense standoff, interrogation room, fluorescent light" type="text"/>
+<button class="bg-primary px-6 py-4 text-on-primary font-headline font-bold uppercase text-xs tracking-widest">
+                            Match
+                        </button>
+</div>
+<div class="flex gap-4 mt-3">
+<span class="text-[10px] text-outline uppercase tracking-widest">Recent:</span>
+<span class="text-[10px] text-primary/70 uppercase tracking-widest cursor-pointer hover:text-primary">Cyberpunk Night</span>
+<span class="text-[10px] text-primary/70 uppercase tracking-widest cursor-pointer hover:text-primary">Industrial Grime</span>
+</div>
+</div>
+</div>
+<div class="relative overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover grayscale opacity-60 mix-blend-luminosity" data-alt="Cinematic high-contrast shot of a dark recording studio with blue glowing synthesizers and professional audio gear in a moody atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFZKTwSKPMCBaTZ9kofTSfeCInqi3755rje722RTb5ExK7qk6AgrhqIz1TVkPYD4RS53HRUrYcAZOvLxKE1RB5RkWErAzJtoYl3wCs7G6vcubwFbM3OW1SvGRbsHL45hipz6OScGEi_t1_gIZCeW1gan_cbZsL9KANMx1Q17e6yBMkEnOAkjlVgncc1P8U-TIG_nWPi5F4O5ct6mcM_9Q5qEl3jdbSwtfsykj9eY2qh18JZ8MOnzIBVgOFBp4EjbFgX1DBnEd74zRK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent md:bg-gradient-to-l"></div>
+<!-- Floating Data Overlay -->
+<div class="absolute bottom-8 right-8 bg-surface-container-highest/80 backdrop-blur-md p-6 border border-outline-variant/20 max-w-xs">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-2 h-2 bg-primary animate-pulse"></div>
+<span class="font-headline text-xs uppercase tracking-widest text-primary">Live Feed / Scoring</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] text-outline uppercase tracking-[0.1em]">Spectral Match</p>
+<p class="font-headline font-bold text-xl">98.4%</p>
+</div>
+<div class="flex gap-1 h-8 items-end">
+<div class="w-1 bg-primary/20 h-4"></div>
+<div class="w-1 bg-primary/40 h-6"></div>
+<div class="w-1 bg-primary h-8"></div>
+<div class="w-1 bg-primary/60 h-5"></div>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant/30 w-full"></div>
+<p class="text-xs text-on-surface-variant leading-snug">
+                            Analyzing "Interrogation Scene" parameters. Sub-bass frequencies optimized for cinematic tension.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stat Bar -->
+<section class="bg-surface-container-high border-b border-outline-variant/20 overflow-x-auto whitespace-nowrap">
+<div class="flex divide-x divide-outline-variant/20 py-4 px-6 lg:px-20 justify-between items-center">
+<div class="px-8 flex flex-col items-center">
+<span class="text-primary font-headline font-bold text-2xl">42K</span>
+<span class="text-[10px] text-outline uppercase tracking-widest">Compositions</span>
+</div>
+<div class="px-8 flex flex-col items-center">
+<span class="text-primary font-headline font-bold text-2xl">140K</span>
+<span class="text-[10px] text-outline uppercase tracking-widest">Production Files</span>
+</div>
+<div class="px-8 flex flex-col items-center">
+<span class="text-primary font-headline font-bold text-2xl">2008</span>
+<span class="text-[10px] text-outline uppercase tracking-widest">Scoring Since</span>
+</div>
+<div class="px-8 flex flex-col items-center">
+<span class="text-primary font-headline font-bold text-2xl">0.02s</span>
+<span class="text-[10px] text-outline uppercase tracking-widest">Search Latency</span>
+</div>
+</div>
+</section>
+<!-- Collections -->
+<section class="py-20 bg-surface-container-lowest">
+<div class="px-6 lg:px-20 mb-10 flex justify-between items-end">
+<div>
+<span class="text-primary font-headline uppercase tracking-[0.2em] text-[10px] font-bold">Catalog Exploration</span>
+<h2 class="text-3xl font-headline font-bold mt-2">CURATED COLLECTIONS</h2>
+</div>
+<button class="text-outline hover:text-primary transition-colors text-[10px] uppercase tracking-widest flex items-center gap-2">
+                    View Archive <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="flex overflow-x-auto px-6 lg:px-20 gap-4 pb-12 no-scrollbar">
+<!-- Collection Card 1 -->
+<div class="min-w-[300px] bg-surface-container h-96 relative group cursor-pointer overflow-hidden border border-outline-variant/10">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="Moody dark forest with mist and silhouettes of pine trees, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKTBi1yvFocffi0Ty5duqWjVnJP2GMCnA3B3ENhtF4YkN4QRDJgZruB0QC8QbZW_dBo5caZoRzrJVKH-ML-Qt1Jfd6LaBfmSgXbqWuytKhi6LGu_yzp8A7QfTI51A3u7qSvP3WJqmjfYFc_tLvh1hJjMfDSlU3vN_XAnDgMwplCzMBaIfgRosEUpGXOiYDuZ7R9-ta2ifYQsjL0D915cFrg7wZEUDov-wqFhAVeDLBTj7kGHTssP77abUXIdahTr83u28qzNoJ8eSJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<div class="flex justify-between items-center mb-2">
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 font-bold uppercase tracking-widest border border-primary/20">High Match</span>
+<span class="text-outline text-[10px] font-headline">128 Tracks</span>
+</div>
+<h3 class="text-xl font-headline font-bold uppercase tracking-tight">TRUE CRIME</h3>
+<p class="text-outline text-xs mt-2 font-body leading-relaxed line-clamp-2">Dark underscores, dissonant textures, and rhythmic tension built for investigations.</p>
+</div>
+</div>
+<!-- Collection Card 2 -->
+<div class="min-w-[300px] bg-surface-container h-96 relative group cursor-pointer overflow-hidden border border-outline-variant/10">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="Close up of vintage synthesizer keys and knobs in a dimly lit studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_4N-BSGlF3JqS19UqX4cq7qDf8LomIn-OOWufXpy3Fp8wOG2FqUH-GXoiSSArVkwtHz_-Io3vlVbHWB7M2z2_2teUu9qVVQEDQa7TldEvJB4W_DY9n_XPCN4g4eMVSegWbUQ_EKUh4WPPh2oglKO7SfV4QPzpS76TR-JTJnM9PwDdbH9SRsm-NHfh99gek2he4fC1kEvPnj6AHIa8VLlD2LoBOywbOMRlP2j7F2hYHWhdakRC0Q44lwIKqz_JqdGhR8dVd43jLcV4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<div class="flex justify-between items-center mb-2">
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 font-bold uppercase tracking-widest border border-primary/20">Trending</span>
+<span class="text-outline text-[10px] font-headline">215 Tracks</span>
+</div>
+<h3 class="text-xl font-headline font-bold uppercase tracking-tight">REALITY COMPETITION</h3>
+<p class="text-outline text-xs mt-2 font-body leading-relaxed line-clamp-2">High-energy percussion, driving synth bass, and celebratory climaxes.</p>
+</div>
+</div>
+<!-- Collection Card 3 -->
+<div class="min-w-[300px] bg-surface-container h-96 relative group cursor-pointer overflow-hidden border border-outline-variant/10">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract view of Earth from space at night with glowing city lights and atmospheric haze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtdvtxDPZtqMvouf_nmRJxRnqTjlHBehSsxdRuADlRJWp-QZuMLOM44WCASruRU-XhFPtPpmYBdptmSqghlAs4MpEyAmaytZQsYDY04vqKIL7tRqlv5NBCzbqCgmYcNBp3aQiNepwXr_BwtE4QLmBb2WBm9LmC7FY_dfytgPhnGH11nlN7S78_mROSXbTLJi49MEKmE-F6cUKlU5zxh5h26WvCAlQKk9dTQdTGp-IBFKZC7DMbScU5TgqMXCfKDvKLE9EtF-SXii7D"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<div class="flex justify-between items-center mb-2">
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 font-bold uppercase tracking-widest border border-primary/20">Editorial</span>
+<span class="text-outline text-[10px] font-headline">89 Tracks</span>
+</div>
+<h3 class="text-xl font-headline font-bold uppercase tracking-tight">GLOBAL DOCUS</h3>
+<p class="text-outline text-xs mt-2 font-body leading-relaxed line-clamp-2">Ethereal soundscapes, world instruments, and expansive orchestral arrangements.</p>
+</div>
+</div>
+<!-- Collection Card 4 -->
+<div class="min-w-[300px] bg-surface-container h-96 relative group cursor-pointer overflow-hidden border border-outline-variant/10">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="Low angle shot of skyscraper glass facade reflecting a dark sky with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxqeP7mOaz1pr1Vcvil50r2jeaP29pLZNyFyB4ITZADjA7_E86glTnAuQocrPUEjB6Q4pEhsxTZ9B4dOjcRY_Jh96C78Pk_VmHqyj9pCornRCif_vL4wqv_mnZwgeiCFJSEcnYVArQ2jZkTnqv-morB9Z6is_Iz-jltJFQrIIelitL3GuMiZVTfCN08UMsBqh0Rqc-vJEgWWzJPOvlR8BTffMW2yiz_jZZj_uLPHp9woaoDTiydzYt5j55fW5j7T9iLDnLPhbK8VJj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<div class="flex justify-between items-center mb-2">
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 font-bold uppercase tracking-widest border border-primary/20">New</span>
+<span class="text-outline text-[10px] font-headline">54 Tracks</span>
+</div>
+<h3 class="text-xl font-headline font-bold uppercase tracking-tight">CORPORATE TECH</h3>
+<p class="text-outline text-xs mt-2 font-body leading-relaxed line-clamp-2">Minimalist patterns, clean pulses, and optimistic forward momentum.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-24 bg-surface px-6 lg:px-20 border-t border-outline-variant/20">
+<div class="max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-3 gap-12">
+<div>
+<div class="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 border border-primary/30">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+</div>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider mb-4">01. Describe</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            Input descriptive prompts, reference tracks, or narrative themes into our precision AI engine. It understands context, not just keywords.
+                        </p>
+</div>
+<div>
+<div class="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 border border-primary/30">
+<span class="material-symbols-outlined text-primary" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider mb-4">02. Match</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            Our algorithm parses 140k+ audio files to find the perfect spectral match for your production, providing stems and alternative mixes instantly.
+                        </p>
+</div>
+<div>
+<div class="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 border border-primary/30">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+</div>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider mb-4">03. License</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            Secure worldwide rights with a single click. Transparent pricing tailored for major networks and independent creators alike.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-20 px-6 lg:px-20 border-t border-outline-variant/30">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-24">
+<div>
+<h4 class="font-headline text-[#c3f5ff] font-bold text-xl mb-8 tracking-tighter">Tracked</h4>
+<p class="text-[10px] text-outline uppercase tracking-widest leading-loose">
+                    THE SONIC LABORATORY<br/>
+                    SCORING SINCE 2008<br/>
+                    ALL RIGHTS RESERVED.
+                </p>
+</div>
+<div>
+<h5 class="text-[10px] uppercase tracking-[0.2em] font-bold text-primary mb-6">Catalog</h5>
+<ul class="space-y-3">
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">New Releases</a></li>
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">Top Rated</a></li>
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">Stems Archive</a></li>
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">AI Tools</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-[10px] uppercase tracking-[0.2em] font-bold text-primary mb-6">Company</h5>
+<ul class="space-y-3">
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">About Us</a></li>
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">Methodology</a></li>
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">Privacy</a></li>
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">Terms</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-[10px] uppercase tracking-[0.2em] font-bold text-primary mb-6">Connect</h5>
+<ul class="space-y-3">
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">API Access</a></li>
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">Help Desk</a></li>
+<li><a class="text-xs text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">Social Feed</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-[10px] text-outline/50 uppercase tracking-widest">Version 4.0.12 build_final</span>
+<div class="flex gap-4">
+<div class="w-1 h-1 bg-primary/40"></div>
+<div class="w-1 h-1 bg-primary/40"></div>
+<div class="w-1 h-1 bg-primary"></div>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 h-20 bg-[#282a2d]/85 backdrop-blur-md flex items-center justify-between px-8 border-t border-[#3b494c]/15">
+<div class="flex flex-col items-center gap-1 text-[#c3f5ff]">
+<span class="material-symbols-outlined text-xl" data-icon="play_arrow">play_arrow</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Player</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500 hover:bg-[#c3f5ff]/10 p-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-xl" data-icon="graphic_eq">graphic_eq</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Waveform</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500 hover:bg-[#c3f5ff]/10 p-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-xl" data-icon="queue_music">queue_music</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Queue</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500 hover:bg-[#c3f5ff]/10 p-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Volume</span>
+</div>
+</nav>
+</body></html>
