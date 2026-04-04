@@ -1,33 +1,39 @@
 /* =============================================================
    Precision Utility — Design Token System
-   Electric cyan on deep slate, all sans-serif, sharp corners.
+   Source: stitch-designs/precision-utility-*.html
 
-   Token architecture mirrors cinematic.css exactly:
-     [data-theme="precision-utility"][data-mode="dark"]
-     [data-theme="precision-utility"][data-mode="light"]
+   Fonts: Space Grotesk (headline) + Inter (body) — all sans-serif
+   Colors: Deep slate + electric cyan, from Stitch Tailwind config
+   Radius: 0px everywhere except pills (9999px)
    ============================================================= */
 
 /* ----- Dark Mode ----- */
 [data-theme="precision-utility"][data-mode="dark"] {
-  --color-surface:                    #111316;
-  --color-surface-container-lowest:   #0A0C0E;
-  --color-surface-container:          #1A1D21;
-  --color-surface-container-high:     #24272C;
-  --color-surface-container-highest:  #2E3238;
+  /* Surface scale — from Stitch Tailwind config */
+  --color-surface:                    #111316;   /* surface / surface-dim */
+  --color-surface-container-lowest:   #0c0e11;   /* surface-container-lowest */
+  --color-surface-container:          #1e2023;   /* surface-container */
+  --color-surface-container-high:     #282a2d;   /* surface-container-high */
+  --color-surface-container-highest:  #333538;   /* surface-container-highest */
 
-  --color-primary:                    #C3F5FF;
-  --color-primary-container:          #163A42;
-  --color-on-primary:                 #0A0C0E;
+  /* Primary — electric cyan */
+  --color-primary:                    #c3f5ff;   /* primary */
+  --color-primary-container:          #00e5ff;   /* primary-container */
+  --color-on-primary:                 #00363d;   /* on-primary */
 
-  --color-secondary:                  #C3F5FF;
-  --color-secondary-container:        #1A3840;
+  /* Secondary — softer cyan */
+  --color-secondary:                  #98d0da;   /* secondary */
+  --color-secondary-container:        #11505a;   /* secondary-container */
 
-  --color-on-surface:                 #E8EAED;
-  --color-on-surface-variant:         #8B9099;
+  /* Text */
+  --color-on-surface:                 #e2e2e6;   /* on-surface */
+  --color-on-surface-variant:         #bac9cc;   /* on-surface-variant */
 
-  --color-outline-variant:            #2E3238;
+  /* Borders */
+  --color-outline-variant:            #3b494c;   /* outline-variant */
 
-  --shadow-ambient:                   0 24px 48px rgba(0, 0, 0, 0.4);
+  /* Shadows */
+  --shadow-ambient:                   0 24px 48px rgba(0, 0, 0, 0.5);
   --shadow-player:                    0 -4px 24px rgba(0, 0, 0, 0.5);
 
   --glass-bg-opacity:                 0.85;
@@ -35,26 +41,28 @@
 }
 
 /* ----- Light Mode ----- */
+/* PU is dark-first; light mode inverts to a cool gray base */
 [data-theme="precision-utility"][data-mode="light"] {
-  --color-surface:                    #F4F5F7;
-  --color-surface-container-lowest:   #FFFFFF;
-  --color-surface-container:          #E8EAED;
-  --color-surface-container-high:     #DCDFE3;
-  --color-surface-container-highest:  #D0D3D9;
+  --color-surface:                    #f2f4f7;
+  --color-surface-container-lowest:   #ffffff;
+  --color-surface-container:          #e6e9ed;
+  --color-surface-container-high:     #d9dde3;
+  --color-surface-container-highest:  #cdd2d9;
 
-  --color-primary:                    #0891B2;
-  --color-primary-container:          #CFFAFE;
-  --color-on-primary:                 #FFFFFF;
+  /* Deeper cyan for contrast on light */
+  --color-primary:                    #006875;   /* inverse-primary from config */
+  --color-primary-container:          #9cf0ff;   /* primary-fixed */
+  --color-on-primary:                 #ffffff;
 
-  --color-secondary:                  #0891B2;
-  --color-secondary-container:        #CFFAFE;
+  --color-secondary:                  #0d4e57;   /* on-secondary-fixed-variant */
+  --color-secondary-container:        #b3ecf7;   /* secondary-fixed */
 
   --color-on-surface:                 #111316;
-  --color-on-surface-variant:         #5F646D;
+  --color-on-surface-variant:         #4a5559;
 
-  --color-outline-variant:            #D0D3D9;
+  --color-outline-variant:            #cdd2d9;
 
-  --shadow-ambient:                   0 24px 48px rgba(17, 19, 22, 0.04);
+  --shadow-ambient:                   0 24px 48px rgba(17, 19, 22, 0.05);
   --shadow-player:                    0 -4px 24px rgba(17, 19, 22, 0.06);
 
   --glass-bg-opacity:                 0.90;
@@ -63,9 +71,11 @@
 
 /* ----- Theme-level tokens (mode-independent) ----- */
 [data-theme="precision-utility"] {
+  /* Fonts — Space Grotesk (headline) + Inter (body), no serif */
   --font-display: var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
   --font-body:    var(--font-inter), 'Inter', system-ui, sans-serif;
 
+  /* Type scale */
   --text-display-xl:       4.5rem;
   --text-display-xl-weight: 700;
   --text-display-xl-lh:    1.05;
@@ -122,6 +132,7 @@
   --text-label-sm-weight:  500;
   --text-label-sm-ls:      0.12em;
 
+  /* Spacing */
   --space-1:   0.25rem;
   --space-2:   0.5rem;
   --space-3:   0.75rem;
@@ -133,11 +144,12 @@
   --space-16:  4rem;
   --space-20:  5rem;
 
-  /* Sharp corners everywhere */
+  /* Border radius — from Stitch: DEFAULT 0px, lg 0px, xl 0px, full 9999px */
+  /* Sharp corners everywhere except pill badges */
   --radius-sm:   0px;
   --radius-md:   0px;
   --radius-lg:   0px;
-  --radius-full: 0px;
+  --radius-full: 9999px;
 
   --content-max-width: 1280px;
   --page-padding:      48px;

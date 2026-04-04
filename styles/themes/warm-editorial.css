@@ -1,71 +1,85 @@
 /* =============================================================
    Warm Editorial — Design Token System
-   Terracotta + earth tones, Newsreader serif, warm cream base.
+   Source: stitch-designs/warm-editorial-*.html
 
-   Token architecture mirrors cinematic.css exactly:
-     [data-theme="warm-editorial"][data-mode="dark"]
-     [data-theme="warm-editorial"][data-mode="light"]
+   Fonts: Newsreader (serif) + Manrope (sans)
+   Dark: Tailwind stone palette (stone-950, stone-900, etc.)
+   Light: Material Design tokens from Stitch config (#fbf9f5 base)
    ============================================================= */
 
 /* ----- Dark Mode ----- */
 [data-theme="warm-editorial"][data-mode="dark"] {
-  --color-surface:                    #1A1614;
-  --color-surface-container-lowest:   #110E0C;
-  --color-surface-container:          #241F1C;
-  --color-surface-container-high:     #302A26;
-  --color-surface-container-highest:  #3C3530;
+  /* Surface scale — from Stitch's stone-* palette */
+  --color-surface:                    #0c0a09;   /* stone-950 */
+  --color-surface-container-lowest:   #0a0908;
+  --color-surface-container:          #1c1917;   /* stone-900 */
+  --color-surface-container-high:     #292524;   /* stone-800 */
+  --color-surface-container-highest:  #44403c;   /* stone-700 */
 
-  --color-primary:                    #D4503A;
-  --color-primary-container:          #4A1A10;
-  --color-on-primary:                 #FFFFFF;
+  /* Primary — warm terracotta/rust */
+  --color-primary:                    #c05e3e;   /* from nav text-[#c05e3e] */
+  --color-primary-container:          #7d2c10;   /* on-primary-fixed-variant */
+  --color-on-primary:                 #ffffff;
 
-  --color-secondary:                  #C49078;
-  --color-secondary-container:        #5C3A2A;
+  /* Secondary — muted warm */
+  --color-secondary:                  #f7b8a5;   /* secondary-fixed-dim */
+  --color-secondary-container:        #673b2d;   /* on-secondary-fixed-variant */
 
-  --color-on-surface:                 #F0EBE6;
-  --color-on-surface-variant:         #A89E96;
+  /* Text */
+  --color-on-surface:                 #e7e5e4;   /* stone-200 */
+  --color-on-surface-variant:         #a8a29e;   /* stone-400 */
 
-  --color-outline-variant:            #3E3630;
+  /* Borders */
+  --color-outline-variant:            #44403c;   /* stone-700 */
 
+  /* Shadows */
   --shadow-ambient:                   0 24px 48px rgba(0, 0, 0, 0.35);
-  --shadow-player:                    0 -4px 24px rgba(0, 0, 0, 0.45);
+  --shadow-player:                    0 -4px 24px rgba(0, 0, 0, 0.4);
 
-  --glass-bg-opacity:                 0.85;
-  --glass-blur:                       20px;
+  --glass-bg-opacity:                 0.80;
+  --glass-blur:                       16px;
 }
 
 /* ----- Light Mode ----- */
 [data-theme="warm-editorial"][data-mode="light"] {
-  --color-surface:                    #FBF9F5;
-  --color-surface-container-lowest:   #FFFFFF;
-  --color-surface-container:          #F2EDE7;
-  --color-surface-container-high:     #E8E2DB;
-  --color-surface-container-highest:  #DDD6CE;
+  /* Surface scale — from Stitch Tailwind config */
+  --color-surface:                    #fbf9f5;
+  --color-surface-container-lowest:   #ffffff;
+  --color-surface-container:          #efeeea;   /* surface-container */
+  --color-surface-container-high:     #eae8e4;   /* surface-container-high */
+  --color-surface-container-highest:  #e4e2de;   /* surface-container-highest */
 
-  --color-primary:                    #994123;
-  --color-primary-container:          #F5D3C7;
-  --color-on-primary:                 #FFFFFF;
+  /* Primary */
+  --color-primary:                    #994123;   /* primary */
+  --color-primary-container:          #b95839;   /* primary-container */
+  --color-on-primary:                 #ffffff;
 
-  --color-secondary:                  #825243;
-  --color-secondary-container:        #E8C9BC;
+  /* Secondary */
+  --color-secondary:                  #825243;   /* secondary */
+  --color-secondary-container:        #ffc0ad;   /* secondary-container */
 
-  --color-on-surface:                 #1F1A17;
-  --color-on-surface-variant:         #7A6E64;
+  /* Text */
+  --color-on-surface:                 #1b1c1a;   /* on-surface */
+  --color-on-surface-variant:         #56423d;   /* on-surface-variant */
 
-  --color-outline-variant:            #D1C8BF;
+  /* Borders */
+  --color-outline-variant:            #dcc1b9;   /* outline-variant */
 
-  --shadow-ambient:                   0 24px 48px rgba(31, 26, 23, 0.06);
-  --shadow-player:                    0 -4px 24px rgba(31, 26, 23, 0.08);
+  /* Shadows */
+  --shadow-ambient:                   0 24px 48px rgba(27, 28, 26, 0.06);
+  --shadow-player:                    0 -4px 24px rgba(27, 28, 26, 0.08);
 
   --glass-bg-opacity:                 0.90;
-  --glass-blur:                       20px;
+  --glass-blur:                       16px;
 }
 
 /* ----- Theme-level tokens (mode-independent) ----- */
 [data-theme="warm-editorial"] {
+  /* Fonts — Newsreader (serif) + Manrope (sans) */
   --font-display: var(--font-newsreader), 'Newsreader', Georgia, serif;
   --font-body:    var(--font-manrope), 'Manrope', system-ui, sans-serif;
 
+  /* Type scale */
   --text-display-xl:       4.5rem;
   --text-display-xl-weight: 700;
   --text-display-xl-lh:    1.05;
@@ -122,6 +136,7 @@
   --text-label-sm-weight:  500;
   --text-label-sm-ls:      0.1em;
 
+  /* Spacing */
   --space-1:   0.25rem;
   --space-2:   0.5rem;
   --space-3:   0.75rem;
@@ -133,6 +148,8 @@
   --space-16:  4rem;
   --space-20:  5rem;
 
+  /* Border radius — from Stitch: DEFAULT 0.125rem, lg 0.25rem, xl 0.5rem */
+  /* But Stitch HTML uses rounded-lg, rounded-xl generously */
   --radius-sm:   2px;
   --radius-md:   4px;
   --radius-lg:   8px;
