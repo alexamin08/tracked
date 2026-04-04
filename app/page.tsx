@@ -63,7 +63,7 @@ export default function HomePage() {
           style={{
             maxWidth: 1440,
             margin: "0 auto",
-            padding: "64px 32px",
+            padding: "48px 32px 64px",
             display: "grid",
             gap: 64,
             alignItems: "center",
