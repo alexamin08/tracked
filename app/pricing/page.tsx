@@ -11,7 +11,7 @@ const TIERS = [
   {
     name: "Starter",
     price: 15,
-    annualPrice: 13,
+    annualPrice: 12,
     label: null,
     popular: false,
     features: ["MP3 downloads", "2 platforms", "10 searches/day", "50 saved"],
