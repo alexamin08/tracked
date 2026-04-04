@@ -3,8 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useAuth } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
-import { Header } from "@/components/layout/header";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { TopNav } from "@/components/nav/TopNav";
 import { trackCheckoutStarted } from "@/lib/analytics";
 
 export default function SubscribePage() {
@@ -40,35 +40,48 @@ export default function SubscribePage() {
 
   return (
     <>
-      <Header />
-      <main className="pt-24 min-h-screen flex items-center justify-center px-6" style={{ background: "var(--t-color-surface-low)" }}>
-        <div
-          className="max-w-md w-full text-center"
-          style={{
-            background: "var(--t-color-surface)",
-            borderRadius: "var(--t-radius-lg)",
-            padding: "var(--t-space-8)",
-            boxShadow: "var(--t-shadow-ambient)",
-          }}
-        >
-          <h1 className="t-display-sm mb-2" style={{ color: "var(--t-color-text)" }}>Start your free trial</h1>
-          <p className="t-body-md mb-6" style={{ color: "var(--t-color-text-muted)" }}>
+      <TopNav />
+      <main style={{ backgroundColor: "var(--color-surface)", minHeight: "100vh", paddingTop: 112, display: "flex", alignItems: "center", justifyContent: "center", padding: "112px 32px 96px" }}>
+        <div style={{ maxWidth: 440, width: "100%", textAlign: "center", backgroundColor: "var(--color-surface-container)", padding: 48, boxShadow: "var(--shadow-ambient)" }}>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 700, color: "var(--color-on-surface)", marginBottom: 8 }}>
+            Start your free trial
+          </h1>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--color-on-surface-variant)", marginBottom: 32 }}>
             14 days free. $15/mo after. Cancel anytime.
           </p>
 
-          <ul className="t-body-md space-y-2 text-left mb-8" style={{ color: "var(--t-color-text-muted)" }}>
-            <li>Unlimited AI scene matching</li>
-            <li>Unlimited downloads</li>
-            <li>All 53,000+ compositions</li>
-            <li>Fully licensed for all platforms</li>
-            <li>Content ID protection</li>
+          <ul style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--color-on-surface-variant)", textAlign: "left", display: "flex", flexDirection: "column", gap: 12, marginBottom: 40 }}>
+            {["Unlimited AI scene matching", "Unlimited downloads", "All 53,000+ compositions", "Fully licensed for all platforms", "Content ID protection"].map((f) => (
+              <li key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                {f}
+              </li>
+            ))}
           </ul>
 
-          <Button onClick={handleSubscribe} disabled={loading} size="lg" className="w-full">
+          <button
+            onClick={handleSubscribe}
+            disabled={loading}
+            style={{
+              width: "100%",
+              padding: "16px 0",
+              backgroundColor: "var(--color-primary)",
+              color: "var(--color-on-primary)",
+              fontFamily: "var(--font-body)",
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              border: "none",
+              cursor: loading ? "wait" : "pointer",
+              opacity: loading ? 0.6 : 1,
+              transition: "opacity 150ms ease",
+            }}
+          >
             {loading ? "Redirecting to checkout..." : "Start free trial"}
-          </Button>
+          </button>
 
-          <p className="t-body-sm mt-4" style={{ color: "var(--t-color-text-muted)" }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--color-on-surface-variant)", marginTop: 16 }}>
             Credit card required. You will not be charged during the trial period.
           </p>
         </div>
