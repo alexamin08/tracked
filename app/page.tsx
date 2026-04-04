@@ -367,14 +367,14 @@ export default function HomePage() {
               },
               {
                 num: "02",
-                title: "Lossless Generation",
-                body: "Download 24-bit WAV files instantly. Our AI models are trained on exclusive studio recordings, ensuring authentic analog warmth.",
+                title: "Broadcast-Proven Catalog",
+                body: "42,000+ compositions scored for real television. Every track cleared for YouTube, broadcast, and streaming.",
                 quote: null,
               },
               {
                 num: "03",
-                title: "Perpetual Rights",
-                body: "One license. Forever. Use our tracks across YouTube, Cinema, and Metaverse applications without ever worrying about a claim.",
+                title: "One License, Forever",
+                body: "License once. Use your tracks across every platform, every project, for life. No royalties, no re-licensing, no surprises.",
                 quote: null,
               },
             ].map((step) => (
