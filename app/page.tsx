@@ -398,7 +398,7 @@ export default function HomePage() {
         {/* ============================
             COLLECTIONS — Horizontal scroll
             ============================ */}
-        <section style={{ padding: "96px 0", overflow: "hidden" }}>
+        <section style={{ padding: "64px 0 48px", overflow: "hidden" }}>
           <div
             style={{
               maxWidth: 1440,
@@ -542,12 +542,12 @@ export default function HomePage() {
         <section
           style={{
             backgroundColor: "var(--color-surface-container)",
-            padding: "128px 0",
+            padding: "80px 0",
           }}
         >
           <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 32px" }}>
             {/* Centered header */}
-            <div style={{ textAlign: "center", marginBottom: 96 }}>
+            <div style={{ textAlign: "center", marginBottom: 48 }}>
               <h2
                 style={{
                   fontFamily: "var(--font-display)",
@@ -741,7 +741,7 @@ export default function HomePage() {
         {/* ============================
             CTA SECTION
             ============================ */}
-        <section style={{ maxWidth: 1440, margin: "0 auto", padding: "96px 32px 0" }}>
+        <section style={{ maxWidth: 1440, margin: "0 auto", padding: "48px 32px 0" }}>
           <div
             style={{
               backgroundColor: "var(--color-surface-container)",
