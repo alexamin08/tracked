@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Cinematic Intelligence theme tokens */
+/* Theme tokens */
 @import "../styles/themes/cinematic.css";
+@import "../styles/themes/warm-editorial.css";
+@import "../styles/themes/precision-utility.css";
 
 /* ===================================================
    Base reset — all colors from theme tokens

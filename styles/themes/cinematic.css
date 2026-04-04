@@ -77,9 +77,9 @@
 
 /* ----- Typography (mode-independent) ----- */
 [data-theme="cinematic"] {
-  /* Font families */
-  --font-display: 'Playfair Display', 'Noto Serif', Georgia, serif;
-  --font-body:    'Manrope', system-ui, sans-serif;
+  /* Font families — var(--font-playfair) injected by next/font */
+  --font-display: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  --font-body:    var(--font-manrope), 'Manrope', system-ui, sans-serif;
 
   /* Type scale */
   --text-display-xl:       4.5rem;

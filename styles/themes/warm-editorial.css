@@ -1,0 +1,150 @@
+/* =============================================================
+   Warm Editorial — Design Token System
+   Terracotta + earth tones, Newsreader serif, warm cream base.
+
+   Token architecture mirrors cinematic.css exactly:
+     [data-theme="warm-editorial"][data-mode="dark"]
+     [data-theme="warm-editorial"][data-mode="light"]
+   ============================================================= */
+
+/* ----- Dark Mode ----- */
+[data-theme="warm-editorial"][data-mode="dark"] {
+  --color-surface:                    #1A1614;
+  --color-surface-container-lowest:   #110E0C;
+  --color-surface-container:          #241F1C;
+  --color-surface-container-high:     #302A26;
+  --color-surface-container-highest:  #3C3530;
+
+  --color-primary:                    #D4503A;
+  --color-primary-container:          #4A1A10;
+  --color-on-primary:                 #FFFFFF;
+
+  --color-secondary:                  #C49078;
+  --color-secondary-container:        #5C3A2A;
+
+  --color-on-surface:                 #F0EBE6;
+  --color-on-surface-variant:         #A89E96;
+
+  --color-outline-variant:            #3E3630;
+
+  --shadow-ambient:                   0 24px 48px rgba(0, 0, 0, 0.35);
+  --shadow-player:                    0 -4px 24px rgba(0, 0, 0, 0.45);
+
+  --glass-bg-opacity:                 0.85;
+  --glass-blur:                       20px;
+}
+
+/* ----- Light Mode ----- */
+[data-theme="warm-editorial"][data-mode="light"] {
+  --color-surface:                    #FBF9F5;
+  --color-surface-container-lowest:   #FFFFFF;
+  --color-surface-container:          #F2EDE7;
+  --color-surface-container-high:     #E8E2DB;
+  --color-surface-container-highest:  #DDD6CE;
+
+  --color-primary:                    #994123;
+  --color-primary-container:          #F5D3C7;
+  --color-on-primary:                 #FFFFFF;
+
+  --color-secondary:                  #825243;
+  --color-secondary-container:        #E8C9BC;
+
+  --color-on-surface:                 #1F1A17;
+  --color-on-surface-variant:         #7A6E64;
+
+  --color-outline-variant:            #D1C8BF;
+
+  --shadow-ambient:                   0 24px 48px rgba(31, 26, 23, 0.06);
+  --shadow-player:                    0 -4px 24px rgba(31, 26, 23, 0.08);
+
+  --glass-bg-opacity:                 0.90;
+  --glass-blur:                       20px;
+}
+
+/* ----- Theme-level tokens (mode-independent) ----- */
+[data-theme="warm-editorial"] {
+  --font-display: var(--font-newsreader), 'Newsreader', Georgia, serif;
+  --font-body:    var(--font-manrope), 'Manrope', system-ui, sans-serif;
+
+  --text-display-xl:       4.5rem;
+  --text-display-xl-weight: 700;
+  --text-display-xl-lh:    1.05;
+  --text-display-xl-ls:    -0.02em;
+
+  --text-display-lg:       3.5rem;
+  --text-display-lg-weight: 400;
+  --text-display-lg-lh:    1.1;
+  --text-display-lg-ls:    -0.02em;
+
+  --text-display-md:       2.5rem;
+  --text-display-md-weight: 400;
+  --text-display-md-lh:    1.15;
+  --text-display-md-ls:    -0.015em;
+
+  --text-headline-lg:      2rem;
+  --text-headline-lg-weight: 400;
+  --text-headline-lg-lh:   1.2;
+  --text-headline-lg-ls:   -0.01em;
+
+  --text-headline-md:      1.5rem;
+  --text-headline-md-weight: 400;
+  --text-headline-md-lh:   1.3;
+
+  --text-headline-sm:      1.25rem;
+  --text-headline-sm-weight: 500;
+  --text-headline-sm-lh:   1.35;
+
+  --text-title-lg:         1.125rem;
+  --text-title-lg-weight:  500;
+  --text-title-lg-lh:      1.4;
+
+  --text-title-sm:         1rem;
+  --text-title-sm-weight:  500;
+  --text-title-sm-lh:      1.5;
+
+  --text-body-md:          0.9375rem;
+  --text-body-md-weight:   400;
+  --text-body-md-lh:       1.65;
+
+  --text-body-sm:          0.875rem;
+  --text-body-sm-weight:   400;
+  --text-body-sm-lh:       1.6;
+
+  --text-label-lg:         0.875rem;
+  --text-label-lg-weight:  600;
+  --text-label-lg-ls:      0.06em;
+
+  --text-label-md:         0.75rem;
+  --text-label-md-weight:  600;
+  --text-label-md-ls:      0.08em;
+
+  --text-label-sm:         0.6875rem;
+  --text-label-sm-weight:  500;
+  --text-label-sm-ls:      0.1em;
+
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-full: 9999px;
+
+  --content-max-width: 1280px;
+  --page-padding:      48px;
+}
+
+@media (max-width: 1279px) {
+  [data-theme="warm-editorial"] { --page-padding: 24px; }
+}
+@media (max-width: 767px) {
+  [data-theme="warm-editorial"] { --page-padding: 16px; }
+}
