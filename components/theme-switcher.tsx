@@ -2,8 +2,8 @@
 
 const THEMES = [
   { id: "cinematic", label: "CI", name: "Cinematic Intelligence", url: "https://tracked-phi.vercel.app" },
-  { id: "warm-editorial", label: "WE", name: "Warm Editorial", url: "https://tracked-h3u194g7u-alexamin08-9336s-projects.vercel.app" },
-  { id: "precision-utility", label: "PU", name: "Precision Intelligence", url: "https://tracked-2f8pk1fz6-alexamin08-9336s-projects.vercel.app" },
+  { id: "warm-editorial", label: "WE", name: "Warm Editorial", url: "https://tracked-warm.vercel.app" },
+  { id: "precision-utility", label: "PU", name: "Precision Intelligence", url: "https://tracked-precision.vercel.app" },
 ] as const;
 
 const ACTIVE_THEME = process.env.NEXT_PUBLIC_THEME ?? "cinematic";
