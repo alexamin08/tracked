@@ -1,14 +1,28 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 const THEMES = [
   { id: "cinematic", label: "CI", name: "Cinematic Intelligence", url: "https://tracked-phi.vercel.app" },
   { id: "warm-editorial", label: "WE", name: "Warm Editorial", url: "https://tracked-warm.vercel.app" },
   { id: "precision-utility", label: "PU", name: "Precision Intelligence", url: "https://tracked-precision.vercel.app" },
 ] as const;
 
-const ACTIVE_THEME = process.env.NEXT_PUBLIC_THEME ?? "cinematic";
+function getActiveTheme() {
+  if (typeof window === "undefined") return "cinematic";
+  const host = window.location.hostname;
+  if (host.includes("tracked-warm")) return "warm-editorial";
+  if (host.includes("tracked-precision")) return "precision-utility";
+  return "cinematic";
+}
 
 export function ThemeSwitcher() {
+  const [active, setActive] = useState("cinematic");
+
+  useEffect(() => {
+    setActive(getActiveTheme());
+  }, []);
+
   return (
     <div
       style={{
@@ -26,7 +40,7 @@ export function ThemeSwitcher() {
       }}
     >
       {THEMES.map((t) => {
-        const isActive = t.id === ACTIVE_THEME;
+        const isActive = t.id === active;
         return (
           <a
             key={t.id}
