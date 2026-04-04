@@ -1,7 +1,7 @@
-import { Header } from "@/components/layout/header";
+import Link from "next/link";
+import { TopNav } from "@/components/nav/TopNav";
 import { Footer } from "@/components/layout/footer";
-import { AudioPlayer } from "@/components/audio/audio-player";
-import { ThemeLink } from "@/components/theme-link";
+import { FloatingPlayer } from "@/components/player/FloatingPlayer";
 import { displayName, slugify } from "@/lib/utils";
 import { createServiceClient } from "@/lib/supabase/service";
 
@@ -37,95 +37,63 @@ export default async function CollectionsPage() {
 
   return (
     <>
-      <Header />
-      <main className="pt-24 pb-24" style={{ background: "var(--t-color-bg)" }}>
-        {/* Hero on surface-low */}
-        <section
-          className="px-6 text-center relative overflow-hidden"
-          style={{
-            background: "var(--t-color-surface-low)",
-            paddingTop: "var(--t-space-16)",
-            paddingBottom: "var(--t-space-16)",
-          }}
-        >
-          {/* Subtle glow */}
-          <div
-            className="absolute pointer-events-none"
-            style={{
-              top: "0",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "600px",
-              height: "300px",
-              background: "radial-gradient(ellipse at center, var(--t-color-primary) 0%, transparent 70%)",
-              opacity: "calc(var(--t-glow-opacity) * 0.5)",
-            }}
-          />
-          <h1
-            className="t-label-md mb-4 relative z-10"
-            style={{ color: "var(--t-color-text-muted)" }}
-          >
-            Collections
-          </h1>
-          <p
-            className="t-body-lg max-w-md mx-auto relative z-10"
-            style={{ color: "var(--t-color-text-muted)" }}
-          >
-            {collections.length} collections. Curated by album. Scored for
-            television.
-          </p>
-        </section>
+      <TopNav />
 
-        {/* Collection cards grid on bg canvas */}
-        <section
-          className="max-w-5xl mx-auto px-6"
-          style={{
-            paddingTop: "var(--t-space-12)",
-            paddingBottom: "var(--t-space-12)",
-          }}
-        >
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <main style={{ backgroundColor: "var(--color-surface)", minHeight: "100vh", paddingTop: 112, paddingBottom: 96 }}>
+        {/* Hero */}
+        <header style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px 64px" }}>
+          <span style={{ display: "block", fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--color-secondary)", marginBottom: 16 }}>
+            CATALOG EXPLORATION
+          </span>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 300, fontStyle: "italic", color: "var(--color-on-surface)" }}>
+            Browse <span style={{ fontStyle: "normal", fontWeight: 700 }}>Collections</span>
+          </h1>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--color-on-surface-variant)", marginTop: 12 }}>
+            {collections.length} collections. Curated by album. Scored for television.
+          </p>
+        </header>
+
+        {/* Grid */}
+        <section style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 16 }}>
             {collections.map((col) => (
-              <ThemeLink
+              <Link
                 key={col.slug}
                 href={`/collection/${col.slug}`}
-                className="block hover-lift"
                 style={{
-                  background: "var(--t-color-surface)",
-                  borderRadius: "var(--t-radius-lg)",
-                  padding: "var(--t-space-6)",
+                  position: "relative",
+                  aspectRatio: "16 / 9",
+                  borderRadius: "var(--radius-md)",
+                  overflow: "hidden",
+                  display: "block",
                   textDecoration: "none",
+                  backgroundColor: "var(--color-surface-container)",
                 }}
               >
-                {/* Color swatch */}
-                <div
-                  style={{
-                    height: "4px",
-                    width: "32px",
-                    borderRadius: "var(--t-radius-pill)",
-                    background: "var(--t-color-primary)",
-                    marginBottom: "var(--t-space-4)",
-                  }}
-                />
-                <h2
-                  className="t-headline-sm"
-                  style={{ color: "var(--t-color-text)" }}
-                >
-                  {displayName(col.name)}
-                </h2>
-                <p
-                  className="t-body-sm mt-1"
-                  style={{ color: "var(--t-color-text-muted)" }}
-                >
-                  {col.trackCount} composition{col.trackCount !== 1 ? "s" : ""}
-                </p>
-              </ThemeLink>
+                {/* Gradient fill */}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, var(--color-surface-container), var(--color-primary-container))", opacity: 0.5 }} />
+                {/* Dark overlay */}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%)", pointerEvents: "none" }} />
+
+                {/* Track count */}
+                <span style={{ position: "absolute", top: 12, right: 12, fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--color-on-surface-variant)" }}>
+                  {col.trackCount} Tracks
+                </span>
+
+                {/* Name */}
+                <div style={{ position: "absolute", bottom: 16, left: 16, right: 16 }}>
+                  <h2 style={{ fontFamily: "var(--font-display)", fontSize: 20, fontWeight: 600, color: "var(--color-on-surface)" }}>
+                    {displayName(col.name)}
+                  </h2>
+                </div>
+              </Link>
             ))}
           </div>
         </section>
       </main>
+
       <Footer />
-      <AudioPlayer />
+      <FloatingPlayer />
     </>
   );
 }

@@ -1,10 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { TopNav } from "@/components/nav/TopNav";
 import { Footer } from "@/components/layout/footer";
 import { FloatingPlayer } from "@/components/player/FloatingPlayer";
+
+const SUGGESTED_SEARCHES = [
+  "tense interrogation, true crime doc",
+  "sun-drenched wedding, celebratory",
+  "cold open, midnight, empty street",
+  "high-energy reality competition",
+  "emotional documentary reveal",
+];
 
 /* ─── Collection data (matches Stitch tiles) ─── */
 const COLLECTIONS = [
@@ -31,6 +40,17 @@ const COLLECTIONS = [
 ];
 
 export default function HomePage() {
+  const router = useRouter();
+  const [searchValue, setSearchValue] = useState("");
+
+  function handleSearch(e: React.FormEvent) {
+    e.preventDefault();
+    const trimmed = searchValue.trim();
+    if (trimmed.length >= 3) {
+      router.push(`/search?q=${encodeURIComponent(trimmed)}`);
+    }
+  }
+
   return (
     <>
       <TopNav />
@@ -87,7 +107,7 @@ export default function HomePage() {
             </div>
 
             {/* Search input with glow */}
-            <div style={{ position: "relative" }}>
+            <form onSubmit={handleSearch} style={{ position: "relative" }}>
               {/* Glow backdrop */}
               <div
                 style={{
@@ -110,37 +130,18 @@ export default function HomePage() {
                   padding: 16,
                 }}
               >
-                {/* Search icon */}
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--color-primary)"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ marginRight: 16, flexShrink: 0 }}
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 16, flexShrink: 0 }}>
+                  <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
                 <input
                   type="text"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
                   placeholder="tense standoff, interrogation room, fluorescent light"
-                  style={{
-                    flex: 1,
-                    background: "transparent",
-                    border: "none",
-                    outline: "none",
-                    fontFamily: "var(--font-body)",
-                    fontStyle: "italic",
-                    fontSize: 18,
-                    color: "var(--color-on-surface)",
-                  }}
+                  style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: 18, color: "var(--color-on-surface)" }}
                 />
-                <Link
-                  href="/search"
+                <button
+                  type="submit"
                   style={{
                     backgroundColor: "var(--color-primary)",
                     color: "var(--color-on-primary)",
@@ -150,28 +151,34 @@ export default function HomePage() {
                     fontWeight: 700,
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
-                    textDecoration: "none",
+                    border: "none",
+                    cursor: "pointer",
                     flexShrink: 0,
                   }}
                 >
                   Search
-                </Link>
+                </button>
               </div>
+            </form>
+
+            {/* Suggested searches */}
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12 }}>
+              <span style={{ fontSize: 10, fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--color-on-surface-variant)" }}>
+                TRY:
+              </span>
+              {SUGGESTED_SEARCHES.map((s) => (
+                <Link
+                  key={s}
+                  href={`/search?q=${encodeURIComponent(s)}`}
+                  style={{ fontSize: 12, fontFamily: "var(--font-body)", color: "var(--color-on-surface-variant)", textDecoration: "none", transition: "color 150ms ease" }}
+                >
+                  {s}
+                </Link>
+              ))}
             </div>
 
             {/* Utility tags */}
-            <div
-              style={{
-                display: "flex",
-                gap: 32,
-                fontSize: 12,
-                fontFamily: "var(--font-body)",
-                fontWeight: 500,
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: "var(--color-on-surface-variant)",
-              }}
-            >
+            <div style={{ display: "flex", gap: 32, fontSize: 12, fontFamily: "var(--font-body)", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--color-on-surface-variant)" }}>
               {["Instant License", "Stem Access", "Cue Sheet Ready"].map((tag) => (
                 <span key={tag} style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <span style={{ width: 4, height: 4, backgroundColor: "var(--color-secondary)" }} />

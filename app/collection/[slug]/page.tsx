@@ -1,8 +1,8 @@
-import { Header } from "@/components/layout/header";
+import Link from "next/link";
+import { TopNav } from "@/components/nav/TopNav";
 import { Footer } from "@/components/layout/footer";
-import { AudioPlayer } from "@/components/audio/audio-player";
-import { TrackCard } from "@/components/search/track-card";
-import { ThemeLink } from "@/components/theme-link";
+import { FloatingPlayer } from "@/components/player/FloatingPlayer";
+import { CollectionTrackList } from "./collection-tracks";
 import { displayName, slugify } from "@/lib/utils";
 import { createServiceClient } from "@/lib/supabase/service";
 import type { SearchResult } from "@/types";
@@ -16,7 +16,6 @@ interface CollectionData {
 async function fetchCollection(slug: string): Promise<CollectionData | null> {
   const supabase = createServiceClient();
 
-  // Find album name matching this slug
   const { data: albumRows } = await supabase
     .from("tracks")
     .select("album_name")
@@ -28,7 +27,6 @@ async function fetchCollection(slug: string): Promise<CollectionData | null> {
   const albumName = uniqueAlbums.find((name) => slugify(name) === slug);
   if (!albumName) return null;
 
-  // Fetch tracks for this album
   const { data: tracks, error } = await supabase
     .from("tracks")
     .select("id, track_id, title, composer, description, moods, genres, preview_url, album_name")
@@ -37,7 +35,6 @@ async function fetchCollection(slug: string): Promise<CollectionData | null> {
 
   if (error || !tracks) return null;
 
-  // Batch-fetch placements
   const trackIds = tracks.map((t) => t.id);
   const placementMap = new Map<
     string,
@@ -53,11 +50,7 @@ async function fetchCollection(slug: string): Promise<CollectionData | null> {
 
     for (const p of placements ?? []) {
       const list = placementMap.get(p.track_id) ?? [];
-      list.push({
-        showName: p.show_name,
-        network: p.network,
-        sceneType: p.scene_type,
-      });
+      list.push({ showName: p.show_name, network: p.network, sceneType: p.scene_type });
       placementMap.set(p.track_id, list);
     }
   }
@@ -90,22 +83,13 @@ export default async function CollectionDetailPage({
   if (!data) {
     return (
       <>
-        <Header />
-        <main
-          className="pt-24 pb-24 min-h-screen flex items-center justify-center"
-          style={{ background: "var(--t-color-bg)" }}
-        >
-          <div className="text-center">
-            <p className="t-headline-md" style={{ color: "var(--t-color-text)" }}>
-              Collection not found
-            </p>
-            <ThemeLink
-              href="/collections"
-              className="t-body-md mt-4 block"
-              style={{ color: "var(--t-color-primary)" }}
-            >
+        <TopNav />
+        <main style={{ backgroundColor: "var(--color-surface)", minHeight: "100vh", paddingTop: 112, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontFamily: "var(--font-display)", fontSize: 24, color: "var(--color-on-surface)" }}>Collection not found</p>
+            <Link href="/collections" style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--color-primary)", marginTop: 16, display: "block", textDecoration: "none" }}>
               ← All Collections
-            </ThemeLink>
+            </Link>
           </div>
         </main>
       </>
@@ -114,63 +98,30 @@ export default async function CollectionDetailPage({
 
   return (
     <>
-      <Header />
-      <main className="pt-24 pb-24" style={{ background: "var(--t-color-bg)" }}>
-        {/* Hero on surface-low */}
-        <section
-          className="px-6"
-          style={{
-            background: "var(--t-color-surface-low)",
-            paddingTop: "var(--t-space-12)",
-            paddingBottom: "var(--t-space-12)",
-          }}
-        >
-          <div className="max-w-3xl mx-auto">
-            <ThemeLink
-              href="/collections"
-              className="t-body-md mb-4 inline-block"
-              style={{ color: "var(--t-color-text-muted)" }}
-            >
-              ← All Collections
-            </ThemeLink>
-            <h1
-              className="t-display-sm"
-              style={{ color: "var(--t-color-text)" }}
-            >
-              {displayName(data.name)}
-            </h1>
-            <p
-              className="t-body-lg mt-2"
-              style={{ color: "var(--t-color-text-muted)" }}
-            >
-              {data.trackCount} composition{data.trackCount !== 1 ? "s" : ""}
-            </p>
-          </div>
-        </section>
+      <TopNav />
 
-        {/* Track list on bg canvas */}
-        <section
-          className="max-w-3xl mx-auto px-6"
-          style={{ paddingTop: "var(--t-space-10, 40px)" }}
-        >
-          {data.tracks.length === 0 ? (
-            <p
-              className="text-center t-body-lg py-16"
-              style={{ color: "var(--t-color-text-muted)" }}
-            >
-              No tracks in this collection.
-            </p>
-          ) : (
-            <div className="space-y-4">
-              {data.tracks.map((track) => (
-                <TrackCard key={track.id} track={track} />
-              ))}
-            </div>
-          )}
+      <main style={{ backgroundColor: "var(--color-surface)", minHeight: "100vh", paddingTop: 112, paddingBottom: 128 }}>
+        {/* Header */}
+        <header style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px 48px" }}>
+          <Link href="/collections" style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--color-on-surface-variant)", textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
+            ← All Collections
+          </Link>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--color-on-surface)", letterSpacing: "-0.02em" }}>
+            {displayName(data.name)}
+          </h1>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--color-on-surface-variant)", marginTop: 8 }}>
+            {data.trackCount} composition{data.trackCount !== 1 ? "s" : ""}
+          </p>
+        </header>
+
+        {/* Track list */}
+        <section style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
+          <CollectionTrackList tracks={data.tracks} />
         </section>
       </main>
+
       <Footer />
-      <AudioPlayer />
+      <FloatingPlayer />
     </>
   );
 }

@@ -1,0 +1,192 @@
+"use client";
+
+import { useAudio } from "@/components/audio/audio-provider";
+import { displayName } from "@/lib/utils";
+import { trackPreview } from "@/lib/analytics";
+import type { SearchResult } from "@/types";
+
+/* ─── Waveform ─── */
+function Waveform({ trackId, progress }: { trackId: string; progress: number }) {
+  const bars: number[] = [];
+  let seed = 0;
+  for (let i = 0; i < trackId.length; i++) seed += trackId.charCodeAt(i);
+  for (let i = 0; i < 30; i++) {
+    seed = (seed * 16807 + 7) % 2147483647;
+    bars.push(20 + (seed % 80));
+  }
+  const playedCount = Math.round((progress / 100) * bars.length);
+
+  return (
+    <div style={{ flex: 1, height: 32, display: "flex", alignItems: "flex-end", gap: 2 }}>
+      {bars.map((h, i) => (
+        <div
+          key={i}
+          style={{
+            width: 2,
+            height: `${h}%`,
+            backgroundColor: "var(--color-primary)",
+            opacity: i < playedCount ? 0.8 : 0.25,
+            borderRadius: 1,
+            transition: "opacity 150ms ease",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ─── Icons ─── */
+function HeartIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
+  );
+}
+function DownloadIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
+  );
+}
+function PlusIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+    </svg>
+  );
+}
+function PlayIcon() {
+  return <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>;
+}
+function PauseIcon() {
+  return <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></svg>;
+}
+
+function formatDuration(sec: number | null) {
+  if (!sec) return "";
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
+export function CinematicTrackCard({ track }: { track: SearchResult }) {
+  const { state, play, pause } = useAudio();
+  const isCurrentTrack = state.trackId === track.id;
+  const isPlaying = isCurrentTrack && state.isPlaying;
+  const progress =
+    isCurrentTrack && state.duration > 0
+      ? (state.currentTime / state.duration) * 100
+      : 0;
+
+  function handlePlay() {
+    if (isPlaying) { pause(); return; }
+    if (!track.previewUrl) return;
+    play({ id: track.id, title: track.title, composer: track.composer, previewUrl: track.previewUrl });
+    trackPreview(track.id);
+  }
+
+  const matchPct = Math.round(track.similarity * 100);
+  const placement = track.placements?.[0];
+  const moods = track.moods?.slice(0, 3) ?? [];
+  const genre = track.genres?.[0] ?? "";
+
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "4fr 8fr",
+        gap: 32,
+        padding: 32,
+        transition: "background-color 200ms ease",
+        borderRadius: "var(--radius-sm)",
+      }}
+      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--color-surface-container-highest)")}
+      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+    >
+      {/* Thumbnail */}
+      <div
+        style={{
+          position: "relative",
+          aspectRatio: "16 / 9",
+          overflow: "hidden",
+          borderRadius: "var(--radius-sm)",
+          backgroundColor: "var(--color-surface-container)",
+          boxShadow: "0 20px 40px -12px rgba(0,0,0,0.5)",
+          cursor: track.previewUrl ? "pointer" : "default",
+        }}
+        onClick={handlePlay}
+      >
+        <div style={{ width: "100%", height: "100%", background: "linear-gradient(135deg, var(--color-surface-container), var(--color-primary-container))", opacity: 0.8 }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, var(--color-surface-container-lowest), transparent)", opacity: 0.6, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", opacity: isPlaying ? 1 : 0, transition: "opacity 200ms ease", backgroundColor: "rgba(0,0,0,0.2)", backdropFilter: "blur(4px)", pointerEvents: "none" }}>
+          <div style={{ width: 48, height: 48, borderRadius: "50%", backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            {isPlaying ? <PauseIcon /> : <PlayIcon />}
+          </div>
+        </div>
+        {matchPct > 0 && (
+          <div style={{ position: "absolute", top: 16, left: 16, backgroundColor: "var(--color-secondary)", color: "var(--color-on-primary)", padding: "4px 12px", borderRadius: 9999, fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", boxShadow: "0 4px 12px rgba(0,0,0,0.3)" }}>
+            {matchPct}% Match
+          </div>
+        )}
+      </div>
+
+      {/* Info */}
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+          <div>
+            <h3 style={{ fontFamily: "var(--font-display)", fontSize: 30, letterSpacing: "-0.02em", lineHeight: 1, color: "var(--color-on-surface)" }}>
+              {displayName(track.title)}
+            </h3>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--color-on-surface-variant)", marginTop: 8 }}>
+              {displayName(track.composer)}{genre ? ` · ${displayName(genre)}` : ""}
+            </p>
+          </div>
+          <div style={{ display: "flex", gap: 16, color: "var(--color-on-surface-variant)" }}>
+            <button style={{ background: "none", border: "none", cursor: "pointer", color: "inherit", padding: 0, display: "flex" }}><HeartIcon /></button>
+            <button style={{ background: "none", border: "none", cursor: "pointer", color: "inherit", padding: 0, display: "flex" }}><DownloadIcon /></button>
+            <button style={{ background: "none", border: "none", cursor: "pointer", color: "inherit", padding: 0, display: "flex" }}><PlusIcon /></button>
+          </div>
+        </div>
+
+        {/* Badges */}
+        <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24, flexWrap: "wrap" }}>
+          {(placement || track.albumName) && (
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 12px", backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 30%, transparent)", border: "1px solid color-mix(in srgb, var(--color-secondary) 20%, transparent)", borderRadius: "var(--radius-sm)" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--color-secondary)" stroke="none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+              <span style={{ fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--color-secondary)" }}>
+                {placement
+                  ? `As Heard on ${displayName(placement.showName)}`
+                  : `From ${displayName(track.albumName!)}`}
+              </span>
+            </span>
+          )}
+          {moods.map((mood) => (
+            <span key={mood} style={{ padding: "3px 8px", backgroundColor: "var(--color-surface-container-highest)", border: "1px solid color-mix(in srgb, var(--color-outline-variant) 20%, transparent)", fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--color-on-surface-variant)" }}>
+              {mood}
+            </span>
+          ))}
+        </div>
+
+        {/* AI Explanation — only if present */}
+        {track.explanation && (
+          <div style={{ backgroundColor: "var(--color-surface-container)", padding: 16, marginBottom: 24, borderLeft: "2px solid color-mix(in srgb, var(--color-primary) 40%, transparent)" }}>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.7, color: "var(--color-on-surface-variant)" }}>
+              <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>Why this track:</span>{" "}
+              {track.explanation}
+            </p>
+          </div>
+        )}
+
+        {/* Waveform */}
+        <div style={{ marginTop: "auto", display: "flex", alignItems: "center", gap: 16 }}>
+          <Waveform trackId={track.id} progress={progress} />
+          <span style={{ fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--color-on-surface-variant)" }}>
+            {formatDuration((track as any).durationSec ?? null)}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
