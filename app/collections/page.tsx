@@ -2,7 +2,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AudioPlayer } from "@/components/audio/audio-player";
 import { ThemeLink } from "@/components/theme-link";
-import { displayName } from "@/lib/utils";
+import { displayName, slugify } from "@/lib/utils";
+import { createServiceClient } from "@/lib/supabase/service";
 
 interface Collection {
   slug: string;
@@ -11,12 +12,24 @@ interface Collection {
 }
 
 async function fetchCollections(): Promise<Collection[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/collections`, {
-    cache: "no-store",
-  });
-  if (!res.ok) return [];
-  return res.json();
+  const supabase = createServiceClient();
+  const { data: tracks, error } = await supabase
+    .from("tracks")
+    .select("album_name")
+    .not("album_name", "is", null);
+
+  if (error || !tracks) return [];
+
+  const counts = new Map<string, number>();
+  for (const t of tracks) {
+    if (t.album_name) {
+      counts.set(t.album_name, (counts.get(t.album_name) ?? 0) + 1);
+    }
+  }
+
+  return Array.from(counts.entries())
+    .map(([name, trackCount]) => ({ slug: slugify(name), name, trackCount }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export default async function CollectionsPage() {

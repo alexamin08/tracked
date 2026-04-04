@@ -3,7 +3,8 @@ import { Footer } from "@/components/layout/footer";
 import { AudioPlayer } from "@/components/audio/audio-player";
 import { TrackCard } from "@/components/search/track-card";
 import { ThemeLink } from "@/components/theme-link";
-import { displayName } from "@/lib/utils";
+import { displayName, slugify } from "@/lib/utils";
+import { createServiceClient } from "@/lib/supabase/service";
 import type { SearchResult } from "@/types";
 
 interface CollectionData {
@@ -13,12 +14,70 @@ interface CollectionData {
 }
 
 async function fetchCollection(slug: string): Promise<CollectionData | null> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/collections/${slug}`, {
-    cache: "no-store",
-  });
-  if (!res.ok) return null;
-  return res.json();
+  const supabase = createServiceClient();
+
+  // Find album name matching this slug
+  const { data: albumRows } = await supabase
+    .from("tracks")
+    .select("album_name")
+    .not("album_name", "is", null);
+
+  const uniqueAlbums = Array.from(
+    new Set((albumRows ?? []).map((r) => r.album_name).filter(Boolean))
+  );
+  const albumName = uniqueAlbums.find((name) => slugify(name) === slug);
+  if (!albumName) return null;
+
+  // Fetch tracks for this album
+  const { data: tracks, error } = await supabase
+    .from("tracks")
+    .select("id, track_id, title, composer, description, moods, genres, preview_url, album_name")
+    .eq("album_name", albumName)
+    .order("title", { ascending: true });
+
+  if (error || !tracks) return null;
+
+  // Batch-fetch placements
+  const trackIds = tracks.map((t) => t.id);
+  const placementMap = new Map<
+    string,
+    { showName: string; network: string | null; sceneType: string | null }[]
+  >();
+
+  for (let i = 0; i < trackIds.length; i += 200) {
+    const batch = trackIds.slice(i, i + 200);
+    const { data: placements } = await supabase
+      .from("placements")
+      .select("track_id, show_name, network, scene_type")
+      .in("track_id", batch);
+
+    for (const p of placements ?? []) {
+      const list = placementMap.get(p.track_id) ?? [];
+      list.push({
+        showName: p.show_name,
+        network: p.network,
+        sceneType: p.scene_type,
+      });
+      placementMap.set(p.track_id, list);
+    }
+  }
+
+  const results: SearchResult[] = tracks.map((t) => ({
+    id: t.id,
+    trackId: t.track_id,
+    title: t.title,
+    composer: t.composer,
+    description: t.description,
+    moods: t.moods ?? [],
+    genres: t.genres ?? [],
+    albumName: t.album_name,
+    previewUrl: t.preview_url,
+    similarity: 0,
+    placements: placementMap.get(t.id) ?? [],
+    explanation: "",
+  }));
+
+  return { name: albumName, trackCount: results.length, tracks: results };
 }
 
 export default async function CollectionDetailPage({
