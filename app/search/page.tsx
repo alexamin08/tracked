@@ -1,20 +1,33 @@
 import { TopNav } from "@/components/nav/TopNav";
 import { FloatingPlayer } from "@/components/player/FloatingPlayer";
 import { SearchPageClient } from "./search-client";
-import type { SearchResponse } from "@/types";
+import { searchTracks } from "@/lib/search";
+import { batchExplain } from "@/lib/explain";
 import { SEARCH } from "@/lib/constants";
+import type { SearchResponse } from "@/types";
 
-async function fetchResults(query: string): Promise<SearchResponse | null> {
+async function getResults(query: string): Promise<SearchResponse | null> {
   if (!query || query.length < SEARCH.minQueryLength) return null;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/search`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query }),
-    cache: "no-store",
-  });
-  if (!res.ok) return null;
-  return res.json();
+
+  try {
+    const results = await searchTracks(query);
+    const fallback = results.length > 0 && results[0].similarity === 0;
+
+    const explanations = await batchExplain(query, results);
+    const resultsWithExplanations = results.map((r, i) => ({
+      ...r,
+      explanation: explanations[i] ?? "",
+    }));
+
+    return {
+      results: resultsWithExplanations,
+      sessionId: "",
+      fallback,
+    };
+  } catch (error) {
+    console.error("Search error:", error);
+    return null;
+  }
 }
 
 export default async function SearchPage({
@@ -23,7 +36,7 @@ export default async function SearchPage({
   searchParams: { q?: string };
 }) {
   const query = searchParams.q ?? "";
-  const data = await fetchResults(query);
+  const data = await getResults(query);
 
   return (
     <>
