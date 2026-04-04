@@ -63,7 +63,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html
         lang="en"
-        data-theme="cinematic"
+        data-theme="warm-editorial"
         data-mode="dark"
         className={`${playfair.variable} ${manrope.variable} ${newsreader.variable} ${spaceGrotesk.variable} ${inter.variable}`}
         suppressHydrationWarning

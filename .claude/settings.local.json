@@ -22,7 +22,16 @@
       "Bash(python3:*)",
       "Bash(B=~/.claude/skills/gstack/browse/dist/browse)",
       "Bash($B goto:*)",
-      "Bash($B screenshot:*)"
+      "Bash($B screenshot:*)",
+      "Bash(git push:*)",
+      "Bash(ls:*)",
+      "Bash(cp \"/Users/alexamin/Downloads/stitch 5/homepage_dark_mode/code.html\" /Users/alexamin/tracked/stitch-designs/cinematic-homepage-dark.html)",
+      "Bash(cp \"/Users/alexamin/Downloads/stitch 5/homepage_light_mode/code.html\" /Users/alexamin/tracked/stitch-designs/cinematic-homepage-light.html)",
+      "Bash(cp \"/Users/alexamin/Downloads/stitch 5/search_results_dark_mode/code.html\" /Users/alexamin/tracked/stitch-designs/cinematic-search-dark.html)",
+      "Bash(cp \"/Users/alexamin/Downloads/stitch 5/search_results_light_mode/code.html\" /Users/alexamin/tracked/stitch-designs/cinematic-search-light.html)",
+      "Bash(cp \"/Users/alexamin/Downloads/stitch 5/pricing_dark_mode/code.html\" /Users/alexamin/tracked/stitch-designs/cinematic-pricing-dark.html)",
+      "Bash(curl -s \"http://localhost:3000/search?q=tense+interrogation+true+crime\")",
+      "Bash(pkill -f \"next dev\")"
     ]
   }
 }

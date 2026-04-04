@@ -6,23 +6,22 @@ import { TopNav } from "@/components/nav/TopNav";
 import { Footer } from "@/components/layout/footer";
 import { FloatingPlayer } from "@/components/player/FloatingPlayer";
 
-/* ─── Tier data (from spec corrections table) ─── */
 const TIERS = [
   {
     name: "Starter",
     price: 15,
     annualPrice: 12,
-    label: null,
+    desc: "Perfect for individuals and small channels.",
     popular: false,
     features: ["MP3 downloads", "2 platforms", "10 searches/day", "50 saved"],
-    cta: "Select Starter",
+    cta: "Choose Starter",
     ctaStyle: "ghost" as const,
   },
   {
     name: "Pro",
     price: 29,
     annualPrice: 24,
-    label: "Most Popular",
+    desc: "Our most robust toolkit for production houses.",
     popular: true,
     features: ["WAV + stems", "5 platforms", "30 searches/day", "250 saved", "AI Match Previews"],
     cta: "Start 14-Day Free Trial",
@@ -32,7 +31,7 @@ const TIERS = [
     name: "Team",
     price: 79,
     annualPrice: 66,
-    label: null,
+    desc: "Bespoke licensing for global networks.",
     popular: false,
     features: ["Unlimited everything", "15 platforms", "5 seats included", "Dedicated curator"],
     cta: "Contact Sales",
@@ -40,623 +39,145 @@ const TIERS = [
   },
 ];
 
-const FAQ_ITEMS = [
-  {
-    q: "Can I upgrade or downgrade my plan at any time?",
-    a: "Absolutely. You can switch between plans at any time. When upgrading, you\u2019ll be prorated for the remainder of your billing cycle. When downgrading, the change takes effect at the start of your next billing cycle.",
-  },
-  {
-    q: "How does the 14-day free trial work?",
-    a: "You get full access to the Pro tier features for 14 days. We don\u2019t ask for billing information until you\u2019re ready to commit. If you don\u2019t choose a plan after 14 days, your account will transition to a read-only state.",
-  },
-  {
-    q: 'What counts as a "platform" for tracking?',
-    a: "A platform is any distribution channel where your content appears \u2014 YouTube, TikTok, Instagram, Spotify, a podcast host, etc. Each unique platform counts once regardless of how many videos you publish there.",
-  },
-  {
-    q: "Do you offer educational or non-profit discounts?",
-    a: "Yes. We offer 50% off all tiers for verified educational institutions and registered non-profits. Contact our team with proof of status to get your discount code.",
-  },
+const FAQ = [
+  { q: "Can I cancel anytime?", a: "Yes. Our subscriptions are flexible. You can cancel at any time, and your licenses will remain valid for content published during your active subscription period." },
+  { q: "How does the 14-day free trial work?", a: "You get full access to the Pro tier for 14 days. We don\u2019t ask for billing information until you\u2019re ready to commit." },
+  { q: "Are the tracks truly original?", a: "Every track in our catalog is composed by the Signature Tracks team and vetted for broadcast-quality production standards." },
+  { q: "Do you offer educational or non-profit discounts?", a: "Yes. We offer 50% off all tiers for verified educational institutions and registered non-profits." },
 ];
-
-function CheckIcon({ color }: { color: string }) {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-      <polyline points="22 4 12 14.01 9 11.01" />
-    </svg>
-  );
-}
-
-function SparkleIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-    </svg>
-  );
-}
 
 export default function PricingPage() {
   const [annual, setAnnual] = useState(true);
-  const [openFaq, setOpenFaq] = useState<number | null>(1);
 
   return (
     <>
       <TopNav />
 
-      <main
-        style={{
-          paddingTop: 128,
-          paddingBottom: 0,
-          paddingLeft: 24,
-          paddingRight: 24,
-          maxWidth: 1280,
-          margin: "0 auto",
-        }}
-      >
-        {/* ============================
-            PRICING HERO
-            ============================ */}
+      <main style={{ maxWidth: 1280, margin: "0 auto", padding: "128px 24px 0", backgroundColor: "var(--color-surface)", minHeight: "100vh" }}>
+        {/* Hero */}
         <header style={{ textAlign: "center", marginBottom: 96 }}>
-          {/* Eyebrow */}
-          <span
-            style={{
-              display: "block",
-              fontFamily: "var(--font-body)",
-              fontSize: 12,
-              fontWeight: 700,
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-              color: "var(--color-secondary)",
-              marginBottom: 16,
-            }}
-          >
-            Investment in Sound
+          <span style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 20, color: "var(--color-primary)", display: "block", marginBottom: 16 }}>
+            The Sound of Curation
           </span>
-
-          {/* Headline */}
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(3rem, 5vw, 4.5rem)",
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.1,
-              color: "var(--color-on-surface)",
-            }}
-          >
-            Precision Intelligence for <br />
-            <span style={{ fontStyle: "italic", color: "var(--color-primary)" }}>
-              Cinematic Visionaries
-            </span>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-on-surface)", marginBottom: 32 }}>
+            Investment in <br />Atmosphere.
           </h1>
-
-          {/* Subheadline */}
-          <p
-            style={{
-              maxWidth: 640,
-              margin: "24px auto 0",
-              fontFamily: "var(--font-body)",
-              fontSize: 18,
-              fontWeight: 300,
-              lineHeight: 1.7,
-              color: "var(--color-on-surface-variant)",
-            }}
-          >
-            Professional-grade audio tracking and curation tools. Choose the
-            scale that fits your production pipeline.
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 18, lineHeight: 1.7, color: "var(--color-on-surface-variant)", maxWidth: 640, margin: "0 auto" }}>
+            Choose a plan that fits your production scale. From independent creators to global agencies, Tracked provides the sonic foundation for every narrative.
           </p>
-
-          {/* Billing toggle */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 16,
-              paddingTop: 32,
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: 14,
-                fontWeight: 500,
-                color: annual ? "var(--color-on-surface-variant)" : "var(--color-on-surface)",
-              }}
-            >
-              Monthly
-            </span>
-
-            {/* Toggle switch */}
-            <button
-              onClick={() => setAnnual(!annual)}
-              style={{
-                width: 56,
-                height: 28,
-                borderRadius: 9999,
-                backgroundColor: annual
-                  ? "var(--color-primary)"
-                  : "var(--color-surface-container-high)",
-                border: "1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent)",
-                position: "relative",
-                cursor: "pointer",
-                transition: "background-color 300ms ease",
-                padding: 4,
-              }}
-            >
-              <div
-                style={{
-                  width: 20,
-                  height: 20,
-                  borderRadius: "50%",
-                  backgroundColor: annual ? "var(--color-secondary)" : "var(--color-on-surface)",
-                  position: "absolute",
-                  top: 3,
-                  transition: "left 200ms ease, right 200ms ease",
-                  ...(annual ? { right: 4 } : { left: 4 }),
-                }}
-              />
-            </button>
-
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: 14,
-                  fontWeight: 700,
-                  color: "var(--color-secondary)",
-                }}
-              >
-                Annual (2 months free)
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: 10,
-                  fontWeight: 500,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  color: "var(--color-primary)",
-                }}
-              >
-                Save 2 months
-              </span>
-            </div>
-          </div>
         </header>
 
-        {/* ============================
-            PRICING CARDS — 3-column grid
-            ============================ */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 0,
-            alignItems: "stretch",
-            backgroundColor: "var(--color-surface-container-lowest)",
-            overflow: "hidden",
-            border: "1px solid color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
-            maxWidth: 960,
-            margin: "0 auto",
-          }}
-        >
-          {TIERS.map((tier, idx) => (
+        {/* Toggle */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 64 }}>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: 14, letterSpacing: "0.15em", textTransform: "uppercase", color: annual ? "var(--color-on-surface-variant)" : "var(--color-on-surface)" }}>Monthly</span>
+          <button onClick={() => setAnnual(!annual)} style={{ width: 56, height: 28, borderRadius: 9999, backgroundColor: "var(--color-surface-container-high)", position: "relative", border: "none", cursor: "pointer", padding: 4 }}>
+            <div style={{ width: 20, height: 20, borderRadius: "50%", backgroundColor: "var(--color-primary)", position: "absolute", top: 3, transition: "left 200ms ease, right 200ms ease", ...(annual ? { right: 4 } : { left: 4 }) }} />
+          </button>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: 14, letterSpacing: "0.15em", textTransform: "uppercase", color: annual ? "var(--color-on-surface)" : "var(--color-on-surface-variant)" }}>Annual</span>
+          {annual && (
+            <span style={{ backgroundColor: "color-mix(in srgb, var(--color-secondary) 10%, transparent)", color: "var(--color-secondary)", padding: "4px 8px", borderRadius: "var(--radius-sm)", fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+              Save 2 months
+            </span>
+          )}
+        </div>
+
+        {/* Cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32, alignItems: "flex-end" }} className="md:grid-cols-3 grid-cols-1">
+          {TIERS.map((tier) => (
             <div
               key={tier.name}
               style={{
+                backgroundColor: "var(--color-surface-container)",
                 padding: 40,
+                borderRadius: "var(--radius-lg)",
                 display: "flex",
                 flexDirection: "column",
-                gap: 40,
-                ...(tier.popular
-                  ? {
-                      backgroundColor: "var(--color-surface-container)",
-                      position: "relative",
-                      zIndex: 10,
-                      boxShadow: "0 0 80px rgba(0,0,0,0.5)",
-                    }
-                  : {
-                      ...(idx === 0
-                        ? { borderRight: "1px solid color-mix(in srgb, var(--color-outline-variant) 10%, transparent)" }
-                        : { borderLeft: "1px solid color-mix(in srgb, var(--color-outline-variant) 10%, transparent)" }),
-                    }),
+                height: "100%",
+                border: tier.popular ? "2px solid color-mix(in srgb, var(--color-primary) 30%, transparent)" : "1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent)",
+                boxShadow: tier.popular ? "0 25px 50px -12px rgba(0,0,0,0.3)" : "none",
+                transform: tier.popular ? "scale(1.05)" : "none",
+                position: "relative",
+                zIndex: tier.popular ? 10 : 1,
+                overflow: "hidden",
               }}
             >
-              {/* Most Popular badge */}
-              {tier.label && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: 24,
-                    right: 40,
-                  }}
-                >
-                  <span
-                    style={{
-                      backgroundColor: "var(--color-secondary)",
-                      color: "var(--color-on-primary)",
-                      padding: "4px 12px",
-                      fontFamily: "var(--font-body)",
-                      fontSize: 10,
-                      fontWeight: 700,
-                      letterSpacing: "0.15em",
-                      textTransform: "uppercase",
-                      borderRadius: "var(--radius-sm)",
-                    }}
-                  >
-                    {tier.label}
-                  </span>
+              {tier.popular && (
+                <div style={{ position: "absolute", top: 0, right: 0, backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)", padding: "4px 16px", fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                  Most Popular
                 </div>
               )}
 
-              {/* Tier name + price */}
-              <div>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: 24,
-                    fontWeight: 300,
-                    color: tier.popular ? "var(--color-primary)" : "var(--color-on-surface)",
-                    marginBottom: 8,
-                  }}
-                >
-                  {tier.name}
-                </h3>
-                <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: 36,
-                      fontWeight: 700,
-                      color: "var(--color-on-surface)",
-                    }}
-                  >
-                    ${annual ? tier.annualPrice : tier.price}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: 14,
-                      fontWeight: 300,
-                      color: "var(--color-on-surface-variant)",
-                    }}
-                  >
-                    /mo
-                  </span>
-                </div>
+              <div style={{ marginBottom: 32 }}>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 30, color: "var(--color-on-surface)", marginBottom: 8 }}>{tier.name}</h3>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--color-on-surface-variant)" }}>{tier.desc}</p>
               </div>
 
-              {/* Features */}
-              <ul style={{ display: "flex", flexDirection: "column", gap: 16, flex: 1 }}>
-                {tier.features.map((feat, fi) => {
-                  const isAI = feat === "AI Match Previews";
-                  return (
-                    <li
-                      key={feat}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 12,
-                        fontFamily: "var(--font-body)",
-                        fontSize: 14,
-                        color: tier.popular
-                          ? isAI
-                            ? "var(--color-on-surface-variant)"
-                            : "var(--color-on-surface)"
-                          : "var(--color-on-surface-variant)",
-                        fontWeight: tier.popular && !isAI ? 500 : 400,
-                        fontStyle: isAI ? "italic" : "normal",
-                      }}
-                    >
-                      {isAI ? (
-                        <SparkleIcon />
-                      ) : (
-                        <CheckIcon
-                          color={
-                            tier.popular
-                              ? "var(--color-secondary)"
-                              : "var(--color-primary)"
-                          }
-                        />
-                      )}
-                      {feat}
-                    </li>
-                  );
-                })}
+              <div style={{ marginBottom: 40 }}>
+                <span style={{ fontFamily: "var(--font-display)", fontSize: 48, color: "var(--color-on-surface)" }}>${annual ? tier.annualPrice : tier.price}</span>
+                <span style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--color-on-surface-variant)" }}>/month</span>
+              </div>
+
+              <ul style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 48, flex: 1 }}>
+                {tier.features.map((f) => (
+                  <li key={f} style={{ display: "flex", alignItems: "center", gap: 12, fontFamily: "var(--font-body)", fontSize: 14, color: "var(--color-on-surface-variant)" }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                    {f}
+                  </li>
+                ))}
               </ul>
 
-              {/* CTA button */}
-              {tier.ctaStyle === "filled" ? (
-                <Link
-                  href="/subscribe"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    padding: "16px 0",
-                    textAlign: "center",
-                    backgroundColor: "var(--color-primary)",
-                    color: "var(--color-on-primary)",
-                    fontFamily: "var(--font-body)",
-                    fontSize: 12,
-                    fontWeight: 700,
-                    letterSpacing: "0.15em",
-                    textTransform: "uppercase",
-                    textDecoration: "none",
-                    transition: "opacity 150ms ease",
-                  }}
-                >
-                  {tier.cta}
-                </Link>
-              ) : (
-                <Link
-                  href={tier.name === "Team" ? "#" : "/subscribe"}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    padding: "16px 0",
-                    textAlign: "center",
-                    border: "1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent)",
-                    backgroundColor: "transparent",
-                    color: "var(--color-on-surface)",
-                    fontFamily: "var(--font-body)",
-                    fontSize: 12,
-                    fontWeight: 700,
-                    letterSpacing: "0.15em",
-                    textTransform: "uppercase",
-                    textDecoration: "none",
-                    transition: "background-color 150ms ease",
-                  }}
-                >
-                  {tier.cta}
-                </Link>
-              )}
+              <Link
+                href={tier.name === "Team" ? "#" : "/subscribe"}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  padding: "16px 0",
+                  textAlign: "center",
+                  fontFamily: "var(--font-body)",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  borderRadius: "var(--radius-md)",
+                  ...(tier.ctaStyle === "filled"
+                    ? { backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)" }
+                    : { border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)", backgroundColor: "transparent" }),
+                }}
+              >
+                {tier.cta}
+              </Link>
             </div>
           ))}
         </div>
 
-        {/* Free trial note */}
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: 48,
-            fontFamily: "var(--font-body)",
-            fontSize: 14,
-            fontWeight: 300,
-            fontStyle: "italic",
-            color: "var(--color-on-surface-variant)",
-          }}
-        >
-          All plans include a 14-day free trial. No credit card required to
-          start.
-        </p>
+        {/* Pull quote */}
+        <div style={{ maxWidth: 800, margin: "128px auto 0", borderLeft: "2px solid var(--color-primary)", paddingLeft: 32 }}>
+          <blockquote style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 30, color: "var(--color-on-surface)", lineHeight: 1.4 }}>
+            &ldquo;Tracked has fundamentally changed our post-production rhythm. The AI doesn&rsquo;t just find music; it finds the emotion we were looking for.&rdquo;
+          </blockquote>
+          <cite style={{ display: "block", marginTop: 24, fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--color-primary)", fontStyle: "normal" }}>
+            Director, Vanguard Studios
+          </cite>
+        </div>
 
-        {/* ============================
-            FAQ SECTION
-            ============================ */}
-        <section style={{ marginTop: 192, maxWidth: 960, marginLeft: "auto", marginRight: "auto" }}>
-          {/* Header */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              marginBottom: 64,
-              gap: 48,
-            }}
-          >
-            <div>
-              <h2
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2rem, 3vw, 2.5rem)",
-                  fontWeight: 300,
-                  color: "var(--color-on-surface)",
-                }}
-              >
-                Expert{" "}
-                <span style={{ fontStyle: "italic", color: "var(--color-secondary)" }}>
-                  Assistance
-                </span>
-              </h2>
-              <p
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: 14,
-                  fontWeight: 500,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  color: "var(--color-on-surface-variant)",
-                  marginTop: 16,
-                }}
-              >
-                Frequently Asked Questions
-              </p>
-            </div>
-            <div
-              className="hidden md:block"
-              style={{
-                width: 128,
-                height: 1,
-                backgroundColor: "var(--color-outline-variant)",
-                marginBottom: 16,
-                flexShrink: 0,
-              }}
-            />
-          </div>
-
-          {/* Accordion */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {FAQ_ITEMS.map((item, i) => {
-              const isOpen = openFaq === i;
-              return (
-                <div
-                  key={i}
-                  onClick={() => setOpenFaq(isOpen ? null : i)}
-                  style={{
-                    backgroundColor: isOpen
-                      ? "var(--color-surface-container)"
-                      : "var(--color-surface-container)",
-                    padding: 32,
-                    cursor: "pointer",
-                    borderLeft: `2px solid ${
-                      isOpen ? "var(--color-secondary)" : "transparent"
-                    }`,
-                    transition: "border-color 200ms ease",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: isOpen ? "flex-start" : "center",
-                    }}
-                  >
-                    <h4
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: 18,
-                        fontWeight: 300,
-                        color: "var(--color-on-surface)",
-                      }}
-                    >
-                      {item.q}
-                    </h4>
-                    <span
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: 20,
-                        color: isOpen
-                          ? "var(--color-secondary)"
-                          : "var(--color-on-surface-variant)",
-                        flexShrink: 0,
-                        marginLeft: 24,
-                        transition: "color 200ms ease",
-                      }}
-                    >
-                      {isOpen ? "\u2212" : "+"}
-                    </span>
-                  </div>
-                  {isOpen && (
-                    <p
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: 14,
-                        lineHeight: 1.7,
-                        color: "var(--color-on-surface-variant)",
-                        marginTop: 24,
-                        maxWidth: 640,
-                      }}
-                    >
-                      {item.a}
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* ============================
-            BOTTOM CTA BANNER
-            ============================ */}
-        <section
-          style={{
-            marginTop: 192,
-            position: "relative",
-            height: 400,
-            overflow: "hidden",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
-        >
-          {/* Gradient overlays */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to top, var(--color-surface), transparent, var(--color-surface))",
-              zIndex: 10,
-              pointerEvents: "none",
-            }}
-          />
-          {/* Background image */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBffX4CEINNlfRdT268PyldCEglKstMbgZ8dHtynm3YSnWGFOO2DWwvFS7ML5l4lW0fbQAGq92nFi5B-rn8kop5hI9kaQzkWdT6Vkc1D6jkyUKB2QzSlxyivI7L9Og4DARYRDAXcQud4zWiE7NihjrGJ9P-joNzmxfUaDhcd2r6XIINTB1VHaRO2Zrp9_D4sq2uf_wQ17ayhUA-4OR-CSvfjYORER70ITr9PyzrxkRT-ayx0HVmEWWhSNqJHVlPoF-vVkYR2Nm0aUgI"
-            alt="Professional recording studio"
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              opacity: 0.3,
-              mixBlendMode: "luminosity",
-            }}
-          />
-          <div style={{ position: "relative", zIndex: 20, display: "flex", flexDirection: "column", gap: 32 }}>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 4vw, 3.75rem)",
-                fontStyle: "italic",
-                color: "var(--color-on-surface)",
-              }}
-            >
-              Ready to elevate your production?
+        {/* FAQ — 2-column editorial grid */}
+        <section style={{ marginTop: 160, display: "grid", gridTemplateColumns: "1fr", gap: 64 }} className="lg:grid-cols-2">
+          <div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: 48, color: "var(--color-on-surface)", marginBottom: 24 }}>
+              Common <br />Inquiries
             </h2>
-            <div
-              style={{
-                display: "flex",
-                gap: 16,
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
-              <Link
-                href="/subscribe"
-                style={{
-                  backgroundColor: "var(--color-primary)",
-                  color: "var(--color-on-primary)",
-                  padding: "16px 40px",
-                  borderRadius: "var(--radius-sm)",
-                  fontFamily: "var(--font-body)",
-                  fontSize: 12,
-                  fontWeight: 700,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  transition: "transform 150ms ease",
-                }}
-              >
-                Start Your Free Trial
-              </Link>
-              <Link
-                href="#"
-                style={{
-                  backdropFilter: "blur(12px)",
-                  WebkitBackdropFilter: "blur(12px)",
-                  backgroundColor: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  color: "var(--color-on-surface)",
-                  padding: "16px 40px",
-                  borderRadius: "var(--radius-sm)",
-                  fontFamily: "var(--font-body)",
-                  fontSize: 12,
-                  fontWeight: 700,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  transition: "background-color 150ms ease",
-                }}
-              >
-                Talk to an Expert
-              </Link>
-            </div>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--color-on-surface-variant)", maxWidth: 320 }}>
+              Everything you need to know about our licensing and technology.
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+            {FAQ.map((item) => (
+              <div key={item.q}>
+                <h4 style={{ fontFamily: "var(--font-display)", fontSize: 24, color: "var(--color-on-surface)", marginBottom: 16 }}>{item.q}</h4>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 15, lineHeight: 1.7, color: "var(--color-on-surface-variant)" }}>{item.a}</p>
+              </div>
+            ))}
           </div>
         </section>
       </main>
