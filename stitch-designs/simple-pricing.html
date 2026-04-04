@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing - Tracked</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#d5d3d8",
+                      "on-secondary-fixed-variant": "#5b5b5f",
+                      "surface-container": "#ebeeef",
+                      "primary": "#0053db",
+                      "on-tertiary-container": "#4f4964",
+                      "secondary-fixed": "#e4e2e6",
+                      "primary-fixed": "#dbe1ff",
+                      "surface-container-high": "#e4e9ea",
+                      "on-tertiary-fixed-variant": "#59526e",
+                      "on-background": "#2d3435",
+                      "error-dim": "#4e0309",
+                      "on-tertiary": "#fdf7ff",
+                      "secondary-dim": "#535356",
+                      "tertiary-fixed": "#dfd5f7",
+                      "on-secondary": "#faf8fc",
+                      "on-tertiary-fixed": "#3c3650",
+                      "inverse-on-surface": "#9c9d9d",
+                      "surface-dim": "#d4dbdd",
+                      "on-primary-container": "#0048bf",
+                      "inverse-surface": "#0c0f0f",
+                      "on-primary-fixed": "#003798",
+                      "on-primary": "#f8f7ff",
+                      "surface-variant": "#dde4e5",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#dbe1ff",
+                      "tertiary-container": "#dfd5f7",
+                      "tertiary-fixed-dim": "#d0c7e8",
+                      "on-error-container": "#752121",
+                      "primary-dim": "#0048c1",
+                      "surface-container-highest": "#dde4e5",
+                      "error": "#9f403d",
+                      "on-error": "#fff7f6",
+                      "surface": "#f9f9f9",
+                      "surface-container-low": "#f2f4f4",
+                      "secondary": "#5f5f62",
+                      "background": "#f9f9f9",
+                      "on-surface": "#2d3435",
+                      "on-secondary-fixed": "#3f3f43",
+                      "outline-variant": "#adb3b4",
+                      "primary-fixed-dim": "#c7d3ff",
+                      "on-primary-fixed-variant": "#0050d4",
+                      "tertiary-dim": "#564f6b",
+                      "on-surface-variant": "#5a6061",
+                      "surface-tint": "#0053db",
+                      "error-container": "#fe8983",
+                      "surface-bright": "#f9f9f9",
+                      "outline": "#757c7d",
+                      "tertiary": "#625b77",
+                      "inverse-primary": "#618bff",
+                      "on-secondary-container": "#515155",
+                      "secondary-container": "#e4e2e6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar from Shared Components -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50 border-b border-zinc-200">
+<div class="flex justify-between items-center h-14 px-6 w-full max-w-full mx-auto font-inter body-md tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-zinc-900">Tracked</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-zinc-600 hover:text-zinc-900 transition-colors" href="#">Catalog</a>
+<a class="text-blue-600 font-medium border-b-2 border-blue-600" href="#">Pricing</a>
+<a class="text-zinc-600 hover:text-zinc-900 transition-colors" href="#">How It Works</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-600 font-medium hover:text-zinc-900 px-3 py-1.5 transition-colors">Sign In</button>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-lg font-medium hover:bg-primary-dim active:opacity-80 transition-all">Start Free Trial</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-6">
+<div class="max-w-6xl mx-auto">
+<!-- Hero Header -->
+<header class="text-center mb-16">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-on-surface mb-6">Choose Your Plan</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto font-medium">
+                    Scalable solutions for teams of all sizes. Professional precision for your workflow.
+                </p>
+<!-- Toggle Container -->
+<div class="mt-12 flex items-center justify-center gap-4">
+<span class="text-sm font-semibold text-on-surface">Monthly</span>
+<button class="relative w-12 h-6 bg-surface-container-high rounded-full p-1 transition-colors hover:bg-outline-variant">
+<div class="absolute right-1 top-1 w-4 h-4 bg-primary rounded-full"></div>
+</button>
+<span class="text-sm font-semibold text-on-surface">Annual</span>
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">2 months free</span>
+</div>
+</header>
+<!-- Pricing Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+<!-- Starter Plan -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col transition-all border border-transparent hover:border-outline-variant/20">
+<div class="mb-8">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-2">Starter</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold tracking-tighter">$15</span>
+<span class="text-on-surface-variant font-medium">/mo</span>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant">Essential tools for individuals and small startups.</p>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Up to 3 projects
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Basic analytics
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            24h support response
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Community access
+                        </li>
+</ul>
+<button class="w-full py-3 px-4 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:bg-surface-container-high transition-colors">
+                        Get Started
+                    </button>
+</div>
+<!-- Pro Plan (Standard Border Highlight) -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col transition-all border-2 border-primary relative">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                        Most Popular
+                    </div>
+<div class="mb-8">
+<h3 class="text-sm font-bold uppercase tracking-widest text-primary mb-2">Pro</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold tracking-tighter">$29</span>
+<span class="text-on-surface-variant font-medium">/mo</span>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant">Advanced features for growing professional teams.</p>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Unlimited projects
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Custom reporting
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Priority support
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            API integration
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Team collaboration tools
+                        </li>
+</ul>
+<button class="w-full py-3 px-4 bg-primary text-on-primary font-bold rounded-lg hover:bg-primary-dim transition-colors">
+                        Go Pro
+                    </button>
+</div>
+<!-- Team Plan -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col transition-all border border-transparent hover:border-outline-variant/20">
+<div class="mb-8">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-2">Team</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold tracking-tighter">$79</span>
+<span class="text-on-surface-variant font-medium">/mo</span>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant">Full suite power for large scale organizations.</p>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Everything in Pro
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            SAML SSO
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Custom training
+                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Dedicated account manager
+                        </li>
+</ul>
+<button class="w-full py-3 px-4 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:bg-surface-container-high transition-colors">
+                        Contact Sales
+                    </button>
+</div>
+</div>
+<!-- FAQ Section -->
+<section class="max-w-3xl mx-auto">
+<h2 class="text-2xl font-bold tracking-tight text-center mb-12">Frequently Asked Questions</h2>
+<div class="space-y-1">
+<!-- FAQ Item -->
+<div class="bg-surface-container-lowest overflow-hidden">
+<button class="w-full py-5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors px-4">
+<span class="font-bold text-on-surface">Can I change plans at any time?</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest overflow-hidden">
+<button class="w-full py-5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors px-4">
+<span class="font-bold text-on-surface">What payment methods do you accept?</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest overflow-hidden">
+<button class="w-full py-5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors px-4">
+<span class="font-bold text-on-surface">Is there a free trial for the Pro plan?</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+<div class="px-4 pb-5 text-sm text-on-surface-variant leading-relaxed">
+                            Yes, you can try the Pro plan for 14 days without a credit card. At the end of the trial, you can choose to upgrade or revert to the Starter plan.
+                        </div>
+</div>
+<div class="bg-surface-container-lowest overflow-hidden">
+<button class="w-full py-5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors px-4">
+<span class="font-bold text-on-surface">Do you offer discounts for non-profits?</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar from Shared Components (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex items-center justify-between px-8 bg-white border-t border-zinc-200 h-16 z-50">
+<div class="flex flex-col items-center justify-center gap-1 text-zinc-500">
+<span class="material-symbols-outlined text-xl" data-icon="play_arrow">play_arrow</span>
+<span class="font-inter text-xs font-medium">Play</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-blue-600">
+<span class="material-symbols-outlined text-xl" data-icon="music_note">music_note</span>
+<span class="font-inter text-xs font-medium">Track Info</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-zinc-500">
+<span class="material-symbols-outlined text-xl" data-icon="linear_scale">linear_scale</span>
+<span class="font-inter text-xs font-medium">Progress</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-zinc-500">
+<span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span>
+<span class="font-inter text-xs font-medium">Volume</span>
+</div>
+</nav>
+<!-- Footer for Desktop Precision -->
+<footer class="hidden md:block py-12 bg-surface-container-low border-t border-outline-variant/10">
+<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-zinc-400 text-xs font-medium tracking-widest uppercase">
+                © 2024 Tracked Systems Inc. All rights reserved.
+            </div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant text-xs font-bold hover:text-primary transition-colors uppercase tracking-widest" href="#">Privacy</a>
+<a class="text-on-surface-variant text-xs font-bold hover:text-primary transition-colors uppercase tracking-widest" href="#">Terms</a>
+<a class="text-on-surface-variant text-xs font-bold hover:text-primary transition-colors uppercase tracking-widest" href="#">Security</a>
+</div>
+</div>
+</footer>
+</body></html>
