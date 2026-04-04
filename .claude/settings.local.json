@@ -22,7 +22,8 @@
       "Bash(python3:*)",
       "Bash(B=~/.claude/skills/gstack/browse/dist/browse)",
       "Bash($B goto:*)",
-      "Bash($B screenshot:*)"
+      "Bash($B screenshot:*)",
+      "Bash(git push:*)"
     ]
   }
 }
