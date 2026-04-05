@@ -5,6 +5,10 @@ import Link from "next/link";
 import { TopNav } from "@/components/nav/TopNav";
 import { Footer } from "@/components/layout/footer";
 import { FloatingPlayer } from "@/components/player/FloatingPlayer";
+import { useActiveTheme } from "@/hooks/useActiveTheme";
+import { SimplePricingPage } from "@/components/simple/SimplePricingPage";
+import WEPricingPage from "@/components/warm-editorial/WEPricingPage";
+import { PUPricingPage } from "@/components/precision-utility/PUPricingPage";
 
 /* ─── Tier data (from spec corrections table) ─── */
 const TIERS = [
@@ -77,8 +81,13 @@ function SparkleIcon() {
 }
 
 export default function PricingPage() {
+  const theme = useActiveTheme();
   const [annual, setAnnual] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(1);
+
+  if (theme === "simple") return <SimplePricingPage />;
+  if (theme === "warm-editorial") return <WEPricingPage />;
+  if (theme === "precision-utility") return <PUPricingPage />;
 
   return (
     <>

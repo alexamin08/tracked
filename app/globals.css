@@ -6,6 +6,26 @@
 @import "../styles/themes/cinematic.css";
 @import "../styles/themes/warm-editorial.css";
 @import "../styles/themes/precision-utility.css";
+@import "../styles/themes/simple.css";
+
+/* Material Symbols loaded via <link> in layout.tsx — @import url() doesn't work after @tailwind */
+
+/* Material Symbols icon class */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  -webkit-font-smoothing: antialiased;
+}
 
 /* ===================================================
    Base reset — all colors from theme tokens
@@ -48,4 +68,5 @@
     outline: none;
     box-shadow: 0 0 0 2px var(--color-primary);
   }
+
 }

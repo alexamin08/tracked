@@ -6,11 +6,13 @@ const THEMES = [
   { id: "cinematic", label: "CI", name: "Cinematic Intelligence", url: "https://tracked-phi.vercel.app" },
   { id: "warm-editorial", label: "WE", name: "Warm Editorial", url: "https://tracked-warm.vercel.app" },
   { id: "precision-utility", label: "PU", name: "Precision Intelligence", url: "https://tracked-precision.vercel.app" },
+  { id: "simple", label: "SM", name: "Simple Mode", url: "https://tracked-simple.vercel.app" },
 ] as const;
 
 function getActiveTheme() {
   if (typeof window === "undefined") return "cinematic";
   const host = window.location.hostname;
+  if (host.includes("tracked-simple")) return "simple";
   if (host.includes("tracked-warm")) return "warm-editorial";
   if (host.includes("tracked-precision")) return "precision-utility";
   return "cinematic";

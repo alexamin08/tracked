@@ -6,6 +6,10 @@ import { useRouter } from "next/navigation";
 import { TopNav } from "@/components/nav/TopNav";
 import { Footer } from "@/components/layout/footer";
 import { FloatingPlayer } from "@/components/player/FloatingPlayer";
+import { useActiveTheme } from "@/hooks/useActiveTheme";
+import { SimpleHomePage } from "@/components/simple/SimpleHomePage";
+import WEHomePage from "@/components/warm-editorial/WEHomePage";
+import { PUHomePage } from "@/components/precision-utility/PUHomePage";
 
 const SUGGESTED_SEARCHES = [
   "tense interrogation, true crime doc",
@@ -40,8 +44,13 @@ const COLLECTIONS = [
 ];
 
 export default function HomePage() {
+  const theme = useActiveTheme();
   const router = useRouter();
   const [searchValue, setSearchValue] = useState("");
+
+  if (theme === "simple") return <SimpleHomePage />;
+  if (theme === "warm-editorial") return <WEHomePage />;
+  if (theme === "precision-utility") return <PUHomePage />;
 
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();

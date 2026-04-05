@@ -1,0 +1,153 @@
+/* =============================================================
+   Simple Mode — Design Token System
+   Source: Tracked_Simple_Mode_Spec_v1_0
+
+   Token architecture:
+     [data-theme="simple"][data-mode="light"] → light mode (default)
+     [data-theme="simple"][data-mode="dark"]  → dark mode overrides
+
+   Components reference var(--color-*) — never hardcode hex.
+   ============================================================= */
+
+/* ----- Light Mode (Default) ----- */
+[data-theme="simple"][data-mode="light"] {
+  /* Surface scale */
+  --color-surface:                    #F9F9F9;
+  --color-surface-container-lowest:   #FFFFFF;
+  --color-surface-container-low:      #F2F4F4;
+  --color-surface-container:          #EBEEEF;
+  --color-surface-container-high:     #E4E9EA;
+  --color-surface-container-highest:  #DDE4E5;
+
+  /* Primary — functional blue (one accent color only) */
+  --color-primary:                    #0053DB;
+  --color-primary-dim:                #0048C1;
+  --color-primary-container:          #DBE1FF;
+  --color-on-primary:                 #F8F7FF;
+  --color-on-primary-container:       #0048BF;
+
+  /* Secondary */
+  --color-secondary:                  #0053DB;
+  --color-secondary-container:        #E4E2E6;
+  --color-on-secondary-container:     #515155;
+
+  /* Text */
+  --color-on-surface:                 #2D3435;
+  --color-on-background:              #2D3435;
+  --color-on-surface-variant:         #5A6061;
+
+  /* Borders */
+  --color-outline:                    #757C7D;
+  --color-outline-variant:            #ADB3B4;
+
+  /* Shadows */
+  --shadow-ambient:                   0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-player:                    0 -10px 30px rgba(0, 0, 0, 0.03);
+
+  /* No glassmorphism in Simple Mode */
+  --glass-bg-opacity:                 1;
+  --glass-blur:                       0px;
+}
+
+/* ----- Dark Mode Overrides ----- */
+[data-theme="simple"][data-mode="dark"] {
+  --color-surface:                    #161616;
+  --color-surface-container-lowest:   #1E1E1E;
+  --color-surface-container-low:      #222222;
+  --color-surface-container:          #2A2A2A;
+  --color-surface-container-high:     #333333;
+  --color-surface-container-highest:  #3D3D3D;
+
+  --color-primary:                    #618BFF;
+  --color-primary-dim:                #5070E0;
+  --color-primary-container:          #1A2A50;
+  --color-on-primary:                 #F8F7FF;
+  --color-on-primary-container:       #C7D3FF;
+
+  --color-secondary:                  #618BFF;
+  --color-secondary-container:        #3A3A3E;
+  --color-on-secondary-container:     #C8C8CC;
+
+  --color-on-surface:                 #E5E5E5;
+  --color-on-background:              #E5E5E5;
+  --color-on-surface-variant:         #999999;
+
+  --color-outline:                    #555555;
+  --color-outline-variant:            #3A3A3A;
+
+  --shadow-ambient:                   0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-player:                    0 -10px 30px rgba(0, 0, 0, 0.15);
+
+  --glass-bg-opacity:                 1;
+  --glass-blur:                       0px;
+}
+
+/* ----- Typography (mode-independent) ----- */
+[data-theme="simple"] {
+  /* Font families — Inter only, NO serifs */
+  --font-display: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-body:    var(--font-inter), 'Inter', system-ui, sans-serif;
+
+  /* Type scale */
+  --text-display-lg:       3rem;
+  --text-display-lg-weight: 800;
+  --text-display-lg-lh:    1.1;
+  --text-display-lg-ls:    -0.02em;
+
+  --text-display-md:       2.5rem;
+  --text-display-md-weight: 800;
+  --text-display-md-lh:    1.15;
+  --text-display-md-ls:    -0.02em;
+
+  --text-headline-lg:      2rem;
+  --text-headline-lg-weight: 700;
+  --text-headline-lg-lh:   1.2;
+  --text-headline-lg-ls:   -0.01em;
+
+  --text-headline-md:      1.5rem;
+  --text-headline-md-weight: 700;
+  --text-headline-md-lh:   1.3;
+  --text-headline-md-ls:   -0.01em;
+
+  --text-title-lg:         1.125rem;
+  --text-title-lg-weight:  700;
+  --text-title-lg-lh:      1.4;
+
+  --text-title-sm:         1rem;
+  --text-title-sm-weight:  600;
+  --text-title-sm-lh:      1.5;
+
+  --text-body-lg:          1.125rem;
+  --text-body-lg-weight:   400;
+  --text-body-lg-lh:       1.65;
+
+  --text-body-md:          0.9375rem;
+  --text-body-md-weight:   400;
+  --text-body-md-lh:       1.6;
+
+  --text-body-sm:          0.875rem;
+  --text-body-sm-weight:   400;
+  --text-body-sm-lh:       1.5;
+
+  --text-label-md:         0.75rem;
+  --text-label-md-weight:  600;
+  --text-label-md-ls:      0.06em;
+
+  --text-label-sm:         0.6875rem;
+  --text-label-sm-weight:  700;
+  --text-label-sm-ls:      0.08em;
+
+  --text-label-xs:         0.625rem;
+  --text-label-xs-weight:  800;
+  --text-label-xs-ls:      0.1em;
+
+  /* Border radius — standard, not pill-shaped */
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --radius-full:  9999px;
+
+  /* Layout */
+  --content-max-width: 1280px;
+  --page-padding:      24px;
+}

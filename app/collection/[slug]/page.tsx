@@ -1,11 +1,26 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 import { TopNav } from "@/components/nav/TopNav";
-import { Footer } from "@/components/layout/footer";
-import { FloatingPlayer } from "@/components/player/FloatingPlayer";
-import { CollectionTrackList } from "./collection-tracks";
 import { displayName, slugify } from "@/lib/utils";
 import { createServiceClient } from "@/lib/supabase/service";
 import type { SearchResult } from "@/types";
+import { SimpleCollectionPage } from "@/components/simple/SimpleCollectionPage";
+import { CinematicCollectionPage } from "@/components/cinematic/CinematicCollectionPage";
+import { EditorialCollectionPage } from "@/components/warm-editorial/EditorialCollectionPage";
+import { PrecisionCollectionPage } from "@/components/precision-utility/PrecisionCollectionPage";
+import { WENav } from "@/components/warm-editorial/WENav";
+import { PUNav } from "@/components/precision-utility/PUNav";
+
+function getThemeFromHost(): string {
+  try {
+    const headersList = headers();
+    const host = headersList.get("host") || "";
+    if (host.includes("tracked-simple")) return "simple";
+    if (host.includes("tracked-warm")) return "warm-editorial";
+    if (host.includes("tracked-precision")) return "precision-utility";
+  } catch {}
+  return "cinematic";
+}
 
 interface CollectionData {
   name: string;
@@ -73,18 +88,31 @@ async function fetchCollection(slug: string): Promise<CollectionData | null> {
   return { name: albumName, trackCount: results.length, tracks: results };
 }
 
+function ThemeNav({ theme }: { theme: string }) {
+  switch (theme) {
+    case "warm-editorial":
+      return <WENav />;
+    case "precision-utility":
+      return <PUNav />;
+    default:
+      return <TopNav />;
+  }
+}
+
 export default async function CollectionDetailPage({
   params,
 }: {
   params: { slug: string };
 }) {
   const data = await fetchCollection(params.slug);
+  const theme = getThemeFromHost();
+  const navPaddingTop = theme === "simple" ? 56 : theme === "precision-utility" ? 64 : 112;
 
   if (!data) {
     return (
       <>
-        <TopNav />
-        <main style={{ backgroundColor: "var(--color-surface)", minHeight: "100vh", paddingTop: 112, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <ThemeNav theme={theme} />
+        <main style={{ backgroundColor: "var(--color-surface)", minHeight: "100vh", paddingTop: navPaddingTop, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <div style={{ textAlign: "center" }}>
             <p style={{ fontFamily: "var(--font-display)", fontSize: 24, color: "var(--color-on-surface)" }}>Collection not found</p>
             <Link href="/collections" style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--color-primary)", marginTop: 16, display: "block", textDecoration: "none" }}>
@@ -96,32 +124,16 @@ export default async function CollectionDetailPage({
     );
   }
 
-  return (
-    <>
-      <TopNav />
+  const name = displayName(data.name);
 
-      <main style={{ backgroundColor: "var(--color-surface)", minHeight: "100vh", paddingTop: 112, paddingBottom: 128 }}>
-        {/* Header */}
-        <header style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px 48px" }}>
-          <Link href="/collections" style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--color-on-surface-variant)", textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
-            ← All Collections
-          </Link>
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--color-on-surface)", letterSpacing: "-0.02em" }}>
-            {displayName(data.name)}
-          </h1>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--color-on-surface-variant)", marginTop: 8 }}>
-            {data.trackCount} composition{data.trackCount !== 1 ? "s" : ""}
-          </p>
-        </header>
-
-        {/* Track list */}
-        <section style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-          <CollectionTrackList tracks={data.tracks} />
-        </section>
-      </main>
-
-      <Footer />
-      <FloatingPlayer />
-    </>
-  );
+  switch (theme) {
+    case "simple":
+      return <SimpleCollectionPage collectionName={name} tracks={data.tracks} />;
+    case "warm-editorial":
+      return <EditorialCollectionPage collectionName={name} tracks={data.tracks} />;
+    case "precision-utility":
+      return <PrecisionCollectionPage collectionName={name} tracks={data.tracks} />;
+    default:
+      return <CinematicCollectionPage collectionName={name} tracks={data.tracks} />;
+  }
 }

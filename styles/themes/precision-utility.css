@@ -1,36 +1,51 @@
 /* =============================================================
    Precision Utility — Design Token System
-   Source: stitch-designs/precision-utility-*.html
+   Source: Tracked_Precision_Utility_Spec_v1_0
 
-   Fonts: Space Grotesk (headline) + Inter (body) — all sans-serif
-   Colors: Deep slate + electric cyan, from Stitch Tailwind config
-   Radius: 0px everywhere except pills (9999px)
+   Fonts: Space Grotesk (headline/UI) + Inter (body/data)
+   Primary: #C3F5FF ice cyan (dark) / #006875 dark teal (light)
+   Radius: 0px EVERYWHERE (brutalist) — exception: 9999px circles
+   Nav: ALWAYS dark (#111316) regardless of mode
+
+   Token architecture:
+     [data-theme="precision-utility"][data-mode="dark"]  → dark mode (DEFAULT)
+     [data-theme="precision-utility"][data-mode="light"] → light mode
    ============================================================= */
 
-/* ----- Dark Mode ----- */
+/* ----- Dark Mode (Default) ----- */
 [data-theme="precision-utility"][data-mode="dark"] {
-  /* Surface scale — from Stitch Tailwind config */
-  --color-surface:                    #111316;   /* surface / surface-dim */
-  --color-surface-container-lowest:   #0c0e11;   /* surface-container-lowest */
-  --color-surface-container:          #1e2023;   /* surface-container */
-  --color-surface-container-high:     #282a2d;   /* surface-container-high */
-  --color-surface-container-highest:  #333538;   /* surface-container-highest */
+  /* Surface scale */
+  --color-surface:                    #111316;
+  --color-surface-container-lowest:   #0C0E11;
+  --color-surface-container-low:      #1A1C1F;
+  --color-surface-container:          #1E2023;
+  --color-surface-container-high:     #282A2D;
+  --color-surface-container-highest:  #333538;
 
-  /* Primary — electric cyan */
-  --color-primary:                    #c3f5ff;   /* primary */
-  --color-primary-container:          #00e5ff;   /* primary-container */
-  --color-on-primary:                 #00363d;   /* on-primary */
+  /* Primary — ice cyan */
+  --color-primary:                    #C3F5FF;
+  --color-primary-dim:                #98D0DA;
+  --color-primary-container:          #00E5FF;
+  --color-on-primary:                 #00363D;
+  --color-on-primary-container:       #00363D;
 
-  /* Secondary — softer cyan */
-  --color-secondary:                  #98d0da;   /* secondary */
-  --color-secondary-container:        #11505a;   /* secondary-container */
+  /* Secondary — muted cyan */
+  --color-secondary:                  #98D0DA;
+  --color-secondary-container:        #11505A;
+  --color-on-secondary-container:     #8AC1CC;
+
+  /* Tertiary — warm gold (sparingly) */
+  --color-tertiary:                   #FFEAC0;
+  --color-tertiary-container:         #FEC931;
 
   /* Text */
-  --color-on-surface:                 #e2e2e6;   /* on-surface */
-  --color-on-surface-variant:         #bac9cc;   /* on-surface-variant */
+  --color-on-surface:                 #E2E2E6;
+  --color-on-background:              #E2E2E6;
+  --color-on-surface-variant:         #BAC9CC;
 
   /* Borders */
-  --color-outline-variant:            #3b494c;   /* outline-variant */
+  --color-outline:                    #849396;
+  --color-outline-variant:            #3B494C;
 
   /* Shadows */
   --shadow-ambient:                   0 24px 48px rgba(0, 0, 0, 0.5);
@@ -41,118 +56,124 @@
 }
 
 /* ----- Light Mode ----- */
-/* PU is dark-first; light mode inverts to a cool gray base */
 [data-theme="precision-utility"][data-mode="light"] {
-  --color-surface:                    #f2f4f7;
-  --color-surface-container-lowest:   #ffffff;
-  --color-surface-container:          #e6e9ed;
-  --color-surface-container-high:     #d9dde3;
-  --color-surface-container-highest:  #cdd2d9;
+  --color-surface:                    #F1F3F5;
+  --color-surface-container-lowest:   #FFFFFF;
+  --color-surface-container-low:      #F7F9FB;
+  --color-surface-container:          #F1F3F5;
+  --color-surface-container-high:     #E2E4E7;
+  --color-surface-container-highest:  #D1D5DB;
 
-  /* Deeper cyan for contrast on light */
-  --color-primary:                    #006875;   /* inverse-primary from config */
-  --color-primary-container:          #9cf0ff;   /* primary-fixed */
-  --color-on-primary:                 #ffffff;
+  /* Primary — dark teal for readability */
+  --color-primary:                    #006875;
+  --color-primary-dim:                #005A66;
+  --color-primary-container:          #00E5FF;
+  --color-on-primary:                 #FFFFFF;
+  --color-on-primary-container:       #00363D;
 
-  --color-secondary:                  #0d4e57;   /* on-secondary-fixed-variant */
-  --color-secondary-container:        #b3ecf7;   /* secondary-fixed */
+  /* Secondary */
+  --color-secondary:                  #006875;
+  --color-secondary-container:        #CCE8EE;
+  --color-on-secondary-container:     #00363D;
 
+  /* Tertiary */
+  --color-tertiary:                   #FFEAC0;
+  --color-tertiary-container:         #FEC931;
+
+  /* Text */
   --color-on-surface:                 #111316;
-  --color-on-surface-variant:         #4a5559;
+  --color-on-background:              #111316;
+  --color-on-surface-variant:         #495057;
 
-  --color-outline-variant:            #cdd2d9;
+  /* Borders */
+  --color-outline:                    #ADB5BD;
+  --color-outline-variant:            #CED4DA;
 
+  /* Shadows */
   --shadow-ambient:                   0 24px 48px rgba(17, 19, 22, 0.05);
   --shadow-player:                    0 -4px 24px rgba(17, 19, 22, 0.06);
 
-  --glass-bg-opacity:                 0.90;
+  --glass-bg-opacity:                 0.85;
   --glass-blur:                       20px;
 }
 
-/* ----- Theme-level tokens (mode-independent) ----- */
+/* ----- Typography (mode-independent) ----- */
 [data-theme="precision-utility"] {
-  /* Fonts — Space Grotesk (headline) + Inter (body), no serif */
+  /* Fonts — Space Grotesk + Inter, NO serifs */
   --font-display: var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
   --font-body:    var(--font-inter), 'Inter', system-ui, sans-serif;
 
-  /* Type scale */
+  /* Type scale — from spec exactly */
   --text-display-xl:       4.5rem;
   --text-display-xl-weight: 700;
-  --text-display-xl-lh:    1.05;
-  --text-display-xl-ls:    -0.03em;
+  --text-display-xl-lh:    0.9;
+  --text-display-xl-ls:    -0.04em;
 
-  --text-display-lg:       3.5rem;
+  --text-display-lg:       3.75rem;
   --text-display-lg-weight: 700;
-  --text-display-lg-lh:    1.1;
+  --text-display-lg-lh:    0.9;
   --text-display-lg-ls:    -0.03em;
 
-  --text-display-md:       2.5rem;
-  --text-display-md-weight: 600;
-  --text-display-md-lh:    1.15;
+  --text-display-md:       3rem;
+  --text-display-md-weight: 700;
+  --text-display-md-lh:    1.0;
   --text-display-md-ls:    -0.02em;
 
-  --text-headline-lg:      2rem;
-  --text-headline-lg-weight: 600;
-  --text-headline-lg-lh:   1.2;
+  --text-headline-lg:      2.25rem;
+  --text-headline-lg-weight: 700;
+  --text-headline-lg-lh:   1.15;
   --text-headline-lg-ls:   -0.01em;
 
   --text-headline-md:      1.5rem;
-  --text-headline-md-weight: 600;
+  --text-headline-md-weight: 700;
   --text-headline-md-lh:   1.3;
+  --text-headline-md-ls:   -0.01em;
 
   --text-headline-sm:      1.25rem;
-  --text-headline-sm-weight: 600;
+  --text-headline-sm-weight: 700;
   --text-headline-sm-lh:   1.35;
 
   --text-title-lg:         1.125rem;
-  --text-title-lg-weight:  600;
+  --text-title-lg-weight:  700;
   --text-title-lg-lh:      1.4;
 
-  --text-title-sm:         1rem;
-  --text-title-sm-weight:  500;
-  --text-title-sm-lh:      1.5;
+  --text-title-md:         1rem;
+  --text-title-md-weight:  600;
+  --text-title-md-lh:      1.5;
 
-  --text-body-md:          0.9375rem;
+  --text-body-lg:          1.125rem;
+  --text-body-lg-weight:   400;
+  --text-body-lg-lh:       1.65;
+
+  --text-body-md:          0.875rem;
   --text-body-md-weight:   400;
-  --text-body-md-lh:       1.65;
+  --text-body-md-lh:       1.6;
 
-  --text-body-sm:          0.875rem;
+  --text-body-sm:          0.8125rem;
   --text-body-sm-weight:   400;
-  --text-body-sm-lh:       1.6;
+  --text-body-sm-lh:       1.5;
 
-  --text-label-lg:         0.875rem;
-  --text-label-lg-weight:  600;
+  --text-label-lg:         0.75rem;
+  --text-label-lg-weight:  700;
   --text-label-lg-ls:      0.08em;
 
-  --text-label-md:         0.75rem;
-  --text-label-md-weight:  600;
+  --text-label-md:         0.625rem;
+  --text-label-md-weight:  700;
   --text-label-md-ls:      0.1em;
 
-  --text-label-sm:         0.6875rem;
-  --text-label-sm-weight:  500;
-  --text-label-sm-ls:      0.12em;
+  --text-label-sm:         0.5625rem;
+  --text-label-sm-weight:  700;
+  --text-label-sm-ls:      0.15em;
 
-  /* Spacing */
-  --space-1:   0.25rem;
-  --space-2:   0.5rem;
-  --space-3:   0.75rem;
-  --space-4:   1rem;
-  --space-6:   1.5rem;
-  --space-8:   2rem;
-  --space-10:  2.5rem;
-  --space-12:  3rem;
-  --space-16:  4rem;
-  --space-20:  5rem;
-
-  /* Border radius — from Stitch: DEFAULT 0px, lg 0px, xl 0px, full 9999px */
-  /* Sharp corners everywhere except pill badges */
+  /* Border radius — 0px EVERYWHERE (brutalist) */
   --radius-sm:   0px;
   --radius-md:   0px;
   --radius-lg:   0px;
   --radius-full: 9999px;
 
-  --content-max-width: 1280px;
-  --page-padding:      48px;
+  /* Layout */
+  --content-max-width: 1400px;
+  --page-padding:      24px;
 }
 
 @media (max-width: 1279px) {
