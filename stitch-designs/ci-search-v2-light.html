@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#9a8d92",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#e9c176",
+                        "secondary-container": "#5d4200",
+                        "on-primary-fixed-variant": "#593f4c",
+                        "tertiary-container": "#bcccad",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary-fixed": "#261900",
+                        "tertiary": "#d8e8c8",
+                        "on-secondary-fixed-variant": "#5d4200",
+                        "on-tertiary-fixed": "#131f0b",
+                        "on-tertiary-container": "#49573e",
+                        "background": "#F7F4F0",
+                        "on-background": "#1A1714",
+                        "on-primary": "#412936",
+                        "primary-fixed": "#fed8e9",
+                        "surface-container": "#FFFFFF",
+                        "surface": "#F7F4F0",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary": "#E9C176",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#3d4b33",
+                        "on-surface-variant": "#6B625F",
+                        "on-tertiary": "#27341e",
+                        "tertiary-fixed-dim": "#bcccad",
+                        "primary-fixed-dim": "#e1bdcd",
+                        "surface-tint": "#e1bdcd",
+                        "surface-container-highest": "#353534",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-container": "#d6b066",
+                        "secondary-fixed": "#ffdea5",
+                        "error-container": "#93000a",
+                        "on-secondary": "#412d00",
+                        "surface-bright": "#393939",
+                        "inverse-primary": "#735664",
+                        "on-primary-container": "#664b58",
+                        "surface-container-low": "#EDE9E4",
+                        "outline-variant": "#4e4448",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#d8e8c8",
+                        "on-primary-fixed": "#2a1520",
+                        "primary": "#FED9E9",
+                        "surface-variant": "#353534",
+                        "on-surface": "#1A1714",
+                        "on-error": "#690005",
+                        "primary-container": "#E1BDCD"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "Playfair Display", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        body { font-family: 'Manrope', sans-serif; background-color: #F7F4F0; color: #1A1714; }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .manrope { font-family: 'Manrope', sans-serif; }
+        .filmstrip-scroll::-webkit-scrollbar { width: 2px; }
+        .filmstrip-scroll::-webkit-scrollbar-thumb { background-color: #E1BDCD; }
+        .no-line-boundary { border: none !important; }
+        .glass-player { background: rgba(53, 53, 52, 0.8); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- Shared Component: TopNavBar -->
+<nav class="flex justify-between items-center w-full px-8 py-4 h-16 fixed top-0 z-50 bg-[#131313]">
+<div class="text-2xl font-bold font-['Newsreader'] text-[#E1BDCD]">Tracked</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#D1C3C7] font-['Newsreader'] tracking-tighter hover:text-[#FED9E9] transition-colors duration-300" href="#">Catalog</a>
+<a class="text-[#D1C3C7] font-['Newsreader'] tracking-tighter hover:text-[#FED9E9] transition-colors duration-300" href="#">Pricing</a>
+<a class="text-[#D1C3C7] font-['Newsreader'] tracking-tighter hover:text-[#FED9E9] transition-colors duration-300" href="#">How It Works</a>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#E1BDCD] cursor-pointer" data-icon="dark_mode">dark_mode</span>
+<button class="text-[#D1C3C7] text-sm manrope font-medium">Sign In</button>
+<button class="bg-[#E1BDCD] text-[#412936] px-4 py-2 rounded-lg text-sm font-bold manrope hover:bg-[#FED9E9] transition-all active:scale-95">Start Free Trial</button>
+</div>
+</nav>
+<!-- Content Canvas -->
+<main class="pt-24 pb-32 px-8 max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex flex-col gap-4">
+<div class="flex items-baseline gap-4">
+<h1 class="playfair text-7xl font-light italic leading-none">Tense Noir</h1>
+<span class="manrope text-xs tracking-widest text-on-surface-variant mb-2">128 RESULTS FOUND</span>
+</div>
+<!-- Search Input with Underline -->
+<div class="relative w-full mt-4">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-[#E1BDCD] manrope text-2xl py-3 placeholder-on-surface/30" placeholder="Tense Noir" type="text"/>
+<span class="absolute right-0 bottom-4 material-symbols-outlined text-outline-variant text-3xl" data-icon="search">search</span>
+</div>
+</div>
+<!-- Filter Row -->
+<div class="flex flex-wrap items-center gap-6 mt-10 py-4">
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="manrope text-xs font-bold uppercase tracking-wider text-on-surface-variant">Genre</span>
+<span class="material-symbols-outlined text-sm text-outline" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="manrope text-xs font-bold uppercase tracking-wider text-on-surface-variant">Mood</span>
+<span class="material-symbols-outlined text-sm text-outline" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="manrope text-xs font-bold uppercase tracking-wider text-on-surface-variant">BPM</span>
+<span class="material-symbols-outlined text-sm text-outline" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="manrope text-xs font-bold uppercase tracking-wider text-on-surface-variant">Key</span>
+<span class="material-symbols-outlined text-sm text-outline" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="manrope text-xs font-bold uppercase tracking-wider text-on-surface-variant">Duration</span>
+<span class="material-symbols-outlined text-sm text-outline" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<!-- Active Filter Pills -->
+<div class="flex gap-2">
+<div class="bg-[#D9D3CC] px-4 py-1.5 rounded-full flex items-center gap-2">
+<span class="manrope text-[10px] font-bold uppercase tracking-tighter">Cinematic</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer" data-icon="close">close</span>
+</div>
+<div class="bg-[#D9D3CC] px-4 py-1.5 rounded-full flex items-center gap-2">
+<span class="manrope text-[10px] font-bold uppercase tracking-tighter">Suspense</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer" data-icon="close">close</span>
+</div>
+</div>
+<button class="manrope text-[10px] font-bold uppercase tracking-widest text-[#8D7B83] hover:text-[#E1BDCD] transition-colors ml-2">Clear all</button>
+</div>
+</header>
+<!-- Results Table -->
+<div class="w-full">
+<!-- Table Header -->
+<div class="grid grid-cols-[64px_1fr_120px_80px_80px_80px_160px_160px_120px] items-center px-4 py-3 bg-[#EDE9E4] manrope text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">
+<div></div>
+<div>TRACK DETAILS</div>
+<div class="text-center">SCORE</div>
+<div class="text-center">BPM</div>
+<div class="text-center">KEY</div>
+<div class="text-center">TIME</div>
+<div>GENRE</div>
+<div>AS HEARD ON</div>
+<div class="text-right pr-4">ACTIONS</div>
+</div>
+<!-- Table Rows -->
+<div class="flex flex-col gap-1 filmstrip-scroll">
+<!-- Row 1: Active Hover State -->
+<div class="grid grid-cols-[64px_1fr_120px_80px_80px_80px_160px_160px_120px] items-center px-4 min-h-[110px] bg-[#EDE9E4] transition-colors group">
+<div class="relative w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+<img alt="Track Artwork" class="w-full h-full object-cover" data-alt="Dark dramatic city skyline at night with foggy atmosphere and neon lights reflecting on wet pavement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa1Omdd4BJBf4OqnsRiusjZGHi7v2-hsFDMKyUf99_ZNRPTi2wtY1gKte5GAD1FL6bECzzv6s7BHjddyZh4s9oQzptwFaQ9v7LlN1YBsIp6G_bMRW5KBiD1alSk7HoW34K66rNVn1sU2qz4LoepkWdr-1_REIggCioe-fvHOpSBCDrpT7RqpCEHXDam4cZeHyQhlSAv1UuQMWywVuz1hzqCaDPXtIrGMhh8nDloaCLmYRptXEStj-wu-8F0sNZzJEhdRZ7FsN1C4Cu"/>
+</div>
+<div class="flex flex-col py-3 overflow-hidden">
+<div class="flex items-baseline gap-2">
+<span class="playfair text-lg font-bold">Midnight Shadows</span>
+<span class="manrope text-[10px] text-on-surface-variant uppercase tracking-widest">A. VANCE</span>
+</div>
+<div class="mt-1 flex gap-1">
+<span class="manrope text-[10px] font-extrabold text-[#E9C176] uppercase whitespace-nowrap">AI MATCH:</span>
+<span class="manrope text-[11px] text-[#8D7B83] italic leading-tight">This composition features the exact staccato strings and low-frequency drone patterns found in your reference tracks. Perfect for rising tension in psychological thrillers.</span>
+</div>
+<div class="manrope text-[12px] text-stone-500 mt-1">Ethereal textures meet aggressive industrial percussion. High-stakes urban atmosphere.</div>
+</div>
+<div class="flex justify-center">
+<div class="border border-[#E9C176] px-3 py-1 rounded-full manrope text-[10px] font-bold text-[#E9C176]">94% MATCH</div>
+</div>
+<div class="manrope text-sm text-center">122</div>
+<div class="manrope text-sm text-center">Am</div>
+<div class="manrope text-sm text-center">2:45</div>
+<div class="flex flex-wrap gap-1">
+<span class="bg-[#D9D3CC] px-2 py-0.5 rounded text-[9px] font-bold uppercase">Noir</span>
+<span class="bg-[#D9D3CC] px-2 py-0.5 rounded text-[9px] font-bold uppercase">Thriller</span>
+</div>
+<div>
+<div class="inline-flex items-center gap-1.5 bg-[#593f4c]/10 text-[#E9C176] border border-[#E9C176]/30 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="tv">tv</span>
+<span class="manrope text-[9px] font-extrabold uppercase tracking-wider">Succession</span>
+</div>
+</div>
+<div class="flex justify-end items-center gap-3 pr-4">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface transition-colors" data-icon="favorite">favorite</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface transition-colors" data-icon="download">download</span>
+<div class="w-10 h-10 rounded-full bg-[#E1BDCD] flex items-center justify-center cursor-pointer hover:bg-[#FED9E9] transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-primary fill-current" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-[64px_1fr_120px_80px_80px_80px_160px_160px_120px] items-center px-4 min-h-[110px] bg-surface-container hover:bg-[#EDE9E4] transition-colors group">
+<div class="relative w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+<img alt="Track Artwork" class="w-full h-full object-cover" data-alt="Extreme close up of vintage camera lens with dramatic light leak and dust particles in the air" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5ohEcJ7VB7WHJXkJSO-tvnRGmGHLitore4c0Ogfhww6HHgPyDp3ue_eBbAsAI7hudpHhkMQ1vu3aXMRx1H5zAdwnxm9C1hEDrRge-Je3-IrZ710BhMAfapCEI3SItD1FI-63nyWdWoP-B7eVEsjK86a_lussnMLgYy48msFwwLib0uIcd-LXnEL6TiWF-Jfg3EB33nbKtcTFi2d015D25a_9dz3g0J0DdcbvCC7OxbXtCOdlgBmcZG6xu2BrE3LlnH9S5iyJvgm7u"/>
+</div>
+<div class="flex flex-col py-3 overflow-hidden">
+<div class="flex items-baseline gap-2">
+<span class="playfair text-lg font-bold">The Silent Observer</span>
+<span class="manrope text-[10px] text-on-surface-variant uppercase tracking-widest">JULIAN ROSS</span>
+</div>
+<div class="mt-1 flex gap-1">
+<span class="manrope text-[10px] font-extrabold text-[#E9C176] uppercase whitespace-nowrap">AI MATCH:</span>
+<span class="manrope text-[11px] text-[#8D7B83] italic leading-tight">Highly aligned with the rhythmic pulse and cold tonal quality of your query. Excellent for surveillance or mystery sequences.</span>
+</div>
+<div class="manrope text-[12px] text-stone-500 mt-1">Minimalist piano with analog synth swells. Distant and observant.</div>
+</div>
+<div class="flex justify-center">
+<div class="border border-[#E9C176] px-3 py-1 rounded-full manrope text-[10px] font-bold text-[#E9C176]">88% MATCH</div>
+</div>
+<div class="manrope text-sm text-center">90</div>
+<div class="manrope text-sm text-center">Dm</div>
+<div class="manrope text-sm text-center">3:12</div>
+<div class="flex flex-wrap gap-1">
+<span class="bg-[#D9D3CC] px-2 py-0.5 rounded text-[9px] font-bold uppercase">Minimalist</span>
+</div>
+<div>
+<div class="inline-flex items-center gap-1.5 bg-[#593f4c]/10 text-[#E9C176] border border-[#E9C176]/30 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="tv">tv</span>
+<span class="manrope text-[9px] font-extrabold uppercase tracking-wider">Netflix</span>
+</div>
+</div>
+<div class="flex justify-end items-center gap-3 pr-4">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface transition-colors" data-icon="favorite">favorite</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface transition-colors" data-icon="download">download</span>
+<div class="w-10 h-10 rounded-full bg-[#E1BDCD] flex items-center justify-center cursor-pointer hover:bg-[#FED9E9] transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-primary fill-current" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-[64px_1fr_120px_80px_80px_80px_160px_160px_120px] items-center px-4 min-h-[110px] bg-surface-container hover:bg-[#EDE9E4] transition-colors group">
+<div class="relative w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+<img alt="Track Artwork" class="w-full h-full object-cover" data-alt="Abstract macro shot of cello strings being bowed with heavy vibration and cinematic grain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQPQZd9jRQkEV4NMNZf0yE8z2NpyLWcWglfdn_lgTa9twr2nZ06UIyFnBxzzVz90I3UM8yyeNPDMAkep73ear2srqWSsXvlgRTACMmgbZD80aR8drFZ66Y2zkbDw_-_8_DVaAW_dKLt17HrR7mYU6QuZnh_SQ-3LnQ9pG1M6nVWUHnnBRmuDHwhnYZ0Cxa23SihJTw2XVhrKgqfIdSNkoYPAV7uNSLL-4hFvC8pYFzUQgPQLqCGGhHEnyx6P6bS2AMK_CqicNxBWSU"/>
+</div>
+<div class="flex flex-col py-3 overflow-hidden">
+<div class="flex items-baseline gap-2">
+<span class="playfair text-lg font-bold">Cold Corridor</span>
+<span class="manrope text-[10px] text-on-surface-variant uppercase tracking-widest">S. MARINO</span>
+</div>
+<div class="mt-1 flex gap-1">
+<span class="manrope text-[10px] font-extrabold text-[#E9C176] uppercase whitespace-nowrap">AI MATCH:</span>
+<span class="manrope text-[11px] text-[#8D7B83] italic leading-tight">Matched based on the use of dissonant woodwinds and slow-burn tempo. Captures the noir aesthetic through textural discomfort.</span>
+</div>
+<div class="manrope text-[12px] text-stone-500 mt-1">Orchestral suspense with hybrid sound design. Claustrophobic and intense.</div>
+</div>
+<div class="flex justify-center">
+<div class="border border-[#E9C176] px-3 py-1 rounded-full manrope text-[10px] font-bold text-[#E9C176]">82% MATCH</div>
+</div>
+<div class="manrope text-sm text-center">115</div>
+<div class="manrope text-sm text-center">C#m</div>
+<div class="manrope text-sm text-center">2:18</div>
+<div class="flex flex-wrap gap-1">
+<span class="bg-[#D9D3CC] px-2 py-0.5 rounded text-[9px] font-bold uppercase">Hybrid</span>
+<span class="bg-[#D9D3CC] px-2 py-0.5 rounded text-[9px] font-bold uppercase">Suspense</span>
+</div>
+<div>
+<div class="inline-flex items-center gap-1.5 bg-[#593f4c]/10 text-[#E9C176] border border-[#E9C176]/30 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="tv">tv</span>
+<span class="manrope text-[9px] font-extrabold uppercase tracking-wider">HBO Max</span>
+</div>
+</div>
+<div class="flex justify-end items-center gap-3 pr-4">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface transition-colors" data-icon="favorite">favorite</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface transition-colors" data-icon="download">download</span>
+<div class="w-10 h-10 rounded-full bg-[#E1BDCD] flex items-center justify-center cursor-pointer hover:bg-[#FED9E9] transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-primary fill-current" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Audio Player -->
+<div class="fixed bottom-0 w-full z-50 glass-player h-24 flex items-center justify-between px-10 shadow-[0_-32px_32px_rgba(209,195,199,0.08)] border-t border-[#4E4448]/15">
+<div class="flex items-center gap-4 w-1/4">
+<div class="w-12 h-12 rounded bg-surface/20 overflow-hidden">
+<img alt="Active track" class="w-full h-full object-cover" data-alt="Macro photo of dark soundboard knobs with soft violet light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB67apNLyvWbATFBP_N2axr4gD5bajI7rzin4YVYCBJ5WhZKcsaD0Z0VCe7wt7o7vLtcncNmCB23AOkVp8DYHNu_QIQI9R3bmctaQFBVJD86izie9ZzDe3NzWc_LPAbsjR_AHFK8qC-MkfQbP83dSVp7jt7S2yzuA9NpjwObU2pXkNvDUpY-FCn_lOAClBgBi-GC5UZnK98zJgXe8__SEY9K1_kI4tvCSH9O5_wioiIoIJTg_jeTTbO9GACSs2gq73M0xe3srdFIcZP"/>
+</div>
+<div>
+<div class="playfair text-white text-sm font-bold">Midnight Shadows</div>
+<div class="manrope text-[#D1C3C7] text-[10px] uppercase tracking-widest">A. Vance</div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2 w-1/2">
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined text-[#D1C3C7] cursor-pointer hover:text-[#E9C176]" data-icon="shuffle">shuffle</span>
+<span class="material-symbols-outlined text-white text-3xl cursor-pointer" data-icon="skip_previous">skip_previous</span>
+<div class="w-10 h-10 rounded-full bg-[#E1BDCD] flex items-center justify-center cursor-pointer scale-110 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[#412936] fill-current" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+</div>
+<span class="material-symbols-outlined text-white text-3xl cursor-pointer" data-icon="skip_next">skip_next</span>
+<span class="material-symbols-outlined text-[#E9C176] cursor-pointer" data-icon="repeat">repeat</span>
+</div>
+<div class="flex items-center gap-4 w-full max-w-lg">
+<span class="manrope text-[10px] text-[#D1C3C7]">0:45</span>
+<div class="flex-1 h-[2px] bg-[#4E4448] relative">
+<div class="absolute h-full bg-[#E1BDCD] w-1/3"></div>
+</div>
+<span class="manrope text-[10px] text-[#D1C3C7]">2:45</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-6 w-1/4">
+<span class="material-symbols-outlined text-[#D1C3C7] cursor-pointer" data-icon="queue_music">queue_music</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#D1C3C7]" data-icon="volume_up">volume_up</span>
+<div class="w-20 h-[2px] bg-[#4E4448]">
+<div class="w-2/3 h-full bg-[#E1BDCD]"></div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#D1C3C7] cursor-pointer" data-icon="fullscreen">fullscreen</span>
+</div>
+</div>
+</body></html>

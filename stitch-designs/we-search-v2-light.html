@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#9c4325",
+                        "secondary-fixed": "#92f2f4",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "outline": "#89726b",
+                        "on-tertiary-fixed": "#3a0b00",
+                        "on-primary-fixed": "#390b00",
+                        "on-background": "#1b1c1a",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary-fixed-variant": "#7d2d10",
+                        "surface-container": "#efeeea",
+                        "surface-variant": "#e4e2de",
+                        "on-tertiary-fixed-variant": "#7d2c10",
+                        "secondary-fixed-dim": "#75d6d7",
+                        "surface-container-highest": "#e4e2de",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ffc9b8",
+                        "tertiary-container": "#994123",
+                        "on-surface-variant": "#56423d",
+                        "on-primary-container": "#ffc9b8",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-surface": "#1b1c1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fbf9f5",
+                        "secondary-container": "#8feff1",
+                        "surface-dim": "#dbdad6",
+                        "on-error": "#ffffff",
+                        "secondary": "#008284",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "inverse-surface": "#30312e",
+                        "primary-fixed": "#ffdbd0",
+                        "primary": "#994123",
+                        "outline-variant": "#dcc1b9",
+                        "tertiary": "#994123",
+                        "on-secondary-fixed-variant": "#004f51",
+                        "on-secondary-container": "#006e70",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#994123",
+                        "surface": "#FBF9F5",
+                        "tertiary-fixed": "#ffdbd0",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f2f0ed",
+                        "surface-container-high": "#eae8e4",
+                        "background": "#FBF9F5",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f5f3ef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .track-row:hover {
+            background-color: #f5f3ef;
+        }
+        .custom-dashed-border {
+            border-top: 1px dashed rgba(0, 130, 132, 0.3);
+            border-bottom: 1px dashed rgba(0, 130, 132, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen">
+<!-- Top Navigation Shell -->
+<header class="bg-[#FBF9F5]/85 backdrop-blur-md top-0 z-50 fixed w-full">
+<nav class="flex justify-between items-center px-12 py-6 w-full">
+<div class="text-3xl font-headline italic text-primary tracking-tight">Tracked</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-[#1B1C1A] font-label text-sm uppercase tracking-widest hover:text-primary transition-colors duration-200" href="#">Catalog</a>
+<a class="text-[#1B1C1A] font-label text-sm uppercase tracking-widest hover:text-primary transition-colors duration-200" href="#">Pricing</a>
+<a class="text-[#1B1C1A] font-label text-sm uppercase tracking-widest hover:text-primary transition-colors duration-200" href="#">How It Works</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#1B1C1A] font-label text-sm uppercase tracking-widest scale-95 active:opacity-80 transition-transform">Sign In</button>
+<button class="bg-primary text-white px-6 py-2 rounded-[2px] text-sm uppercase tracking-widest font-bold scale-95 active:opacity-80 transition-transform">Start Free Trial</button>
+</div>
+</nav>
+<div class="bg-[#F5F3EF] h-[1px] w-full"></div>
+</header>
+<main class="pt-32 pb-48 px-12 max-w-[1600px] mx-auto">
+<!-- Search Header Section -->
+<section class="mb-12">
+<div class="flex flex-col gap-2 mb-6">
+<span class="font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant">Search Results</span>
+<h1 class="text-6xl font-headline italic text-on-surface leading-tight tracking-tighter">Tense Noir</h1>
+<p class="font-label text-sm text-on-surface-variant italic">38 Matches Found</p>
+</div>
+<!-- Bottom-border-only Search Input -->
+<div class="relative w-full max-w-2xl mb-12">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-on-surface/20 py-4 font-headline text-2xl italic focus:ring-0 focus:border-primary transition-colors duration-300" placeholder="Refine your sound..." type="text"/>
+<span class="absolute right-0 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary">search</span>
+</div>
+<!-- Filter Row -->
+<div class="flex flex-wrap items-center justify-between gap-6 py-4">
+<div class="flex flex-wrap items-center gap-4">
+<!-- Dropdown Selects -->
+<div class="group relative">
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest px-3 py-2 border border-on-surface/10 rounded-[2px] hover:border-primary transition-colors">
+                            Genre <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative">
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest px-3 py-2 border border-on-surface/10 rounded-[2px] hover:border-primary transition-colors">
+                            Mood <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative">
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest px-3 py-2 border border-on-surface/10 rounded-[2px] hover:border-primary transition-colors">
+                            BPM <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative">
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest px-3 py-2 border border-on-surface/10 rounded-[2px] hover:border-primary transition-colors">
+                            Key <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative">
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest px-3 py-2 border border-on-surface/10 rounded-[2px] hover:border-primary transition-colors">
+                            Duration <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<!-- Active Filter Pills -->
+<div class="h-4 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-2">
+<span class="flex items-center gap-1 bg-surface-container-high px-3 py-1 rounded-full font-label text-[0.6rem] uppercase tracking-wider">
+                            Cinematic <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</span>
+<span class="flex items-center gap-1 bg-surface-container-high px-3 py-1 rounded-full font-label text-[0.6rem] uppercase tracking-wider">
+                            Minimal <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</span>
+<button class="font-label text-[0.6rem] uppercase tracking-widest text-primary hover:underline ml-2">Clear all</button>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant">Sort By</span>
+<button class="font-label text-[0.6875rem] uppercase tracking-widest border-b border-primary text-primary">Match %</button>
+</div>
+</div>
+</section>
+<!-- Track List Table -->
+<section class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/10">
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium w-16"></th>
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium">Track Details</th>
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium text-center">Score</th>
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium text-center">BPM</th>
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium text-center">Key</th>
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium text-center">Time</th>
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium">Genre</th>
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium">As Heard On</th>
+<th class="py-4 font-label text-[0.6875rem] uppercase tracking-[0.15em] text-on-surface-variant font-medium text-right pr-4">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="track-row group transition-colors duration-300">
+<td class="py-6">
+<div class="w-12 h-12 overflow-hidden rounded-[2px] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Abstract cinematic background with dark shadows and sharp light beams hitting a smoke-filled room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgpgngX9SWutW43hr06rc6dIV9Z-2WF9ytYdhQwbJhPSnu-69kJn5jjuFW-Y0RQshhQg1Py3xADbeUC3CzUWvDDSv_VL1q74XNntgZqs5Ss0E9vjeq0Fa_CQcoCeTtZ9HIe3yNFwGkyaM7lx-svae8PpiO9G2QSo11yVmxsSEJNzP3WFIQdt0FfSV3IS3Fu2JQ4vkpW8wXKOMg9WkdZQ1Bk3MtCepvVefG0hGAAUAWsxqYjoo3N4HTau2AbiAeQATimsZZ2PYGig"/>
+</div>
+</td>
+<td class="py-6 min-w-[320px]">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-baseline gap-2">
+<span class="font-headline italic text-lg text-on-surface font-bold">Whispers in the Rain</span>
+<span class="font-body text-[11px] text-on-surface-variant">Julian Vane</span>
+</div>
+<div class="bg-secondary/5 custom-dashed-border py-1.5 px-3 flex items-start gap-2 max-w-sm relative">
+<span class="font-body italic text-[11px] leading-relaxed text-secondary">A haunting solo piano melody intertwined with atmospheric textures. Perfect for moments of quiet tension and urban melancholy.</span>
+<span class="material-symbols-outlined text-[14px] text-secondary absolute top-1.5 right-1.5">colors_spark</span>
+</div>
+<p class="font-body text-[11px] text-on-surface-variant/80 max-w-xs">A haunting solo piano melody intertwined with atmospheric textures. Perfect for moments of quiet tension and urban melancholy.</p>
+</div>
+</td>
+<td class="py-6 text-center">
+<span class="inline-block px-3 py-1 border border-primary text-primary font-bold font-label text-[0.75rem] rounded-full">94% MATCH</span>
+</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">72</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">Am</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">3:12</td>
+<td class="py-6">
+<div class="flex flex-col gap-1">
+<span class="bg-surface-container-low px-2 py-0.5 font-label text-[10px] uppercase tracking-tight text-on-surface-variant">Neo-Noir</span>
+<span class="bg-surface-container-low px-2 py-0.5 font-label text-[10px] uppercase tracking-tight text-on-surface-variant">Ambient</span>
+</div>
+</td>
+<td class="py-6">
+<div class="border-l-4 border-primary pl-3 py-1">
+<div class="flex items-center gap-1.5 font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-0.5">
+<span class="material-symbols-outlined text-sm">tv</span> Succession
+                                </div>
+<p class="font-headline italic text-xs text-on-surface">"The definitive sound of betrayal."</p>
+</div>
+</td>
+<td class="py-6 text-right pr-4">
+<div class="flex items-center justify-end gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">download</button>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="track-row group transition-colors duration-300">
+<td class="py-6">
+<div class="w-12 h-12 overflow-hidden rounded-[2px] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up of vintage analog synthesizer knobs and patch cables in a dimly lit studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUwmSju9As7Cv0Td0k_HLEvWFYL7_Cxz8CEfMJ2bu7HkuJNeHTNxYjqpZCfXQYEuNX2dqI1wDT1YD1j05NEal5gKm7kk94ua1Q-DzgLrbgibS9YuOVmORVhx9WRP8dFHC-YaJ8Pjjy_avL7uwc-7kzmb9VoWJHwAX2zSrqIGwGo-x887wjyljQq9wV8dd-kjSiwUEoNTdEiLeEXA9bR5Reiu3w9wuTJSC0aycgEMhIxD_coiYU6K-75iJA95LY74xpv7Ht7BL5bg"/>
+</div>
+</td>
+<td class="py-6 min-w-[320px]">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-baseline gap-2">
+<span class="font-headline italic text-lg text-on-surface font-bold">Midnight Surveillance</span>
+<span class="font-body text-[11px] text-on-surface-variant">Elena Kross</span>
+</div>
+<div class="bg-secondary/5 custom-dashed-border py-1.5 px-3 flex items-start gap-2 max-w-sm relative">
+<span class="font-body italic text-[11px] leading-relaxed text-secondary">Pulsing analog synths create a rhythmic undercurrent of urgency and observation. Highly effective for thrillers.</span>
+<span class="material-symbols-outlined text-[14px] text-secondary absolute top-1.5 right-1.5">colors_spark</span>
+</div>
+<p class="font-body text-[11px] text-on-surface-variant/80 max-w-xs">Pulsing analog synths create a rhythmic undercurrent of urgency and observation. Highly effective for thrillers.</p>
+</div>
+</td>
+<td class="py-6 text-center">
+<span class="inline-block px-3 py-1 border border-primary text-primary font-bold font-label text-[0.75rem] rounded-full">88% MATCH</span>
+</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">110</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">F#m</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">2:45</td>
+<td class="py-6">
+<div class="flex flex-col gap-1">
+<span class="bg-surface-container-low px-2 py-0.5 font-label text-[10px] uppercase tracking-tight text-on-surface-variant">Synthwave</span>
+<span class="bg-surface-container-low px-2 py-0.5 font-label text-[10px] uppercase tracking-tight text-on-surface-variant">Thriller</span>
+</div>
+</td>
+<td class="py-6">
+<div class="border-l-4 border-primary pl-3 py-1">
+<div class="flex items-center gap-1.5 font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-0.5">
+<span class="material-symbols-outlined text-sm">tv</span> Mindhunter
+                                </div>
+<p class="font-headline italic text-xs text-on-surface">"An unsettling pulse of modern dread."</p>
+</div>
+</td>
+<td class="py-6 text-right pr-4">
+<div class="flex items-center justify-end gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">download</button>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="track-row group transition-colors duration-300">
+<td class="py-6">
+<div class="w-12 h-12 overflow-hidden rounded-[2px] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Grainy black and white shot of a jazz trumpet lying on a velvet chair in a smoky club" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRiqyJ2hv7e4LVSgdhAjC1cfbdMmUj3s-dsdE55CX-hmyznkA-5cuLMmhX6isUFoAUFswJg8Nmyt0eHz30Guk-Y-wfWLmNGqRcJEq_TuPcCkgazhD4x4U6QCTCdPWhKOQsYYdPfKJ6W_ZpET3gZA3PAzYZP47HlBd6S-3A47xDSCtN8-Hd0Vp4fIxTNVJaM6Gi5PzYBF_VR5zZuWcckBHUrqD7lQxzCpmHYShfTxhpGuT55pNJEDqamSUoV_EZSE_zIE3VPL1Hkw"/>
+</div>
+</td>
+<td class="py-6 min-w-[320px]">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-baseline gap-2">
+<span class="font-headline italic text-lg text-on-surface font-bold">Shadow of the City</span>
+<span class="font-body text-[11px] text-on-surface-variant">The Late Hours</span>
+</div>
+<div class="bg-secondary/5 custom-dashed-border py-1.5 px-3 flex items-start gap-2 max-w-sm relative">
+<span class="font-body italic text-[11px] leading-relaxed text-secondary">A muted trumpet leads this classic noir arrangement. Evokes images of rain-slicked streets and long shadows.</span>
+<span class="material-symbols-outlined text-[14px] text-secondary absolute top-1.5 right-1.5">colors_spark</span>
+</div>
+<p class="font-body text-[11px] text-on-surface-variant/80 max-w-xs">A muted trumpet leads this classic noir arrangement. Evokes images of rain-slicked streets and long shadows.</p>
+</div>
+</td>
+<td class="py-6 text-center">
+<span class="inline-block px-3 py-1 border border-primary text-primary font-bold font-label text-[0.75rem] rounded-full">82% MATCH</span>
+</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">65</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">Dm</td>
+<td class="py-6 text-center font-label text-sm text-on-surface-variant">4:05</td>
+<td class="py-6">
+<div class="flex flex-col gap-1">
+<span class="bg-surface-container-low px-2 py-0.5 font-label text-[10px] uppercase tracking-tight text-on-surface-variant">Jazz</span>
+<span class="bg-surface-container-low px-2 py-0.5 font-label text-[10px] uppercase tracking-tight text-on-surface-variant">Vintage</span>
+</div>
+</td>
+<td class="py-6">
+<div class="border-l-4 border-primary pl-3 py-1">
+<div class="flex items-center gap-1.5 font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-0.5">
+<span class="material-symbols-outlined text-sm">tv</span> True Detective
+                                </div>
+<p class="font-headline italic text-xs text-on-surface">"Atmospheric, gritty, and timeless."</p>
+</div>
+</td>
+<td class="py-6 text-right pr-4">
+<div class="flex items-center justify-end gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">download</button>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</main>
+<!-- Bottom Navigation Player Bar (Fixed Shell) -->
+<footer class="bg-[#FBF9F5]/90 backdrop-blur-xl fixed bottom-0 left-0 w-full z-50 flex items-center px-12 gap-8 h-24 border-t border-on-surface/5 shadow-[0_-8px_32px_rgba(27,28,26,0.04)]">
+<!-- Track Info -->
+<div class="flex items-center gap-4 min-w-[280px]">
+<div class="w-12 h-12 rounded-[2px] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Thumbnail of currently playing track" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_N5QrAS6yIzKTNgF4yIpxblDVQMyXhgKheTXlg_wcKAFU508S18lQBD79-xtpxX7AK5dSSyBJrYWWxge4QcFcdsJgWUqGjnSKTje36AwHTnB8FVSrQpZJZ3nHCusWrEyq_7guAtOZJetbF0baad8Cii7QZs_5kxeV2yNsd2dbhr35NenXKeNhx-SLx0PAJZ5BYTs4CrwPG83GAW7tCwBcVghxlvaf49MM2NxoV00gCGjI2G-gjuOeRANORoT5QAwtvQ_ODpg9FA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline italic text-sm text-primary">Whispers in the Rain</span>
+<span class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant">Julian Vane</span>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex-1 flex flex-col gap-2">
+<div class="flex items-center justify-center gap-8">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">shuffle</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">skip_previous</button>
+<button class="material-symbols-outlined text-primary text-4xl hover:scale-110 transition-transform">play_circle</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">skip_next</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">repeat</button>
+</div>
+<!-- Progress -->
+<div class="flex items-center gap-4 w-full max-w-xl mx-auto">
+<span class="font-label text-[10px] text-on-surface-variant">0:45</span>
+<div class="flex-1 h-1 bg-surface-container-highest relative group cursor-pointer">
+<div class="absolute top-0 left-0 h-full w-[30%] bg-primary"></div>
+<div class="absolute top-1/2 left-[30%] -translate-y-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-sm"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant">3:12</span>
+</div>
+</div>
+<!-- Volume & Extras -->
+<div class="flex items-center gap-6 justify-end min-w-[240px]">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">lyrics</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">queue_music</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">volume_up</span>
+<div class="w-24 h-1 bg-surface-container-highest relative">
+<div class="absolute top-0 left-0 h-full w-[70%] bg-on-surface-variant"></div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

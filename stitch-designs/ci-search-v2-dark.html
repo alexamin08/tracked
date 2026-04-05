@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tracked | Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#9a8d92",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#e9c176",
+                      "secondary-container": "#5d4200",
+                      "on-primary-fixed-variant": "#593f4c",
+                      "tertiary-container": "#bcccad",
+                      "surface-container-high": "#2a2a2a",
+                      "on-secondary-fixed": "#261900",
+                      "tertiary": "#d8e8c8",
+                      "on-secondary-fixed-variant": "#5d4200",
+                      "on-tertiary-fixed": "#131f0b",
+                      "on-tertiary-container": "#49573e",
+                      "background": "#131313",
+                      "on-primary": "#412936",
+                      "primary-fixed": "#fed8e9",
+                      "surface-container": "#201f1f",
+                      "surface": "#131313",
+                      "inverse-surface": "#e5e2e1",
+                      "secondary": "#e9c176",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#3d4b33",
+                      "on-surface-variant": "#d1c3c7",
+                      "on-tertiary": "#27341e",
+                      "tertiary-fixed-dim": "#bcccad",
+                      "primary-fixed-dim": "#e1bdcd",
+                      "surface-tint": "#e1bdcd",
+                      "surface-container-highest": "#353534",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary-container": "#d6b066",
+                      "secondary-fixed": "#ffdea5",
+                      "error-container": "#93000a",
+                      "on-secondary": "#412d00",
+                      "surface-bright": "#393939",
+                      "inverse-primary": "#735664",
+                      "on-primary-container": "#664b58",
+                      "surface-dim": "#131313",
+                      "surface-container-low": "#1c1b1b",
+                      "outline-variant": "#4e4448",
+                      "on-background": "#F0EDEA",
+                      "inverse-on-surface": "#313030",
+                      "tertiary-fixed": "#d8e8c8",
+                      "on-primary-fixed": "#2a1520",
+                      "primary": "#fed9e9",
+                      "surface-variant": "#353534",
+                      "on-surface": "#F0EDEA",
+                      "on-error": "#690005",
+                      "primary-container": "#e1bdcd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Playfair Display", "serif"],
+                      "body": ["Manrope", "sans-serif"],
+                      "label": ["Manrope", "sans-serif"],
+                      "newsreader": ["Newsreader", "serif"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Manrope', sans-serif; background-color: #131313; color: #F0EDEA; }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .newsreader { font-family: 'Newsreader', serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 2px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E1BDCD; }
+        .row-hover:hover { background-color: #2A2929; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary min-h-screen">
+<!-- Top Navigation -->
+<header class="flex justify-between items-center w-full px-8 py-4 h-16 fixed top-0 z-50 bg-[#131313]">
+<div class="text-2xl font-bold font-['Newsreader'] text-[#E1BDCD] tracking-tighter">Tracked</div>
+<nav class="hidden md:flex items-center space-x-12">
+<a class="text-[#D1C3C7] font-['Newsreader'] tracking-tighter hover:text-[#FED9E9] transition-colors duration-300" href="#">Catalog</a>
+<a class="text-[#D1C3C7] font-['Newsreader'] tracking-tighter hover:text-[#FED9E9] transition-colors duration-300" href="#">Pricing</a>
+<a class="text-[#D1C3C7] font-['Newsreader'] tracking-tighter hover:text-[#FED9E9] transition-colors duration-300" href="#">How It Works</a>
+</nav>
+<div class="flex items-center space-x-6">
+<span class="material-symbols-outlined text-[#E1BDCD] cursor-pointer">dark_mode</span>
+<button class="text-[#D1C3C7] text-sm font-medium hover:text-primary transition-colors">Sign In</button>
+<button class="bg-[#E1BDCD] text-[#412936] px-5 py-2 rounded-[2px] text-sm font-bold hover:bg-[#FED8E9] transition-all active:scale-95">Start Free Trial</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-8 max-w-[1600px] mx-auto">
+<!-- Header Section (Unified with Light Version) -->
+<header class="mb-12">
+<div class="flex flex-col gap-4">
+<div class="flex items-end gap-4">
+<h1 class="playfair text-6xl font-light italic leading-none text-on-surface">Tense Noir</h1>
+<span class="manrope text-xs tracking-widest text-on-surface-variant mb-2">128 RESULTS FOUND</span>
+</div>
+<!-- Search Input with Underline -->
+<div class="relative w-full max-w-2xl mt-4">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-[#E1BDCD] font-body text-xl py-2 placeholder-on-surface/30 text-on-surface" placeholder="Tense Noir" type="text"/>
+<span class="absolute right-0 bottom-2 material-symbols-outlined text-outline-variant">search</span>
+</div>
+</div>
+<!-- Filter Row -->
+<div class="flex flex-wrap items-center gap-6 mt-8 py-4">
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="font-body text-xs font-bold uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface transition-colors">Genre</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="font-body text-xs font-bold uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface transition-colors">Mood</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="font-body text-xs font-bold uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface transition-colors">BPM</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="font-body text-xs font-bold uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface transition-colors">Key</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="font-body text-xs font-bold uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface transition-colors">Duration</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<!-- Active Filter Pills -->
+<div class="flex gap-2">
+<div class="bg-surface-container-highest/40 border border-primary-container/20 px-3 py-1 rounded-full flex items-center gap-2">
+<span class="font-body text-[10px] font-bold uppercase tracking-tighter">Cinematic</span>
+<span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</div>
+<div class="bg-surface-container-highest/40 border border-primary-container/20 px-3 py-1 rounded-full flex items-center gap-2">
+<span class="font-body text-[10px] font-bold uppercase tracking-tighter">Suspense</span>
+<span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</div>
+</div>
+<button class="font-body text-[10px] font-bold uppercase tracking-widest text-secondary hover:underline ml-2">Clear all</button>
+</div>
+</header>
+<!-- Search Results Table -->
+<div class="w-full">
+<!-- Table Header (9-Column Layout) -->
+<div class="grid grid-cols-[64px_1fr_120px_80px_80px_80px_160px_140px_120px] items-center px-4 py-3 bg-surface-container-low font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">
+<div></div>
+<div>TRACK DETAILS</div>
+<div class="text-center">SCORE</div>
+<div class="text-center">BPM</div>
+<div class="text-center">KEY</div>
+<div class="text-center">TIME</div>
+<div>GENRE</div>
+<div>AS HEARD ON</div>
+<div class="text-right pr-4">ACTIONS</div>
+</div>
+<!-- Table Rows -->
+<div class="flex flex-col gap-0">
+<!-- Row 1 (Hover State) -->
+<div class="grid grid-cols-[64px_1fr_120px_80px_80px_80px_160px_140px_120px] items-center px-4 h-[100px] bg-[#2A2929] border-b border-outline-variant/10 group">
+<div class="relative w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+<img alt="track artwork" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAugyfl4ZWJ8OTP_xdH93QU_Lv8N4L9FoV-MVrfqA23_muVRFJTI2yaQ0AFLcwARnxOt8WcNZwoYgjGBKF_tzPHjLOK8f_4Z-VEaRlnxIUvzi3q5UGO5SHK-r3qVFf027DTo3e6DhhtjxfWhQQaAv1PbPywgyKOsJDEKDzLXoaSNnkWud6ObiDO4fqJZamJZPhkrBRWBVvX4CnK0dEMMPD8QmbLUMQ2UuBasK-oYsmmfuPOUFxt84rVKk-PHKjNsSg9QnV_w23MmF2a"/>
+</div>
+<div class="flex flex-col py-3 overflow-hidden">
+<div class="flex items-baseline gap-2">
+<span class="playfair text-lg font-bold">Midnight Echoes</span>
+<span class="font-body text-[10px] text-on-surface-variant uppercase tracking-widest">JULIAN STERLING</span>
+</div>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-body text-[10px] font-extrabold text-secondary uppercase whitespace-nowrap">AI MATCH:</span>
+<span class="font-body text-[11px] text-primary-container italic leading-tight">The syncopated percussion and dissonant strings mirror your query's request for high-stakes urban suspense.</span>
+</div>
+<div class="font-body text-[12px] text-stone-400 mt-0.5 truncate max-w-full">Atmospheric, pulsating, gritty, subterranean textures with a driving bassline.</div>
+</div>
+<div class="flex justify-center">
+<div class="border border-secondary/30 px-3 py-1 rounded-full font-body text-[10px] font-bold text-secondary bg-secondary/5">94% MATCH</div>
+</div>
+<div class="font-body text-sm text-center text-on-surface/90">122</div>
+<div class="font-body text-sm text-center text-on-surface/90">Am</div>
+<div class="font-body text-sm text-center text-on-surface/90">2:45</div>
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface-container-highest text-on-surface-variant text-[9px] px-2 py-0.5 rounded font-bold uppercase">Noir</span>
+<span class="bg-surface-container-highest text-on-surface-variant text-[9px] px-2 py-0.5 rounded font-bold uppercase">Jazz</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5 text-secondary border border-secondary/20 px-2.5 py-1 rounded-full bg-secondary/5 w-fit">
+<span class="material-symbols-outlined text-[14px]">tv</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-tighter">HBO MAX</span>
+</div>
+</div>
+<div class="flex justify-end items-center gap-5 pr-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">download</span></button>
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary hover:bg-primary transition-all active:scale-90 shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-[64px_1fr_120px_80px_80px_80px_160px_140px_120px] items-center px-4 h-[100px] bg-surface-container border-b border-outline-variant/10 hover:bg-surface-container-high transition-colors group">
+<div class="relative w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+<img alt="track artwork" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzAGvZoh56bx1VUoKhjNPQ7AMWQnCk2_sXjSrVW4Q0Dl5wq0q4-UaLzFa9674HtKP30xPa_W3IR9kfw5xVXl-noph4n4icfFOxQM_YfJ3PUBPRDXmWgGlfkTJDZbwqULAbXxL8b1e0UTukOFoiL_3usr9DtAFCTRe05iBAZeYMADil0a1zDVO6N3O5ArVSCvNFPFPNubod09TZqRs3HJqMbWDwGfZ40Lax6P1NvZ8rGkECBMyQQeJsGra4CCg-lXJMmgYgOIIZzAe5"/>
+</div>
+<div class="flex flex-col py-3 overflow-hidden">
+<div class="flex items-baseline gap-2">
+<span class="playfair text-lg font-bold">Cold Pursuit</span>
+<span class="font-body text-[10px] text-on-surface-variant uppercase tracking-widest">ELENA VOVK</span>
+</div>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-body text-[10px] font-extrabold text-secondary uppercase whitespace-nowrap">AI MATCH:</span>
+<span class="font-body text-[11px] text-primary-container italic leading-tight">Features a relentless clock-like rhythm that builds psychological tension.</span>
+</div>
+<div class="font-body text-[12px] text-stone-400 mt-0.5 truncate max-w-full">Industrial, cold, minimalist, synthetic swells with organic cello undercurrents.</div>
+</div>
+<div class="flex justify-center">
+<div class="border border-secondary/30 px-3 py-1 rounded-full font-body text-[10px] font-bold text-secondary bg-secondary/5">88% MATCH</div>
+</div>
+<div class="font-body text-sm text-center text-on-surface/90">90</div>
+<div class="font-body text-sm text-center text-on-surface/90">D#m</div>
+<div class="font-body text-sm text-center text-on-surface/90">3:12</div>
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface-container-highest text-on-surface-variant text-[9px] px-2 py-0.5 rounded font-bold uppercase">Experimental</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5 text-secondary border border-secondary/20 px-2.5 py-1 rounded-full bg-secondary/5 w-fit">
+<span class="material-symbols-outlined text-[14px]">tv</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-tighter">NETFLIX</span>
+</div>
+</div>
+<div class="flex justify-end items-center gap-5 pr-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">download</span></button>
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary hover:bg-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-[64px_1fr_120px_80px_80px_80px_160px_140px_120px] items-center px-4 h-[100px] bg-surface-container border-b border-outline-variant/10 hover:bg-surface-container-high transition-colors group">
+<div class="relative w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+<img alt="track artwork" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVB-uTmtofIbL9KcjcQ1Pz9asQvA4WB629nbJzWpnf8UUlHcum4IuRWXr3NIPZBIZpYAWYBiyZ0ALKzitybmkKShSxTsDKWuLNinFsrinaH14jZzz3PRRBHDutE119FsO-DVc5B_1ARizW7JuhuoPxM2e3Ils6pXAJcOOayodSelgH_3Cjsg5TaKKef8ylFX2n3ToMNOV9Jeav4Nh6KYXfxZJlH93KZ_0WCtow5uv4pMOjiXGzTe42oDu_JKp99RohUi6stWgIO2Ab"/>
+</div>
+<div class="flex flex-col py-3 overflow-hidden">
+<div class="flex items-baseline gap-2">
+<span class="playfair text-lg font-bold">Shadow Protocol</span>
+<span class="font-body text-[10px] text-on-surface-variant uppercase tracking-widest">MARCUS THORNE</span>
+</div>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-body text-[10px] font-extrabold text-secondary uppercase whitespace-nowrap">AI MATCH:</span>
+<span class="font-body text-[11px] text-primary-container italic leading-tight">Highly intellectual arrangement. Meets the cinematic "Noir" criteria exactly.</span>
+</div>
+<div class="font-body text-[12px] text-stone-400 mt-0.5 truncate max-w-full">Orchestral hybrid, dark, majestic, staccato strings with heavy synthetic sub-bass.</div>
+</div>
+<div class="flex justify-center">
+<div class="border border-secondary/30 px-3 py-1 rounded-full font-body text-[10px] font-bold text-secondary bg-secondary/5">82% MATCH</div>
+</div>
+<div class="font-body text-sm text-center text-on-surface/90">140</div>
+<div class="font-body text-sm text-center text-on-surface/90">Cm</div>
+<div class="font-body text-sm text-center text-on-surface/90">2:18</div>
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface-container-highest text-on-surface-variant text-[9px] px-2 py-0.5 rounded font-bold uppercase">Cinematic</span>
+<span class="bg-surface-container-highest text-on-surface-variant text-[9px] px-2 py-0.5 rounded font-bold uppercase">Drone</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5 text-secondary border border-secondary/20 px-2.5 py-1 rounded-full bg-secondary/5 w-fit">
+<span class="material-symbols-outlined text-[14px]">tv</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-tighter">HULU ORIGINALS</span>
+</div>
+</div>
+<div class="flex justify-end items-center gap-5 pr-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">download</span></button>
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary hover:bg-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Audio Player -->
+<footer class="fixed bottom-0 w-full z-50 flex items-center justify-between px-10 bg-[#353534]/80 backdrop-blur-xl h-24 border-t border-[#4E4448]/15 shadow-[0_-32px_32px_rgba(209,195,199,0.08)]">
+<!-- Track Info -->
+<div class="flex items-center gap-4 w-1/4">
+<img alt="now playing" class="w-14 h-14 rounded-[2px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeuRIFhftd6nVJs6IHtsGK0Zg98HuB-youVZGTFccZMErGBAZqgf31w6LlPmUEAxbIRircw78fmmAcvLiWfbvVwPNI-pY47PHl9dPCoiofRyGTMcK3Y_rAAoly0C1ZNVtZhGhaSXdhRaMwtlF1_kC98RAXKE4-QX-zs7d9If0LSxA1wFvB4H8x6jmI-JnoKJ-7SZD1CiDkpl2rf1FwMJsEwxZcgjpOrBKNmbl6lOofo7lAV8r56e8XqCShvK2ALVAddqc3xRYP5y8q"/>
+<div>
+<h4 class="playfair font-bold text-sm text-on-surface">Midnight Echoes</h4>
+<p class="font-body text-[10px] uppercase text-on-surface-variant tracking-wider">Julian Sterling</p>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex flex-col items-center gap-2 w-1/2">
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">shuffle</span>
+<span class="material-symbols-outlined text-on-surface cursor-pointer hover:text-primary text-3xl">skip_previous</span>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center hover:bg-primary transition-colors scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<span class="material-symbols-outlined text-on-surface cursor-pointer hover:text-primary text-3xl">skip_next</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer" style="font-variation-settings: 'FILL' 1;">repeat</span>
+</div>
+<div class="flex items-center gap-3 w-full max-w-lg">
+<span class="text-[10px] font-body text-on-surface-variant">1:12</span>
+<div class="h-[2px] flex-grow bg-outline-variant/30 relative">
+<div class="absolute left-0 top-0 h-full w-[40%] bg-primary-container"></div>
+<div class="absolute left-[40%] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<span class="text-[10px] font-body text-on-surface-variant">2:45</span>
+</div>
+</div>
+<!-- Volume & Tools -->
+<div class="flex items-center justify-end gap-6 w-1/4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">queue_music</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">volume_up</span>
+<div class="w-20 h-[2px] bg-outline-variant/30">
+<div class="h-full w-[70%] bg-on-surface-variant"></div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">fullscreen</span>
+</div>
+</footer>
+<!-- Mobile Nav -->
+<div class="md:hidden fixed bottom-0 w-full z-[60] flex items-center justify-between px-10 bg-[#353534]/95 backdrop-blur-xl h-20 border-t border-[#4E4448]/15">
+<div class="flex flex-col items-center gap-1 text-[#D1C3C7]">
+<span class="material-symbols-outlined">graphic_eq</span>
+<span class="font-body text-[8px] uppercase tracking-widest">Player</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#E9C176]">
+<span class="material-symbols-outlined">queue_music</span>
+<span class="font-body text-[8px] uppercase tracking-widest">Queue</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#D1C3C7]">
+<span class="material-symbols-outlined">search</span>
+<span class="font-body text-[8px] uppercase tracking-widest">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#D1C3C7]">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-body text-[8px] uppercase tracking-widest">Saved</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#D1C3C7]">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body text-[8px] uppercase tracking-widest">Profile</span>
+</div>
+</div>
+</body></html>

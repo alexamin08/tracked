@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#9c4325",
+                      "secondary-fixed": "#92f2f4",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#ffb59e",
+                      "outline": "#89726b",
+                      "on-tertiary-fixed": "#3a0b00",
+                      "on-primary-fixed": "#390b00",
+                      "on-background": "#1b1c1a",
+                      "on-secondary-fixed": "#002020",
+                      "on-primary-fixed-variant": "#7d2d10",
+                      "surface-container": "#efeeea",
+                      "surface-variant": "#e4e2de",
+                      "on-tertiary-fixed-variant": "#7d2c10",
+                      "secondary-fixed-dim": "#75d6d7",
+                      "surface-container-highest": "#e4e2de",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#ffc9b8",
+                      "tertiary-container": "#994123",
+                      "on-surface-variant": "#56423d",
+                      "on-primary-container": "#ffc9b8",
+                      "primary-fixed-dim": "#ffb59e",
+                      "on-surface": "#1b1c1a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#fbf9f5",
+                      "secondary-container": "#8feff1",
+                      "surface-dim": "#dbdad6",
+                      "on-error": "#ffffff",
+                      "secondary": "#00696b",
+                      "tertiary-fixed-dim": "#ffb59e",
+                      "inverse-surface": "#30312e",
+                      "primary-fixed": "#ffdbd0",
+                      "primary": "#7a2a0e",
+                      "outline-variant": "#dcc1b9",
+                      "tertiary": "#7a2a0e",
+                      "on-secondary-fixed-variant": "#004f51",
+                      "on-secondary-container": "#006e70",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#994123",
+                      "surface": "#fbf9f5",
+                      "tertiary-fixed": "#ffdbd0",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f2f0ed",
+                      "surface-container-high": "#eae8e4",
+                      "background": "#fbf9f5",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f5f3ef"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Newsreader"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .font-serif-italic { font-family: 'Newsreader', serif; font-style: italic; }
+        .font-serif { font-family: 'Newsreader', serif; }
+        .critic-note { border-top: 1px dashed rgba(0, 130, 132, 0.3); border-bottom: 1px dashed rgba(0, 130, 132, 0.3); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+    </style>
+</head>
+<body class="bg-[#0C0A09] text-[#FAFAF9] selection:bg-[#C05E3E] selection:text-white min-h-screen">
+<!-- Top Navigation Anchor (Shared Component) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#0C0A09]/85 backdrop-blur-md flex justify-between items-center px-12 py-6">
+<div class="flex items-center gap-12">
+<h1 class="text-3xl font-serif text-[#C05E3E]">Tracked</h1>
+<nav class="hidden md:flex gap-8">
+<a class="text-[#FAFAF9] font-['Manrope'] text-sm uppercase tracking-widest hover:text-[#C05E3E] transition-colors duration-200" href="#">Catalog</a>
+<a class="text-[#FAFAF9] font-['Manrope'] text-sm uppercase tracking-widest hover:text-[#C05E3E] transition-colors duration-200" href="#">Pricing</a>
+<a class="text-[#FAFAF9] font-['Manrope'] text-sm uppercase tracking-widest hover:text-[#C05E3E] transition-colors duration-200" href="#">How It Works</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#FAFAF9] font-['Manrope'] text-sm uppercase tracking-widest hover:text-[#C05E3E] transition-colors duration-200">Sign In</button>
+<button class="bg-[#C05E3E] text-white px-6 py-2 rounded-[2px] font-bold text-sm uppercase tracking-widest hover:scale-105 active:opacity-80 transition-transform">Start Free Trial</button>
+</div>
+</header>
+<main class="pt-32 pb-32 px-12 max-w-screen-2xl mx-auto">
+<!-- Header & Search Layout -->
+<section class="mb-12">
+<div class="flex flex-col gap-2 mb-8">
+<span class="font-label text-[0.6875rem] uppercase tracking-[0.2em] text-[#C05E3E]">Search Archive</span>
+<h2 class="text-6xl font-serif-italic tracking-tight text-[#FAFAF9]">Tense Noir</h2>
+<div class="flex items-center justify-between">
+<p class="font-body text-sm text-[#E4E2DE]/60 italic">38 Matches Found</p>
+</div>
+</div>
+<!-- Bottom-border-only input -->
+<div class="relative w-full max-w-3xl mb-12">
+<span class="material-symbols-outlined absolute left-0 bottom-3 text-[#E4E2DE]/40">search</span>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-[#FAFAF9]/20 focus:border-[#C05E3E] focus:ring-0 pl-10 py-4 text-2xl font-serif-italic placeholder:text-[#FAFAF9]/20 transition-all outline-none" placeholder="Explore more sounds..." type="text"/>
+</div>
+<!-- Filter Row -->
+<div class="flex flex-wrap items-center justify-between py-4 border-y border-[#FAFAF9]/10">
+<div class="flex flex-wrap items-center gap-6">
+<div class="flex gap-4">
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest border border-[#FAFAF9]/10 px-4 py-2 hover:bg-[#FAFAF9]/5 transition-colors">Genre <span class="material-symbols-outlined text-xs">expand_more</span></button>
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest border border-[#FAFAF9]/10 px-4 py-2 hover:bg-[#FAFAF9]/5 transition-colors">Mood <span class="material-symbols-outlined text-xs">expand_more</span></button>
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest border border-[#FAFAF9]/10 px-4 py-2 hover:bg-[#FAFAF9]/5 transition-colors">BPM <span class="material-symbols-outlined text-xs">expand_more</span></button>
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest border border-[#FAFAF9]/10 px-4 py-2 hover:bg-[#FAFAF9]/5 transition-colors">Key <span class="material-symbols-outlined text-xs">expand_more</span></button>
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest border border-[#FAFAF9]/10 px-4 py-2 hover:bg-[#FAFAF9]/5 transition-colors">Duration <span class="material-symbols-outlined text-xs">expand_more</span></button>
+</div>
+<div class="h-4 w-[1px] bg-[#FAFAF9]/20"></div>
+<div class="flex items-center gap-2">
+<div class="bg-[#C05E3E]/10 text-[#C05E3E] text-[0.6875rem] uppercase tracking-widest px-3 py-1 flex items-center gap-2 rounded-sm border border-[#C05E3E]/20">
+                            Cinematic <span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</div>
+<button class="text-[#E4E2DE]/40 text-[0.6875rem] uppercase tracking-widest hover:text-[#C05E3E] transition-colors ml-2">Clear all</button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label text-[0.6875rem] uppercase tracking-[0.15em] text-[#E4E2DE]/40">Sort By:</span>
+<button class="flex items-center gap-2 font-label text-[0.6875rem] uppercase tracking-widest text-[#FAFAF9] hover:text-[#C05E3E] transition-colors">Match % <span class="material-symbols-outlined text-xs">expand_more</span></button>
+</div>
+</div>
+</section>
+<!-- Search Results Table -->
+<section class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="font-label text-[0.6875rem] uppercase tracking-[0.15em] text-[#E4E2DE]/40 border-b border-[#FAFAF9]/5">
+<th class="py-4 w-16"></th>
+<th class="py-4 px-4 min-w-[320px]">Track Details</th>
+<th class="py-4 px-4">Score</th>
+<th class="py-4 px-4">Bpm</th>
+<th class="py-4 px-4">Key</th>
+<th class="py-4 px-4">Time</th>
+<th class="py-4 px-4">Genre</th>
+<th class="py-4 px-4">As Heard On</th>
+<th class="py-4 px-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#FAFAF9]/5">
+<!-- Row 1 -->
+<tr class="group hover:bg-[#FAFAF9]/[0.02] transition-colors min-h-[80px]">
+<td class="py-6">
+<div class="w-12 h-12 bg-zinc-800 rounded-sm overflow-hidden flex-shrink-0">
+<img alt="Dark mysterious alleyway in rain at night with glowing amber streetlights, cinematic noir atmosphere" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDezMOekAGBBHlPk9bHejLS_6B8sDCge_dRA3BiTz0VHk0dUEwp00zJB1H--2m7QSgfV-DJxHQR1CbBlh4ReM6kOL5f1L-_vsS5d3UvxvHixv6TW9fOKDargL347fnrrb4ZNk76N_KmfNhIrMvBE-zDQOMSZn0kjnnpB1rSS2J_kCIHxh8RgmDq68l8zDtYVi-C4D1c1HeSsKYFPq4a7ianfcYsMRw3XepUvp4md3XnzqmN6VZMfIX_XKKGi8sUAfgiwcXDxTEN0A"/>
+</div>
+</td>
+<td class="py-6 px-4">
+<div class="flex flex-col gap-1.5">
+<p class="text-sm"><span class="font-serif-italic font-bold text-[#FAFAF9]">The Shadow Protocol</span> <span class="mx-2 text-[#E4E2DE]/30">—</span> <span class="font-body text-[11px] text-[#E4E2DE]">Julian Vane</span></p>
+<div class="bg-[#008284]/5 critic-note py-2 px-3 relative">
+<span class="material-symbols-outlined text-[10px] absolute top-1 right-1 text-[#008284]">colors_spark</span>
+<p class="font-body italic text-[11px] text-[#FAFAF9]/80 leading-relaxed">A masterclass in restraint. The ticking percussion mimics a quickened pulse while the dissonant strings create an inescapable sense of dread.</p>
+</div>
+<p class="font-body text-[10px] text-[#E4E2DE]/40 line-clamp-1">Stealthy strings, clockwork percussion, and deep atmospheric drones ideal for high-stakes investigative scenes.</p>
+</div>
+</td>
+<td class="py-6 px-4">
+<span class="font-label text-[0.75rem] font-bold text-[#C05E3E] border border-[#C05E3E] px-2 py-0.5 rounded-[2px]">94% MATCH</span>
+</td>
+<td class="py-6 px-4 font-body text-sm">72</td>
+<td class="py-6 px-4 font-body text-sm">Am</td>
+<td class="py-6 px-4 font-body text-sm">2:45</td>
+<td class="py-6 px-4">
+<div class="flex gap-1">
+<span class="bg-[#1B1C1A] text-[#E4E2DE]/60 text-[9px] uppercase tracking-tighter px-2 py-0.5 border border-[#FAFAF9]/10">Noir</span>
+<span class="bg-[#1B1C1A] text-[#E4E2DE]/60 text-[9px] uppercase tracking-tighter px-2 py-0.5 border border-[#FAFAF9]/10">Pulse</span>
+</div>
+</td>
+<td class="py-6 px-4">
+<div class="border-l-[2px] border-[#C05E3E] pl-3 flex flex-col justify-center h-full">
+<div class="flex items-center gap-1 text-[10px] text-[#E4E2DE]/40 uppercase tracking-widest leading-tight">
+<span class="material-symbols-outlined text-[12px]">tv</span> HBO Original
+                                </div>
+<p class="font-serif-italic text-xs text-[#FAFAF9] leading-tight">The Concrete Jungle</p>
+</div>
+</td>
+<td class="py-6 px-4 text-right">
+<div class="flex items-center justify-end gap-4">
+<button class="material-symbols-outlined text-[#E4E2DE]/40 hover:text-[#C05E3E] transition-colors">favorite</button>
+<button class="material-symbols-outlined text-[#E4E2DE]/40 hover:text-[#C05E3E] transition-colors">download</button>
+<button class="w-8 h-8 rounded-full bg-[#C05E3E] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform shadow-lg shadow-[#C05E3E]/20">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-[#FAFAF9]/[0.02] transition-colors min-h-[80px]">
+<td class="py-6">
+<div class="w-12 h-12 bg-zinc-800 rounded-sm overflow-hidden flex-shrink-0">
+<img alt="Abstract blurry lights of a city skyline at night with deep blue and red tones, bokeh effect music background" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABMODvtI3QUKnRUXMGG7wkgm8Eg62haYs3Qevcd4_k7tOnkg0GQVEgsHI82dE3AM93W2UF2s07_bdj7Zl6nK0OFQ81Jwawdm7gHB7XgkA3VmXuTKxpslkne1T10JMFqBsphN5ao6r0JVEcZJ9lj2YId7v_O0f3F2x06UyTW357frQrlK3bP6DPVZiM74_SmaULDtgo6UIpd2nM_izbS_oh4IRLhK310e_XR9y3oPSygA8AF1TE8bdSwnJoXJGEDqgIaTCEEG5i_A"/>
+</div>
+</td>
+<td class="py-6 px-4">
+<div class="flex flex-col gap-1.5">
+<p class="text-sm"><span class="font-serif-italic font-bold text-[#FAFAF9]">Submerged Echoes</span> <span class="mx-2 text-[#E4E2DE]/30">—</span> <span class="font-body text-[11px] text-[#E4E2DE]">Elena Rossi</span></p>
+<div class="bg-[#008284]/5 critic-note py-2 px-3 relative">
+<span class="material-symbols-outlined text-[10px] absolute top-1 right-1 text-[#008284]">colors_spark</span>
+<p class="font-body italic text-[11px] text-[#FAFAF9]/80 leading-relaxed">Ghostly reverb tails and low-frequency pulses evoke a deep-sea claustrophobia that is both terrifying and beautiful.</p>
+</div>
+<p class="font-body text-[10px] text-[#E4E2DE]/40 line-clamp-1">Subaquatic synths, grainy textures, and slow-building rhythmic elements for psychological drama.</p>
+</div>
+</td>
+<td class="py-6 px-4">
+<span class="font-label text-[0.75rem] font-bold text-[#C05E3E] border border-[#C05E3E] px-2 py-0.5 rounded-[2px]">88% MATCH</span>
+</td>
+<td class="py-6 px-4 font-body text-sm">60</td>
+<td class="py-6 px-4 font-body text-sm">Cm</td>
+<td class="py-6 px-4 font-body text-sm">3:12</td>
+<td class="py-6 px-4">
+<div class="flex gap-1">
+<span class="bg-[#1B1C1A] text-[#E4E2DE]/60 text-[9px] uppercase tracking-tighter px-2 py-0.5 border border-[#FAFAF9]/10">Ambient</span>
+<span class="bg-[#1B1C1A] text-[#E4E2DE]/60 text-[9px] uppercase tracking-tighter px-2 py-0.5 border border-[#FAFAF9]/10">Drama</span>
+</div>
+</td>
+<td class="py-6 px-4">
+<div class="border-l-[2px] border-[#C05E3E] pl-3 flex flex-col justify-center h-full">
+<div class="flex items-center gap-1 text-[10px] text-[#E4E2DE]/40 uppercase tracking-widest leading-tight">
+<span class="material-symbols-outlined text-[12px]">tv</span> Netflix
+                                </div>
+<p class="font-serif-italic text-xs text-[#FAFAF9] leading-tight">Dark Waters</p>
+</div>
+</td>
+<td class="py-6 px-4 text-right">
+<div class="flex items-center justify-end gap-4">
+<button class="material-symbols-outlined text-[#E4E2DE]/40 hover:text-[#C05E3E] transition-colors">favorite</button>
+<button class="material-symbols-outlined text-[#E4E2DE]/40 hover:text-[#C05E3E] transition-colors">download</button>
+<button class="w-8 h-8 rounded-full bg-[#C05E3E] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-[#FAFAF9]/[0.02] transition-colors min-h-[80px]">
+<td class="py-6">
+<div class="w-12 h-12 bg-zinc-800 rounded-sm overflow-hidden flex-shrink-0">
+<img alt="Old typewriter keys macro with shallow depth of field, dust particles in sunbeam, vintage editorial aesthetic" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy7UZ8Pd8mW0IfjzTfOvvDxgI8jeJRyYOS23EYb-MO2hAj_No4IT9-PJualcVHxxvL4h-m0ycJ6mHB0wvbTbyVJxDPyf_6QbeEgxX88GW2fQtMB7eyF7zNhqww6UGeNaoxdh-on7lum9BHVDX1LyqWsWu-R4fdTKJBdJn2RdtB9Sg-ssJ8euJovAz5OqWvubyfaKlrz19tvD0X7jtbyO-UemelwbL3HmnDp6P-JWp1LCIBo2U41nf7DBp86RQDogtdd-9N_0DtBg"/>
+</div>
+</td>
+<td class="py-6 px-4">
+<div class="flex flex-col gap-1.5">
+<p class="text-sm"><span class="font-serif-italic font-bold text-[#FAFAF9]">The Bureaucracy</span> <span class="mx-2 text-[#E4E2DE]/30">—</span> <span class="font-body text-[11px] text-[#E4E2DE]">Aris Thorne</span></p>
+<div class="bg-[#008284]/5 critic-note py-2 px-3 relative">
+<span class="material-symbols-outlined text-[10px] absolute top-1 right-1 text-[#008284]">colors_spark</span>
+<p class="font-body italic text-[11px] text-[#FAFAF9]/80 leading-relaxed">Mechanical, cold, and unrelenting. The repetitive piano motif suggests a system that never stops turning.</p>
+</div>
+<p class="font-body text-[10px] text-[#E4E2DE]/40 line-clamp-1">Minimalist piano, industrial textures, and rhythmic white noise for cold war era thrillers.</p>
+</div>
+</td>
+<td class="py-6 px-4">
+<span class="font-label text-[0.75rem] font-bold text-[#C05E3E] border border-[#C05E3E] px-2 py-0.5 rounded-[2px]">82% MATCH</span>
+</td>
+<td class="py-6 px-4 font-body text-sm">114</td>
+<td class="py-6 px-4 font-body text-sm">Em</td>
+<td class="py-6 px-4 font-body text-sm">2:20</td>
+<td class="py-6 px-4">
+<div class="flex gap-1">
+<span class="bg-[#1B1C1A] text-[#E4E2DE]/60 text-[9px] uppercase tracking-tighter px-2 py-0.5 border border-[#FAFAF9]/10">Minimal</span>
+<span class="bg-[#1B1C1A] text-[#E4E2DE]/60 text-[9px] uppercase tracking-tighter px-2 py-0.5 border border-[#FAFAF9]/10">Thriller</span>
+</div>
+</td>
+<td class="py-6 px-4">
+<div class="border-l-[2px] border-[#C05E3E] pl-3 flex flex-col justify-center h-full">
+<div class="flex items-center gap-1 text-[10px] text-[#E4E2DE]/40 uppercase tracking-widest leading-tight">
+<span class="material-symbols-outlined text-[12px]">tv</span> AMC
+                                </div>
+<p class="font-serif-italic text-xs text-[#FAFAF9] leading-tight">The Paper Trail</p>
+</div>
+</td>
+<td class="py-6 px-4 text-right">
+<div class="flex items-center justify-end gap-4">
+<button class="material-symbols-outlined text-[#E4E2DE]/40 hover:text-[#C05E3E] transition-colors">favorite</button>
+<button class="material-symbols-outlined text-[#E4E2DE]/40 hover:text-[#C05E3E] transition-colors">download</button>
+<button class="w-8 h-8 rounded-full bg-[#C05E3E] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</main>
+<!-- Bottom Navigation Player Shell (Shared Component) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-[#0C0A09]/85 backdrop-blur-xl border-t border-[#FAFAF9]/10 h-24 flex items-center px-12 gap-8 shadow-[0_-8px_32px_rgba(0,0,0,0.5)]">
+<!-- Track Info -->
+<div class="flex items-center gap-4 w-1/4">
+<div class="w-12 h-12 bg-zinc-800 rounded-sm overflow-hidden flex-shrink-0">
+<img alt="Square album art with dark grainy noir aesthetic" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeSiGcF5P6mVmK4gfTwiWEayxXGcKjXj_gmWKubEplzu_s8Xh1k4cF3TKzQVzasxc4T0dzcl61lNdNEmgWzOmUbUKAVltIA7uk5zEwgTlvypU_csquqY74Zg7A9eNzxGKVLHSA3dKTVlIpUhXB5pSNIU6Bb5E_2Y5jx4aWZbHamJdvieW4gqpAH4leQR6_K9mSu13ulRW1za_KNsra53BE3H1uU4gXVpQuol0Z1fwrJvDJKweU8a8K_ZPQC8bapb0M4kZNJtDM9g"/>
+</div>
+<div class="flex flex-col">
+<span class="font-serif font-bold text-sm text-[#C05E3E]">The Shadow Protocol</span>
+<span class="font-label text-[0.6875rem] text-[#E4E2DE]/40 uppercase tracking-widest">Julian Vane</span>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex flex-col items-center gap-2 flex-grow">
+<div class="flex items-center gap-8">
+<button class="material-symbols-outlined text-[#FAFAF9] hover:text-[#C05E3E] transition-colors">shuffle</button>
+<button class="material-symbols-outlined text-[#FAFAF9] hover:text-[#C05E3E] transition-colors text-3xl">skip_previous</button>
+<button class="w-12 h-12 rounded-full bg-[#C05E3E] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-xl shadow-[#C05E3E]/20">
+<span class="material-symbols-outlined text-3xl" data-weight="fill">pause_circle</span>
+</button>
+<button class="material-symbols-outlined text-[#FAFAF9] hover:text-[#C05E3E] transition-colors text-3xl">skip_next</button>
+<button class="material-symbols-outlined text-[#FAFAF9] hover:text-[#C05E3E] transition-colors">repeat</button>
+</div>
+<!-- Progress -->
+<div class="flex items-center gap-4 w-full max-w-xl">
+<span class="font-label text-[10px] text-[#E4E2DE]/40 tracking-widest">1:12</span>
+<div class="h-1 flex-grow bg-[#FAFAF9]/10 rounded-full relative group cursor-pointer">
+<div class="absolute top-0 left-0 h-full w-1/3 bg-[#C05E3E] rounded-full"></div>
+<div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<span class="font-label text-[10px] text-[#E4E2DE]/40 tracking-widest">2:45</span>
+</div>
+</div>
+<!-- Volume & Extras -->
+<div class="flex items-center justify-end gap-6 w-1/4">
+<button class="material-symbols-outlined text-[#FAFAF9] hover:text-[#C05E3E]">playlist_play</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#FAFAF9]">volume_up</span>
+<div class="w-24 h-1 bg-[#FAFAF9]/10 rounded-full">
+<div class="h-full w-3/4 bg-[#FAFAF9]/40 rounded-full"></div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

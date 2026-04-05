@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TRACKED | Music Licensing Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&amp;family=Space+Grotesk:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .mono { font-family: 'ui-monospace', 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        body { background-color: #F1F3F5; color: #111316; font-family: 'Inter', sans-serif; }
+        .clinical-border { border: 1px solid #adb5bd; }
+        .no-radius { border-radius: 0px !important; }
+        .bg-teal-accent { background-color: #006875; }
+        .text-teal-accent { color: #006875; }
+        .border-teal-accent { border-color: #006875; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#006875",
+                      "primary-container": "#00e5ff",
+                      "on-primary": "#FFFFFF",
+                      "surface-container-highest": "#E2E4E7",
+                      "surface-container-low": "#F8FAFB",
+                      "surface-container-high": "#EBEEF1",
+                      "outline-variant": "#adb5bd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["Space Grotesk"]
+              }
+            },
+          }
+        }
+    </script>
+</head>
+<body class="min-h-screen pb-32">
+<!-- TopNavBar (Dark) -->
+<header class="bg-[#111316] text-[#00E5FF] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-sm font-bold fixed top-0 z-50 w-full px-6 py-4 flex justify-between items-center no-radius">
+<div class="text-2xl font-black tracking-widest text-[#00E5FF]">TRACKED</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-white/60 hover:text-[#C3F5FF] transition-colors duration-50" href="#">CATALOG</a>
+<a class="text-white/60 hover:text-[#C3F5FF] transition-colors duration-50" href="#">PRICING</a>
+<a class="text-white/60 hover:text-[#C3F5FF] transition-colors duration-50" href="#">HOW IT WORKS</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-white/60 hover:text-[#C3F5FF] transition-colors duration-50">SIGN IN</button>
+<button class="bg-[#00E5FF] text-[#111316] px-4 py-2 font-bold transition-all duration-50 active:invert no-radius">START FREE TRIAL</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-[1600px] mx-auto">
+<!-- Search Query Analysis Header (Tighter Layout) -->
+<section class="mb-6">
+<p class="font-label text-[10px] font-bold tracking-[0.2em] text-primary uppercase mb-1">SEARCH QUERY ANALYSIS</p>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<h1 class="font-headline text-3xl font-bold uppercase tracking-tight leading-none">
+                "CINEMATIC NOIR WITH DARK PULSES AND TENSE STRINGS"
+            </h1>
+<div class="flex gap-1">
+<span class="bg-surface-container-highest px-2 py-1 text-[9px] font-label font-bold uppercase tracking-wider">BPM RANGE: 80-115</span>
+<span class="bg-surface-container-highest px-2 py-1 text-[9px] font-label font-bold uppercase tracking-wider">KEY MATCH: AM/DM</span>
+<span class="bg-surface-container-highest px-2 py-1 text-[9px] font-label font-bold uppercase tracking-wider">ENERGY LEVEL: HIGH</span>
+<span class="bg-teal-accent text-white px-2 py-1 text-[9px] font-label font-bold uppercase tracking-wider">SEMANTIC MATCH: 98%</span>
+</div>
+</div>
+</section>
+<!-- Search & Filters -->
+<section class="mb-10">
+<div class="flex w-full mb-4 clinical-border bg-white overflow-hidden no-radius">
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-4 py-3 font-body text-sm outline-none" placeholder="Search track library..." type="text" value="Cinematic Noir with dark pulses and tense strings"/>
+<button class="bg-[#00E5FF] text-[#111316] font-label font-black px-8 py-3 tracking-widest transition-all hover:bg-cyan-400 no-radius">EXECUTE</button>
+</div>
+<div class="flex flex-wrap items-center gap-3 text-xs">
+<div class="flex gap-1">
+<button class="clinical-border bg-white px-3 py-1.5 font-label font-bold text-[10px] flex items-center gap-2 no-radius">GENRE <span class="material-symbols-outlined text-sm">expand_more</span></button>
+<button class="clinical-border bg-white px-3 py-1.5 font-label font-bold text-[10px] flex items-center gap-2 no-radius">MOOD <span class="material-symbols-outlined text-sm">expand_more</span></button>
+<button class="clinical-border bg-white px-3 py-1.5 font-label font-bold text-[10px] flex items-center gap-2 no-radius">BPM <span class="material-symbols-outlined text-sm">expand_more</span></button>
+<button class="clinical-border bg-white px-3 py-1.5 font-label font-bold text-[10px] flex items-center gap-2 no-radius">KEY <span class="material-symbols-outlined text-sm">expand_more</span></button>
+</div>
+<div class="h-4 w-px bg-outline-variant/50 mx-1"></div>
+<div class="flex gap-1 items-center">
+<span class="bg-primary text-white px-2 py-1 font-label text-[10px] font-bold flex items-center gap-2 no-radius">NOIR <button><span class="material-symbols-outlined text-[10px]">close</span></button></span>
+<span class="bg-primary text-white px-2 py-1 font-label text-[10px] font-bold flex items-center gap-2 no-radius">TENSE <button><span class="material-symbols-outlined text-[10px]">close</span></button></span>
+<button class="text-primary font-label font-bold text-[10px] underline underline-offset-2 ml-1">CLEAR ALL</button>
+</div>
+<div class="ml-auto flex items-center gap-2">
+<span class="font-label text-[10px] opacity-60 uppercase font-bold">Sort by:</span>
+<button class="font-label font-bold text-[10px] flex items-center gap-1 uppercase">BEST MATCH <span class="material-symbols-outlined text-sm">sort</span></button>
+</div>
+</div>
+</section>
+<!-- Results Table -->
+<section class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[1200px]">
+<thead class="font-label text-[9px] tracking-[0.15em] uppercase border-y clinical-border bg-surface-container-low">
+<tr>
+<th class="px-4 py-2 font-bold w-12"></th>
+<th class="px-4 py-2 font-bold">TRACK DETAILS</th>
+<th class="px-4 py-2 font-bold text-center w-24">SCORE</th>
+<th class="px-4 py-2 font-bold w-20">BPM</th>
+<th class="px-4 py-2 font-bold w-20">KEY</th>
+<th class="px-4 py-2 font-bold w-20">TIME</th>
+<th class="px-4 py-2 font-bold w-32">GENRE</th>
+<th class="px-4 py-2 font-bold w-40">AS HEARD ON</th>
+<th class="px-4 py-2 font-bold text-right w-32">ACTIONS</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<!-- Row 1: Active -->
+<tr class="bg-surface-container-high border-l-[4px] border-teal-accent border-b clinical-border">
+<td class="px-4 py-4">
+<div class="w-10 h-10 bg-black relative flex-shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-60 no-radius" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSmF1GGuP5k7hfECrfG0gMqGxWtIrojSKro1uT5inu6vIYbcQ5R2pihOQsvyArzfZODmHm7IzGlcHTWyL4B5nMy1LCDRcGMAj8mpphvPZHYIxVRrZjwqEGXUgqyk6pL_sHukshfjf-3Z5C4djlm93HbIwa0eYm4Lkxz7IHMTTntIs0IiP-mekydAkX0_F59aSFBOmMMdu5j30opt4yB2wRRmGrFUr-mMUEKWCRp3dqesdAhHRg-sjm3yfnw-xrREH9JTlgb3IBW04"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#00E5FF]" style="font-variation-settings: 'FILL' 1;">pause</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="font-headline font-bold text-sm uppercase tracking-tight">VOID PROTOCOL <span class="font-body font-normal text-[10px] text-outline ml-2">— Aris Thorne</span></div>
+<p class="font-body text-[11px] mt-1 leading-relaxed italic"><strong class="text-teal-accent font-bold not-italic uppercase mr-1">AI MATCH:</strong> Structural alignment with "dark pulses" query objectives. Low-frequency analog synthesizers layered with staccato cello movements create the required cinematic tension.</p>
+</td>
+<td class="px-4 py-4 text-center">
+<span class="bg-teal-accent text-white font-label font-bold px-2 py-0.5 text-[10px] no-radius">98%</span>
+</td>
+<td class="px-4 py-4 mono font-medium text-xs">84</td>
+<td class="px-4 py-4 mono font-medium text-xs">Am</td>
+<td class="px-4 py-4 mono font-medium text-xs">03:42</td>
+<td class="px-4 py-4">
+<span class="clinical-border border-teal-accent text-teal-accent px-1.5 py-0.5 text-[9px] font-label font-bold uppercase whitespace-nowrap no-radius">HYBRID NOIR</span>
+</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-1 text-[10px] font-label font-bold uppercase text-teal-accent">
+<span class="material-symbols-outlined text-xs">tv</span> SUCCESSION
+                        </div>
+</td>
+<td class="px-4 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="w-8 h-8 flex items-center justify-center bg-[#00E5FF] text-[#111316] no-radius"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">pause</span></button>
+<button class="w-8 h-8 flex items-center justify-center clinical-border border-teal-accent text-teal-accent hover:bg-teal-accent hover:text-white transition-colors no-radius"><span class="material-symbols-outlined text-lg">favorite</span></button>
+<button class="w-8 h-8 flex items-center justify-center clinical-border border-teal-accent text-teal-accent hover:bg-teal-accent hover:text-white transition-colors no-radius"><span class="material-symbols-outlined text-lg">download</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-white border-b clinical-border hover:bg-surface-container-low transition-colors duration-50">
+<td class="px-4 py-4">
+<div class="w-10 h-10 bg-black relative flex-shrink-0 group cursor-pointer">
+<img class="w-full h-full object-cover grayscale no-radius" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9mMH-6Ov-7jMcxCe7rUJ4gOORbfmr2Ivr_WRe7HQoRmaYyIDbGX1EivUMcI2gjcvpcodst-9CvuhA3LfmC2C6TuPYRfNgPLqdbYIkKRT_X6JOcFCOdRdW8pKaRD-M0a1FrYCdxcEazq6AFIhKNGPQkJpcmulyqhMnJhkSU9B7keKHYqvMVGB74TW-fkdiG5ObWjP3JgYnMCSzbQgMphCh1sMoaWAMBz0ymkid-cxufbdc3FzO9tN_A-pNSA2Qvz58Bpr9_nmSMUs"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white">play_arrow</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="font-headline font-bold text-sm uppercase tracking-tight">SHADOW OSCILLATION <span class="font-body font-normal text-[10px] text-outline ml-2">— Mod_Unit</span></div>
+<p class="font-body text-[11px] mt-1 leading-relaxed italic"><strong class="text-teal-accent font-bold not-italic uppercase mr-1">AI MATCH:</strong> Captures the specific "tense strings" requirement via granular synthesis methods. This track utilizes atmospheric soundscapes built from processed violin scrapings and industrial white noise.</p>
+</td>
+<td class="px-4 py-4 text-center">
+<span class="bg-teal-accent/20 text-teal-accent font-label font-bold px-2 py-0.5 text-[10px] no-radius">92%</span>
+</td>
+<td class="px-4 py-4 mono font-medium text-xs">110</td>
+<td class="px-4 py-4 mono font-medium text-xs">F#m</td>
+<td class="px-4 py-4 mono font-medium text-xs">02:15</td>
+<td class="px-4 py-4">
+<div class="flex flex-col gap-0.5">
+<span class="clinical-border px-1 py-0.5 text-[9px] font-label font-bold uppercase w-fit no-radius">AMBIENT</span>
+<span class="clinical-border px-1 py-0.5 text-[9px] font-label font-bold uppercase w-fit no-radius">INDUSTRIAL</span>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex items-center gap-1 text-[10px] font-label font-bold uppercase text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">tv</span> SEVERANCE
+                        </div>
+</td>
+<td class="px-4 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="w-8 h-8 flex items-center justify-center bg-[#00E5FF] text-[#111316] no-radius"><span class="material-symbols-outlined text-lg">play_arrow</span></button>
+<button class="w-8 h-8 flex items-center justify-center clinical-border border-outline-variant text-on-surface-variant hover:bg-teal-accent hover:text-white transition-colors no-radius"><span class="material-symbols-outlined text-lg">favorite</span></button>
+<button class="w-8 h-8 flex items-center justify-center clinical-border border-outline-variant text-on-surface-variant hover:bg-teal-accent hover:text-white transition-colors no-radius"><span class="material-symbols-outlined text-lg">download</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="bg-white border-b clinical-border hover:bg-surface-container-low transition-colors duration-50">
+<td class="px-4 py-4">
+<div class="w-10 h-10 bg-black relative flex-shrink-0 group cursor-pointer">
+<img class="w-full h-full object-cover grayscale no-radius" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiIcqw_qSBo5NhUzH-RWNH5pnI4JUmKQ2tJ5eihq7OQo7DOtZc7v4W3SZmFP92PRFKK6zg4N1HqIiefjKdhrk3CA550Cbi9ZYpmumCcySk3LFPtju4HRn3v75_pHipjAJbl4fQae_5yf3alglHxMCSyrTD3pSeY9r4eLk4foE2idghwenXLkXgj5Yav0tmmktUedQ4nrSsWYgjZ2SRZu5j3kZZzK4bNMX55ZdiQkzLvx9-9O_E1iI2pF3KGvwI7F-4sgKdur9DRdU"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white">play_arrow</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="font-headline font-bold text-sm uppercase tracking-tight">NIGHT WATCH <span class="font-body font-normal text-[10px] text-outline ml-2">— Vector Prime</span></div>
+<p class="font-body text-[11px] mt-1 leading-relaxed italic"><strong class="text-teal-accent font-bold not-italic uppercase mr-1">AI MATCH:</strong> High score for general "cinematic noir" tonality and mood matching. Deep bass pulses mimic a frantic heartbeat effect under sustained high-tension violins.</p>
+</td>
+<td class="px-4 py-4 text-center">
+<span class="bg-teal-accent/20 text-teal-accent font-label font-bold px-2 py-0.5 text-[10px] no-radius">89%</span>
+</td>
+<td class="px-4 py-4 mono font-medium text-xs">92</td>
+<td class="px-4 py-4 mono font-medium text-xs">Dm</td>
+<td class="px-4 py-4 mono font-medium text-xs">04:58</td>
+<td class="px-4 py-4">
+<span class="clinical-border px-1.5 py-0.5 text-[9px] font-label font-bold uppercase whitespace-nowrap no-radius">CINEMATIC</span>
+</td>
+<td class="px-4 py-4 text-outline-variant font-label text-[9px] tracking-widest uppercase font-bold">
+                        UNLICENSED
+                    </td>
+<td class="px-4 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="w-8 h-8 flex items-center justify-center bg-[#00E5FF] text-[#111316] no-radius"><span class="material-symbols-outlined text-lg">play_arrow</span></button>
+<button class="w-8 h-8 flex items-center justify-center clinical-border border-outline-variant text-on-surface-variant hover:bg-teal-accent hover:text-white transition-colors no-radius"><span class="material-symbols-outlined text-lg">favorite</span></button>
+<button class="w-8 h-8 flex items-center justify-center clinical-border border-outline-variant text-on-surface-variant hover:bg-teal-accent hover:text-white transition-colors no-radius"><span class="material-symbols-outlined text-lg">download</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</main>
+<!-- BottomNavBar (Dark Player) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-[#111316] h-24 flex items-center justify-between px-8 text-[#00E5FF] font-['Space_Grotesk'] uppercase no-radius border-t border-white/10">
+<!-- Now Playing -->
+<div class="flex items-center gap-4 w-1/3">
+<div class="w-14 h-14 bg-black overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHx1wGfYiUjUx5oHCEDcTUCYEMkXrwCrfYonn76D6niW7Bv26f7gZ6BwJon151Wnb1AzaBWuRWkAvKHV55SVKIuC-KribzpPAiBHLRA1-jLJpp6Zn4wUhxl4iciqGGgN1kBP-2HLdoU0P1TVLDId0mLrfRD5APVXPj1Ek5mT0WV9SZWxfV5ohp-IpxN0FbjltoFinsfsNu4_RSbzqDF7ZZKFa1ESdR4HDxVJeqVIJsZ4idbllbNFFQ3_imN4c_s8qcOQKwNY0HhQA"/>
+</div>
+<div class="flex flex-col">
+<div class="text-xs font-black tracking-widest leading-none">VOID PROTOCOL</div>
+<div class="text-[10px] text-white/60 tracking-wider mt-1.5">ARIS THORNE — 84 BPM / Am</div>
+</div>
+</div>
+<!-- Player Controls -->
+<div class="flex flex-col items-center gap-2 w-1/3">
+<div class="flex items-center gap-6">
+<button class="text-white/80 hover:text-[#00E5FF] p-1"><span class="material-symbols-outlined text-xl">shuffle</span></button>
+<button class="text-white/80 hover:text-[#00E5FF] p-1"><span class="material-symbols-outlined text-xl">skip_previous</span></button>
+<button class="bg-[#00E5FF] text-[#111316] w-12 h-12 flex items-center justify-center no-radius">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="text-white/80 hover:text-[#00E5FF] p-1"><span class="material-symbols-outlined text-xl">skip_next</span></button>
+<button class="text-white/80 hover:text-[#00E5FF] p-1"><span class="material-symbols-outlined text-xl">repeat</span></button>
+</div>
+<div class="flex items-center gap-3 w-full max-w-sm">
+<span class="mono text-[10px] text-white/40">01:14</span>
+<div class="h-0.5 bg-white/10 flex-grow relative">
+<div class="absolute top-0 left-0 h-full bg-[#00E5FF] w-1/3"></div>
+</div>
+<span class="mono text-[10px] text-white/40">03:42</span>
+</div>
+</div>
+<!-- Actions/Volume -->
+<div class="flex items-center justify-end gap-6 w-1/3">
+<button class="text-white/60 hover:text-[#00E5FF]"><span class="material-symbols-outlined">queue_music</span></button>
+<div class="flex items-center gap-2 w-24">
+<span class="material-symbols-outlined text-white/40 text-sm">volume_up</span>
+<div class="h-0.5 bg-white/10 flex-grow">
+<div class="h-full bg-white/60 w-3/4"></div>
+</div>
+</div>
+<button class="bg-[#00E5FF] text-[#111316] px-5 py-2 text-[10px] font-black tracking-[0.15em] no-radius hover:invert transition-all">LICENSE NOW</button>
+</div>
+</footer>
+</body></html>
