@@ -35,7 +35,7 @@ export function EditorialTrackTable({ tracks, totalCount }: Props) {
 
           {/* ═══ TABLE HEADER ═══ */}
           <thead>
-            <tr style={{ backgroundColor: "var(--color-surface-container)", borderBottom: "1px solid var(--color-outline-variant)" }}>
+            <tr style={{ backgroundColor: "var(--color-surface-container)", borderBottom: "1px solid var(--color-outline-variant)", position: "sticky", top: 180, zIndex: 30 }}>
               <th style={{ width: 64, padding: "10px 8px", textAlign: "center" }}>
                 <span className="material-symbols-outlined" style={{ fontSize: 16, color: "var(--color-on-surface-variant)" }}>image</span>
               </th>
@@ -127,7 +127,7 @@ export function EditorialTrackTable({ tracks, totalCount }: Props) {
                   <td style={{ padding: "14px 8px", verticalAlign: "top" }}>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                       {track.genres.slice(0, 2).map((genre) => (
-                        <span key={genre} style={{ backgroundColor: "var(--color-surface-container-highest)", fontSize: 10, fontWeight: 600, textTransform: "uppercase", padding: "2px 8px", borderRadius: 4, color: "var(--color-on-surface-variant)", fontFamily: "var(--font-body)" }}>
+                        <span key={genre} style={{ backgroundColor: "var(--color-surface-container-highest)", fontSize: 10, fontWeight: 600, padding: "2px 8px", borderRadius: 4, color: "var(--color-on-surface-variant)", fontFamily: "var(--font-body)" }}>
                           {genre}
                         </span>
                       ))}

@@ -35,33 +35,13 @@ export function EditorialResultsLayout({ initialQuery, tracks, totalCount }: Pro
     <>
       <WENav />
 
-      {/* ═══ SEARCH HEADER ═══ */}
-      <div style={{ backgroundColor: "var(--color-surface)", padding: "48px 24px 0" }}>
+      {/* ═══ SEARCH BAR ═══ */}
+      <div style={{ position: "sticky", top: 76, zIndex: 42, backgroundColor: "var(--color-surface)", borderBottom: "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)", padding: "8px 24px" }}>
         <div style={{ maxWidth: 1024, margin: "0 auto" }}>
-          {/* Eyebrow */}
-          <span style={{ fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: isDark ? "var(--color-primary-container)" : "var(--color-on-surface-variant)" }}>
-            {isDark ? "Search Archive" : "Search Results"}
-          </span>
-
-          {/* Query display — Newsreader italic */}
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: 60, fontWeight: 400, fontStyle: "italic", color: "var(--color-on-surface)", margin: "8px 0 0", lineHeight: 1.1 }}>
-            {initialQuery || "Search"}
-          </h1>
-          <span style={{ fontFamily: "var(--font-body)", fontSize: 14, fontStyle: "italic", color: "var(--color-on-surface-variant)", marginTop: 8, display: "block" }}>
-            {totalCount.toLocaleString()} results found
-          </span>
-
-          {/* Search input — bottom-border, Newsreader italic */}
-          <form onSubmit={handleSearch} style={{ marginTop: 32 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 16, borderBottom: `1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)`, paddingBottom: 12 }}>
+          <form onSubmit={handleSearch}>
+            <div style={{ display: "flex", alignItems: "center", gap: 16, borderBottom: "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)", paddingBottom: 8 }}>
               <span className="material-symbols-outlined" style={{ fontSize: 24, color: "var(--color-primary)", flexShrink: 0 }}>search</span>
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Search the catalog..."
-                style={{ flex: 1, fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 300, fontStyle: "italic", letterSpacing: "-0.02em", color: "var(--color-on-surface)", background: "none", border: "none", outline: "none" }}
-              />
+              <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Search the catalog..." style={{ flex: 1, fontFamily: "var(--font-display)", fontSize: 20, fontWeight: 300, fontStyle: "italic", letterSpacing: "-0.02em", color: "var(--color-on-surface)", background: "none", border: "none", outline: "none" }} />
             </div>
           </form>
         </div>
@@ -69,7 +49,7 @@ export function EditorialResultsLayout({ initialQuery, tracks, totalCount }: Pro
 
       {/* ═══ FILTER BAR ═══ */}
       <div style={{
-        position: "sticky", top: 56, zIndex: 40,
+        position: "sticky", top: 128, zIndex: 40,
         backgroundColor: "var(--color-surface)",
         borderTop: isDark ? "1px solid color-mix(in srgb, var(--color-on-surface) 10%, transparent)" : "none",
         borderBottom: isDark ? "1px solid color-mix(in srgb, var(--color-on-surface) 10%, transparent)" : "1px solid var(--color-outline-variant)",
@@ -94,7 +74,8 @@ export function EditorialResultsLayout({ initialQuery, tracks, totalCount }: Pro
             </button>
           </div>
           {/* Sort */}
-          <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: 14, fontStyle: "italic", color: "var(--color-on-surface-variant)", whiteSpace: "nowrap" }}>{totalCount.toLocaleString()} results</span>
             <span style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "var(--color-on-surface-variant)" }}>Sort By</span>
             <select style={{ fontFamily: "var(--font-body)", background: "transparent", border: "none", fontSize: 12, fontWeight: 700, color: "var(--color-on-surface)", cursor: "pointer", outline: "none", borderBottom: "2px solid var(--color-primary)", paddingBottom: 2 }}>
               <option>Best Match</option>

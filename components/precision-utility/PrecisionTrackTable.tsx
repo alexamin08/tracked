@@ -36,7 +36,7 @@ export function PrecisionTrackTable({ tracks, totalCount }: Props) {
 
           {/* ═══ TABLE HEADER ═══ */}
           <thead>
-            <tr style={{ backgroundColor: "var(--color-surface-container)", borderBottom: "1px solid var(--color-outline-variant)" }}>
+            <tr style={{ position: "sticky", top: 168, zIndex: 30, backgroundColor: "var(--color-surface-container)", borderBottom: "1px solid var(--color-outline-variant)" }}>
               {["TRACK DETAILS", "SCORE", "BPM", "KEY", "TIME", "GENRE", "AS HEARD ON", "ACTIONS"].map((label, i) => (
                 <th key={label} style={{ padding: "10px 8px", fontFamily: "var(--font-display)", fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em", color: "var(--color-on-surface-variant)", textAlign: i >= 1 && i <= 4 ? "center" : i === 7 ? "right" : "left", paddingRight: i === 7 ? 16 : 8, paddingLeft: i === 0 ? 16 : 8 }}>
                   {label}

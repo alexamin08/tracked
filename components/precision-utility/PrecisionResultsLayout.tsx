@@ -32,50 +32,20 @@ export function PrecisionResultsLayout({ initialQuery, tracks, totalCount }: Pro
     <>
       <PUNav />
 
-      {/* ═══ QUERY DISPLAY ═══ */}
-      <div style={{ backgroundColor: "var(--color-surface)", padding: "32px 24px 0" }}>
+      {/* ═══ SEARCH BAR ═══ */}
+      <div style={{ position: "sticky", top: 64, zIndex: 42, backgroundColor: "var(--color-surface)", borderBottom: "2px solid var(--color-outline-variant)", padding: "8px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          {/* Eyebrow */}
-          <span style={{ fontFamily: "var(--font-display)", fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--color-tertiary)" }}>
-            Search Query Analysis
-          </span>
-
-          {/* Query + data chips row */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24, marginTop: 8 }}>
-            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px, 4vw, 48px)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "-0.02em", color: "var(--color-on-surface)", margin: 0, lineHeight: 1.1 }}>
-              {initialQuery || "Search"}
-            </h1>
-            {/* Data chips */}
-            <div style={{ display: "flex", gap: 8, flexShrink: 0, flexWrap: "wrap", justifyContent: "flex-end" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 10px", backgroundColor: "var(--color-surface-container-high)", border: "1px solid var(--color-outline-variant)", fontFamily: "var(--font-display)", fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-on-surface-variant)" }}>
-                RESULTS: {totalCount.toLocaleString()}
-              </span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 10px", backgroundColor: "var(--color-primary-container)", fontFamily: "var(--font-display)", fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-on-primary-container)" }}>
-                SEMANTIC MATCH
-              </span>
-            </div>
-          </div>
-
-          {/* Search input — bottom-border, Space Grotesk uppercase */}
-          <form onSubmit={handleSearch} style={{ marginTop: 24 }}>
+          <form onSubmit={handleSearch}>
             <div style={{ display: "flex", alignItems: "center", borderBottom: "2px solid var(--color-outline-variant)", paddingBottom: 8 }}>
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="DESCRIBE YOUR SCENE..."
-                style={{ flex: 1, fontFamily: "var(--font-display)", fontSize: 14, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-on-surface)", background: "none", border: "none", outline: "none" }}
-              />
-              <button type="submit" style={{ fontFamily: "var(--font-display)", fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em", backgroundColor: "var(--color-primary-container)", color: "var(--color-on-primary-container)", border: "none", borderRadius: 0, padding: "8px 20px", cursor: "pointer" }}>
-                Execute
-              </button>
+              <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="DESCRIBE YOUR SCENE..." style={{ flex: 1, fontFamily: "var(--font-display)", fontSize: 14, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-on-surface)", background: "none", border: "none", outline: "none" }} />
+              <button type="submit" style={{ fontFamily: "var(--font-display)", fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em", backgroundColor: "var(--color-primary-container)", color: "var(--color-on-primary-container)", border: "none", borderRadius: 0, padding: "8px 20px", cursor: "pointer" }}>Execute</button>
             </div>
           </form>
         </div>
       </div>
 
       {/* ═══ FILTER BAR ═══ */}
-      <div style={{ position: "sticky", top: 56, zIndex: 40, backgroundColor: "var(--color-surface)", borderBottom: "1px solid var(--color-outline-variant)", padding: "10px 24px" }}>
+      <div style={{ position: "sticky", top: 116, zIndex: 40, backgroundColor: "var(--color-surface)", borderBottom: "1px solid var(--color-outline-variant)", padding: "10px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6, overflowX: "auto", minWidth: 0 }}>
             {FILTERS.map((filter) => (
@@ -88,6 +58,7 @@ export function PrecisionResultsLayout({ initialQuery, tracks, totalCount }: Pro
               Clear all
             </button>
           </div>
+          <span style={{ fontFamily: "var(--font-display)", fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-on-surface-variant)", whiteSpace: "nowrap" }}>{totalCount.toLocaleString()} results</span>
           <select style={{ fontFamily: "var(--font-display)", background: "transparent", border: "1px solid var(--color-outline-variant)", borderRadius: 0, fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-on-surface)", cursor: "pointer", outline: "none", padding: "5px 8px" }}>
             <option>Best Match</option>
             <option>Newest First</option>

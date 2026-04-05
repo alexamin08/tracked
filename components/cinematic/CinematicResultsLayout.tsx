@@ -29,29 +29,12 @@ export function CinematicResultsLayout({ initialQuery, tracks, totalCount }: Pro
 
   return (
     <>
-      {/* ═══ QUERY DISPLAY + SEARCH ═══ */}
-      <div style={{ backgroundColor: "var(--color-surface)", padding: "48px 24px 0" }}>
+      {/* ═══ SEARCH BAR ═══ */}
+      <div style={{ position: "sticky", top: 64, zIndex: 42, backgroundColor: "var(--color-surface)", borderBottom: "1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent)", padding: "8px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          {/* Query display — Playfair Display italic, large */}
-          <div style={{ display: "flex", alignItems: "baseline", gap: 16, marginBottom: 32 }}>
-            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(48px, 6vw, 72px)", fontWeight: 300, fontStyle: "italic", color: "var(--color-on-surface)", margin: 0, lineHeight: 1.1 }}>
-              {initialQuery || "Search"}
-            </h1>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-on-surface-variant)", whiteSpace: "nowrap" }}>
-              {totalCount.toLocaleString()} results
-            </span>
-          </div>
-
-          {/* Search input — bottom-border only */}
           <form onSubmit={handleSearch}>
-            <div style={{ display: "flex", alignItems: "center", borderBottom: "1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent)", paddingBottom: 8, transition: "border-color 300ms" }}>
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Describe your scene..."
-                style={{ flex: 1, fontFamily: "var(--font-body)", fontSize: 24, fontWeight: 400, color: "var(--color-on-surface)", background: "none", border: "none", outline: "none" }}
-              />
+            <div style={{ display: "flex", alignItems: "center", borderBottom: "1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent)", paddingBottom: 8 }}>
+              <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Describe your scene..." style={{ flex: 1, fontFamily: "var(--font-body)", fontSize: 18, fontWeight: 400, color: "var(--color-on-surface)", background: "none", border: "none", outline: "none" }} />
               <button type="submit" style={{ background: "none", border: "none", cursor: "pointer", color: "var(--color-on-surface-variant)", display: "flex", padding: 8 }}>
                 <span className="material-symbols-outlined" style={{ fontSize: 24 }}>search</span>
               </button>
@@ -61,7 +44,7 @@ export function CinematicResultsLayout({ initialQuery, tracks, totalCount }: Pro
       </div>
 
       {/* ═══ FILTER BAR ═══ */}
-      <div style={{ position: "sticky", top: 56, zIndex: 40, backgroundColor: "var(--color-surface)", borderBottom: "1px solid var(--color-outline-variant)", padding: "12px 24px" }}>
+      <div style={{ position: "sticky", top: 120, zIndex: 40, backgroundColor: "var(--color-surface)", borderBottom: "1px solid var(--color-outline-variant)", padding: "12px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 24 }}>
           {/* Filters */}
           <div style={{ display: "flex", alignItems: "center", gap: 8, overflowX: "auto", minWidth: 0 }}>
@@ -76,11 +59,14 @@ export function CinematicResultsLayout({ initialQuery, tracks, totalCount }: Pro
             </button>
           </div>
           {/* Sort */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 500, color: "var(--color-on-surface-variant)", whiteSpace: "nowrap" }}>{totalCount.toLocaleString()} results</span>
           <select style={{ fontFamily: "var(--font-body)", background: "transparent", border: "none", fontSize: 12, fontWeight: 700, color: "var(--color-on-surface)", cursor: "pointer", outline: "none" }}>
             <option>Sort by: Best Match</option>
             <option>Newest First</option>
             <option>BPM (Ascending)</option>
           </select>
+          </div>
         </div>
       </div>
 

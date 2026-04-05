@@ -31,7 +31,7 @@ export function CinematicTrackTable({ tracks, totalCount }: Props) {
       <div style={{ backgroundColor: "var(--color-surface)", borderRadius: 8, boxShadow: "var(--shadow-ambient)" }}>
 
         {/* ═══ TABLE HEADER ═══ */}
-        <div style={{ display: "grid", gridTemplateColumns: GRID, alignItems: "center", backgroundColor: "var(--color-surface-container)", borderBottom: "1px solid var(--color-outline-variant)", padding: "10px 16px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: GRID, alignItems: "center", backgroundColor: "var(--color-surface-container)", borderBottom: "1px solid var(--color-outline-variant)", padding: "10px 16px", position: "sticky", top: 172, zIndex: 30 }}>
           <div style={{ textAlign: "center" }}>
             <span className="material-symbols-outlined" style={{ fontSize: 16, color: "var(--color-on-surface-variant)" }}>image</span>
           </div>
@@ -122,7 +122,7 @@ export function CinematicTrackTable({ tracks, totalCount }: Props) {
               {/* 7. Genre tags — rounded, surface-container-highest bg */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: 4, paddingTop: 4 }}>
                 {track.genres.slice(0, 2).map((genre) => (
-                  <span key={genre} style={{ backgroundColor: "var(--color-surface-container-highest)", fontSize: 10, fontWeight: 600, textTransform: "uppercase", padding: "2px 8px", borderRadius: 4, color: "var(--color-on-surface-variant)", fontFamily: "var(--font-body)" }}>
+                  <span key={genre} style={{ backgroundColor: "var(--color-surface-container-highest)", fontSize: 10, fontWeight: 600, padding: "2px 8px", borderRadius: 4, color: "var(--color-on-surface-variant)", fontFamily: "var(--font-body)" }}>
                     {genre}
                   </span>
                 ))}

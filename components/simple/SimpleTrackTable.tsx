@@ -32,7 +32,7 @@ export function SimpleTrackTable({ tracks, totalCount }: Props) {
       <div style={{ backgroundColor: "#FFFFFF", borderRadius: 12, boxShadow: "0 1px 3px rgba(0,0,0,0.08)", border: "1px solid #E5E7EB" }}>
 
         {/* ═══ TABLE HEADER ═══ */}
-        <div style={{ display: "grid", gridTemplateColumns: GRID, alignItems: "center", backgroundColor: "#EBEDF0", borderBottom: "2px solid #D1D5DB", padding: "10px 16px" }}>
+        <div style={{ position: "sticky", top: 152, zIndex: 30, display: "grid", gridTemplateColumns: GRID, alignItems: "center", backgroundColor: "#EBEDF0", borderBottom: "2px solid #D1D5DB", padding: "10px 16px" }}>
           <div style={{ textAlign: "center" }}>
             <span className="material-symbols-outlined" style={{ fontSize: 16, color: "#9CA3AF" }}>image</span>
           </div>
@@ -126,7 +126,7 @@ export function SimpleTrackTable({ tracks, totalCount }: Props) {
               {/* 7. Genre tags */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: 4, paddingTop: 4 }}>
                 {track.genres.slice(0, 2).map((genre) => (
-                  <span key={genre} style={{ backgroundColor: "#E5E7EB", fontSize: 10, fontWeight: 700, textTransform: "uppercase", padding: "2px 8px", borderRadius: 4, color: "#4B5563" }}>
+                  <span key={genre} style={{ backgroundColor: "#E5E7EB", fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4, color: "#4B5563" }}>
                     {genre}
                   </span>
                 ))}
